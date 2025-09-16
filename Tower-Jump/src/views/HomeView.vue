@@ -128,9 +128,13 @@ import { useRoute, useRouter } from 'vue-router'
 import { games } from '@/data/games.js'
 import GameList from '@/components/GameList.vue'
 import GameReviews from '@/components/GameReviews.vue'
+import { useSEO } from '@/composables/useSEO.js'
 
 const route = useRoute()
 const router = useRouter()
+
+// SEO管理
+const { setGameSEO, resetSEO } = useSEO()
 
 // 游戏相关状态
 const isPlaying = ref(false)
@@ -175,9 +179,13 @@ function initializeGame() {
 
   if (game) {
     currentGame.value = game
+    // 设置游戏SEO
+    setGameSEO(addressBar)
   } else {
     // 如果没找到游戏，使用第一个游戏
     currentGame.value = games[0] || null
+    // 设置默认SEO
+    resetSEO()
   }
 }
 
@@ -290,7 +298,13 @@ watch(() => route.params.addressBar, (newAddressBar) => {
     const game = games.find(g => g.addressBar === newAddressBar)
     if (game) {
       currentGame.value = game
+      // 更新SEO
+      setGameSEO(newAddressBar)
     }
+  } else {
+    // 回到首页，使用默认SEO
+    currentGame.value = games[0] || null
+    resetSEO()
   }
 })
 
