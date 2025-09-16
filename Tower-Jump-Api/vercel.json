@@ -14,8 +14,6 @@
     }
   ],
   "env": {
-    "PROJECT_PREFIX": "tower_jump",
-    "DATABASE_URL": "@database_url",
-    "JWT_SECRET": "@jwt_secret"
+    "PROJECT_PREFIX": "tower_jump"
   }
 }
