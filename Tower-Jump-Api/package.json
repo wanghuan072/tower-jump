@@ -1,7 +1,7 @@
 {
-  "name": "game-comment-api",
+  "name": "tower-jump-api",
   "version": "1.0.0",
-  "description": "游戏评论评分管理API - 基于Neon数据库的模板化后台系统",
+  "description": "Tower Jump 游戏评论评分管理API - 基于Neon数据库的后台系统",
   "main": "api/index.js",
   "type": "module",
   "scripts": {

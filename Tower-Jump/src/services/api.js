@@ -1,8 +1,10 @@
 // API 基础配置
-// 强制使用本地API进行开发
-const API_BASE_URL = 'http://localhost:3000';
+// 自动检测环境：如果是localhost则使用本地API，否则使用生产API
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
+  (isLocalhost ? 'http://localhost:3000' : 'https://tower-jump-api.vercel.app');
 
-console.log(`[API配置] 当前环境: 本地开发`);
+console.log(`[API配置] 当前环境: ${isLocalhost ? '本地开发' : '生产环境'}`);
 console.log(`[API配置] API地址: ${API_BASE_URL}`);
 
 
