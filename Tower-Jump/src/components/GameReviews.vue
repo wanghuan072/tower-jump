@@ -193,7 +193,6 @@ const loadData = async () => {
       ratingAPI.getRatings(props.gameId)
     ])
     
-    
     reviews.value = commentsData || []
     
     // 处理评分数据，确保数字类型
@@ -214,6 +213,9 @@ const loadData = async () => {
     }
   } catch (error) {
     console.error('加载数据失败:', error)
+    // 如果API连接失败，设置默认值而不是崩溃
+    reviews.value = []
+    ratingStats.value = { average: 0, count: 0, ratings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 } }
   } finally {
     loadingData.value = false
   }
@@ -259,7 +261,11 @@ async function submitReview() {
     alert('✅ Review submitted successfully!')
   } catch (error) {
     console.error('提交失败:', error)
-    alert('❌ Failed to submit review. Please try again.')
+    if (error.message.includes('Failed to fetch')) {
+      alert('❌ 无法连接到服务器，请检查网络连接或稍后重试。')
+    } else {
+      alert(`❌ 提交失败: ${error.message || '请稍后重试'}`)
+    }
   } finally {
     submitting.value = false
   }

@@ -1,11 +1,24 @@
 // API 基础配置
 // 自动检测环境：如果是localhost则使用本地API，否则使用生产API
 const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
-  (isLocalhost ? 'http://localhost:3000' : 'https://tower-jump-api.vercel.app');
+
+// 本地开发时强制使用本地API，生产环境使用环境变量或默认地址
+let API_BASE_URL;
+if (isLocalhost) {
+  // 本地开发环境 - 强制使用本地API
+  API_BASE_URL = 'http://localhost:3000';
+} else if (import.meta.env.VITE_API_BASE_URL) {
+  // 生产环境 - 使用环境变量
+  API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+} else {
+  // 生产环境 - 使用默认地址
+  API_BASE_URL = 'https://tower-jump-api.vercel.app';
+}
 
 console.log(`[API配置] 当前环境: ${isLocalhost ? '本地开发' : '生产环境'}`);
 console.log(`[API配置] API地址: ${API_BASE_URL}`);
+console.log(`[API配置] 当前域名: ${window.location.hostname}`);
+console.log(`[API配置] VITE_API_BASE_URL: ${import.meta.env.VITE_API_BASE_URL}`);
 
 
 
@@ -20,17 +33,24 @@ async function request(endpoint, options = {}) {
     ...options,
   };
 
+  console.log(`[API请求] ${config.method || 'GET'} ${url}`);
+
   try {
     const response = await fetch(url, config);
-    const data = await response.json();
-
+    
     if (!response.ok) {
-      throw new Error(data.message || '请求失败');
+      const errorText = await response.text();
+      console.error(`[API错误] ${response.status} ${response.statusText}:`, errorText);
+      throw new Error(`请求失败: ${response.status} ${response.statusText}`);
     }
 
+    const data = await response.json();
+    console.log(`[API响应] ${url}:`, data);
     return data;
   } catch (error) {
     console.error('API请求错误:', error);
+    console.error('请求URL:', url);
+    console.error('请求配置:', config);
     throw error;
   }
 }
