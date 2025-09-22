@@ -221,7 +221,4 @@ export const games = [
   <p>Mars Jump offers a unique and rewarding gaming experience, blending the thrill of a challenging platformer with the accessibility of a casual game. Whether you're a seasoned gamer or a casual player, the low-gravity physics and stunning Martian visuals will keep you engaged for hours.  Download and play today – conquer Mars!</p>
 </div>`,
     }
-
-
-
 ]
