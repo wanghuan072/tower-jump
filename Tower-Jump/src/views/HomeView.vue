@@ -7,9 +7,9 @@
           <span class="brand-text">Tower Jump</span>
         </div>
         <nav class="nav" aria-label="Main navigation">
-          <a href="/" class="nav-link" @click.prevent="scrollTo('game')">Game</a>
-          <a href="/" class="nav-link" @click.prevent="scrollTo('about')">About</a>
-          <a href="/" class="nav-link" @click.prevent="scrollTo('faq')">FAQ</a>
+          <a class="nav-link" href="/">Home</a>
+          <div class="nav-link" @click="scrollTo('about')">About</div>
+          <div class="nav-link" @click="scrollTo('games')">Games</div>
         </nav>
       </div>
     </header>
@@ -95,7 +95,7 @@
               </div>
             </section>
 
-            <section ref="aboutRef" class="about-section">
+            <section id="about" ref="aboutRef" class="about-section">
               <h2 class="section-title">About {{ currentGame?.title || 'Tower Jump' }}</h2>
               <div class="about-content" v-html="currentGame?.detailsHtml"></div>
             </section>
@@ -106,7 +106,7 @@
           </aside>
         </section>
 
-        <section class="section-games">
+        <section id="games" class="section-games">
           <h2 class="section-title">More Games</h2>
           <GameList />
         </section>
@@ -115,8 +115,19 @@
 
     <footer class="site-footer">
       <div class="container">
-        <span class="copyright">© {{ new Date().getFullYear() }} {{ currentGame?.title || 'Tower Jump' }}</span>
-        <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">Back to Top ↑</a>
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="/about" class="footer-link">About</a>
+            <a href="/contact" class="footer-link">Contact</a>
+            <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+            <a href="/terms-of-service" class="footer-link">Terms of Service</a>
+            <a href="/copyright" class="footer-link">Copyright</a>
+          </div>
+          <div class="footer-bottom">
+            <span class="copyright">© {{ new Date().getFullYear() }} {{ currentGame?.title || 'Tower Jump' }}</span>
+            <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">Back to Top ↑</a>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
@@ -165,12 +176,6 @@ function switchGame(game) {
   // 切换游戏
   currentGame.value = game
 }
-
-
-
-
-
-
 
 // 初始化当前游戏
 function initializeGame() {
@@ -265,23 +270,11 @@ function getHeaderHeight() {
 }
 
 function scrollTo(name) {
-  if (name === 'faq') {
-    // FAQ 现在在 About 部分中，查找 FAQ 锚点
-    const faqElement = document.querySelector('#faq')
-    if (faqElement) {
-      const rect = faqElement.getBoundingClientRect()
-      const top = rect.top + window.scrollY - getHeaderHeight() - 8
-      const behavior = prefersReducedMotion?.matches || !supportsSmooth ? 'auto' : 'smooth'
-      window.scrollTo({ top, behavior })
-      return
-    }
-  }
-
-  const map = { game: gameRef, about: aboutRef }
-  const targetRef = map[name]
-  const el = targetRef?.value
-  if (!el) return
-  const rect = el.getBoundingClientRect()
+  // 使用ID选择器查找目标元素
+  const element = document.querySelector(`#${name}`)
+  if (!element) return
+  
+  const rect = element.getBoundingClientRect()
   const top = rect.top + window.scrollY - getHeaderHeight() - 8
   const behavior = prefersReducedMotion?.matches || !supportsSmooth ? 'auto' : 'smooth'
   window.scrollTo({ top, behavior })
@@ -385,6 +378,8 @@ onUnmounted(() => {
   text-decoration: none;
   padding: 8px 10px;
   border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .nav-link:hover {
@@ -950,7 +945,31 @@ onUnmounted(() => {
   background: #0f0f14;
 }
 
-.site-footer .container {
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: left;
+}
+
+.footer-link {
+  color: #cfd3ff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff7aa2;
+}
+
+.footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -960,9 +979,10 @@ onUnmounted(() => {
 .back-to-top {
   color: #cfd3ff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.back-top:hover {
+.back-to-top:hover {
   color: #ff7aa2;
 }
 
@@ -1031,6 +1051,20 @@ onUnmounted(() => {
   .nav-link,
   .back-to-top {
     font-size: 12px;
+  }
+
+  .footer-links {
+    gap: 15px;
+  }
+
+  .footer-link {
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 
   .game-iframe-container {

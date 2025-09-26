@@ -13,6 +13,32 @@ const router = createRouter({
       name: 'game-detail',
       component: () => import('../views/HomeView.vue'),
     },
+    // 页面路由
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue'),
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue'),
+    },
+    {
+      path: '/copyright',
+      name: 'copyright',
+      component: () => import('../views/CopyrightView.vue'),
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: () => import('../views/PrivacyPolicyView.vue'),
+    },
+    {
+      path: '/terms-of-service',
+      name: 'terms-of-service',
+      component: () => import('../views/TermsOfServiceView.vue'),
+    },
     // 管理员路由
     {
       path: '/admin/login',
