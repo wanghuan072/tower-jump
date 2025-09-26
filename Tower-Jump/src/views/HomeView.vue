@@ -115,18 +115,16 @@
 
     <footer class="site-footer">
       <div class="container">
-        <div class="footer-content">
-          <div class="footer-links">
-            <a href="/about" class="footer-link">About</a>
-            <a href="/contact" class="footer-link">Contact</a>
-            <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
-            <a href="/terms-of-service" class="footer-link">Terms of Service</a>
-            <a href="/copyright" class="footer-link">Copyright</a>
-          </div>
-          <div class="footer-bottom">
-            <span class="copyright">© {{ new Date().getFullYear() }} {{ currentGame?.title || 'Tower Jump' }}</span>
-            <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">Back to Top ↑</a>
-          </div>
+        <div class="footer-bottom">
+          <span class="copyright">© {{ new Date().getFullYear() }} {{ currentGame?.title || 'Tower Jump' }}</span>
+          <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">Back to Top ↑</a>
+        </div>
+        <div class="footer-links">
+          <a href="/about" class="footer-link">About</a>
+          <a href="/contact" class="footer-link">Contact</a>
+          <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+          <a href="/terms-of-service" class="footer-link">Terms of Service</a>
+          <a href="/copyright" class="footer-link">Copyright</a>
         </div>
       </div>
     </footer>
@@ -945,17 +943,12 @@ onUnmounted(() => {
   background: #0f0f14;
 }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: left;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .footer-link {
@@ -974,6 +967,11 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   opacity: 0.85;
+}
+
+.copyright {
+  color: #9ca3af;
+  font-size: 14px;
 }
 
 .back-to-top {

@@ -48,8 +48,13 @@
               :key="i"
               type="button"
               @click="form.rating = i"
+              @mouseenter="hoverRating = i"
+              @mouseleave="hoverRating = 0"
               class="star-btn"
-              :class="{ active: i <= form.rating }"
+              :class="{ 
+                active: i <= form.rating,
+                hover: hoverRating > 0 && i <= hoverRating
+              }"
             >
               ★
             </button>
@@ -124,6 +129,9 @@ const form = ref({
   rating: 0,
   comment: ''
 })
+
+// 悬停评分
+const hoverRating = ref(0)
 
 // 提交限制
 const lastSubmitTime = ref(null)
@@ -459,8 +467,13 @@ watch(() => props.gameId, () => {
 }
 
 .star-btn:hover,
-.star-btn.active {
+.star-btn.active,
+.star-btn.hover {
   color: #ffd700;
+}
+
+.star-btn.hover {
+  opacity: 0.7;
 }
 
 .submit-btn {
