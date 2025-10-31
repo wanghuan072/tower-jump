@@ -176,7 +176,7 @@ export const games = [
     },
 
     {
-        id: "cmfupmlvr0001l804i4oikusd",
+        id: 6,
         title: "Mars Jump",
         iframeUrl: "https://game.azgame.io/mars-jump/",
         keywords: "Experience the thrill of Mars Jump, a challenging yet fun platformer! Master precise jetpack controls to navigate the Martian landscape, making perfect landings to avoid crashing.  Unlock new astronauts and conquer increasingly difficult levels in this gravity-defying adventure.  Play now and explore the red planet!",
@@ -223,68 +223,447 @@ export const games = [
     },
 
     {
-        id: "cmfxcscwr0005l10483n7itmd",
+        id: 7,
         title: "Chicken Flip",
         iframeUrl: "https://game.azgame.io/chicken-flip/",
         keywords: "Experience the hilariously chaotic world of Chicken Flip!  Guide your feathered friend through increasingly tricky levels, performing wild flips and stunts. Master the art of landing perfectly to avoid a splattering demise.  Unlock unique chicken skins and upgrades as you collect coins.  Get ready for a ridiculously addictive physics-based arcade game!",
         publishDate: "2025-09-26",
-        imageUrl: "https://res.cloudinary.com/dnxfdv3fs/image/upload/v1758680110/cms-uploads/cms-1758680110811-450786641.jpg",
+        imageUrl: "/images/game-07.webp",
         imageAlt: "A cute chicken performs a daring flip mid-air in Chicken Flip, showcasing the game's unique blend of skill and comedic chaos.",
-        seo:{
+        seo: {
             title: "Chicken Flip: The Hilariously Addictive Physics-Based Arcade Game",
             description: "Master gravity-defying flips and stunts as a chicken in Chicken Flip! This wacky arcade game challenges your skills with increasingly difficult levels. Collect coins, unlock skins, and conquer the ultimate chicken challenge.",
             keywords: "chicken flip, chicken game, arcade game, physics game, mobile game, casual game, skill game, funny game, addictive game, Azgames.io",
         },
         addressBar: "chicken-flip",
-        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>Chicken Flip</h2><p>Prepare for a poultry pandemonium! Chicken Flip isn't your average arcade game; it's a hilariously chaotic adventure where you control a plucky chicken, performing gravity-defying flips and stunts to conquer increasingly challenging levels.  Get ready to laugh, scream, and maybe even shed a tear (of laughter, of course) as you navigate treacherous terrain and unpredictable physics. This isn't just a game; it's a chicken-powered rollercoaster of fun!</p><h3>About</h3><p>Chicken Flip is a physics-based arcade game that combines the satisfying challenge of precise timing and skillful maneuvering with the unpredictable silliness of a chicken on a rampage.  The core gameplay revolves around guiding your adorable chicken down precarious hills, performing jumps and flips to avoid obstacles and land safely on its feet.  One wrong move, and your chicken explodes into a fluffy, feathered mess!  But don't worry, the game's addictive nature will have you hitting that retry button faster than you can say 'cluck'.  Progress through increasingly difficult levels, collecting coins to unlock new and exciting chicken skins and power-ups to enhance your feathered friend’s acrobatic abilities.  The ultimate chicken flip awaits!</p><h3>Features</h3><ul><li><strong>Intense Physics-Based Gameplay:</strong> Experience the unpredictable and hilarious consequences of realistic physics in a charming chicken-themed world.  Every jump, flip, and bounce feels unique and exciting.  Mastering the physics is key to success!</li><li><strong>Challenging Levels:</strong>  Start with simple hills and gradually progress to increasingly intricate and perilous courses.  Each level presents new obstacles and requires strategic thinking and skillful execution to conquer.</li><li><strong>Unlockable Chicken Skins:</strong> Collect coins throughout your journey and unlock a wide variety of unique and adorable chicken skins.  From dashing cowboys to majestic peacocks, customize your chicken to perfectly reflect your style!</li><li><strong>Power-Ups and Upgrades:</strong> Enhance your chicken's abilities with power-ups and upgrades earned through skillful gameplay.  Increase your jump height, improve your landing precision, or even gain temporary invincibility.  Strategic upgrades are crucial to achieving higher scores!</li><li><strong>Addictive Gameplay Loop:</strong> Chicken Flip provides an incredibly addictive gameplay loop.  The satisfying feeling of a perfect landing coupled with the hilarious consequences of a failed attempt keeps you coming back for more.</li><li><strong>Simple, Intuitive Controls:</strong>  The game features easy-to-learn controls, allowing you to focus on mastering the challenging levels and performing epic chicken flips. Jump and slow down with precision - that's the chicken's recipe for success!</li><li><strong>Endless Replayability:</strong> With constantly increasing difficulty and a plethora of unlockables, Chicken Flip offers endless replayability, keeping you engaged for hours on end.</li><li><strong>Pure, Unbridled Fun:</strong>  Above all, Chicken Flip is designed to be fun!  The game embraces its wacky premise and provides a consistently hilarious and enjoyable experience.</li></ul><h3>FAQ</h3><ul><li><div class="faq-question">How do I jump?</div><div class="faq-answer">Press the D key or the right arrow key to make your chicken jump.</div></li><li><div class="faq-question">How do I slow down?</div><div class="faq-answer">Press the A key or the left arrow key to slow your chicken's descent.</div></li><li><div class="faq-question">What happens if my chicken doesn't land properly?</div><div class="faq-answer">A bad landing results in a spectacular chicken explosion, sending you back to the start of the level.  Perfect your landings for optimal progress!</div></li><li><div class="faq-question">How do I unlock new chicken skins?</div><div class="faq-answer">Collect coins scattered throughout the levels. Once you have enough, you can unlock new, amazing skins in the shop!</div></li><li><div class="faq-question">Are there any power-ups?</div><div class="faq-answer">Yes!  You can earn power-ups and upgrades to enhance your chicken's abilities, giving you an edge on those challenging levels!</div></li><li><div class="faq-question">Where can I play Chicken Flip?</div><div class="faq-answer">You can play Chicken Flip right now on Azgames.io! Get ready for a chicken-filled adventure!</div></li></ul><p>Chicken Flip is more than just a game; it's a testament to the power of simple, well-executed gameplay combined with a ludicrously entertaining premise.  With its addictive gameplay loop, challenging levels, and charming chicken cast, Chicken Flip is guaranteed to provide hours of hilarious fun. So, what are you waiting for?  Get ready to flip, flop, and conquer the world…one chicken flip at a time!</p></div>`,
-      },
+        detailsHtml: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+  <h2>Chicken Flip</h2>
 
-      {
-        id: "cmfxfdfko000hl7044e37fgel",
+  <p>
+    Prepare for a poultry pandemonium! Chicken Flip isn't your average arcade game;
+    it's a hilariously chaotic adventure where you control a plucky chicken,
+    performing gravity-defying flips and stunts to conquer increasingly challenging
+    levels. Get ready to laugh, scream, and maybe even shed a tear (of laughter,
+    of course) as you navigate treacherous terrain and unpredictable physics.
+    This isn't just a game; it's a chicken-powered rollercoaster of fun!
+  </p>
+
+  <h3>About</h3>
+
+  <p>
+    Chicken Flip is a physics-based arcade game that combines the satisfying
+    challenge of precise timing and skillful maneuvering with the unpredictable
+    silliness of a chicken on a rampage. The core gameplay revolves around guiding
+    your adorable chicken down precarious hills, performing jumps and flips to
+    avoid obstacles and land safely on its feet. One wrong move, and your chicken
+    explodes into a fluffy, feathered mess! But don't worry, the game's addictive
+    nature will have you hitting that retry button faster than you can say
+    'cluck'. Progress through increasingly difficult levels, collecting coins to
+    unlock new and exciting chicken skins and power-ups to enhance your feathered
+    friend’s acrobatic abilities. The ultimate chicken flip awaits!
+  </p>
+
+  <h3>Features</h3>
+
+  <ul>
+    <li>
+      <strong>Intense Physics-Based Gameplay:</strong> Experience the unpredictable
+      and hilarious consequences of realistic physics in a charming chicken-themed
+      world. Every jump, flip, and bounce feels unique and exciting. Mastering the
+      physics is key to success!
+    </li>
+
+    <li>
+      <strong>Challenging Levels:</strong> Start with simple hills and gradually
+      progress to increasingly intricate and perilous courses. Each level presents
+      new obstacles and requires strategic thinking and skillful execution to
+      conquer.
+    </li>
+
+    <li>
+      <strong>Unlockable Chicken Skins:</strong> Collect coins throughout your
+      journey and unlock a wide variety of unique and adorable chicken skins. From
+      dashing cowboys to majestic peacocks, customize your chicken to perfectly
+      reflect your style!
+    </li>
+
+    <li>
+      <strong>Power-Ups and Upgrades:</strong> Enhance your chicken's abilities
+      with power-ups and upgrades earned through skillful gameplay. Increase your
+      jump height, improve your landing precision, or even gain temporary
+      invincibility. Strategic upgrades are crucial to achieving higher scores!
+    </li>
+
+    <li>
+      <strong>Addictive Gameplay Loop:</strong> Chicken Flip provides an incredibly
+      addictive gameplay loop. The satisfying feeling of a perfect landing
+      coupled with the hilarious consequences of a failed attempt keeps you coming
+      back for more.
+    </li>
+
+    <li>
+      <strong>Simple, Intuitive Controls:</strong> The game features easy-to-learn
+      controls, allowing you to focus on mastering the challenging levels and
+      performing epic chicken flips. Jump and slow down with precision - that's the
+      chicken's recipe for success!
+    </li>
+
+    <li>
+      <strong>Endless Replayability:</strong> With constantly increasing difficulty
+      and a plethora of unlockables, Chicken Flip offers endless replayability,
+      keeping you engaged for hours on end.
+    </li>
+
+    <li>
+      <strong>Pure, Unbridled Fun:</strong> Above all, Chicken Flip is designed to
+      be fun! The game embraces its wacky premise and provides a consistently
+      hilarious and enjoyable experience.
+    </li>
+  </ul>
+
+  <h3>FAQ</h3>
+
+  <ul>
+    <li>
+      <div class="faq-question">How do I jump?</div>
+      <div class="faq-answer">Press the D key or the right arrow key to make your chicken jump.</div>
+    </li>
+
+    <li>
+      <div class="faq-question">How do I slow down?</div>
+      <div class="faq-answer">Press the A key or the left arrow key to slow your chicken's descent.</div>
+    </li>
+
+    <li>
+      <div class="faq-question">What happens if my chicken doesn't land properly?</div>
+      <div class="faq-answer">
+        A bad landing results in a spectacular chicken explosion, sending you back
+        to the start of the level. Perfect your landings for optimal progress!
+      </div>
+    </li>
+
+    <li>
+      <div class="faq-question">How do I unlock new chicken skins?</div>
+      <div class="faq-answer">
+        Collect coins scattered throughout the levels. Once you have enough, you
+        can unlock new, amazing skins in the shop!
+      </div>
+    </li>
+
+    <li>
+      <div class="faq-question">Are there any power-ups?</div>
+      <div class="faq-answer">
+        Yes! You can earn power-ups and upgrades to enhance your chicken's abilities,
+        giving you an edge on those challenging levels!
+      </div>
+    </li>
+
+    <li>
+      <div class="faq-question">Where can I play Chicken Flip?</div>
+      <div class="faq-answer">You can play Chicken Flip right now on Azgames.io! Get ready for a chicken-filled adventure!</div>
+    </li>
+  </ul>
+
+  <p>
+    Chicken Flip is more than just a game; it's a testament to the power of simple,
+    well-executed gameplay combined with a ludicrously entertaining premise. With
+    its addictive gameplay loop, challenging levels, and charming chicken cast,
+    Chicken Flip is guaranteed to provide hours of hilarious fun. So, what are you
+    waiting for? Get ready to flip, flop, and conquer the world…one chicken flip
+    at a time!
+  </p>
+</div>
+        `,
+    },
+
+    {
+        id: 8,
         title: "BIRD UP",
         iframeUrl: "https://1games.io/bird-up",
         keywords: "Soar through a chaotic, endless vertical ascent in BIRD UP! This one-button arcade game replaces classic flappy pipes with spinning machines, swinging traps, and shifting gaps.  Test your reflexes and precision in a constantly evolving challenge. Unlock numerous characters – birds, fruits, and iconic cartoon figures – to customize your flight.  How high can you climb?",
-        tags: ["arcade","flappy","one-button","skill","reflexes","endless","vertical","mobile game","casual"],
+        tags: ["arcade", "flappy", "one-button", "skill", "reflexes", "endless", "vertical", "mobile game", "casual"],
         publishDate: "2025-09-26",
-        imageUrl: "https://res.cloudinary.com/dnxfdv3fs/image/upload/v1758684485/cms-uploads/cms-1758684485217-805467624.jpg",
+        imageUrl: "/images/game-08.webp",
         imageAlt: "A colorful bird soars upwards, narrowly avoiding rotating gears and shifting platforms in the fast-paced BIRD UP game.",
-        seo:{
+        seo: {
             title: "BIRD UP: Master the Chaotic Vertical Ascent – Arcade Game",
             description: "BIRD UP is a thrilling one-button arcade game challenging your reflexes with spinning obstacles and ever-changing vertical levels. Unlock diverse characters and climb to the top! Play now!",
             keywords: "bird up, arcade game, one-button game, flappy bird, skill game, reflex game, vertical game, endless game, mobile game, casual game, bird, birds, characters, unlockable content",
         },
         addressBar: "bird-up",
-        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>BIRD UP</h2><p>Prepare for a gravity-defying experience like no other! BIRD UP isn't your average flappy bird game; it's a high-octane vertical ascent into a world of spinning contraptions, swinging hazards, and ever-shifting gaps.  This isn't just about tapping a button; it's about mastering split-second timing, honing your reflexes, and pushing your skills to the limit. Get ready for the ultimate test of precision and adrenaline-pumping gameplay – can you reach the endless sky?</p><h3>About</h3><p>BIRD UP reimagines the classic flapping gameplay in a breathtaking vertical format. Forget predictable side-scrolling pipes; here, you'll face a relentless barrage of rotating machinery, swinging obstacles, and dynamically shifting pathways. Every playthrough is unique, demanding constant adaptation and lightning-fast reactions.  Master the art of precise timing to avoid catastrophic collisions and ascend to new heights.  Beyond the core challenge, BIRD UP offers a diverse roster of unlockable characters, ranging from adorable birds to your favorite cartoon icons and even juicy fruits. Customize your flight and embrace the chaos!</p><h3>Features</h3><ul><li><b>Dynamically Shifting Obstacles:</b> Experience a truly unique challenge with constantly changing obstacles. No two runs are ever the same, keeping you on the edge of your seat.</li><li><b>Intuitive One-Button Control:</b>  Simple to learn, but nearly impossible to master.  Flapping your bird is easy, but surviving the onslaught requires pinpoint timing.</li><li><b>Unlockable Characters:</b> Customize your flight with a wide selection of charming and quirky characters. From colorful birds to famous cartoon icons, the possibilities are endless.</li><li><b>Endless Replayability:</b> The procedurally generated levels ensure that every attempt presents a fresh and exhilarating challenge.  Push your high score to the stratosphere!</li><li><b>Stunning Visuals:</b> The vibrant, colorful graphics and smooth animations make for a visually captivating experience that complements the intense gameplay.</li><li><b>Addictive Gameplay:</b>  BIRD UP's simple yet demanding gameplay is incredibly addictive.  Just one more try... just to beat your high score!</li><li><b>High-Score Competition:</b>  Compete with friends and players worldwide to see who can reach the highest altitude.</li><li><b>Regular Updates:</b>  We're constantly adding new content, including more characters and challenges, to keep the experience fresh and engaging.</li></ul><h3>FAQ</h3><ul><li><div class="faq-question">How do I play BIRD UP?</div><div class="faq-answer">Simply click or tap the screen to make your bird flap upwards. Timing is crucial!</div></li><li><div class="faq-question">What makes BIRD UP so challenging?</div><div class="faq-answer">The constantly shifting obstacles and shrinking reaction windows demand perfect rhythm and split-second decisions.  One misstep means the end!</div></li><li><div class="faq-question">Can I play BIRD UP on mobile devices?</div><div class="faq-answer">Yes! BIRD UP is designed for optimal performance on both mobile and desktop platforms.</div></li><li><div class="faq-question">Are there any in-app purchases?</div><div class="faq-answer">No, BIRD UP is completely free to play.  Unlock characters through skill and determination!</div></li><li><div class="faq-question">How many characters are there?</div><div class="faq-answer">We are constantly adding more characters, but currently there is a wide variety of birds, fruits and cartoon characters to choose from.</div></li><li><div class="faq-question">How can I contact support?</div><div class="faq-answer">You can contact us through the game’s in-app help menu or visit our website for further assistance.</div></li></ul><p>BIRD UP offers a unique blend of simple controls and challenging gameplay, creating an experience that’s both instantly accessible and incredibly rewarding. So, are you ready to take on the challenge and ascend to new heights?  Download BIRD UP today and prove your mastery of the skies!</p></div>`,
-      },
+        detailsHtml: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+  <h2>BIRD UP</h2>
 
-      {
-        id: "cmfxncgz00001l504070w6qlq",
+  <p>
+    Prepare for a gravity-defying experience like no other! BIRD UP isn't your average flappy bird game;
+    it's a high-octane vertical ascent into a world of spinning contraptions, swinging hazards,
+    and ever-shifting gaps. This isn't just about tapping a button; it's about mastering split-second timing,
+    honing your reflexes, and pushing your skills to the limit. Get ready for the ultimate test of precision
+    and adrenaline-pumping gameplay – can you reach the endless sky?
+  </p>
+
+  <h3>About</h3>
+
+  <p>
+    BIRD UP reimagines the classic flapping gameplay in a breathtaking vertical format.
+    Forget predictable side-scrolling pipes; here, you'll face a relentless barrage of rotating machinery,
+    swinging obstacles, and dynamically shifting pathways. Every playthrough is unique, demanding constant
+    adaptation and lightning-fast reactions. Master the art of precise timing to avoid catastrophic collisions
+    and ascend to new heights. Beyond the core challenge, BIRD UP offers a diverse roster of unlockable
+    characters, ranging from adorable birds to your favorite cartoon icons and even juicy fruits.
+    Customize your flight and embrace the chaos!
+  </p>
+
+  <h3>Features</h3>
+
+  <ul>
+    <li>
+      <b>Dynamically Shifting Obstacles:</b>
+      Experience a truly unique challenge with constantly changing obstacles.
+      No two runs are ever the same, keeping you on the edge of your seat.
+    </li>
+    <li>
+      <b>Intuitive One-Button Control:</b>
+      Simple to learn, but nearly impossible to master. Flapping your bird is easy,
+      but surviving the onslaught requires pinpoint timing.
+    </li>
+    <li>
+      <b>Unlockable Characters:</b>
+      Customize your flight with a wide selection of charming and quirky characters.
+      From colorful birds to famous cartoon icons, the possibilities are endless.
+    </li>
+    <li>
+      <b>Endless Replayability:</b>
+      The procedurally generated levels ensure that every attempt presents a fresh and
+      exhilarating challenge. Push your high score to the stratosphere!
+    </li>
+    <li>
+      <b>Stunning Visuals:</b>
+      The vibrant, colorful graphics and smooth animations make for a visually captivating
+      experience that complements the intense gameplay.
+    </li>
+    <li>
+      <b>Addictive Gameplay:</b>
+      BIRD UP's simple yet demanding gameplay is incredibly addictive.
+      Just one more try... just to beat your high score!
+    </li>
+    <li>
+      <b>High-Score Competition:</b>
+      Compete with friends and players worldwide to see who can reach the highest altitude.
+    </li>
+    <li>
+      <b>Regular Updates:</b>
+      We're constantly adding new content, including more characters and challenges,
+      to keep the experience fresh and engaging.
+    </li>
+  </ul>
+
+  <h3>FAQ</h3>
+
+  <ul>
+    <li>
+      <div class="faq-question">How do I play BIRD UP?</div>
+      <div class="faq-answer">
+        Simply click or tap the screen to make your bird flap upwards. Timing is crucial!
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">What makes BIRD UP so challenging?</div>
+      <div class="faq-answer">
+        The constantly shifting obstacles and shrinking reaction windows demand perfect rhythm
+        and split-second decisions. One misstep means the end!
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">Can I play BIRD UP on mobile devices?</div>
+      <div class="faq-answer">
+        Yes! BIRD UP is designed for optimal performance on both mobile and desktop platforms.
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">Are there any in-app purchases?</div>
+      <div class="faq-answer">
+        No, BIRD UP is completely free to play. Unlock characters through skill and determination!
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">How many characters are there?</div>
+      <div class="faq-answer">
+        We are constantly adding more characters, but currently there is a wide variety of birds,
+        fruits and cartoon characters to choose from.
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">How can I contact support?</div>
+      <div class="faq-answer">
+        You can contact us through the game’s in-app help menu or visit our website for further assistance.
+      </div>
+    </li>
+  </ul>
+
+  <p>
+    BIRD UP offers a unique blend of simple controls and challenging gameplay,
+    creating an experience that’s both instantly accessible and incredibly rewarding.
+    So, are you ready to take on the challenge and ascend to new heights?
+    Download BIRD UP today and prove your mastery of the skies!
+  </p>
+</div>
+        `,
+    },
+
+    {
+        id: 9,
         title: "BUMPY JUMPY",
         iframeUrl: "https://1games.io/bumpy-jumpy",
         keywords: "Experience the thrill of Bumpy Jumpy, the online platform racing game!  Dash, jump, and swim your way through tricky levels, competing against both the clock and other players.  Master precise movements and lightning-fast reflexes to conquer challenging terrains and claim victory.  Are you ready to become a Bumpy Jumpy champion?",
-        tags: ["platformer","racing","online multiplayer","skill game","arcade"],
+        tags: ["platformer", "racing", "online multiplayer", "skill game", "arcade"],
         publishDate: "2025-09-26",
-        imageUrl: "https://res.cloudinary.com/dnxfdv3fs/image/upload/v1758697890/cms-uploads/cms-1758697890389-471006758.jpg",
+        imageUrl: "/images/game-09.webp",
         imageAlt: "A small, cute creature leaps across a bumpy, colorful platform in the exciting Bumpy Jumpy game.  Jump, dash, and conquer!",
-        seo:{
+        seo: {
             title: "BUMPY JUMPY: Online Platform Racing Game - Challenge Your Speed!",
             description: "Race against time and other players in Bumpy Jumpy!  Master tricky platforms, perfect your jumps, and become the ultimate platforming champion.  Download now for endless bumpy, jumpy fun!",
             keywords: "bumpy jumpy, platformer, online game, racing game, multiplayer, skill game, jump, dash, speed, challenge, online, competition",
         },
         addressBar: "bumpy-jumpy",
-        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>BUMPY JUMPY</h2><p>Get ready for an adrenaline-pumping adventure in Bumpy Jumpy! This isn't your average platformer; it's a race against time and other players across a series of increasingly challenging and creatively designed levels.  Master the art of the jump, the dash, and even swimming to navigate tricky terrains and reach the finish line first.  Prepare for a bumpy, jumpy ride that will test your skills and reflexes to the limit!</p><h3>About</h3><p>BUMPY JUMPY is a fast-paced, online multiplayer platformer where precision and speed are paramount.  Control a charming, agile creature as you navigate a vibrant world filled with obstacles, pitfalls, and rivals. Each level presents a unique set of challenges, demanding strategic thinking and quick reflexes.  Whether you're competing against the clock for the best time or battling other players for the top spot, Bumpy Jumpy offers a thrilling and endlessly replayable experience. The game features tons of levels, each more intricate and demanding than the last, ensuring hours of jumpy fun.  Master the controls, learn the nuances of each level, and push your skills to the absolute limit! The ultimate test of a true Bumpy Jumpy master is achieving the fastest time on every level, a challenge that will keep you coming back for more.</p><h3>Features</h3><ul><li><b>Intricate Level Design:</b>  Conquer a vast array of meticulously crafted levels, each offering unique challenges and obstacles that will test your platforming prowess.  Expect bumpy terrain, treacherous drops, and surprising twists.</li><li><b>Multiple Gameplay Modes:</b> Choose to race against the clock in Time Trial mode or challenge other players in head-to-head competition in Multiplayer mode.  Both modes offer endless hours of fun.</li><li><b>Versatile Controls:</b>  Master intuitive controls using either the arrow keys or WASD keys, giving you the flexibility to choose your preferred control scheme.  Adapt your strategy to conquer the challenging levels.</li><li><b>Stunning Visuals:</b> Experience the vibrant and colorful world of Bumpy Jumpy, with visually appealing graphics and animations that bring the game to life. Each level is richly detailed and beautifully rendered.</li><li><b>Regular Updates:</b>  Enjoy frequent updates that introduce new levels, challenges, and features, ensuring the Bumpy Jumpy experience remains fresh and engaging.  Always something new to jump into!</li><li><b>Competitive Leaderboard:</b>  Compete against players worldwide to climb the leaderboard and earn bragging rights as the ultimate Bumpy Jumpy champion.  Prove your speed and skill!</li><li><b>Diverse Challenges:</b>  Master various challenges, from precise jumps to quick dashes, and even underwater swimming segments.  Every skill is important in the world of Bumpy Jumpy.</li><li><b>Addictive Gameplay:</b> The simple, yet challenging gameplay loop makes Bumpy Jumpy incredibly addictive.  One more jump...one more try...</li></ul><h3>FAQ</h3><ul><li><div class="faq-question">How do I control my character in Bumpy Jumpy?</div><div class="faq-answer">You can use either the arrow keys or the WASD keys to control your character.  Experiment to find your preferred control scheme.</div></li><li><div class="faq-question">Is Bumpy Jumpy free to play?</div><div class="faq-answer">Yes, Bumpy Jumpy is currently free to play! Check the latest information on the official website.</div></li><li><div class="faq-question">What makes Bumpy Jumpy different from other platformers?</div><div class="faq-answer">Bumpy Jumpy combines challenging platforming with intense racing, adding a unique competitive element. It’s not just about reaching the end; it's about doing it as fast as possible!</div></li><li><div class="faq-question">Are there in-app purchases?</div><div class="faq-answer">No in-app purchases are currently planned, but check back on the official website for any future announcements.</div></li><li><div class="faq-question">How can I compete with other players?</div><div class="faq-answer">Bumpy Jumpy features online multiplayer modes where you can compete against others in real-time for the best time on each level.</div></li><li><div class="faq-question">What devices is Bumpy Jumpy compatible with?</div><div class="faq-answer">Bumpy Jumpy is designed to run smoothly on a wide range of devices.  Check the game's official website for specific compatibility details.</div></li></ul><p>Experience the exhilarating rush of Bumpy Jumpy – a platforming game that blends the precise timing of classic platformers with the intense thrill of competitive racing. With a vast selection of levels and a constantly evolving gameplay experience, Bumpy Jumpy offers endless hours of fun and challenges. Jump in and show the world your skills!</p></div>`,
-      },
+        detailsHtml: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+  <h2>BUMPY JUMPY</h2>
 
-      {
-        id: "cmfxnykox0001l504gp94vpdc",
+  <p>
+    Get ready for an adrenaline-pumping adventure in Bumpy Jumpy! This isn't your average platformer;
+    it's a race against time and other players across a series of increasingly challenging and creatively
+    designed levels. Master the art of the jump, the dash, and even swimming to navigate tricky terrains
+    and reach the finish line first. Prepare for a bumpy, jumpy ride that will test your skills and reflexes
+    to the limit!
+  </p>
+
+  <h3>About</h3>
+
+  <p>
+    BUMPY JUMPY is a fast-paced, online multiplayer platformer where precision and speed are paramount.
+    Control a charming, agile creature as you navigate a vibrant world filled with obstacles, pitfalls,
+    and rivals. Each level presents a unique set of challenges, demanding strategic thinking and quick
+    reflexes. Whether you're competing against the clock for the best time or battling other players
+    for the top spot, Bumpy Jumpy offers a thrilling and endlessly replayable experience. The game
+    features tons of levels, each more intricate and demanding than the last, ensuring hours of jumpy
+    fun. Master the controls, learn the nuances of each level, and push your skills to the absolute limit!
+    The ultimate test of a true Bumpy Jumpy master is achieving the fastest time on every level, a challenge
+    that will keep you coming back for more.
+  </p>
+
+  <h3>Features</h3>
+
+  <ul>
+    <li>
+      <b>Intricate Level Design:</b>
+      Conquer a vast array of meticulously crafted levels, each offering unique challenges and obstacles
+      that will test your platforming prowess. Expect bumpy terrain, treacherous drops, and surprising twists.
+    </li>
+    <li>
+      <b>Multiple Gameplay Modes:</b>
+      Choose to race against the clock in Time Trial mode or challenge other players in head-to-head
+      competition in Multiplayer mode. Both modes offer endless hours of fun.
+    </li>
+    <li>
+      <b>Versatile Controls:</b>
+      Master intuitive controls using either the arrow keys or WASD keys, giving you the flexibility to
+      choose your preferred control scheme. Adapt your strategy to conquer the challenging levels.
+    </li>
+    <li>
+      <b>Stunning Visuals:</b>
+      Experience the vibrant and colorful world of Bumpy Jumpy, with visually appealing graphics and
+      animations that bring the game to life. Each level is richly detailed and beautifully rendered.
+    </li>
+    <li>
+      <b>Regular Updates:</b>
+      Enjoy frequent updates that introduce new levels, challenges, and features, ensuring the Bumpy Jumpy
+      experience remains fresh and engaging. Always something new to jump into!
+    </li>
+    <li>
+      <b>Competitive Leaderboard:</b>
+      Compete against players worldwide to climb the leaderboard and earn bragging rights as the ultimate
+      Bumpy Jumpy champion. Prove your speed and skill!
+    </li>
+    <li>
+      <b>Diverse Challenges:</b>
+      Master various challenges, from precise jumps to quick dashes, and even underwater swimming segments.
+      Every skill is important in the world of Bumpy Jumpy.
+    </li>
+    <li>
+      <b>Addictive Gameplay:</b>
+      The simple, yet challenging gameplay loop makes Bumpy Jumpy incredibly addictive.
+      One more jump... one more try...
+    </li>
+  </ul>
+
+  <h3>FAQ</h3>
+
+  <ul>
+    <li>
+      <div class="faq-question">How do I control my character in Bumpy Jumpy?</div>
+      <div class="faq-answer">
+        You can use either the arrow keys or the WASD keys to control your character.
+        Experiment to find your preferred control scheme.
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">Is Bumpy Jumpy free to play?</div>
+      <div class="faq-answer">
+        Yes, Bumpy Jumpy is currently free to play! Check the latest information on the official website.
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">What makes Bumpy Jumpy different from other platformers?</div>
+      <div class="faq-answer">
+        Bumpy Jumpy combines challenging platforming with intense racing, adding a unique competitive element.
+        It’s not just about reaching the end; it's about doing it as fast as possible!
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">Are there in-app purchases?</div>
+      <div class="faq-answer">
+        No in-app purchases are currently planned, but check back on the official website for any future announcements.
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">How can I compete with other players?</div>
+      <div class="faq-answer">
+        Bumpy Jumpy features online multiplayer modes where you can compete against others in real-time
+        for the best time on each level.
+      </div>
+    </li>
+    <li>
+      <div class="faq-question">What devices is Bumpy Jumpy compatible with?</div>
+      <div class="faq-answer">
+        Bumpy Jumpy is designed to run smoothly on a wide range of devices.
+        Check the game's official website for specific compatibility details.
+      </div>
+    </li>
+  </ul>
+
+  <p>
+    Experience the exhilarating rush of Bumpy Jumpy – a platforming game that blends the precise timing
+    of classic platformers with the intense thrill of competitive racing. With a vast selection of levels
+    and a constantly evolving gameplay experience, Bumpy Jumpy offers endless hours of fun and challenges.
+    Jump in and show the world your skills!
+  </p>
+</div>
+        `,
+    },
+
+    {
+        id: 10,
         title: "JUMPING SHELL",
         iframeUrl: "https://1games.io/jumping-shell",
         keywords: "Embark on an epic puzzle adventure as a tiny, tenacious snail shell in Jumping Shell!  Leap across treacherous gaps, solve intricate puzzles, and master unique shell mechanics in diverse, challenging worlds.  Test your reflexes and problem-solving skills in this innovative platformer.  Download now and start your shell-powered journey!",
-        tags: ["puzzle game","platformer","skill-based","arcade","jumping","shell","indie game"],
+        tags: ["puzzle game", "platformer", "skill-based", "arcade", "jumping", "shell", "indie game"],
         publishDate: "2025-09-26",
-        imageUrl: "https://res.cloudinary.com/dnxfdv3fs/image/upload/v1758698909/cms-uploads/cms-1758698909179-548464168.jpg",
+        imageUrl: "/images/game-10.webp",
         imageAlt: "A vibrant image showcasing a snail shell bravely jumping across a colorful, whimsical landscape, showcasing the unique jumping shell gameplay.",
-        seo:{
+        seo: {
             title: "JUMPING SHELL: Master the Leap – Innovative Puzzle Platformer",
             description: "Experience the thrill of Jumping Shell, a unique puzzle platformer where you control a jumping snail shell, navigating challenging levels and mastering innovative gameplay mechanics. Test your reflexes and problem-solving skills!",
             keywords: "jumping shell, puzzle game, platformer, snail shell, jump, puzzle, challenge, gameplay, game mechanics, innovative, arcade",
@@ -321,6 +700,438 @@ export const games = [
       
         <p>Jumping Shell is more than just a game; it's a journey of skillful leaps and clever problem-solving.  Download today and prepare to master the art of the jumping shell!  Each carefully designed level presents a new test of your abilities, pushing your reflexes and strategic thinking to their limits.  Embrace the challenge and prepare for an unforgettable adventure.</p>
       </div>`,
-      }
+    },
+
+    {
+        id: 11,
+        title: "Helix Jump",
+        iframeUrl: "https://1games.io/helix-jump",
+        keywords: "Dive into the addictive world of Helix Jump! Guide your bouncing ball through treacherous spiral towers. Test your reflexes and timing, breaking through platforms for ultimate speed and high scores. One wrong move, and it's game over! A perfect quick-play arcade fix.",
+        tags: ["arcade game", "mobile gaming", "helix", "jump", "reflex game"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-11.webp",
+        imageAlt: "A vibrant screenshot of Helix Jump featuring a bouncing ball navigating a colorful, spiraling helix tower.",
+        seo: {
+            title: "Helix Jump: Fast-Paced Mobile Arcade Game",
+            description: "Experience the thrill of Helix Jump! A challenging mobile arcade game. Download now and test your reflexes in this addictive spiral tower adventure.",
+            keywords: "helix jump, mobile game, arcade, reflexes, spiral tower, bouncing ball, addictive game",
+        },
+        addressBar: "helix-jump",
+        detailsHtml: `<h1>Helix Jump: A Glimpse into the Future of Hyper-Casual Gaming</h1>
+      
+      <p>Helix Jump has become a quintessential example of hyper-casual gaming, captivating players with its simple yet challenging mechanics. But what does the future hold for this genre, and how will games like <b>Helix Jump</b> continue to evolve?</p>
+      
+      <p>The core appeal of <b>Helix Jump</b> lies in its accessibility. Anyone can pick it up and play, regardless of their gaming experience. This is a key factor driving the growth of the hyper-casual market. However, to maintain player engagement in the long run, developers need to innovate beyond the basic gameplay loop.</p>
+      
+      <h2>Potential Future Developments for Helix Jump-like Games:</h2>
+      
+      <ul>
+       <li><b>Dynamic Difficulty Adjustment:</b> Implementing AI-driven difficulty scaling that adapts to the player's skill level in real-time. This would prevent both frustration for new players and boredom for experienced ones.</li>
+       <li><b>Procedural Level Generation:</b> Moving beyond pre-designed levels to create an endless stream of unique and challenging <b>helix jump</b> experiences. Algorithms could generate new platform layouts, color schemes, and obstacle patterns on the fly.</li>
+       <li><b>Enhanced Social Features:</b> Integrating asynchronous multiplayer modes where players compete against each other's best runs on the same level. Leaderboards, replays, and ghost data could add a competitive edge.</li>
+       <li><b>Personalized Customization:</b> Allowing players to personalize their bouncing ball with a variety of skins, trails, and visual effects. This adds a layer of collectability and progression.</li>
+       <li><b>Augmented Reality Integration:</b> Imagine playing <b>Helix Jump</b> on your coffee table, using AR technology to overlay the spiral tower onto your real-world environment. This could open up entirely new avenues for immersive gameplay.</li>
+      </ul>
+      
+      <p>The success of <b>Helix Jump</b> demonstrates the power of simplicity and addictiveness in mobile gaming. By embracing new technologies and innovative game design principles, developers can ensure that hyper-casual games continue to evolve and captivate players for years to come. Consider the impact of introducing physics-based elements – perhaps wind gusts that affect the ball's trajectory, or platforms that crumble under pressure. The possibilities are endless for the future of <b>helix</b> based games!</p>
+      
+      <p>Ultimately, the future of <b>Helix Jump</b> and similar games depends on the ability of developers to balance accessibility with depth, novelty with familiarity, and simplicity with innovation. By embracing these principles, they can create truly engaging and enduring gaming experiences.</p>
+      `,
+    },
+
+    {
+        id: 12,
+        title: "DOODLE JUMPING",
+        iframeUrl: "https://1games.io/doodle-jumping",
+        keywords: "Embark on an exhilarating journey in Doodle Jumping! Navigate your adorable Doodler through treacherous heights, leaping across platforms. Master challenging terrain, avoid crumbling steps & cunning monsters. Utilize springs & rockets for sky-high boosts, strategically planning each landing for ultimate record-breaking scores!",
+        tags: ["doodle jumping", "arcade game", "platformer", "high score", "performance optimization"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-12.webp",
+        imageAlt: "A vibrant screenshot of Doodle Jumping showcasing the Doodler character soaring through the air with a rocket boost, highlighting the game's engaging gameplay.",
+        seo: {
+            title: "Doodle Jumping: Reach New Heights & Optimize Your Score!",
+            description: "Master Doodle Jumping's perilous platforms! Learn performance optimization tips for smoother gameplay and higher scores. Avoid monsters and crumbling blocks for the ultimate challenge.",
+            keywords: "doodle jumping, game optimization, platformer game, arcade games, high score strategies, mobile games",
+        },
+        addressBar: "doodle-jumping",
+        detailsHtml: `<div>
+      
+        <img src="/images/game-12.webp" alt="Doodle Jumping screenshot" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+      
+        <p>Prepare for an endless ascent in <b>Doodle Jumping</b>, a game that demands precision, strategy, and a touch of luck. Your mission: guide the relentlessly hopping Doodler across a perilous landscape of platforms, each jump bringing you closer to new heights and greater challenges.</p>
+      
+        <h2>Gameplay Mechanics and Optimization</h2>
+        <p>The core mechanic of <b>Doodle Jumping</b> is simple: tap left and right to control your Doodler's trajectory. However, mastering the game requires understanding the nuances of platform types and environmental hazards. Here's a breakdown of key elements and optimization strategies:</p>
+        <ul>
+          <li><b>Platform Variety:</b> Encounter standard platforms, bouncy springs, and crumbling tiles. Prioritize landing on stable platforms to avoid immediate falls.</li>
+          <li><b>Power-Ups:</b> Utilize springs and rockets to launch your Doodler to incredible heights. Time your landings carefully after a power-up boost.</li>
+          <li><b>Enemy Encounters:</b> Avoid monsters that can stun or eliminate your Doodler. Plan your jumps to circumvent these threats.</li>
+          <li><b>Performance Considerations:</b> On lower-end devices, reducing graphical settings (if available) can improve frame rates and responsiveness. Closing background apps can also free up resources, leading to a smoother <b>doodle jumping</b> experience.</li>
+        </ul>
+      
+        <h2>Strategic Approaches for High Scores</h2>
+        <p>Reaching impressive heights in <b>Doodle Jumping</b> isn't just about reflexes; it's about strategy. Consider these tips for maximizing your score:</p>
+        <ol>
+          <li><b>Precise Jumps:</b> Aim for the center of platforms to minimize the risk of falling.</li>
+          <li><b>Power-Up Efficiency:</b> Use springs and rockets strategically to cover large distances and avoid dangerous areas.</li>
+          <li><b>Risk Assessment:</b> Evaluate the risk-reward ratio of each jump. Sometimes, a slower, more cautious approach is preferable to a risky leap.</li>
+          <li><b>Enemy Avoidance:</b> Prioritize avoiding enemies over collecting points. A single collision can end your run.</li>
+        </ol>
+      
+        <h2>The Appeal of Doodle Jumping</h2>
+        <p>The enduring popularity of <b>Doodle Jumping</b> lies in its simple yet addictive gameplay. Its accessible controls and endless possibilities make it a perfect casual game for players of all ages. The constant challenge of reaching new heights, combined with the thrill of narrowly avoiding obstacles, keeps players coming back for more. Its optimized design allows for enjoyment on almost any device. The game benefits from careful resource management on the player's device. Background processes consume vital resources that can affect <b>doodle jumping</b> performance.</p>
+      
+        <p>So, jump in and experience the exhilarating world of <b>Doodle Jumping</b>! See how high you can soar and challenge your friends to beat your score.</p>
+      
+        <a href="https://1games.io/doodle-jumping" target="_blank" rel="noopener noreferrer">Play Doodle Jumping Now!</a>
+      </div>`,
+    },
+
+    {
+        id: 13,
+        title: "Mr Flip",
+        iframeUrl: "https://gamea.azgame.io/mr-flip/",
+        keywords: "Take on the ultimate ragdoll flip challenges in Mr. Flip! Master the art of backflips and gravity-defying stunts with perfect timing and precision. Jump, flip, and land in this addictive arcade-style game on Azgames.io!",
+        tags: ["ragdoll physics", "stunt game", "backflip challenge", "arcade game", "flip"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-13.webp",
+        imageAlt: "Mr. Flip performing a daring flip stunt.",
+        seo: {
+            title: "Mr Flip - Master the Ultimate Backflip Challenges Online",
+            description: "Mr. Flip is a physics-based stunt game where you perform amazing flips! Take on backflip challenges, earn points, and unlock new skills. Play now on Azgames.io!",
+            keywords: "Mr. Flip, flip, backflip, stunt game, ragdoll physics, arcade game, Azgames, gymnastic game, online game, free game",
+        },
+        addressBar: "mr-flip",
+        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2>Mr Flip</h2>
+        <p>Dive into the exhilarating world of Mr. Flip, a physics-based stunt game that tests your timing and precision. Prepare for a series of increasingly challenging backflip maneuvers where only the most skilled virtual gymnasts will triumph. Are you ready to defy gravity and become the ultimate flip master?</p>
+      
+        <h3>About Mr. Flip</h3>
+        <p>Mr. Flip puts you in control of a ragdoll gymnast tasked with executing daring backflips and other gravity-defying stunts. The core gameplay revolves around perfectly timed jumps and flips, aiming for smooth landings on designated target zones. Each successful landing earns you points and unlocks the next, even more challenging jump. With eight levels each containing ten jumps, the difficulty ramps up quickly, demanding ever-sharper timing and precise aerial control. Master the art of the flip and conquer every level!</p>
+      
+        <h3>Features</h3>
+        <ul>
+          <li><b>Intuitive Controls:</b> Easy to learn, yet challenging to master. Use simple click/tap and hold mechanics to control your character's jumps, flips, and landings.</li>
+          <li><b>Ragdoll Physics:</b> Experience the chaotic fun of ragdoll physics as your character tumbles and flips through the air. Every jump is unpredictable and entertaining.</li>
+          <li><b>Challenging Levels:</b> Conquer 8 levels, each with 10 increasingly difficult jumps. Test your timing and precision as you progress through the game.</li>
+          <li><b>Unlockable Skills:</b> Earn points to unlock new skills such as scissor, pike, knee tuck, and more. Each skill adds a new dimension to your stunts and allows for greater creativity.</li>
+          <li><b>Arcade Mode:</b> Unlock Arcade Mode by reaching Jump 10 of the first level. Enjoy endless backflip challenges and rack up high scores.</li>
+          <li><b>Score Multipliers:</b> Chain together successful jumps to trigger score multipliers and maximize your points. Style and variety pay off!</li>
+          <li><b>Quick Restarts:</b> Get back into the action quickly with fast restarts after each failed jump. Perfect for honing your skills and mastering tricky maneuvers.</li>
+          <li><b>High Replayability:</b> The combination of challenging levels, unlockable skills, and unpredictable physics ensures that every run is unique and engaging.</li>
+        </ul>
+      
+        <h3>FAQ</h3>
+        <ul>
+          <li>
+            <div class="faq-question">How do I perform a flip?</div>
+            <div class="faq-answer">Click/tap and hold to crouch, release to jump, hold again to flip, and release to land. Timing is crucial for a smooth landing.</div>
+          </li>
+          <li>
+            <div class="faq-question">How do I score points?</div>
+            <div class="faq-answer">You get points based on your performance. Complete jumps in succession to trigger score multipliers and rack up big points.</div>
+          </li>
+          <li>
+            <div class="faq-question">What are the unlockable skills?</div>
+            <div class="faq-answer">Unlockable skills include scissor, pike, knee tuck, switch direction, and more. These skills add variety and complexity to your stunts.</div>
+          </li>
+          <li>
+            <div class="faq-question">How do I unlock Arcade Mode?</div>
+            <div class="faq-answer">Arcade Mode is unlocked when you reach Jump 10 of the first level.</div>
+          </li>
+          <li>
+            <div class="faq-question">What happens if I miss the landing?</div>
+            <div class="faq-answer">If you fail to land on foot or land outside the target zone, you will have to retry the jump.</div>
+          </li>
+          <li>
+            <div class="faq-question">Is Mr. Flip difficult to master?</div>
+            <div class="faq-answer">While the controls are simple, mastering the timing and precision required for successful flips takes practice.</div>
+          </li>
+        </ul>
+      
+        <p>Mr. Flip offers a unique blend of arcade-style gameplay, ragdoll physics, and challenging stunt challenges. With its addictive gameplay and high replayability, it's the perfect game for anyone who enjoys sports games, gymnastic-themed challenges, or simply mastering the art of the perfect flip. Jump in, perform gravity-defying stunts, and aim for a high score today!</p>
+      </div>`,
+    },
+
+    {
+        id: 14,
+        title: "Color Jump",
+        iframeUrl: "https://gamea.azgame.io/color-jump/",
+        keywords: "Test your reflexes in Color Jump! Guide your shape through a vibrant maze of shifting color obstacles. Match colors, collect coins, and master increasingly complex challenges. Can you achieve the ultimate high score? Play Color Jump now and unleash your focus!",
+        tags: ["arcade game", "color matching", "reflex test", "skill game", "online game"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-14.webp",
+        imageAlt: "A colorful shape jumps through rotating color obstacles in the Color Jump game.",
+        seo: {
+            title: "Color Jump - Test Your Reflexes & Matching Skills - Play Free Online",
+            description: "Jump into the addictive world of Color Jump! Match colors, dodge obstacles, and achieve high scores. Sharpen your focus and precision. Play Color Jump online now!",
+            keywords: "color jump, color matching game, online arcade game, reflex game, skill-based game, color puzzle, free online games",
+        },
+        addressBar: "color-jump",
+        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2>Color Jump</h2>
+        <p>Dive into the exhilarating world of Color Jump, a fast-paced arcade game designed to test your reflexes, timing, and color recognition skills. It's more than just a game; it's a vibrant challenge that demands focus and precision. Prepare to guide your shape through a dynamic obstacle course where every jump counts!</p>
+      
+        <h3>About Color Jump</h3>
+        <p>Color Jump is a visually stunning and intensely engaging arcade game where players control a shape, navigating it through an ever-changing series of color obstacles. The core mechanic involves matching the color of your shape with the corresponding segment of the obstacle to pass through safely. The obstacles rotate and shift, requiring quick thinking and precise timing. The higher you climb, the more complex and challenging the obstacles become. Collect coins along the way to enhance your experience and aim for the highest score possible. This is a true test of patience, focus and color acuity. The game is all about the right jump at the right moment!</p>
+      
+        <h3>Features</h3>
+        <ul>
+          <li><b>Dynamic Color Matching:</b> The color of your shape changes frequently, requiring you to adapt and react quickly to the upcoming obstacles. This keeps the gameplay fresh and engaging.</li>
+          <li><b>Increasing Difficulty:</b> As you progress, the obstacles become more complex and the speed increases, challenging your reflexes and problem-solving skills.</li>
+          <li><b>Multiple Shape Options:</b> Choose from a circle, triangle, or rectangle to customize your shape. This adds a layer of personalization to your gameplay.</li>
+          <li><b>Collect Coins:</b> Gather coins during your run to unlock new features, power-ups, or cosmetic items to enhance your gaming experience.</li>
+          <li><b>Intuitive Controls:</b> Simple tap/click controls make the game easy to pick up and play, but difficult to master. Precision is key to success.</li>
+          <li><b>Endless Gameplay:</b> There's no finish line! The game continues until you make a mistake, allowing you to constantly strive for a higher score.</li>
+          <li><b>Visually Appealing:</b> The vibrant colors and dynamic animations create an immersive and captivating gaming experience.</li>
+          <li><b>Skill-Based Progression:</b> Success in Color Jump depends entirely on your skill and reflexes, making it a rewarding game to play as you improve. Each Color Jump tests your abilities.</li>
+        </ul>
+      
+        <h3>FAQ</h3>
+        <ul>
+          <li>
+            <div class="faq-question">How do I control the shape in Color Jump?</div>
+            <div class="faq-answer">Simply tap or click the screen to make your shape jump or float upward. Time your jumps precisely to align with the matching color segments of the obstacles.</div>
+          </li>
+          <li>
+            <div class="faq-question">What happens when my shape hits the wrong color?</div>
+            <div class="faq-answer">If your shape hits an obstacle segment that doesn’t match its current color, your run ends immediately, and you'll have to start over.</div>
+          </li>
+          <li>
+            <div class="faq-question">How do I change the color of my shape?</div>
+            <div class="faq-answer">Your shape automatically changes color when passing through a "color switch." Pay close attention to the upcoming obstacles to match the new color.</div>
+          </li>
+          <li>
+            <div class="faq-question">Is there an end to Color Jump?</div>
+            <div class="faq-answer">No, Color Jump is an endless game. The goal is to survive as long as possible and achieve the highest score by navigating through increasingly challenging obstacles.</div>
+          </li>
+          <li>
+            <div class="faq-question">What are the controls for Color Jump?</div>
+            <div class="faq-answer">You can use the W key or the up arrow key to make the ball jump upward. It's all about precise timing!</div>
+          </li>
+          <li>
+            <div class="faq-question">Why does Color Jump seem so difficult?</div>
+            <div class="faq-answer">Color Jump is designed to be challenging. It requires quick reflexes, precise timing, and excellent focus. Don't be discouraged by initial failures; practice makes perfect!</div>
+          </li>
+        </ul>
+      
+        <p>Color Jump offers a unique blend of skill, strategy, and vibrant visuals that make it a truly addictive gaming experience. Whether you're looking for a quick burst of entertainment or a challenging game to master, Color Jump delivers. The constant color changes and increasingly complex obstacles will keep you on your toes, demanding your full attention and precision. Jump in now and see how far you can go in this color-filled adventure!</p>
+      </div>`,
+    },
+
+    {
+        id: 15,
+        title: "JUMP BOY JACK",
+        iframeUrl: "https://play.gamepix.com/jump-boy-jack/embed?sid=e4515",
+        keywords: "Test your reflexes in Jump Boy Jack! This arcade-style game challenges you to leap strategically, collect points, and evade monsters. Master the jump for high scores on mobile and PC. A quick, fun, and engaging experience for players of all ages!",
+        tags: ["arcade", "jumping game", "skill game", "mobile game", "platformer"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-15.webp",
+        imageAlt: "Jump Boy Jack leaping over an obstacle in a vibrant game environment.",
+        seo: {
+            title: "JUMP BOY JACK - Online Arcade Game - Play Free!",
+            description: "Play Jump Boy Jack, a fun and addictive online arcade game! Jump, collect points, and avoid monsters for high scores. Perfect for quick sessions on mobile and PC.",
+            keywords: "jump boy jack, jump game, arcade game, online game, mobile game, platformer, action game, skill game, jumping, boy",
+        },
+        addressBar: "jump-boy-jack",
+        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2>JUMP BOY JACK</h2>
+        <p>Jump Boy Jack invites players into a fast-paced arcade world where every jump counts. With simple controls and engaging gameplay, achieving high scores becomes an addictive pursuit. This game puts your reflexes to the ultimate test, demanding precision and strategic thinking with each leap.</p>
+      
+        <h3>About</h3>
+        <p>Jump Boy Jack is designed to offer a pick-up-and-play experience that’s both challenging and rewarding. Players navigate a series of increasingly difficult obstacles while avoiding a colorful cast of monsters. The core mechanic revolves around precise jumps, requiring players to time their movements perfectly to collect points and stay alive. Accessible on both mobile and PC, Jump Boy Jack provides consistent entertainment whether you're on the go or relaxing at home. The game's simple yet engaging design makes it perfect for quick sessions, while the increasing difficulty keeps players coming back for more, determined to beat their high scores and master the art of the jump.</p>
+      
+        <h3>Features</h3>
+        <ul>
+          <li><b>Intuitive Controls:</b> Simple tap or arrow key controls make the game easy to learn but challenging to master, offering a seamless experience for players of all skill levels.</li>
+          <li><b>Dynamic Obstacle Course:</b> Navigate through a variety of obstacles that require precise timing and strategic thinking to overcome.</li>
+          <li><b>Monster Evasion:</b> Outsmart and avoid a diverse range of monsters, each with unique behaviors that demand adaptive strategies.</li>
+          <li><b>High Score Tracking:</b> Compete against yourself and others to achieve the highest score, fostering a sense of accomplishment and replayability.</li>
+          <li><b>Mobile and PC Compatibility:</b> Enjoy seamless gameplay on both mobile and PC platforms, allowing you to play anytime, anywhere.</li>
+          <li><b>Engaging Visuals:</b> Colorful and vibrant graphics create an immersive arcade experience that enhances the fun and excitement of the game.</li>
+          <li><b>Point Collection:</b> Collect points by strategically navigating through the environment, adding an extra layer of challenge and reward.</li>
+          <li><b>Progressive Difficulty:</b> The game's difficulty increases gradually, ensuring a constant challenge that keeps players engaged and motivated to improve their skills.</li>
+        </ul>
+      
+        <h3>FAQ</h3>
+        <ul>
+          <li>
+            <div class="faq-question">How do I play Jump Boy Jack?</div>
+            <div class="faq-answer">Use tap controls on mobile or arrow keys on PC to jump. Time your jumps to avoid monsters and collect points.</div>
+          </li>
+          <li>
+            <div class="faq-question">What is the best strategy for achieving a high score?</div>
+            <div class="faq-answer">Plan your moves ahead, anticipate monster patterns, and collect as many points as possible without risking your survival.</div>
+          </li>
+          <li>
+            <div class="faq-question">Is Jump Boy Jack available on mobile devices?</div>
+            <div class="faq-answer">Yes, Jump Boy Jack is fully compatible with both mobile and PC platforms, offering a consistent gaming experience across devices.</div>
+          </li>
+          <li>
+            <div class="faq-question">Are there different types of monsters to avoid?</div>
+            <div class="faq-answer">Yes, Jump Boy Jack features a variety of monsters, each with unique behaviors that require different evasion strategies.</div>
+          </li>
+          <li>
+            <div class="faq-question">Can I compete with friends in Jump Boy Jack?</div>
+            <div class="faq-answer">While there isn't a direct multiplayer mode, you can compete for the highest score and share your achievements with friends.</div>
+          </li>
+          <li>
+            <div class="faq-question">Is Jump Boy Jack free to play?</div>
+            <div class="faq-answer">Yes, Jump Boy Jack is free to play, offering an accessible arcade experience for all players.</div>
+          </li>
+        </ul>
+      
+        <p>Jump Boy Jack is more than just a game; it's a test of skill, timing, and strategic thinking. With its simple controls, engaging gameplay, and increasing difficulty, it's the perfect choice for anyone looking for a quick and addictive arcade experience. So jump in and see how high you can score!</p>
+      </div>`,
+    },
+
+    {
+        id: 16,
+        title: "JUMP THE WALL",
+        iframeUrl: "https://play.gamepix.com/jump-the-wall-1/embed?sid=e4515",
+        keywords: "Leap into the future with Jump The Wall! Test your reflexes and agility as you navigate challenging terrains. Outpace towering obstacles and strive for the ultimate high score. Are you ready to defy gravity and conquer the wall?",
+        tags: ["arcade game", "reflex test", "obstacle course", "skill game", "jump game"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-16.webp",
+        imageAlt: "A character jumping over a wall in Jump The Wall game.",
+        seo: {
+            title: "JUMP THE WALL - Test Your Reflexes & Conquer Obstacles!",
+            description: "Jump The Wall challenges your reflexes! Navigate treacherous terrains, outpace obstacles, and aim for a new high score. Play now and push your limits!",
+            keywords: "jump, wall, jump the wall, arcade, reflex, agility, obstacle course, game, free online game",
+        },
+        addressBar: "jump-the-wall",
+        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2>JUMP THE WALL</h2>
+        <p>Step into a world where quick reflexes are your greatest asset. Jump The Wall isn't just a game; it's a test of agility, timing, and precision. Prepare to face towering obstacles that demand perfect leaps and unwavering focus. Are you ready to challenge the wall and achieve ultimate mastery of the jump?</p>
+      
+        <h3>About</h3>
+        <p>Jump The Wall presents a unique challenge: navigate increasingly complex terrains by jumping over obstacles with impeccable timing. Each level introduces new environments and hazards, pushing your skills to the limit. The game mechanics are simple – press the arrow keys or click the mouse to jump – but mastering the art of timing is key to success. As you progress, the pace intensifies, demanding lightning-fast reactions and strategic decision-making. With every attempt, you'll learn the nuances of each obstacle, honing your reflexes and unlocking new potential within yourself. Practice consistently, and you'll notice significant improvements in your reaction speed and overall gameplay. Prepare to be captivated by the addictive gameplay loop that keeps you coming back for more, striving to surpass your previous achievements and conquer the seemingly insurmountable wall.</p>
+      
+        <h3>Features</h3>
+        <ul>
+          <li><b>Intuitive Controls:</b> Simple arrow key or mouse click controls make Jump The Wall easy to pick up and play for gamers of all skill levels.</li>
+          <li><b>Increasing Difficulty:</b> Experience a progressive challenge as levels introduce more complex obstacles and faster gameplay.</li>
+          <li><b>Diverse Terrains:</b> Explore a variety of visually engaging environments, each presenting unique challenges and aesthetic appeal.</li>
+          <li><b>Reflex Enhancement:</b> Improve your reaction time and hand-eye coordination with every jump, sharpening your cognitive skills.</li>
+          <li><b>Score Tracking:</b> Compete against yourself to achieve higher scores, motivating you to improve and surpass your previous bests.</li>
+          <li><b>Addictive Gameplay:</b> The satisfying feeling of nailing the perfect jump and overcoming obstacles creates an addictive gameplay loop.</li>
+          <li><b>Optimized Performance:</b> Enjoy smooth and responsive gameplay on a wide range of devices, ensuring a seamless experience.</li>
+          <li><b>Endless Challenge:</b> With increasing difficulty, the game offers a seemingly endless challenge, perfect for players seeking long-term engagement.</li>
+        </ul>
+      
+        <h3>FAQ</h3>
+        <ul>
+          <li>
+            <div class="faq-question">How do I play Jump The Wall?</div>
+            <div class="faq-answer">Use the arrow keys or click the mouse to jump over the obstacles. Time your jumps carefully to avoid crashing.</div>
+          </li>
+          <li>
+            <div class="faq-question">What happens if I crash?</div>
+            <div class="faq-answer">Crashing into an obstacle will slow you down. Avoid crashes to maintain your speed and achieve a higher score.</div>
+          </li>
+          <li>
+            <div class="faq-question">How can I improve my score?</div>
+            <div class="faq-answer">Practice consistently to improve your reaction speed and timing. Learn the patterns of each obstacle to anticipate the perfect jump.</div>
+          </li>
+          <li>
+            <div class="faq-question">Is Jump The Wall free to play?</div>
+            <div class="faq-answer">Yes, Jump The Wall is completely free to play. Enjoy endless hours of jumping fun without any cost.</div>
+          </li>
+          <li>
+            <div class="faq-question">Can I play Jump The Wall on my mobile device?</div>
+            <div class="faq-answer">Jump The Wall is designed to be played on various platforms, including mobile devices. Experience the thrill of the jump wherever you go.</div>
+          </li>
+        </ul>
+      
+        <p>Jump The Wall offers more than just entertainment; it's a training ground for your reflexes and a testament to your ability to adapt and overcome. With its intuitive controls, challenging gameplay, and rewarding progression, Jump The Wall is the perfect game for anyone seeking a quick and engaging mental workout. So, take a leap of faith and discover the thrill of conquering the wall!</p>
+      </div>`,
+    },
+
+    {
+        id: 17,
+        title: "JUMPING MAN",
+        iframeUrl: "https://play.gamepix.com/jumping-man/embed?sid=e4515",
+        keywords: "Experience the thrill of Jumping Man! A fast-paced clicker game where precision and timing are key. Leap from platform to platform, dodge obstacles, and chase the ultimate high score. Perfect for quick bursts of arcade fun!",
+        tags: ["arcade game", "clicker game", "jumping", "platformer", "high score"],
+        publishDate: "2025-10-31",
+        imageUrl: "/images/game-17.webp",
+        imageAlt: "A pixelated jumping man leaps between platforms in an arcade-style game.",
+        seo: {
+            title: "Jumping Man - Test Your Reflexes! Play Free Online",
+            description: "Master the art of the jump in Jumping Man! A challenging and addictive clicker game. Precise taps, tricky levels, and endless fun await. Compete for the high score!",
+            keywords: "jumping man, clicker game, arcade game, platformer, jumping, high score game, online game, free game",
+        },
+        addressBar: "jumping-man",
+        detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>JUMPING MAN</h2><p>Dive into the exhilarating world of Jumping Man, a captivating clicker game designed to test your reflexes and strategic thinking. Each tap propels our intrepid hero higher, challenging you to perfectly time each jump across increasingly complex and treacherous platforms. The pursuit of the ultimate high score is a relentless journey, demanding both skill and unwavering focus. Jumping Man isn't just a game; it's a test of your precision and a thrilling race against gravity!</p>
+      
+      <h3>About</h3>
+      <p>Jumping Man is more than just a clicker; it's an exercise in precision and timing. The core gameplay revolves around a simple yet addictive mechanic: tapping to make the man jump. Hold longer for a higher leap, but be wary of the consequences of mistiming. Each level introduces new obstacles and platform arrangements, requiring players to adapt their strategies and master the art of the perfect jump. The game’s progressively challenging design ensures that players are constantly engaged and motivated to improve their skills and chase ever-higher scores. Its intuitive controls and instantly gratifying gameplay make it perfect for both casual gamers seeking a quick distraction and hardcore players aiming to dominate the leaderboards. The combination of simple mechanics and increasingly challenging levels creates a truly addictive gaming experience that will keep you coming back for more.</p>
+      
+      <h3>Features</h3>
+      <ul>
+        <li><b>Intuitive One-Touch Controls:</b> Simple tap-and-hold mechanics make Jumping Man easy to pick up, but challenging to master.</li>
+        <li><b>Progressively Challenging Levels:</b> Each level introduces new obstacles and complexities, testing your timing and strategic thinking.</li>
+        <li><b>Addictive High-Score Gameplay:</b> Compete against yourself and others to achieve the ultimate high score.</li>
+        <li><b>Pixelated Arcade Aesthetics:</b> Enjoy the nostalgic charm of classic arcade games with a modern twist.</li>
+        <li><b>Responsive Jump Mechanics:</b> Precise control over your jump height allows for strategic navigation.</li>
+        <li><b>Obstacle Variety:</b> Encounter a wide array of obstacles that demand strategic timing and careful planning. From moving platforms to tricky gaps, each presents a unique challenge to overcome.</li>
+        <li><b>Endless Replayability:</b> With increasingly difficult levels and a focus on high scores, Jumping Man offers endless opportunities for replayability and improvement.</li>
+        <li><b>Quick Bursts of Fun:</b> Perfect for short gaming sessions, Jumping Man delivers instant gratification and addictive gameplay in bite-sized chunks.</li>
+      </ul>
+      
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <div class="faq-question">How do I control the Jumping Man?</div>
+          <div class="faq-answer">Simply tap the screen to make the man jump. Hold your finger down for a longer jump.</div>
+        </li>
+        <li>
+          <div class="faq-question">What is the best strategy for achieving a high score?</div>
+          <div class="faq-answer">Mastering your timing is crucial. Pay close attention to the distance between platforms and the timing of obstacles. Practice makes perfect!</div>
+        </li>
+        <li>
+          <div class="faq-question">Are there any power-ups or special abilities in the game?</div>
+          <div class="faq-answer">Currently, Jumping Man focuses on pure skill and timing. There are no power-ups or special abilities, ensuring a level playing field for all players.</div>
+        </li>
+        <li>
+          <div class="faq-question">Is Jumping Man available on mobile devices?</div>
+          <div class="faq-answer">Jumping Man is designed to be played on web browsers, offering accessible fun on various devices, including desktops and mobile phones.</div>
+        </li>
+        <li>
+          <div class="faq-question">How often are new levels added?</div>
+          <div class="faq-answer">We are constantly working on adding new content and levels to Jumping Man. Stay tuned for updates!</div>
+        </li>
+        <li>
+          <div class="faq-question">Is Jumping Man free to play?</div>
+          <div class="faq-answer">Yes, Jumping Man is completely free to play! Enjoy endless hours of arcade fun without any hidden costs.</div>
+        </li>
+      </ul>
+      
+      <p>In conclusion, Jumping Man offers a simple yet deeply engaging arcade experience. Its intuitive controls, progressively challenging levels, and addictive high-score gameplay make it the perfect game for quick bursts of fun or extended sessions of skill-based competition. With its retro aesthetics and responsive mechanics, Jumping Man provides a nostalgic yet modern gaming experience that will keep you coming back for more. So, lace up your virtual jumping shoes and prepare to embark on an epic journey to conquer the platforms and achieve the ultimate high score!</p>
+      </div>`,
+    }
+
+
+
+
+
+
+    // {
+    //     id: 0,
+    //     title: "",
+    //     iframeUrl: "",
+    //     keywords: "",
+    //     tags: [""],
+    //     publishDate: "",
+    //     imageUrl: "",
+    //     imageAlt: "",
+    //     seo: {
+    //         title: "",
+    //         description: "",
+    //         keywords: "",
+    //     },
+    //     addressBar: "",
+    //     detailsHtml: ``
+    // }
 
 ]
