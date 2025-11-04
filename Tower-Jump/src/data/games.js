@@ -1109,6 +1109,204 @@ export const games = [
       
       <p>In conclusion, Jumping Man offers a simple yet deeply engaging arcade experience. Its intuitive controls, progressively challenging levels, and addictive high-score gameplay make it the perfect game for quick bursts of fun or extended sessions of skill-based competition. With its retro aesthetics and responsive mechanics, Jumping Man provides a nostalgic yet modern gaming experience that will keep you coming back for more. So, lace up your virtual jumping shoes and prepare to embark on an epic journey to conquer the platforms and achieve the ultimate high score!</p>
       </div>`,
+    },
+
+    {
+      id: 18,
+      title: "JUMPING ORBITS",
+      iframeUrl: "https://play.gamepix.com/jumping-orbits/embed?sid=e4515",
+      keywords: "Leap into Jumping Orbits, a cosmic arcade where quick reflexes are key! Navigate your orb through a vibrant, obstacle-filled universe. Simple to play but challenging to master, chase high scores in this addictive, fast-paced adventure. Perfect for short, exhilarating gaming sessions!",
+      tags: ["arcade game","reflex game","orbit jumping","space adventure","skill game"],
+      publishDate: "2025-11-03",
+      imageUrl: "/images/game-18.webp",
+      imageAlt: "A vibrant screenshot of Jumping Orbits featuring a player's orb navigating through colorful orbits.",
+      seo: {
+        title: "JUMPING ORBITS - Test Your Reflexes & Achieve High Scores!",
+        description: "Jump between orbits in this addictive arcade game! Dodge obstacles, collect power-ups, and beat your best score in Jumping Orbits. Play now for a thrilling experience!",
+        keywords: "jumping orbits, orbit game, arcade, reflex game, space game, skill game, online game, free game, jumping challenge",
+      },
+      addressBar: "jumping-orbits",
+      detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <h2>JUMPING ORBITS</h2>
+      <p>Embark on a cosmic journey with Jumping Orbits, where your reflexes and timing are your greatest allies. In this simple yet captivating arcade game, navigate your orb across a series of celestial pathways, dodging perilous obstacles and striving for the highest score. Get ready for an addictively challenging experience that's perfect for quick bursts of fun or extended gaming sessions. Can you master the art of orbital jumping?</p>
+    
+      <h3>About</h3>
+      <p>Jumping Orbits is designed to be instantly accessible, making it easy for players of all skill levels to jump right in. The core mechanic revolves around tapping the screen to leap to the next orbit. However, beneath the surface lies a deceptively challenging game that demands precision, timing, and quick decision-making. Red obstacles line the paths, threatening to end your run, while strategically placed power-up orbits offer temporary invincibility, allowing you to clear barriers with ease. Mastering the game requires patience, practice, and a keen understanding of the orbital patterns. The goal is simple: survive as long as possible and achieve the highest score.</p>
+    
+      <h3>Features</h3>
+      <ul>
+        <li><b>Intuitive One-Touch Controls:</b> Easy to learn, difficult to master, the one-touch control scheme makes Jumping Orbits accessible to everyone.</li>
+        <li><b>Challenging Obstacle Courses:</b> Test your reflexes with dynamically generated obstacle courses that keep you on your toes. Each run is unique!</li>
+        <li><b>Power-Up Orbits:</b> Collect power-up orbits to gain temporary invincibility and blast through obstacles. Strategic use is crucial for survival.</li>
+        <li><b>High Score Tracking:</b> Compete against yourself and friends to achieve the highest score and climb the leaderboards.</li>
+        <li><b>Visually Appealing Graphics:</b> Immerse yourself in a vibrant and colorful cosmic environment that enhances the gameplay experience.</li>
+        <li><b>Fast-Paced Gameplay:</b> Enjoy quick and engaging play sessions that are perfect for filling those spare moments.</li>
+        <li><b>Addictive and Replayable:</b> The simple yet challenging gameplay loop will keep you coming back for more, striving to improve your score each time. The *jumping* action across *orbits* never gets old!</li>
+        <li><b>Optimized Performance:</b> Smooth and responsive gameplay on a wide range of devices, ensuring a seamless experience for all players.</li>
+      </ul>
+    
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <div class="faq-question">How do I play Jumping Orbits?</div>
+          <div class="faq-answer">Simply tap the screen to make your orb jump to the next available orbit. Avoid hitting red obstacles, and collect power-up orbits for temporary invincibility.</div>
+        </li>
+        <li>
+          <div class="faq-question">What happens when I hit a red obstacle?</div>
+          <div class="faq-answer">Hitting a red obstacle will end your current run, and your score will be recorded. You can then choose to start a new game.</div>
+        </li>
+        <li>
+          <div class="faq-question">What are power-up orbits?</div>
+          <div class="faq-answer">Power-up orbits provide temporary invincibility, allowing you to pass through obstacles without being harmed. Use them strategically to survive longer!</div>
+        </li>
+        <li>
+          <div class="faq-question">How do I improve my score?</div>
+          <div class="faq-answer">Practice makes perfect! The more you play, the better you'll become at timing your jumps and anticipating obstacles. Strategic use of power-ups also helps.</div>
+        </li>
+        <li>
+          <div class="faq-question">Is Jumping Orbits free to play?</div>
+          <div class="faq-answer">Yes, Jumping Orbits is completely free to play! Enjoy the game without any hidden costs.</div>
+        </li>
+        <li>
+          <div class="faq-question">Can I play Jumping Orbits on my mobile device?</div>
+          <div class="faq-answer">Yes, Jumping Orbits is designed to be played on a variety of devices, including mobile phones and tablets.</div>
+        </li>
+      </ul>
+    
+      <p>Jumping Orbits offers a captivating blend of simplicity and challenge, making it a perfect choice for gamers seeking a quick and engaging experience. With its intuitive controls, vibrant visuals, and addictive gameplay, this cosmic arcade adventure is sure to keep you entertained for hours. So, prepare to test your reflexes, master the art of orbital *jumping*, and strive for the highest score in this thrilling universe of *orbits*! Download and play for free today, and see how far you can go.</p>
+    </div>`,
+    },
+
+    {
+      id: 19,
+      title: "JUMPER CAT - INFINITE JUMP",
+      iframeUrl: "https://play.gamepix.com/jumper-cat-infinite-jump/embed?sid=e4515",
+      keywords: "Embark on an endless vertical adventure with Jumper Cat! Guide your agile feline through a maze of platforms, dodging deadly obstacles. Perfect your jumps, climb to unimaginable heights, and challenge your reflexes in this addictive infinite game. How high can *you* go?",
+      tags: ["jumper","cat","infinite","arcade","platformer"],
+      publishDate: "2025-11-03",
+      imageUrl: "/images/game-19.webp",
+      imageAlt: "A cute jumper cat mid-air, jumping between platforms in the infinite game.",
+      seo: {
+        title: "JUMPER CAT - INFINITE JUMP - Play Free Online!",
+        description: "Leap to victory in Jumper Cat - Infinite Jump! An endlessly challenging platformer where skill and timing are key. Avoid deadly plates and reach the top!",
+        keywords: "jumper cat, infinite jump, online game, free arcade game, platformer game, cat games, jumping games, infinite runner",
+      },
+      addressBar: "jumper-cat-infinite-jump",
+      detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <h2>JUMPER CAT - INFINITE JUMP</h2>
+      <p>Get ready for an adrenaline-pumping vertical journey with Jumper Cat - Infinite Jump! This isn't just another platformer; it's a test of your reflexes, timing, and unwavering determination. Guide your adorable cat through an ever-ascending world, where the only limit is how high you can jump. Prepare to face deadly obstacles and perfect your leaps to achieve the highest score possible in this infinite adventure.</p>
+      
+      <h3>About</h3>
+      <p>Jumper Cat - Infinite Jump plunges you into a world where the sky's the limit, literally! Control a nimble cat as it bounces from platform to platform, navigating a treacherous path filled with deadly plates waiting to end your climb. The core gameplay revolves around precise timing and quick reactions. Mastering the jump mechanic is crucial for survival and for reaching new, unimaginable heights. The game's simplistic yet addictive nature ensures hours of fun, as you constantly strive to beat your previous high score and cement your place as the ultimate Jumper Cat master. The game's core loop – jump, avoid, climb, repeat – keeps players engaged, always pushing them to improve and conquer the endless vertical challenge. The inclusion of a "skip ahead" feature via the green flag caters to moments of technical hiccup, preserving the core gaming experience.</p>
+      
+      <h3>Features</h3>
+      <ul>
+        <li><b>Endless Vertical Gameplay:</b> Experience a truly infinite challenge, where the platforms never stop and the height is limitless.</li>
+        <li><b>Agile Cat Control:</b> Guide your nimble cat with precise movements, ensuring you land perfectly on each platform.</li>
+        <li><b>Deadly Plate Obstacles:</b> Avoid the treacherous death plates that lurk along your path, requiring quick reflexes and strategic jumps.</li>
+        <li><b>High Score Tracking:</b> Compete against yourself and others to achieve the highest score possible, pushing your limits with each playthrough.</li>
+        <li><b>Simple and Intuitive Controls:</b> Easy to learn controls make it accessible to players of all skill levels, ensuring a smooth and enjoyable experience.</li>
+        <li><b>Charming Visual Style:</b> Enjoy the game's delightful visuals, featuring a cute cat character and vibrant, eye-catching environments.</li>
+        <li><b>Increasing Difficulty:</b> As you climb higher, the game becomes increasingly challenging, demanding greater precision and timing.</li>
+      <li><b>Mobile and PC Friendly:</b> Playable on both PC with A/D and arrow keys, and on mobile with tap arrow controls for movement.</li>
+      </ul>
+      
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <div class="faq-question">How do I control the cat?</div>
+          <div class="faq-answer">On PC, use the A/D or arrow keys to move left and right. On mobile, tap the arrow buttons on the screen.</div>
+        </li>
+        <li>
+          <div class="faq-question">What happens if I fall?</div>
+          <div class="faq-answer">If you fall off a platform or touch a death plate, the game ends, and your score is recorded.</div>
+        </li>
+        <li>
+          <div class="faq-question">How do I get a high score?</div>
+          <div class="faq-answer">Climb as high as you can without falling or touching the death plates. The higher you climb, the higher your score!</div>
+        </li>
+        <li>
+          <div class="faq-question">Is there a way to avoid glitches?</div>
+          <div class="faq-answer">If you experience any control glitches, try tapping the green flag to reset the game.</div>
+        </li>
+      <li>
+          <div class="faq-question">Can I play Jumper Cat on my phone?</div>
+          <div class="faq-answer">Yes! Jumper Cat - Infinite Jump is designed to be played on both desktop and mobile devices.</div>
+        </li>
+      <li>
+          <div class="faq-question">Is Jumper Cat a challenging game?</div>
+          <div class="faq-answer">Yes, as you climb higher the platforms become further apart and the death plates increase in frequency. Be prepared for a challenge!</div>
+        </li>
+      </ul>
+      
+      <p>Jumper Cat - Infinite Jump is more than just a game; it's an engaging experience that will test your skills and keep you entertained for hours. With its simple controls, addictive gameplay, and charming visuals, it’s a perfect choice for anyone looking for a quick and challenging diversion. So, what are you waiting for? Put your jumping skills to the test and see how high you can climb in this endless cat adventure! Embrace the challenge, master the jump, and conquer the infinite heights that await. This game is guaranteed to bring fun and challenge.</p>
+    </div>`,
+    },
+
+    {
+      id: 20,
+      title: "SKY HOPPER",
+      iframeUrl: "https://play.gamepix.com/sky-hopper/embed?sid=e4515",
+      keywords: "Soar to new heights in Sky Hopper! This addictive vertical jumper challenges you to bounce on platforms, dodge treacherous obstacles, and climb as high as you can. A simple control scheme meets endless replayability – can you become the ultimate sky hopper?",
+      tags: ["arcade","jumping game","vertical scroller","skill game","sky hopper"],
+      publishDate: "2025-11-03",
+      imageUrl: "/images/game-20.webp",
+      imageAlt: "A vibrant screenshot of the Sky Hopper game, featuring a character bouncing on platforms in the sky.",
+      seo: {
+        title: "SKY HOPPER - Bounce Your Way to Victory! - Play Free Online",
+        description: "Reach for the sky in Sky Hopper! Jump between platforms, avoid falling, and compete for the highest score. Addictive arcade fun awaits! Play now!",
+        keywords: "sky hopper, jumping game, arcade game, vertical game, platform game, high score, endless runner, online game, free game",
+      },
+      addressBar: "sky-hopper",
+      detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <h2>SKY HOPPER</h2>
+      <p>Embark on an exhilarating journey to the heavens with Sky Hopper, the ultimate vertical jumping experience! Prepare to test your reflexes and precision as you navigate a treacherous landscape of platforms, all while striving to achieve the highest score possible. This isn't just a game; it's an addictive challenge that will have you hooked from the very first bounce! Sky Hopper provides hours of fun for players of all skill levels!</p>
+      
+      <h3>About</h3>
+      <p>Sky Hopper is an endless vertical jumper where the goal is simple: bounce as high as you can! The game features intuitive controls, making it easy for anyone to pick up and play. Whether you prefer using a keyboard on your desktop or the on-screen buttons on your mobile device, mastering the art of hopping is the key to success. However, don't be fooled by its simplicity! Sky Hopper demands quick thinking and precise timing to avoid falling off the bottom of the screen or colliding with obstacles. The higher you climb, the more challenging the environment becomes, ensuring a constantly engaging and rewarding experience. Become the ultimate Sky Hopper and dominate the leaderboards!</p>
+      
+      <h3>Features</h3>
+      <ul>
+        <li><b>Endless Vertical Gameplay:</b> Experience the thrill of an infinitely scaling challenge, where the only limit is your skill!</li>
+        <li><b>Intuitive Controls:</b> Easy-to-learn controls make it accessible for players of all ages and skill levels. Use A/D or arrow keys on desktop, or on-screen buttons on mobile.</li>
+        <li><b>Challenging Obstacles:</b> Avoid a variety of obstacles that will test your reflexes and timing.</li>
+        <li><b>Score Tracking:</b> Track your progress and compete against yourself to beat your previous high scores.</li>
+        <li><b>Mobile and Desktop Support:</b> Play Sky Hopper anywhere, anytime, on your favorite device.</li>
+        <li><b>Addictive Gameplay Loop:</b> Experience the rush of constantly improving and pushing your limits in this highly replayable arcade game.</li>
+        <li><b>Vibrant Visuals:</b> Enjoy a colorful and visually appealing game environment that enhances the overall experience.</li>
+        <li><b>Simple yet Engaging:</b> Sky Hopper’s straightforward concept is combined with a level of skill needed to reach new heights, keeping you on the edge of your seat.</li>
+      </ul>
+      
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <div class="faq-question">How do I play Sky Hopper?</div>
+          <div class="faq-answer">On desktop, use the A/Left arrow key to move left and the D/Right arrow key to move right. On mobile, use the on-screen buttons to control your movements.</div>
+        </li>
+        <li>
+          <div class="faq-question">What is the goal of the game?</div>
+          <div class="faq-answer">The goal is to climb as high as possible by bouncing on platforms and avoiding obstacles. Your score is based on the height you reach.</div>
+        </li>
+        <li>
+          <div class="faq-question">How do I increase my score?</div>
+          <div class="faq-answer">Climb higher and avoid falling. Each platform you successfully land on adds to your score. Reaching new heights gives you bigger score multiplier bonuses!</div>
+        </li>
+        <li>
+          <div class="faq-question">What happens if I fall off the bottom of the screen?</div>
+          <div class="faq-answer">If you fall off the bottom of the screen, the game is over, and your score is recorded. You can then choose to play again and try to beat your previous high score.</div>
+        </li>
+        <li>
+          <div class="faq-question">Is Sky Hopper free to play?</div>
+          <div class="faq-answer">Yes, Sky Hopper is completely free to play! Enjoy endless hours of hopping fun without any cost.</div>
+        </li>
+        <li>
+          <div class="faq-question">Can I play Sky Hopper on my mobile device?</div>
+          <div class="faq-answer">Yes! Sky Hopper is optimized for both desktop and mobile devices. You can play it on your smartphone or tablet.</div>
+        </li>
+      </ul>
+      
+      <p>Sky Hopper offers a perfect blend of simple mechanics and addictive gameplay. With its intuitive controls and endless vertical challenge, this game is sure to provide hours of entertainment for players of all ages. So, what are you waiting for? Lace up your bouncing shoes, prepare for a sky-high adventure, and see how high you can climb in Sky Hopper!</p>
+    </div>`,
     }
 
 
