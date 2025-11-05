@@ -65,7 +65,7 @@
                 </div>
               </div>
               <button @click="openAddModal(pageId)" class="add-review-btn">
-                + 添加评论
+                + 添加评论/评分
               </button>
             </div>
 
@@ -92,7 +92,8 @@
                       </div>
                       <span class="rating-value">{{ comment.rating }}/5</span>
                     </div>
-                    <div class="review-text">{{ comment.text }}</div>
+                    <div v-if="comment.text" class="review-text">{{ comment.text }}</div>
+                    <div v-if="!comment.text && comment.rating" class="review-text-only-rating">仅评分，无评论</div>
                   </div>
                   <div class="review-actions">
                     <button @click="openEditModal(pageId, comment)" class="edit-btn">
@@ -114,7 +115,7 @@
     <div v-if="showModal" class="modal-overlay" @click="closeModal">
       <div class="modal-content" @click.stop>
         <div class="modal-header">
-          <h3>{{ isEditing ? '编辑评论' : '添加评论' }}</h3>
+          <h3>{{ isEditing ? '编辑评论/评分' : '添加评论/评分' }}</h3>
           <button @click="closeModal" class="close-btn">×</button>
         </div>
         
@@ -124,18 +125,7 @@
           </div>
           
           <div class="form-group">
-            <label for="reviewer-name">姓名 *</label>
-            <input
-              id="reviewer-name"
-              v-model="modalForm.name"
-              type="text"
-              placeholder="请输入评论者姓名"
-              required
-            />
-          </div>
-          
-          <div class="form-group">
-            <label for="review-rating">评分 *</label>
+            <label for="review-rating">评分 <span class="required">*</span></label>
             <div class="rating-input">
               <span
                 v-for="n in 5"
@@ -149,13 +139,22 @@
           </div>
           
           <div class="form-group">
-            <label for="review-text">评论内容 *</label>
+            <label for="reviewer-name">姓名 <span class="optional">(可选)</span></label>
+            <input
+              id="reviewer-name"
+              v-model="modalForm.name"
+              type="text"
+              placeholder="请输入评论者姓名（可选，默认：Anonymous）"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="review-text">评论内容 <span class="optional">(可选)</span></label>
             <textarea
               id="review-text"
               v-model="modalForm.text"
               rows="4"
-              placeholder="请输入评论内容"
-              required
+              placeholder="请输入评论内容（可选）"
             ></textarea>
           </div>
           
@@ -174,7 +173,7 @@
         <div class="modal-footer">
           <button @click="closeModal" class="cancel-btn">取消</button>
           <button @click="saveReview" class="save-btn" :disabled="!isFormValid">
-            {{ isEditing ? '更新' : '添加' }}评论
+            {{ isEditing ? '更新' : '添加' }}{{ modalForm.text ? '评论' : '评分' }}
           </button>
         </div>
       </div>
@@ -229,9 +228,8 @@ const totalRatings = computed(() => {
 })
 
 const isFormValid = computed(() => {
-  return modalForm.value.name.trim() && 
-         modalForm.value.rating > 0 && 
-         modalForm.value.text.trim()
+  // 只要求评分必须，姓名和评论内容可选
+  return modalForm.value.rating > 0
 })
 
 // 方法
@@ -361,8 +359,8 @@ const saveReview = async () => {
     
     const reviewData = {
       pageId: currentPageId.value,
-      name: modalForm.value.name.trim(),
-      text: modalForm.value.text.trim(),
+      name: modalForm.value.name?.trim() || 'Anonymous',
+      text: modalForm.value.text?.trim() || null,
       rating: modalForm.value.rating > 0 ? modalForm.value.rating : null,
       timestamp: finalTimestamp
     }
@@ -664,6 +662,24 @@ onMounted(() => {
 .review-text {
   color: #374151;
   line-height: 1.5;
+}
+
+.review-text-only-rating {
+  color: #9ca3af;
+  margin-top: 8px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.required {
+  color: #ff6b6b;
+  font-size: 12px;
+}
+
+.optional {
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 .review-actions {

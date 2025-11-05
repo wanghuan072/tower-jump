@@ -449,8 +449,9 @@ const addManualFeedback = async (req, res) => {
   const hasText = text && text.trim().length > 0;
   const hasRating = rating !== null && rating !== undefined && rating > 0;
   
-  if (!hasName || (!hasText && !hasRating)) {
-    return res.status(400).json({ message: '姓名和至少一个反馈内容（评论或评分）是必需的' });
+  // 只要求评分必须，姓名和评论可选
+  if (!hasRating) {
+    return res.status(400).json({ message: '评分是必需的' });
   }
 
   if (text && text.trim().length > 500) {
@@ -484,9 +485,12 @@ const addManualFeedback = async (req, res) => {
   }
 
   try {
+    const finalName = hasName ? name.trim() : 'Anonymous';
+    const finalText = hasText ? text.trim() : null;
+    
     const newFeedback = await sql(`
       INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, email, text, rating, added_by_admin, created_at)
-      VALUES ('${pageId}', '${name.trim()}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, ${text?.trim() ? `'${text.trim()}'` : 'NULL'}, ${rating || 'NULL'}, TRUE, '${finalTimestamp}')
+      VALUES ('${pageId}', '${finalName}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, ${finalText ? `'${finalText}'` : 'NULL'}, ${rating}, TRUE, '${finalTimestamp}')
       RETURNING id, name, email, text, rating, added_by_admin, created_at as timestamp
     `);
 
@@ -508,8 +512,9 @@ const updateFeedback = async (req, res) => {
   const hasText = text && text.trim().length > 0;
   const hasRating = rating !== null && rating !== undefined && rating > 0;
   
-  if (!hasName || (!hasText && !hasRating)) {
-    return res.status(400).json({ message: '姓名和至少一个反馈内容（评论或评分）是必需的' });
+  // 只要求评分必须，姓名和评论可选
+  if (!hasRating) {
+    return res.status(400).json({ message: '评分是必需的' });
   }
 
   // 处理时间戳
@@ -542,13 +547,16 @@ const updateFeedback = async (req, res) => {
     }
 
     // 更新反馈
+    const finalName = hasName ? name.trim() : 'Anonymous';
+    const finalText = hasText ? text.trim() : null;
+    
     const updatedFeedback = await sql(`
       UPDATE ${PROJECT_PREFIX}_feedback 
       SET 
-        name = '${name.trim()}',
+        name = '${finalName}',
         email = ${email?.trim() ? `'${email.trim()}'` : 'NULL'},
-        text = ${text?.trim() ? `'${text.trim()}'` : 'NULL'},
-        rating = ${rating || 'NULL'},
+        text = ${finalText ? `'${finalText}'` : 'NULL'},
+        rating = ${rating},
         created_at = '${finalTimestamp}'
       WHERE id = ${feedbackId} AND game_address_bar = '${pageId}'
       RETURNING id, name, email, text, rating, added_by_admin, created_at as timestamp

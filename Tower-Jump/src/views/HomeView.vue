@@ -2,14 +2,14 @@
   <div class="home">
     <header class="site-header">
       <div class="container">
-        <div class="brand">
-          <img src="/images/logo.png" alt="Tower Jump Logo" class="logo" />
-          <span class="brand-text">Tower Jump</span>
+        <div class="logo">
+          <img src="/images/logo.webp" alt="Tower Jump Logo" class="logo-image" />
+          <span class="logo-text">Tower Jump</span>
         </div>
         <nav class="nav" aria-label="Main navigation">
           <a class="nav-link" href="/">Home</a>
           <div class="nav-link" @click="scrollTo('about')">About</div>
-          <div class="nav-link" @click="scrollTo('games')">Games</div>
+          <div class="nav-link" @click="scrollTo('games')">All Games</div>
         </nav>
       </div>
     </header>
@@ -17,16 +17,24 @@
     <main>
       <div class="container">
         <section class="game-layout">
-            <div class="game-content" :class="{ 'page-fullscreen': isPageFullscreen }">
+            <div class="game-content" :class="{ 'page-fullscreen': isPageFullscreen, 'is-playing': isPlaying }">
             <section ref="gameRef" class="game-section">
               <h1 class="game-title">Play {{ currentGame?.title || 'Tower Jump' }} Online</h1>
               <p class="game-subtitle">Lightweight, fast, play instantly</p>
               <div class="game-iframe-container">
                 <div class="game-iframe-wrapper">
-                  <iframe v-if="isPlaying" ref="gameIframe" class="game-iframe" :src="iframeSrc" :title="currentGame?.title || 'Game'"
-                    allowfullscreen @load="onFrameLoad"></iframe>
+                  <iframe 
+                    ref="gameIframe" 
+                    class="game-iframe" 
+                    :class="{ 'is-visible': isPlaying }" 
+                    :src="isPlaying ? iframeSrc : ''" 
+                    :title="currentGame?.title || 'Game'"
+                    allowfullscreen 
+                    allow="autoplay; fullscreen; gamepad; microphone; camera; payment; geolocation"
+                    @load="onFrameLoad"
+                  ></iframe>
 
-                  <div v-if="!isPlaying" class="game-play-overlay">
+                  <div v-if="!isPlaying" class="game-play-overlay" style="z-index: 10;">
                     <div class="overlay-backdrop"></div>
                     <div class="overlay-content">
                       <img class="overlay-logo" :src="currentGame?.imageUrl || '/images/logo.png'" alt="Game logo"
@@ -149,7 +157,7 @@
           <!-- 左侧：Logo和简介 -->
           <div class="footer-brand">
             <div class="footer-logo-section">
-              <img src="/images/logo.png" alt="Tower Jump Logo" class="footer-logo" />
+              <img src="/images/logo.webp" alt="Tower Jump Logo" class="footer-logo" />
               <div class="footer-brand-text">
                 <h3 class="footer-brand-title">Tower Jump</h3>
                 <p class="footer-description">
@@ -164,11 +172,11 @@
           <div class="footer-links-section">
             <h4 class="footer-links-title">Quick Links</h4>
             <div class="footer-links">
-              <a href="/about" class="footer-link">About</a>
-              <a href="/contact" class="footer-link">Contact</a>
+              <a href="/about" class="footer-link">About Us</a>
+              <a href="/contact" class="footer-link">Contact Us</a>
               <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
               <a href="/terms-of-service" class="footer-link">Terms of Service</a>
-              <a href="/copyright" class="footer-link">Copyright</a>
+              <a href="/copyright" class="footer-link">Copyright Policy</a>
             </div>
           </div>
 
@@ -239,10 +247,6 @@ function getGameUrl(game) {
   return isFirstGame ? '/' : `/${game.addressBar}`
 }
 
-
-
-
-
 // 游戏切换功能
 function switchGame(game) {
   if (!game || !game.addressBar) return
@@ -265,19 +269,39 @@ function initializeGame() {
     currentGame.value = game
     // 设置游戏SEO
     setGameSEO(addressBar)
+    // 不预先设置 iframe src，只在用户点击播放时加载（提升性能）
+    iframeSrc.value = ''
   } else {
     // 如果没找到游戏，使用第一个游戏
     currentGame.value = games[0] || null
     // 设置默认SEO
     resetSEO()
+    // 不预先设置 iframe src
+    iframeSrc.value = ''
   }
 }
 
 // 游戏播放控制
 function startPlay() {
   if (isPlaying.value) return
+  
+  // 设置 iframe src（延迟加载，只在用户点击时加载）
   iframeSrc.value = currentGame.value?.iframeUrl || '/TowerJump.html'
+  
   isPlaying.value = true
+  
+  // 确保 iframe 获得焦点，提升性能
+  nextTick(() => {
+    if (gameIframe.value) {
+      gameIframe.value.focus()
+      // 为游戏提供额外的性能优化
+      try {
+        gameIframe.value.contentWindow?.focus()
+      } catch (e) {
+        // 跨域限制，忽略错误
+      }
+    }
+  })
 }
 
 // 浏览器全屏（iframe 元素）
@@ -372,11 +396,17 @@ watch(() => route.params.addressBar, (newAddressBar) => {
       currentGame.value = game
       // 更新SEO
       setGameSEO(newAddressBar)
+      // 如果游戏切换，重置播放状态和iframe src
+      isPlaying.value = false
+      iframeSrc.value = ''
     }
   } else {
     // 回到首页，使用默认SEO
     currentGame.value = games[0] || null
     resetSEO()
+    // 如果切换到第一个游戏，重置播放状态
+    isPlaying.value = false
+    iframeSrc.value = ''
   }
 })
 
@@ -418,6 +448,8 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   opacity: 0.6;
+  /* 游戏运行时降低动画性能消耗 */
+  will-change: auto;
 }
 
 /* 背景装饰 - 光晕效果（右侧） */
@@ -434,6 +466,17 @@ onUnmounted(() => {
   z-index: 0;
   animation: float 20s ease-in-out infinite;
   filter: blur(40px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  /* 游戏运行时暂停动画以提升性能 */
+  animation-play-state: running;
+}
+
+/* 当游戏运行时，降低背景动画性能消耗 */
+.game-content.is-playing .home::after,
+.game-content.page-fullscreen .home::after {
+  animation-play-state: paused;
+  opacity: 0.3;
 }
 
 /* 背景装饰 - 光晕效果（左侧） */
@@ -450,19 +493,28 @@ onUnmounted(() => {
   z-index: 0;
   animation: floatReverse 25s ease-in-out infinite;
   filter: blur(40px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* 当游戏运行时，降低背景动画性能消耗 */
+.game-content.is-playing .home > main::before,
+.game-content.page-fullscreen .home > main::before {
+  animation-play-state: paused;
+  opacity: 0.3;
 }
 
 @keyframes floatReverse {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) translateZ(0) scale(1);
     opacity: 0.4;
   }
   33% {
-    transform: translate(40px, 60px) scale(1.15);
+    transform: translate(40px, 60px) translateZ(0) scale(1.15);
     opacity: 0.5;
   }
   66% {
-    transform: translate(-40px, -40px) scale(0.85);
+    transform: translate(-40px, -40px) translateZ(0) scale(0.85);
     opacity: 0.3;
   }
 }
@@ -470,15 +522,15 @@ onUnmounted(() => {
 /* 光晕浮动动画 */
 @keyframes float {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) translateZ(0) scale(1);
     opacity: 0.5;
   }
   33% {
-    transform: translate(-30px, -50px) scale(1.1);
+    transform: translate(-30px, -50px) translateZ(0) scale(1.1);
     opacity: 0.6;
   }
   66% {
-    transform: translate(30px, 50px) scale(0.9);
+    transform: translate(30px, 50px) translateZ(0) scale(0.9);
     opacity: 0.4;
   }
 }
@@ -489,7 +541,7 @@ onUnmounted(() => {
   position: fixed;
   top: 10%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, rgba(100, 150, 255, 0.15) 0%, rgba(100, 150, 255, 0.05) 40%, transparent 70%);
@@ -498,16 +550,24 @@ onUnmounted(() => {
   z-index: 0;
   animation: pulse 8s ease-in-out infinite;
   filter: blur(30px);
+  will-change: transform, opacity;
+}
+
+/* 当游戏运行时，降低背景动画性能消耗 */
+.game-content.is-playing .home > main::after,
+.game-content.page-fullscreen .home > main::after {
+  animation-play-state: paused;
+  opacity: 0.2;
 }
 
 @keyframes pulse {
   0%, 100% {
     opacity: 0.3;
-    transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) translateZ(0) scale(1);
   }
   50% {
     opacity: 0.5;
-    transform: translateX(-50%) scale(1.2);
+    transform: translateX(-50%) translateZ(0) scale(1.2);
   }
 }
 
@@ -542,7 +602,7 @@ onUnmounted(() => {
 }
 
 
-.brand {
+.logo {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -550,13 +610,13 @@ onUnmounted(() => {
   letter-spacing: 0.5px;
 }
 
-.logo {
+.logo-image {
   width: 32px;
   height: 32px;
   border-radius: 6px;
 }
 
-.brand-text {
+.logo-text {
   font-size: 18px;
   background: linear-gradient(135deg, #ff6b6b, #ffd700);
   -webkit-background-clip: text;
@@ -637,11 +697,20 @@ onUnmounted(() => {
     0 10px 30px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  /* 使用 contain 隔离游戏渲染，避免父页面影响 */
+  contain: layout style paint;
+  /* 为游戏提供硬件加速 */
+  transform: translateZ(0);
+  /* 为游戏提供独立的合成层 */
+  will-change: contents;
 }
 
 .game-iframe-wrapper {
   position: absolute;
   inset: 0;
+  transform: translateZ(0);
+  /* 为游戏提供独立的渲染层 */
+  isolation: isolate;
 }
 
 .game-iframe-container iframe {
@@ -654,10 +723,23 @@ onUnmounted(() => {
 
 .game-iframe {
   opacity: 0;
-  transition: opacity 0.2s ease-out;
+  transition: opacity 0.3s ease-out;
+  transform: translateZ(0);
+  /* 游戏运行时始终启用交互 */
+  pointer-events: auto;
+  /* 确保游戏有独立的渲染上下文和合成层 */
+  isolation: isolate;
+  /* 防止父页面影响游戏性能，但不要使用 strict（可能影响游戏渲染） */
+  contain: layout style paint;
+  /* 为游戏提供独立的渲染层 */
+  will-change: contents;
 }
 
 .game-iframe.is-loaded {
+  opacity: 1;
+}
+
+.game-iframe.is-visible {
   opacity: 1;
 }
 

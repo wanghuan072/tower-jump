@@ -6,11 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node api/index.js",
-    "dev": "node --watch api/index.js",
-    "setup": "node quick-setup.js",
-    "init-db": "node scripts/init-database.js",
-    "init-local": "node init-local-db.js",
-    "init-ratings": "node scripts/init-ratings.js"
+    "dev": "node --watch api/index.js"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.0",

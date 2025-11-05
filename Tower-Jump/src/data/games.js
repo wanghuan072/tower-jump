@@ -6,7 +6,7 @@ export const games = [
     keywords: "Tower Jump is a lightweight, fast vertical jumping game you can play instantly in your browser.", // SEO关键词
     addressBar: "tower-jump", // URL路径标识符
     publishDate: "2025-09-16", // 发布日期
-    imageUrl: "/images/logo.png", // 游戏封面图
+    imageUrl: "/images/game-01.webp", // 游戏封面图
     imageAlt: "Tower Jump", // 图片alt文本
     iframeUrl: "/TowerJump.html", // 游戏iframe地址
     isNew: false, // 是否为新游戏

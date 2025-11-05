@@ -1,7 +1,7 @@
 <template>
   <div class="game-list">
     <div class="grid">
-      <a v-for="game in games" :key="game.id" :href="getGameUrl(game)" class="card">
+      <a v-for="game in displayedGames" :key="game.id" :href="getGameUrl(game)" class="card">
         <div class="thumb">
           <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
         </div>
@@ -11,14 +11,33 @@
         </div>
       </a>
     </div>
+    <div v-if="!showAll && games.length > initialLimit" class="load-more-container">
+      <button @click="loadMore" class="load-more-btn">
+        More Games
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
 // 通用游戏列表组件（可移植）
 // 中文提示：如需跨项目自定义列数、卡片信息或点击行为，可在此组件扩展 props 与样式
 
 import { games } from '@/data/games.js'
+
+const initialLimit = 16 // 默认显示2行16个游戏（每行8个）
+const showAll = ref(false)
+
+// 计算显示的游戏列表
+const displayedGames = computed(() => {
+  return showAll.value ? games : games.slice(0, initialLimit)
+})
+
+// 加载更多
+function loadMore() {
+  showAll.value = true
+}
 
 // 生成游戏URL
 function getGameUrl(game) {
@@ -114,6 +133,34 @@ function formatDate(dateString) {
   }
 }
 
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.load-more-btn {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.load-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+}
+
 @media (prefers-color-scheme: dark) {
   .card {
     background: #111215;
@@ -131,6 +178,15 @@ function formatDate(dateString) {
   }
   .date {
     color: #9ca3af;
+  }
+  
+  .load-more-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+  
+  .load-more-btn:hover {
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
   }
 }
 </style>

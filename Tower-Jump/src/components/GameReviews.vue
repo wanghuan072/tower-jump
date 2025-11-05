@@ -16,22 +16,10 @@
 
     <!-- 写评论 -->
     <div class="comments-panel">
-      <h3 class="panel-title">Write Your Review</h3>
+      <h3 class="panel-title">Rate & Review</h3>
       <form @submit.prevent="submitReview" class="review-form">
         <div class="form-group">
-          <label for="nickname">Nickname</label>
-          <input
-            id="nickname"
-            v-model="form.nickname"
-            type="text"
-            placeholder="Enter your nickname"
-            required
-            class="form-input"
-          />
-        </div>
-        
-        <div class="form-group">
-          <label>Rating</label>
+          <label for="rating">Rating <span class="required">*</span></label>
           <div class="rating-input">
             <button
               v-for="i in 5"
@@ -48,16 +36,27 @@
             >
               ★
             </button>
+            <span v-if="form.rating > 0" class="rating-hint">{{ form.rating }} star{{ form.rating > 1 ? 's' : '' }}</span>
           </div>
         </div>
         
         <div class="form-group">
-          <label for="comment">Comment</label>
+          <label for="nickname">Nickname <span class="optional">(Optional)</span></label>
+          <input
+            id="nickname"
+            v-model="form.nickname"
+            type="text"
+            placeholder="Enter your nickname (optional)"
+            class="form-input"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="comment">Comment <span class="optional">(Optional)</span></label>
           <textarea
             id="comment"
             v-model="form.comment"
-            placeholder="Share your thoughts about this game..."
-            required
+            placeholder="Share your thoughts about this game... (optional)"
             rows="4"
             class="form-textarea"
           ></textarea>
@@ -65,11 +64,11 @@
         
         <button
           type="submit"
-          :disabled="submitting || !canSubmit"
+          :disabled="submitting || !canSubmit || !form.rating"
           class="submit-btn"
-          :class="{ disabled: submitting || !canSubmit }"
+          :class="{ disabled: submitting || !canSubmit || !form.rating }"
         >
-          {{ submitting ? 'Submitting...' : canSubmit ? 'Submit Review' : `Wait ${remainingTime}s` }}
+          {{ submitting ? 'Submitting...' : canSubmit ? (form.comment ? 'Submit Review' : 'Submit Rating') : `Wait ${remainingTime}s` }}
         </button>
       </form>
     </div>
@@ -88,7 +87,7 @@
             </div>
             <span class="review-date">{{ formatDate(review.timestamp) }}</span>
           </div>
-          <div class="review-content">{{ review.text }}</div>
+          <div v-if="review.text" class="review-content">{{ review.text }}</div>
         </div>
       </div>
     </div>
@@ -96,7 +95,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { commentAPI, ratingAPI } from '@/services/api.js'
 
 // Props
@@ -210,7 +209,8 @@ const loadData = async () => {
 
 // 提交评论和评分（一起提交）
 async function submitReview() {
-  if (!form.value.nickname || !form.value.comment || !form.value.rating || submitting.value) return
+  // 只要求评分必须，其他可选
+  if (!form.value.rating || submitting.value) return
   
   // 检查时间限制
   if (!canSubmit.value) {
@@ -219,16 +219,29 @@ async function submitReview() {
   }
   
   submitting.value = true
+  // 保存是否有评论的状态（在清空表单前）
+  const hasComment = form.value.comment && form.value.comment.trim()
+  
   try {
-    // 提交评论（包含评分信息）
-    const commentData = {
-      pageId: props.gameId,
-      name: form.value.nickname,
-      text: form.value.comment,
-      rating: form.value.rating
+    // 如果有评论，提交评论（包含评分信息）
+    if (hasComment) {
+      const commentData = {
+        pageId: props.gameId,
+        name: form.value.nickname?.trim() || 'Anonymous',
+        text: form.value.comment.trim(),
+        rating: form.value.rating
+      }
+      
+      await commentAPI.submitComment(commentData)
+    } else {
+      // 如果只有评分，提交评分
+      const ratingData = {
+        pageId: props.gameId,
+        rating: form.value.rating
+      }
+      
+      await ratingAPI.submitRating(ratingData)
     }
-    
-    await commentAPI.submitComment(commentData)
     
     // 记录提交时间
     lastSubmitTime.value = Date.now()
@@ -245,7 +258,8 @@ async function submitReview() {
     // 重新加载数据
     await loadData()
     
-    alert('✅ Review submitted successfully!')
+    const message = hasComment ? '✅ Review submitted successfully!' : '✅ Rating submitted successfully!'
+    alert(message)
   } catch (error) {
     console.error('提交失败:', error)
     if (error.message.includes('Failed to fetch')) {
@@ -286,7 +300,6 @@ onUnmounted(() => {
 })
 
 // 监听 gameId 变化
-import { watch } from 'vue'
 watch(() => props.gameId, () => {
   loadData()
 })
@@ -393,7 +406,26 @@ watch(() => props.gameId, () => {
 
 .rating-input {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rating-hint {
+  color: #ffd700;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.required {
+  color: #ff6b6b;
+  font-size: 12px;
+}
+
+.optional {
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 .star-btn {
@@ -513,3 +545,4 @@ watch(() => props.gameId, () => {
   }
 }
 </style>
+

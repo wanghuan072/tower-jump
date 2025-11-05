@@ -65,8 +65,14 @@ app.post('/comments', async (req, res) => {
   try {
     const { pageId, name, email, text, rating } = req.body;
     
-    if (!pageId || !name || !text) {
-      return res.status(400).json({ message: '缺少必要字段' });
+    // 只要求 pageId 必须，其他字段可选
+    if (!pageId) {
+      return res.status(400).json({ message: '缺少必要字段 pageId' });
+    }
+    
+    // 至少需要评分或评论
+    if (!text && !rating) {
+      return res.status(400).json({ message: '至少需要提供评分或评论' });
     }
     
     const sql = (await import('@neondatabase/serverless')).neon(process.env.DATABASE_URL);
@@ -81,9 +87,14 @@ app.post('/comments', async (req, res) => {
       }
     }
     
+    // 如果没有提供 name，使用默认值
+    const userName = name?.trim() || 'Anonymous';
+    // 如果没有提供 text，允许为 NULL
+    const commentText = text?.trim() || null;
+    
     const newComment = await sql(`
       INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, email, text, rating, added_by_admin)
-      VALUES ('${pageId}', '${name.trim()}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, '${text.trim()}', ${validRating || 'NULL'}, FALSE)
+      VALUES ('${pageId}', '${userName}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, ${commentText ? `'${commentText}'` : 'NULL'}, ${validRating || 'NULL'}, FALSE)
       RETURNING id, name, email, text, rating, created_at as timestamp
     `);
     
@@ -131,7 +142,7 @@ app.post('/ratings', async (req, res) => {
     
     await sql(`
       INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, rating, added_by_admin)
-      VALUES ('${pageId}', '用户评分', ${rating}, FALSE)
+      VALUES ('${pageId}', 'Anonymous', ${rating}, FALSE)
     `);
     
     // 获取更新后的评分统计
