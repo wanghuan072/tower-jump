@@ -9,7 +9,8 @@
     "dev": "node --watch api/index.js",
     "setup": "node quick-setup.js",
     "init-db": "node scripts/init-database.js",
-    "init-local": "node init-local-db.js"
+    "init-local": "node init-local-db.js",
+    "init-ratings": "node scripts/init-ratings.js"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.0",

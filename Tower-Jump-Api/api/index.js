@@ -189,7 +189,7 @@ app.get('/ratings', async (req, res) => {
         COUNT(CASE WHEN rating = 4 THEN 1 END) as rating_4,
         COUNT(CASE WHEN rating = 5 THEN 1 END) as rating_5
       FROM ${PROJECT_PREFIX}_feedback 
-      WHERE game_address_bar = '${pageId}' AND rating IS NOT NULL AND text IS NOT NULL
+      WHERE game_address_bar = '${pageId}' AND rating IS NOT NULL
     `);
     
     const result = stats[0] || { count: 0, average: 0, rating_1: 0, rating_2: 0, rating_3: 0, rating_4: 0, rating_5: 0 };

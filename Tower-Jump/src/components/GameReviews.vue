@@ -11,16 +11,6 @@
           </div>
           <span class="total-count">({{ ratingStats.count }} reviews)</span>
         </div>
-        
-        <div class="rating-breakdown">
-          <div v-for="rating in 5" :key="rating" class="rating-bar">
-            <span class="rating-label">{{ rating }}★</span>
-            <div class="bar-container">
-              <div class="bar-fill" :style="{ width: getRatingPercentage(rating) + '%' }"></div>
-            </div>
-            <span class="rating-count">{{ getRatingCount(rating) }}</span>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -145,17 +135,6 @@ const averageRating = computed(() => {
   return typeof avg === 'number' ? avg : 0
 })
 
-// 获取评分数量
-function getRatingCount(rating) {
-  return ratingStats.value.ratings?.[String(rating)] || 0
-}
-
-// 获取评分百分比
-function getRatingPercentage(rating) {
-  const count = getRatingCount(rating)
-  const total = ratingStats.value.count || 1
-  return Math.round((count / total) * 100)
-}
 
 // 检查是否可以提交
 function checkCanSubmit() {
@@ -317,7 +296,6 @@ watch(() => props.gameId, () => {
 .comments-sidebar {
   width: 100%;
   max-width: 400px;
-  padding: 0 20px;
 }
 
 .comments-panel {
@@ -375,44 +353,6 @@ watch(() => props.gameId, () => {
   font-size: 14px;
 }
 
-.rating-breakdown {
-  text-align: left;
-}
-
-.rating-bar {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  gap: 8px;
-}
-
-.rating-label {
-  width: 30px;
-  color: #e8e8ee;
-  font-size: 14px;
-}
-
-.bar-container {
-  flex: 1;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #ff6b6b, #ffd700);
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-.rating-count {
-  width: 30px;
-  text-align: right;
-  color: #888;
-  font-size: 12px;
-}
 
 /* 表单样式 */
 .form-group {

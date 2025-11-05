@@ -95,6 +95,21 @@
               </div>
             </section>
 
+            <!-- Hot Games 板块 -->
+            <section v-if="hotGames.length > 0" class="hot-games-section">
+              <h2 class="section-title">Hot Games</h2>
+              <div class="hot-games-grid">
+                <a v-for="game in hotGames" :key="game.id" :href="getGameUrl(game)" class="hot-game-card">
+                  <div class="hot-game-thumb">
+                    <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
+                  </div>
+                  <div class="hot-game-meta">
+                    <h3 class="hot-game-title">{{ game.title }}</h3>
+                  </div>
+                </a>
+              </div>
+            </section>
+
             <section id="about" ref="aboutRef" class="about-section">
               <h2 class="section-title">About {{ currentGame?.title || 'Tower Jump' }}</h2>
               <div class="about-content" v-html="currentGame?.detailsHtml"></div>
@@ -102,7 +117,22 @@
           </div>
 
           <aside class="comments-sidebar">
-            <GameReviews :game-id="currentGame?.id || 1" />
+            <!-- New Games 板块 -->
+            <section v-if="newGames.length > 0" class="new-games-section">
+              <h3 class="panel-title">New Games</h3>
+              <div class="new-games-grid">
+                <a v-for="game in newGames" :key="game.id" :href="getGameUrl(game)" class="new-game-card">
+                  <div class="new-game-thumb">
+                    <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
+                  </div>
+                  <div class="new-game-meta">
+                    <h4 class="new-game-title">{{ game.title }}</h4>
+                  </div>
+                </a>
+              </div>
+            </section>
+
+            <GameReviews :game-id="currentGame?.addressBar || 'tower-jump'" />
           </aside>
         </section>
 
@@ -115,16 +145,49 @@
 
     <footer class="site-footer">
       <div class="container">
-        <div class="footer-bottom">
-          <span class="copyright">© {{ new Date().getFullYear() }} {{ currentGame?.title || 'Tower Jump' }}</span>
-          <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">Back to Top ↑</a>
+        <div class="footer-content">
+          <!-- 左侧：Logo和简介 -->
+          <div class="footer-brand">
+            <div class="footer-logo-section">
+              <img src="/images/logo.png" alt="Tower Jump Logo" class="footer-logo" />
+              <div class="footer-brand-text">
+                <h3 class="footer-brand-title">Tower Jump</h3>
+                <p class="footer-description">
+                  Play Tower Jump and other exciting jumping games instantly in your browser. 
+                  No download required! Lightweight, fast, and fun for everyone.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 中间：链接 -->
+          <div class="footer-links-section">
+            <h4 class="footer-links-title">Quick Links</h4>
+            <div class="footer-links">
+              <a href="/about" class="footer-link">About</a>
+              <a href="/contact" class="footer-link">Contact</a>
+              <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+              <a href="/terms-of-service" class="footer-link">Terms of Service</a>
+              <a href="/copyright" class="footer-link">Copyright</a>
+            </div>
+          </div>
+
+          <!-- 右侧：返回顶部 -->
+          <div class="footer-action">
+            <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 15l-6-6-6 6"/>
+              </svg>
+              <span>Back to Top</span>
+            </a>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="/about" class="footer-link">About</a>
-          <a href="/contact" class="footer-link">Contact</a>
-          <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
-          <a href="/terms-of-service" class="footer-link">Terms of Service</a>
-          <a href="/copyright" class="footer-link">Copyright</a>
+
+        <!-- 底部：Copyright -->
+        <div class="footer-bottom">
+          <p class="copyright">
+            © {{ new Date().getFullYear() }} Tower Jump. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
@@ -132,7 +195,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, watch, nextTick, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { games } from '@/data/games.js'
 import GameList from '@/components/GameList.vue'
@@ -157,6 +220,24 @@ const currentGame = ref(null)
 // 模板引用
 const gameRef = ref(null)
 const aboutRef = ref(null)
+
+// 筛选新游戏和热门游戏
+const newGames = computed(() => {
+  return games.filter(game => game.isNew === true)
+})
+
+const hotGames = computed(() => {
+  return games.filter(game => game.isHot === true)
+})
+
+// 生成游戏URL
+function getGameUrl(game) {
+  if (!game || !game.addressBar) return '#'
+  
+  // 第一个游戏使用根路径，其他游戏使用addressBar
+  const isFirstGame = games[0] && games[0].addressBar === game.addressBar
+  return isFirstGame ? '/' : `/${game.addressBar}`
+}
 
 
 
@@ -313,11 +394,127 @@ onUnmounted(() => {
 
 <style scoped>
 .home {
+  position: relative;
   background: #0f0f14;
   color: #e8e8ee;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* 背景装饰 - 网格图案 */
+.home::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* 背景装饰 - 光晕效果（右侧） */
+.home::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  right: -20%;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.25) 0%, rgba(255, 107, 107, 0.1) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 20s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+/* 背景装饰 - 光晕效果（左侧） */
+.home > main::before {
+  content: '';
+  position: fixed;
+  bottom: -30%;
+  left: -15%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatReverse 25s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(40px, 60px) scale(1.15);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-40px, -40px) scale(0.85);
+    opacity: 0.3;
+  }
+}
+
+/* 光晕浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(-30px, -50px) scale(1.1);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(30px, 50px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+/* 背景装饰 - 额外的光晕效果（中间顶部） */
+.home > main::after {
+  content: '';
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(100, 150, 255, 0.15) 0%, rgba(100, 150, 255, 0.05) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulse 8s ease-in-out infinite;
+  filter: blur(30px);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+/* 确保内容在背景之上 */
+.home > * {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -332,8 +529,9 @@ onUnmounted(() => {
   top: 0;
   z-index: 50;
   background: rgba(15, 15, 20, 0.9);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .site-header .container {
@@ -378,10 +576,14 @@ onUnmounted(() => {
   border-radius: 6px;
   cursor: pointer;
   user-select: none;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .nav-link:hover {
-  background: rgba(207, 211, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 /* 游戏布局 */
@@ -389,7 +591,7 @@ onUnmounted(() => {
   display: grid;
   grid-template-columns: 1fr 320px;
   gap: 20px;
-  padding: 20px;
+  padding: 20px 0;
   min-height: calc(100vh - 64px);
 }
 
@@ -405,6 +607,16 @@ onUnmounted(() => {
 
 .game-section .game-title {
   font-size: 28px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+.game-section .game-subtitle{
+  font-size: 14px;
+  color: #e8e8ee;
+  margin-bottom: 20px;
 }
 
 .subtitle {
@@ -421,7 +633,10 @@ onUnmounted(() => {
   border-radius: 14px;
   overflow: hidden;
   background: #111319;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .game-iframe-wrapper {
@@ -453,9 +668,11 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .controls-title {
@@ -473,21 +690,23 @@ onUnmounted(() => {
   height: 36px;
   min-width: 36px;
   padding: 0 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   color: #e8e8ee;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(5px);
 }
 
 .control-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 215, 0, 0.15) 100%);
+  border-color: rgba(255, 107, 107, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
 }
 
 .control-btn:active {
@@ -507,7 +726,7 @@ onUnmounted(() => {
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background: #1a1a1a;
+  background: #0f0f14;
   padding: 8px;
   border-radius: 0;
 }
@@ -565,9 +784,10 @@ onUnmounted(() => {
 .overlay-backdrop {
   position: absolute;
   inset: 0;
-  backdrop-filter: saturate(140%) blur(14px);
-  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  backdrop-filter: saturate(140%) blur(20px);
+  -webkit-backdrop-filter: saturate(140%) blur(20px);
   z-index: 1;
+  background: radial-gradient(circle at center, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
 }
 
 .overlay-content {
@@ -596,37 +816,65 @@ onUnmounted(() => {
   padding: 0 24px;
   border: none;
   border-radius: 999px;
-  background: #ff7aa2;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
   color: #1b1120;
   font-weight: 800;
   letter-spacing: 0.5px;
   cursor: pointer;
-  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 10px 24px rgba(255, 122, 162, 0.35);
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 10px 24px rgba(255, 107, 107, 0.4),
+    0 0 20px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
-.play-btn:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+.play-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 
-.play-btn:active {
+.play-button:hover::before {
+  left: 100%;
+}
+
+.play-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 15px 35px rgba(255, 107, 107, 0.5),
+    0 0 30px rgba(255, 215, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.play-button:active {
   transform: translateY(0) scale(0.98);
 }
 
-.play-btn:focus-visible {
+.play-button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35), 0 10px 24px rgba(255, 122, 162, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35), 0 10px 24px rgba(255, 107, 107, 0.4);
 }
 
-.play-btn .icon {
+.play-button .play-icon {
   width: 20px;
   height: 20px;
 }
 
-.section-title {
+.section-title, .panel-title {
   font-size: 24px;
   margin-bottom: 16px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 .lead {
@@ -647,16 +895,20 @@ onUnmounted(() => {
   position: relative;
   list-style: none;
   padding: 10px 12px 10px 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   line-height: 1.8;
   font-weight: 550;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .feature-list li:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+  border-color: rgba(255, 107, 107, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .section-faq {
@@ -664,11 +916,19 @@ onUnmounted(() => {
 }
 
 .faq-item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 14px 16px;
   margin-bottom: 12px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .faq-q {
@@ -690,12 +950,145 @@ onUnmounted(() => {
   gap: 16px;
 }
 
+/* New Games 板块样式 */
+.new-games-section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.new-games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.new-game-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.new-game-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 107, 107, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.new-game-thumb {
+  aspect-ratio: 1/1;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.new-game-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.new-game-card:hover .new-game-thumb img {
+  transform: scale(1.05);
+}
+
+.new-game-meta {
+  padding: 10px;
+}
+
+.new-game-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e8e8ee;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Hot Games 板块样式 */
+.hot-games-section {
+  margin: 20px 0;
+}
+
+.hot-games-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.hot-game-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: block;
+  backdrop-filter: blur(5px);
+}
+
+.hot-game-card:hover {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
+  border-color: rgba(255, 107, 107, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.hot-game-thumb {
+  aspect-ratio: 1/1;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.hot-game-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hot-game-card:hover .hot-game-thumb img {
+  transform: scale(1.1);
+}
+
+.hot-game-meta {
+  padding: 5px ;
+}
+
+.hot-game-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e8e8ee;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .comments-panel {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 16px;
   color: #e8e8ee;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .comments-title {
@@ -938,50 +1331,165 @@ onUnmounted(() => {
 /* 页脚样式 */
 .site-footer {
   margin-top: auto;
-  padding: 24px 0 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  background: #0f0f14;
+  padding: 48px 0 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 15, 20, 0.8) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr;
+  gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 左侧：Logo和简介 */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footer-brand-text {
+  flex: 1;
+}
+
+.footer-brand-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-description {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 400px;
+}
+
+/* 中间：链接 */
+.footer-links-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-links-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e8e8ee;
+  margin: 0 0 16px 0;
 }
 
 .footer-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
 .footer-link {
   color: #cfd3ff;
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 4px 0;
+  width: fit-content;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #ffd700);
+  transition: width 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #ff7aa2;
+  color: #fff;
+  transform: translateX(4px);
 }
 
-.footer-bottom {
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* 右侧：返回顶部 */
+.footer-action {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  opacity: 0.85;
-}
-
-.copyright {
-  color: #9ca3af;
-  font-size: 14px;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: #cfd3ff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 14px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .back-to-top:hover {
-  color: #ff7aa2;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 215, 0, 0.15) 100%);
+  border-color: rgba(255, 107, 107, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+}
+
+.back-to-top svg {
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* 底部：Copyright */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.copyright {
+  color: #6b7280;
+  font-size: 13px;
+  margin: 0;
+  text-align: center;
 }
 
 /* 响应式设计 */
@@ -1018,11 +1526,23 @@ onUnmounted(() => {
     padding: 0 22px;
     font-size: 15px;
   }
+
+  /* Hot Games 响应式 */
+  .hot-games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* New Games 响应式 */
+  .new-games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
 @media (max-width: 768px) {
-  .game-layout {
-    padding: 16px;
+  .container{
+    padding: 0 10px;
   }
 
   .section {
@@ -1065,6 +1585,35 @@ onUnmounted(() => {
     text-align: center;
   }
 
+  /* Footer 响应式 */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-logo-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-link {
+    width: auto;
+  }
+
+  .footer-action {
+    justify-content: center;
+  }
+
   .game-iframe-container {
     height: 60vh;
     min-height: 380px;
@@ -1087,6 +1636,35 @@ onUnmounted(() => {
 
   .comments-title {
     font-size: 14px;
+  }
+
+  /* Hot Games 移动端响应式 */
+  .hot-games-section {
+    margin: 10px 0;
+  }
+
+  .hot-games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .hot-game-title {
+    font-size: 14px;
+  }
+
+  /* New Games 移动端响应式 */
+  .new-games-section {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .new-games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .new-game-title {
+    font-size: 12px;
   }
 }
 
@@ -1273,7 +1851,6 @@ onUnmounted(() => {
   }
 
   .controls .title,
-  .panel-title,
   .rating,
   .review-skeleton,
   .about {

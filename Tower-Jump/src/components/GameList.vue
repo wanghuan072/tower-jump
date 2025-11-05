@@ -107,6 +107,13 @@ function formatDate(dateString) {
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .card {
     background: #111215;
