@@ -50,7 +50,7 @@ function formatDate(dateString) {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 16px;
 }
 
@@ -90,11 +90,11 @@ function formatDate(dateString) {
 }
 
 .meta {
-  padding: 12px 12px 14px;
+  padding: 5px;
 }
 
 .title {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.4;
   color: #111827;
   margin: 0 0 6px 0;
