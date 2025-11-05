@@ -41,34 +41,36 @@
         </div>
         
         <div class="form-group">
-          <label for="nickname">Nickname <span class="optional">(Optional)</span></label>
+          <label for="nickname">Nickname <span class="required">*</span></label>
           <input
             id="nickname"
             v-model="form.nickname"
             type="text"
-            placeholder="Enter your nickname (optional)"
+            placeholder="Enter your nickname"
             class="form-input"
+            required
           />
         </div>
         
         <div class="form-group">
-          <label for="comment">Comment <span class="optional">(Optional)</span></label>
+          <label for="comment">Comment <span class="required">*</span></label>
           <textarea
             id="comment"
             v-model="form.comment"
-            placeholder="Share your thoughts about this game... (optional)"
+            placeholder="Share your thoughts about this game..."
             rows="4"
             class="form-textarea"
+            required
           ></textarea>
         </div>
         
         <button
           type="submit"
-          :disabled="submitting || !canSubmit || !form.rating"
+          :disabled="submitting || !canSubmit || !isFormValid"
           class="submit-btn"
-          :class="{ disabled: submitting || !canSubmit || !form.rating }"
+          :class="{ disabled: submitting || !canSubmit || !isFormValid }"
         >
-          {{ submitting ? 'Submitting...' : canSubmit ? (form.comment ? 'Submit Review' : 'Submit Rating') : `Wait ${remainingTime}s` }}
+          {{ submitting ? 'Submitting...' : canSubmit ? 'Submit Review' : `Wait ${remainingTime}s` }}
         </button>
       </form>
     </div>
@@ -132,6 +134,13 @@ let timer = null
 const averageRating = computed(() => {
   const avg = ratingStats.value.average
   return typeof avg === 'number' ? avg : 0
+})
+
+// 表单验证
+const isFormValid = computed(() => {
+  return form.value.rating > 0 && 
+         form.value.nickname?.trim() && 
+         form.value.comment?.trim()
 })
 
 
@@ -209,8 +218,22 @@ const loadData = async () => {
 
 // 提交评论和评分（一起提交）
 async function submitReview() {
-  // 只要求评分必须，其他可选
-  if (!form.value.rating || submitting.value) return
+  // 验证表单：必须填写所有字段
+  if (!isFormValid.value || submitting.value) {
+    if (!form.value.rating) {
+      alert('Please select a rating')
+      return
+    }
+    if (!form.value.nickname?.trim()) {
+      alert('Please enter your nickname')
+      return
+    }
+    if (!form.value.comment?.trim()) {
+      alert('Please enter your comment')
+      return
+    }
+    return
+  }
   
   // 检查时间限制
   if (!canSubmit.value) {
@@ -219,29 +242,17 @@ async function submitReview() {
   }
   
   submitting.value = true
-  // 保存是否有评论的状态（在清空表单前）
-  const hasComment = form.value.comment && form.value.comment.trim()
   
   try {
-    // 如果有评论，提交评论（包含评分信息）
-    if (hasComment) {
-      const commentData = {
-        pageId: props.gameId,
-        name: form.value.nickname?.trim() || 'Anonymous',
-        text: form.value.comment.trim(),
-        rating: form.value.rating
-      }
-      
-      await commentAPI.submitComment(commentData)
-    } else {
-      // 如果只有评分，提交评分
-      const ratingData = {
-        pageId: props.gameId,
-        rating: form.value.rating
-      }
-      
-      await ratingAPI.submitRating(ratingData)
+    // 提交评论（包含评分信息）
+    const commentData = {
+      pageId: props.gameId,
+      name: form.value.nickname.trim(),
+      text: form.value.comment.trim(),
+      rating: form.value.rating
     }
+    
+    await commentAPI.submitComment(commentData)
     
     // 记录提交时间
     lastSubmitTime.value = Date.now()
@@ -249,17 +260,31 @@ async function submitReview() {
     startCountdown()
     
     // 清空表单
-    form.value = {
-      nickname: '',
-      rating: 0,
-      comment: ''
-    }
+    form.value.nickname = ''
+    form.value.rating = 0
+    form.value.comment = ''
     
     // 重新加载数据
-    await loadData()
+    await Promise.all([
+      loadData(),
+      ratingAPI.getRatings(props.gameId).then(data => {
+        if (data) {
+          ratingStats.value = {
+            average: parseFloat(data.average) || 0,
+            count: parseInt(data.count) || 0,
+            ratings: {
+              '1': parseInt(data.ratings?.['1']) || 0,
+              '2': parseInt(data.ratings?.['2']) || 0,
+              '3': parseInt(data.ratings?.['3']) || 0,
+              '4': parseInt(data.ratings?.['4']) || 0,
+              '5': parseInt(data.ratings?.['5']) || 0
+            }
+          }
+        }
+      })
+    ])
     
-    const message = hasComment ? '✅ Review submitted successfully!' : '✅ Rating submitted successfully!'
-    alert(message)
+    alert('✅ Review submitted successfully!')
   } catch (error) {
     console.error('提交失败:', error)
     if (error.message.includes('Failed to fetch')) {

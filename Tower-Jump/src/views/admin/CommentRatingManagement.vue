@@ -19,9 +19,21 @@
       <!-- 左侧菜单 -->
       <div class="admin-sidebar">
         <nav class="admin-menu">
-          <div class="menu-item active">
+          <div 
+            class="menu-item" 
+            :class="{ active: activeTab === 'comments' }"
+            @click="activeTab = 'comments'"
+          >
             <span class="menu-icon">💬</span>
             <span class="menu-text">评论管理</span>
+          </div>
+          <div 
+            class="menu-item" 
+            :class="{ active: activeTab === 'ratings' }"
+            @click="activeTab = 'ratings'"
+          >
+            <span class="menu-icon">⭐</span>
+            <span class="menu-text">评分管理</span>
           </div>
         </nav>
       </div>
@@ -29,7 +41,7 @@
       <!-- 右侧内容区域 -->
       <div class="admin-main">
         <div class="content-header">
-          <h2>游戏评论与评分</h2>
+          <h2>{{ activeTab === 'comments' ? '游戏评论管理' : '游戏评分管理' }}</h2>
           <div class="stats-summary">
             <div class="stat-item">
               <span class="stat-number">{{ totalGames }}</span>
@@ -64,13 +76,24 @@
                   <span class="comment-count">{{ data.comments.length }} 评论</span>
                 </div>
               </div>
-              <button @click="openAddModal(pageId)" class="add-review-btn">
+              <button 
+                v-if="activeTab === 'comments'"
+                @click="openAddModal(pageId)" 
+                class="add-review-btn"
+              >
                 + 添加评论/评分
+              </button>
+              <button 
+                v-else
+                @click="openRatingModal(pageId, data.ratings)" 
+                class="add-review-btn"
+              >
+                + 管理评分
               </button>
             </div>
 
-            <!-- 评论评分子列表 -->
-            <div class="reviews-list">
+            <!-- 评论管理 -->
+            <div v-if="activeTab === 'comments'" class="reviews-list">
               <div v-if="data.comments.length === 0" class="no-reviews">
                 暂无评论
               </div>
@@ -106,7 +129,125 @@
                 </div>
               </div>
             </div>
+
+            <!-- 评分管理 -->
+            <div v-else class="ratings-management">
+              <div class="ratings-summary">
+                <div class="summary-item">
+                  <span class="summary-label">总评分：</span>
+                  <span class="summary-value">{{ calculateTotal(data.ratings) }}</span>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">平均分：</span>
+                  <span class="summary-value">{{ calculateAverage(data.ratings) }}</span>
+                </div>
+              </div>
+              
+              <div class="ratings-breakdown">
+                <div 
+                  v-for="rating in [5, 4, 3, 2, 1]" 
+                  :key="rating" 
+                  class="rating-row"
+                >
+                  <span class="rating-label">{{ rating }} 星</span>
+                  <span class="rating-count-display">{{ data.ratings[rating] || 0 }}</span>
+                  <button 
+                    @click="openRatingEditModal(pageId, rating, data.ratings[rating] || 0)"
+                    class="edit-rating-btn"
+                  >
+                    编辑
+                  </button>
+                </div>
+              </div>
+              
+              <div class="ratings-actions">
+                <button 
+                  @click="openRatingModal(pageId, data.ratings)" 
+                  class="manage-all-ratings-btn"
+                >
+                  批量修改评分数量
+                </button>
+                <button 
+                  @click="openAddRatingModal(pageId)" 
+                  class="add-single-rating-btn"
+                >
+                  添加单个评分
+                </button>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 批量修改评分弹窗 -->
+    <div v-if="showRatingModal" class="modal-overlay" @click="showRatingModal = false">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>批量修改评分数量</h3>
+          <button @click="showRatingModal = false" class="close-btn">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>游戏：{{ getGameTitle(ratingModalData.pageId) }}</label>
+          </div>
+          <div 
+            v-for="rating in [5, 4, 3, 2, 1]" 
+            :key="rating" 
+            class="form-group"
+          >
+            <label>{{ rating }} 星评分数量</label>
+            <input
+              :value="ratingModalData.ratingCounts[rating]"
+              @input="handleRatingInput(rating, $event)"
+              type="number"
+              min="0"
+              class="form-input"
+            />
+            <small style="color: #666; font-size: 12px;">当前值: {{ ratingModalData.ratingCounts[rating] }}</small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="showRatingModal = false" class="cancel-btn">取消</button>
+          <button @click="saveRatings" class="save-btn">保存</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 编辑单个评分弹窗 -->
+    <div v-if="showRatingEditModal" class="modal-overlay" @click="showRatingEditModal = false">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>{{ singleRatingEdit.count === 0 ? '添加评分' : '编辑评分' }}</h3>
+          <button @click="showRatingEditModal = false" class="close-btn">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>游戏：{{ getGameTitle(singleRatingEdit.pageId) }}</label>
+          </div>
+          <div class="form-group">
+            <label>评分等级</label>
+            <select v-model.number="singleRatingEdit.rating" class="form-input">
+              <option :value="5">5 星</option>
+              <option :value="4">4 星</option>
+              <option :value="3">3 星</option>
+              <option :value="2">2 星</option>
+              <option :value="1">1 星</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>数量</label>
+            <input
+              v-model.number="singleRatingEdit.count"
+              type="number"
+              min="0"
+              class="form-input"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button @click="showRatingEditModal = false" class="cancel-btn">取消</button>
+          <button @click="saveSingleRating" class="save-btn">保存</button>
         </div>
       </div>
     </div>
@@ -197,6 +338,20 @@ const showModal = ref(false)
 const isEditing = ref(false)
 const currentPageId = ref('')
 const currentCommentId = ref(null)
+const activeTab = ref('comments')
+
+// 评分管理相关
+const showRatingModal = ref(false)
+const showRatingEditModal = ref(false)
+const ratingModalData = ref({
+  pageId: '',
+  ratingCounts: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 } // 使用数字键以便绑定
+})
+const singleRatingEdit = ref({
+  pageId: '',
+  rating: 0,
+  count: 0
+})
 
 // 管理员信息
 const adminInfo = ref({
@@ -395,6 +550,140 @@ const deleteReview = async (pageId, commentId) => {
 const logout = () => {
   localStorage.removeItem('adminToken')
   router.push('/admin/login')
+}
+
+// 评分管理方法
+const openRatingModal = (pageId, ratings) => {
+  console.log('打开评分弹窗 - pageId:', pageId, 'ratings:', ratings)
+  ratingModalData.value = {
+    pageId,
+    ratingCounts: {
+      1: parseInt(ratings['1']) || 0,
+      2: parseInt(ratings['2']) || 0,
+      3: parseInt(ratings['3']) || 0,
+      4: parseInt(ratings['4']) || 0,
+      5: parseInt(ratings['5']) || 0
+    }
+  }
+  console.log('设置后的 ratingModalData:', ratingModalData.value)
+  showRatingModal.value = true
+}
+
+// 处理评分输入
+const handleRatingInput = (rating, event) => {
+  const rawValue = event.target.value
+  const value = rawValue === '' ? 0 : parseInt(rawValue) || 0
+  // 确保响应式更新
+  if (!ratingModalData.value.ratingCounts) {
+    ratingModalData.value.ratingCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+  }
+  ratingModalData.value.ratingCounts[rating] = value
+  // 触发响应式更新
+  ratingModalData.value = { ...ratingModalData.value }
+  console.log(`评分输入 - ${rating}星:`, value, '当前 ratingCounts:', JSON.parse(JSON.stringify(ratingModalData.value.ratingCounts)))
+}
+
+const openRatingEditModal = (pageId, rating, count) => {
+  singleRatingEdit.value = {
+    pageId,
+    rating,
+    count
+  }
+  showRatingEditModal.value = true
+}
+
+const openAddRatingModal = (pageId) => {
+  singleRatingEdit.value = {
+    pageId,
+    rating: 5,
+    count: 1
+  }
+  showRatingEditModal.value = true
+}
+
+const saveRatings = async () => {
+  try {
+    const token = localStorage.getItem('adminToken')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+    
+    // 确保所有评分数量都是整数，并转换为字符串键（API需要）
+    const ratingCounts = {
+      '1': parseInt(ratingModalData.value.ratingCounts[1]) || 0,
+      '2': parseInt(ratingModalData.value.ratingCounts[2]) || 0,
+      '3': parseInt(ratingModalData.value.ratingCounts[3]) || 0,
+      '4': parseInt(ratingModalData.value.ratingCounts[4]) || 0,
+      '5': parseInt(ratingModalData.value.ratingCounts[5]) || 0
+    }
+    
+    console.log('准备发送评分数据 - ratingModalData:', JSON.stringify(ratingModalData.value, null, 2))
+    console.log('ratingModalData.value.ratingCounts:', ratingModalData.value.ratingCounts)
+    console.log('ratingModalData.value.ratingCounts 原始值:', {
+      1: ratingModalData.value.ratingCounts[1],
+      2: ratingModalData.value.ratingCounts[2],
+      3: ratingModalData.value.ratingCounts[3],
+      4: ratingModalData.value.ratingCounts[4],
+      5: ratingModalData.value.ratingCounts[5]
+    })
+    console.log('发送评分数据 (字符串键):', ratingCounts)
+    console.log('发送评分数据 (JSON):', JSON.stringify(ratingCounts))
+    
+    // 验证数据
+    const total = Object.values(ratingCounts).reduce((sum, val) => sum + val, 0)
+    if (total === 0) {
+      alert('请至少输入一个评分数量！')
+      return
+    }
+    
+    const response = await adminAPI.updateRatings(ratingModalData.value.pageId, ratingCounts, token)
+    console.log('API 响应:', response)
+    
+    showRatingModal.value = false
+    await fetchGameData()
+    alert('评分更新成功！')
+  } catch (err) {
+    console.error('更新评分失败:', err)
+    alert('更新评分失败：' + err.message)
+  }
+}
+
+const saveSingleRating = async () => {
+  try {
+    const token = localStorage.getItem('adminToken')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+    
+    // 获取当前的评分数据
+    const currentData = gameData.value[singleRatingEdit.value.pageId]
+    const currentRatings = currentData?.ratings || { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 }
+    
+    // 创建新的评分数据，确保所有值都是数字
+    const newRatings = {
+      '1': parseInt(currentRatings['1']) || 0,
+      '2': parseInt(currentRatings['2']) || 0,
+      '3': parseInt(currentRatings['3']) || 0,
+      '4': parseInt(currentRatings['4']) || 0,
+      '5': parseInt(currentRatings['5']) || 0
+    }
+    // 更新当前编辑的等级，确保是整数
+    newRatings[String(singleRatingEdit.value.rating)] = parseInt(singleRatingEdit.value.count) || 0
+    
+    console.log('发送单个评分数据:', newRatings)
+    // 使用批量更新API
+    const response = await adminAPI.updateRatings(singleRatingEdit.value.pageId, newRatings, token)
+    console.log('API 响应:', response)
+    
+    showRatingEditModal.value = false
+    await fetchGameData()
+    alert('评分更新成功！')
+  } catch (err) {
+    console.error('更新评分失败:', err)
+    alert('更新评分失败：' + err.message)
+  }
 }
 
 // 生命周期
@@ -884,5 +1173,118 @@ onMounted(() => {
 
 .error {
   color: #ef4444;
+}
+
+/* 评分管理样式 */
+.ratings-management {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ratings-summary {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.ratings-breakdown {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rating-row:last-child {
+  border-bottom: none;
+}
+
+.rating-label {
+  min-width: 60px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.rating-count-display {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.edit-rating-btn {
+  padding: 0.375rem 0.75rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.edit-rating-btn:hover {
+  background: #2563eb;
+}
+
+.ratings-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.manage-all-ratings-btn,
+.add-single-rating-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.manage-all-ratings-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.manage-all-ratings-btn:hover {
+  background: #2563eb;
+}
+
+.add-single-rating-btn {
+  background: #10b981;
+  color: white;
+}
+
+.add-single-rating-btn:hover {
+  background: #059669;
 }
 </style>

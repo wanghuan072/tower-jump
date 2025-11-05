@@ -123,13 +123,24 @@ export const adminAPI = {
   }),
   
   // 更新评分
-  updateRatings: (pageId, ratings, token) => request(`/admin/ratings/${pageId}`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    },
-    body: JSON.stringify(ratings),
-  }),
+  updateRatings: (pageId, ratings, token) => {
+    // 确保使用字符串键
+    const ratingsWithStringKeys = {
+      '1': ratings['1'] || ratings[1] || 0,
+      '2': ratings['2'] || ratings[2] || 0,
+      '3': ratings['3'] || ratings[3] || 0,
+      '4': ratings['4'] || ratings[4] || 0,
+      '5': ratings['5'] || ratings[5] || 0,
+    };
+    return request(`/admin/ratings/${pageId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(ratingsWithStringKeys),
+    });
+  },
 };
 
 // 健康检查

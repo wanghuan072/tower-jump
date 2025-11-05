@@ -65,36 +65,34 @@ app.post('/comments', async (req, res) => {
   try {
     const { pageId, name, email, text, rating } = req.body;
     
-    // 只要求 pageId 必须，其他字段可选
+    // 要求所有字段必须填写
     if (!pageId) {
       return res.status(400).json({ message: '缺少必要字段 pageId' });
     }
     
-    // 至少需要评分或评论
-    if (!text && !rating) {
-      return res.status(400).json({ message: '至少需要提供评分或评论' });
+    if (!name || !name.trim()) {
+      return res.status(400).json({ message: '用户名不能为空' });
+    }
+    
+    if (!text || !text.trim()) {
+      return res.status(400).json({ message: '评论内容不能为空' });
+    }
+    
+    if (!rating || rating < 1 || rating > 5) {
+      return res.status(400).json({ message: '评分必须在1-5之间' });
     }
     
     const sql = (await import('@neondatabase/serverless')).neon(process.env.DATABASE_URL);
     const PROJECT_PREFIX = 'tower_jump';
     
-    // 验证评分（如果提供）
-    let validRating = null;
-    if (rating !== undefined && rating !== null) {
-      const ratingNum = parseInt(rating);
-      if (ratingNum >= 1 && ratingNum <= 5) {
-        validRating = ratingNum;
-      }
-    }
-    
-    // 如果没有提供 name，使用默认值
-    const userName = name?.trim() || 'Anonymous';
-    // 如果没有提供 text，允许为 NULL
-    const commentText = text?.trim() || null;
+    // 验证并处理数据
+    const validRating = parseInt(rating);
+    const userName = name.trim();
+    const commentText = text.trim();
     
     const newComment = await sql(`
       INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, email, text, rating, added_by_admin)
-      VALUES ('${pageId}', '${userName}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, ${commentText ? `'${commentText}'` : 'NULL'}, ${validRating || 'NULL'}, FALSE)
+      VALUES ('${pageId}', '${userName}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, '${commentText}', ${validRating}, FALSE)
       RETURNING id, name, email, text, rating, created_at as timestamp
     `);
     

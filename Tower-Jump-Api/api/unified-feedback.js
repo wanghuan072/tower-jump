@@ -584,13 +584,47 @@ export const updateRatingsByPageId = async (req, res) => {
   const validatedCounts = {};
   let validationError = null;
   
+  // 确保所有键都存在且为数字
   for (let i = 1; i <= 5; i++) {
     const key = String(i);
-    const count = newCounts[key];
-    if (count === undefined || count === null || typeof count !== 'number' || !Number.isInteger(count) || count < 0) {
+    
+    // 尝试多种方式获取值：字符串键、数字键、或者从对象键中匹配
+    let count = newCounts[key];
+    
+    // 如果字符串键不存在，尝试数字键
+    if (count === undefined) {
+      count = newCounts[i];
+    }
+    
+    // 如果还是 undefined，遍历对象的所有键查找匹配的
+    if (count === undefined && newCounts && typeof newCounts === 'object') {
+      const keys = Object.keys(newCounts);
+      for (const k of keys) {
+        // 尝试将键转换为数字后比较
+        const numKey = Number(k);
+        if (!isNaN(numKey) && numKey === i) {
+          count = newCounts[k];
+          break;
+        }
+      }
+    }
+    
+    // 转换为整数，如果未定义或 null 则默认为 0
+    if (count === undefined || count === null) {
+      count = 0;
+    } else {
+      count = parseInt(String(count), 10);
+      if (isNaN(count)) {
+        count = 0;
+      }
+    }
+    
+    // 验证是否为非负整数
+    if (!Number.isInteger(count) || count < 0) {
       validationError = `评分数量 '${key}' 必须是非负整数。收到: ${count}`;
       break;
     }
+    
     validatedCounts[key] = count;
   }
 
@@ -599,24 +633,55 @@ export const updateRatingsByPageId = async (req, res) => {
   }
 
   try {
-    // 开始事务
-    await sql.begin(async sql => {
-      // 删除现有评分
-      await sql(`DELETE FROM ${PROJECT_PREFIX}_feedback WHERE game_address_bar = '${pageId}' AND rating IS NOT NULL`);
-      
-      // 插入新的评分数据
-      for (let rating = 1; rating <= 5; rating++) {
-        const count = validatedCounts[String(rating)];
-        if (count > 0) {
-          for (let i = 0; i < count; i++) {
+    console.log(`[API] 开始更新评分 - pageId: ${pageId}, 新评分数量:`, validatedCounts);
+    
+    // 先获取当前系统评分数量（用于调试）
+    const beforeDelete = await sql(`
+      SELECT COUNT(*) as count 
+      FROM ${PROJECT_PREFIX}_feedback 
+      WHERE game_address_bar = '${pageId}' 
+      AND rating IS NOT NULL 
+      AND (text IS NULL OR text = '')
+      AND added_by_admin = TRUE
+      AND name = '系统评分'
+    `);
+    console.log(`[API] 删除前系统评分数量:`, beforeDelete[0]?.count || 0);
+    
+    // 删除现有评分（只删除系统添加的评分，保留有评论的评分和用户提交的评分）
+    const deleteSQL = `
+      DELETE FROM ${PROJECT_PREFIX}_feedback 
+      WHERE game_address_bar = '${pageId}' 
+      AND rating IS NOT NULL 
+      AND (text IS NULL OR text = '')
+      AND added_by_admin = TRUE
+      AND name = '系统评分'
+    `;
+    console.log(`[API] 执行删除 SQL:`, deleteSQL);
+    const deleteResult = await sql(deleteSQL);
+    console.log(`[API] 删除的系统评分记录数:`, deleteResult?.length || 0, '删除结果:', deleteResult);
+    
+    // 插入新的评分数据
+    let totalInserted = 0;
+    for (let rating = 1; rating <= 5; rating++) {
+      const count = validatedCounts[String(rating)];
+      if (count > 0) {
+        // 逐个插入以确保数据正确保存
+        for (let i = 0; i < count; i++) {
+          try {
             await sql(`
               INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, rating, added_by_admin)
               VALUES ('${pageId}', '系统评分', ${rating}, TRUE)
             `);
+            totalInserted++;
+          } catch (insertError) {
+            console.error(`[API] 插入 ${rating} 星评分失败 (第 ${i + 1}/${count} 条):`, insertError);
+            throw insertError;
           }
         }
+        console.log(`[API] 插入 ${rating} 星评分 ${count} 条成功`);
       }
-    });
+    }
+    console.log(`[API] 总共插入 ${totalInserted} 条评分记录`);
 
     // 获取更新后的统计
     const stats = await sql(`
@@ -635,14 +700,19 @@ export const updateRatingsByPageId = async (req, res) => {
     const result = stats[0] || { count: 0, average: 0, rating_1: 0, rating_2: 0, rating_3: 0, rating_4: 0, rating_5: 0 };
 
     console.log(`[API] 管理员更新了游戏 ${pageId} 的评分 - 用户: ${req.user?.username || '未知管理员'}`);
+    console.log(`[API] 更新后的评分统计:`, result);
+    
+    // 确保返回的评分数量是数字类型
     res.status(200).json({ 
       message: '评分更新成功', 
+      count: parseInt(result.count) || 0,
+      average: parseFloat(result.average) || 0,
       ratings: {
-        '1': result.rating_1,
-        '2': result.rating_2,
-        '3': result.rating_3,
-        '4': result.rating_4,
-        '5': result.rating_5
+        '1': parseInt(result.rating_1) || 0,
+        '2': parseInt(result.rating_2) || 0,
+        '3': parseInt(result.rating_3) || 0,
+        '4': parseInt(result.rating_4) || 0,
+        '5': parseInt(result.rating_5) || 0
       }
     });
 
