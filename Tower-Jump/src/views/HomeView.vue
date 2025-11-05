@@ -27,7 +27,7 @@
                     ref="gameIframe" 
                     class="game-iframe" 
                     :class="{ 'is-visible': isPlaying }" 
-                    :src="isPlaying ? iframeSrc : ''" 
+                    :src="isPlaying ? iframeSrc : undefined" 
                     :title="currentGame?.title || 'Game'"
                     allowfullscreen 
                     allow="autoplay; fullscreen; gamepad; microphone; camera; payment; geolocation"
@@ -289,19 +289,6 @@ function startPlay() {
   iframeSrc.value = currentGame.value?.iframeUrl || '/TowerJump.html'
   
   isPlaying.value = true
-  
-  // 确保 iframe 获得焦点，提升性能
-  nextTick(() => {
-    if (gameIframe.value) {
-      gameIframe.value.focus()
-      // 为游戏提供额外的性能优化
-      try {
-        gameIframe.value.contentWindow?.focus()
-      } catch (e) {
-        // 跨域限制，忽略错误
-      }
-    }
-  })
 }
 
 // 浏览器全屏（iframe 元素）
@@ -413,8 +400,6 @@ watch(() => route.params.addressBar, (newAddressBar) => {
 onMounted(async () => {
   // 初始化游戏
   initializeGame()
-
-  // 初始化完成
 })
 
 onUnmounted(() => {
@@ -448,8 +433,6 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   opacity: 0.6;
-  /* 游戏运行时降低动画性能消耗 */
-  will-change: auto;
 }
 
 /* 背景装饰 - 光晕效果（右侧） */
@@ -464,19 +447,8 @@ onUnmounted(() => {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  animation: float 20s ease-in-out infinite;
   filter: blur(40px);
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  /* 游戏运行时暂停动画以提升性能 */
-  animation-play-state: running;
-}
-
-/* 当游戏运行时，降低背景动画性能消耗 */
-.game-content.is-playing .home::after,
-.game-content.page-fullscreen .home::after {
-  animation-play-state: paused;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 /* 背景装饰 - 光晕效果（左侧） */
@@ -491,48 +463,8 @@ onUnmounted(() => {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  animation: floatReverse 25s ease-in-out infinite;
   filter: blur(40px);
-  will-change: transform, opacity;
-  transform: translateZ(0);
-}
-
-/* 当游戏运行时，降低背景动画性能消耗 */
-.game-content.is-playing .home > main::before,
-.game-content.page-fullscreen .home > main::before {
-  animation-play-state: paused;
-  opacity: 0.3;
-}
-
-@keyframes floatReverse {
-  0%, 100% {
-    transform: translate(0, 0) translateZ(0) scale(1);
-    opacity: 0.4;
-  }
-  33% {
-    transform: translate(40px, 60px) translateZ(0) scale(1.15);
-    opacity: 0.5;
-  }
-  66% {
-    transform: translate(-40px, -40px) translateZ(0) scale(0.85);
-    opacity: 0.3;
-  }
-}
-
-/* 光晕浮动动画 */
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) translateZ(0) scale(1);
-    opacity: 0.5;
-  }
-  33% {
-    transform: translate(-30px, -50px) translateZ(0) scale(1.1);
-    opacity: 0.6;
-  }
-  66% {
-    transform: translate(30px, 50px) translateZ(0) scale(0.9);
-    opacity: 0.4;
-  }
+  opacity: 0.4;
 }
 
 /* 背景装饰 - 额外的光晕效果（中间顶部） */
@@ -541,34 +473,15 @@ onUnmounted(() => {
   position: fixed;
   top: 10%;
   left: 50%;
-  transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%);
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, rgba(100, 150, 255, 0.15) 0%, rgba(100, 150, 255, 0.05) 40%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  animation: pulse 8s ease-in-out infinite;
   filter: blur(30px);
-  will-change: transform, opacity;
-}
-
-/* 当游戏运行时，降低背景动画性能消耗 */
-.game-content.is-playing .home > main::after,
-.game-content.page-fullscreen .home > main::after {
-  animation-play-state: paused;
-  opacity: 0.2;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: translateX(-50%) translateZ(0) scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translateX(-50%) translateZ(0) scale(1.2);
-  }
+  opacity: 0.3;
 }
 
 /* 确保内容在背景之上 */
@@ -588,10 +501,17 @@ onUnmounted(() => {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(15, 15, 20, 0.9);
+  background: rgba(15, 15, 20, 0.95);
+  /* 游戏运行时禁用 backdrop-filter 以提升性能 */
   backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 游戏运行时禁用 header 的模糊效果 */
+.game-content.is-playing ~ .site-header,
+.game-content.page-fullscreen ~ .site-header {
+  backdrop-filter: none;
 }
 
 .site-header .container {
@@ -697,20 +617,11 @@ onUnmounted(() => {
     0 10px 30px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  /* 使用 contain 隔离游戏渲染，避免父页面影响 */
-  contain: layout style paint;
-  /* 为游戏提供硬件加速 */
-  transform: translateZ(0);
-  /* 为游戏提供独立的合成层 */
-  will-change: contents;
 }
 
 .game-iframe-wrapper {
   position: absolute;
   inset: 0;
-  transform: translateZ(0);
-  /* 为游戏提供独立的渲染层 */
-  isolation: isolate;
 }
 
 .game-iframe-container iframe {
@@ -724,15 +635,11 @@ onUnmounted(() => {
 .game-iframe {
   opacity: 0;
   transition: opacity 0.3s ease-out;
-  transform: translateZ(0);
-  /* 游戏运行时始终启用交互 */
   pointer-events: auto;
-  /* 确保游戏有独立的渲染上下文和合成层 */
-  isolation: isolate;
-  /* 防止父页面影响游戏性能，但不要使用 strict（可能影响游戏渲染） */
-  contain: layout style paint;
-  /* 为游戏提供独立的渲染层 */
-  will-change: contents;
+}
+
+.game-iframe.is-visible {
+  opacity: 1;
 }
 
 .game-iframe.is-loaded {
@@ -755,6 +662,12 @@ onUnmounted(() => {
   border-radius: 8px;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 游戏运行时禁用控制栏的模糊效果 */
+.game-content.is-playing .game-controls,
+.game-content.page-fullscreen .game-controls {
+  backdrop-filter: none;
 }
 
 .controls-title {
@@ -782,6 +695,12 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(5px);
+}
+
+/* 游戏运行时禁用按钮的模糊效果 */
+.game-content.is-playing .control-btn,
+.game-content.page-fullscreen .control-btn {
+  backdrop-filter: none;
 }
 
 .control-btn:hover {
@@ -870,6 +789,12 @@ onUnmounted(() => {
   -webkit-backdrop-filter: saturate(140%) blur(20px);
   z-index: 1;
   background: radial-gradient(circle at center, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+}
+
+/* 游戏运行时禁用 overlay 的模糊效果（虽然 overlay 已隐藏） */
+.game-content.is-playing .overlay-backdrop {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .overlay-content {
@@ -1043,6 +968,12 @@ onUnmounted(() => {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* 游戏运行时禁用 New Games 板块模糊效果 */
+.game-content.is-playing ~ * .new-games-section,
+.game-content.page-fullscreen ~ * .new-games-section {
+  backdrop-filter: none;
+}
+
 .new-games-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1121,6 +1052,12 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   display: block;
   backdrop-filter: blur(5px);
+}
+
+/* 游戏运行时禁用卡片模糊效果 */
+.game-content.is-playing ~ * .hot-game-card,
+.game-content.page-fullscreen ~ * .hot-game-card {
+  backdrop-filter: none;
 }
 
 .hot-game-card:hover {
