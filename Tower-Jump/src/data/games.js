@@ -959,8 +959,8 @@ export const games = [
       description: "Play Jump Boy Jack, a fun and addictive online arcade game! Jump, collect points, and avoid monsters for high scores. Perfect for quick sessions on mobile and PC.",
       keywords: "jump boy jack, jump game, arcade game, online game, mobile game, platformer, action game, skill game, jumping, boy",
     },
-    isNew: true,
-    isHot: true,
+    isNew: false,
+    isHot: false,
     addressBar: "jump-boy-jack",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2>JUMP BOY JACK</h2>
@@ -1027,8 +1027,8 @@ export const games = [
       description: "Jump The Wall challenges your reflexes! Navigate treacherous terrains, outpace obstacles, and aim for a new high score. Play now and push your limits!",
       keywords: "jump, wall, jump the wall, arcade, reflex, agility, obstacle course, game, free online game",
     },
-    isNew: true,
-    isHot: true,
+    isNew: false,
+    isHot: false,
     addressBar: "jump-the-wall",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2>JUMP THE WALL</h2>
@@ -1091,8 +1091,8 @@ export const games = [
       description: "Master the art of the jump in Jumping Man! A challenging and addictive clicker game. Precise taps, tricky levels, and endless fun await. Compete for the high score!",
       keywords: "jumping man, clicker game, arcade game, platformer, jumping, high score game, online game, free game",
     },
-    isNew: true,
-    isHot: true,
+    isNew: false,
+    isHot: false,
     addressBar: "jumping-man",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>JUMPING MAN</h2><p>Dive into the exhilarating world of Jumping Man, a captivating clicker game designed to test your reflexes and strategic thinking. Each tap propels our intrepid hero higher, challenging you to perfectly time each jump across increasingly complex and treacherous platforms. The pursuit of the ultimate high score is a relentless journey, demanding both skill and unwavering focus. Jumping Man isn't just a game; it's a test of your precision and a thrilling race against gravity!</p>
       
@@ -1345,6 +1345,205 @@ export const games = [
       
       <p>Sky Hopper offers a perfect blend of simple mechanics and addictive gameplay. With its intuitive controls and endless vertical challenge, this game is sure to provide hours of entertainment for players of all ages. So, what are you waiting for? Lace up your bouncing shoes, prepare for a sky-high adventure, and see how high you can climb in Sky Hopper!</p>
     </div>`,
+  },
+
+  {
+    id: 21,
+    title: "JUMPER RABBIT",
+    iframeUrl: "https://play.gamepix.com/jumper-rabbit/embed?sid=e4515",
+    keywords: "Hop into Jumper Rabbit, a delightful arcade game where precision jumping is key! Guide our furry friend across platforms, collect carrots, and avoid tricky obstacles. Easy controls, endless fun. Perfect for all ages!",
+    publishDate: "2025-11-06",
+    imageUrl: "/images/game-21.webp",
+    imageAlt: "A cute rabbit leaps between platforms in Jumper Rabbit, collecting carrots.",
+    isNew: true,
+    isHot: true,
+    seo: {
+      title: "JUMPER RABBIT - Hop into Fun! Play Free Online",
+      description: "Join the Jumper Rabbit adventure! A simple, engaging arcade game where you leap between platforms, collect carrots, and dodge obstacles. Play now for free!",
+      keywords: "jumper rabbit, rabbit game, jumping game, arcade game, platformer, free online game, casual game",
+    },
+    addressBar: "jumper-rabbit",
+    detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <h2>JUMPER RABBIT</h2>
+    <p>Jumper Rabbit is a captivating arcade-style game where players take on the role of a nimble rabbit, tasked with leaping from platform to platform. Success hinges on precise timing and strategy. Navigate the increasingly challenging levels and master the art of the perfect jump in this delightful and addictive adventure featuring our Jumper Rabbit!</p>
+  
+    <h3>About</h3>
+    <p>In Jumper Rabbit, the objective is straightforward: guide the rabbit safely across a series of platforms. The game utilizes simple yet engaging mechanics, requiring players to click and hold to charge a jump, then release to propel the rabbit forward. Carrots scattered throughout the levels serve as rewards, encouraging players to take risks and hone their precision. As players progress, they'll encounter new and varied obstacles that demand quick thinking and skillful execution. Jumper Rabbit is designed to be accessible to players of all skill levels, offering a blend of challenge and enjoyment that will keep you coming back for more. The core gameplay revolves around mastering the jump mechanic, predicting trajectory, and reacting quickly to avoid pitfalls. It is a game that rewards practice and precision.</p>
+  
+    <h3>Features</h3>
+    <ul>
+      <li><b>Intuitive Controls:</b> The simple click-and-hold mechanic makes jumping easy to learn but challenging to master, offering a rewarding gameplay experience.</li>
+      <li><b>Progressive Difficulty:</b> Each level introduces new obstacles and challenges, ensuring the gameplay remains fresh and engaging as players advance.</li>
+      <li><b>Collectable Carrots:</b> Carrots provide a scoring system and encourage players to explore each level thoroughly, increasing replayability.</li>
+      <li><b>Charming Visuals:</b> The bright and colorful graphics create an inviting atmosphere that appeals to players of all ages, enhancing the overall enjoyment of the game.</li>
+      <li><b>Endless Gameplay:</b> With no end in sight, players can continuously challenge themselves to improve their scores and navigate increasingly difficult levels.</li>
+      <li><b>Relaxing Music:</b> The upbeat and cheerful soundtrack complements the gameplay, creating a soothing and enjoyable experience.</li>
+      <li><b>Offline Play:</b> Play Jumper Rabbit anytime, anywhere, without the need for an internet connection, making it perfect for on-the-go entertainment.</li>
+      <li><b>Share Your Scores:</b> Compete with friends and family by sharing your high scores on social media platforms.</li>
+    </ul>
+  
+    <h3>FAQ</h3>
+    <ul>
+      <li>
+        <div class="faq-question">How do I jump in Jumper Rabbit?</div>
+        <div class="faq-answer">Click and hold to charge your jump, then release to leap forward. The longer you hold, the farther the rabbit will jump.</div>
+      </li>
+      <li>
+        <div class="faq-question">What is the goal of the game?</div>
+        <div class="faq-answer">The goal is to guide the rabbit across the platforms, collecting carrots and avoiding obstacles to score points.</div>
+      </li>
+      <li>
+        <div class="faq-question">Are there any tips for improving my gameplay?</div>
+        <div class="faq-answer">Practice makes perfect! Consistent practice will improve your timing and precision. Pay attention to the distance between platforms and adjust your jumps accordingly.</div>
+      </li>
+      <li>
+        <div class="faq-question">Is Jumper Rabbit suitable for all ages?</div>
+        <div class="faq-answer">Yes, Jumper Rabbit is designed to be accessible and enjoyable for players of all ages.</div>
+      </li>
+      <li>
+        <div class="faq-question">Can I play Jumper Rabbit on my mobile device?</div>
+        <div class="faq-answer">Yes, Jumper Rabbit is available to play on mobile devices through the GamePix platform.</div>
+      </li>
+      <li>
+        <div class="faq-question">Does the game have an ending?</div>
+        <div class="faq-answer">Jumper Rabbit features endless gameplay, allowing you to continue challenging yourself to achieve higher scores and navigate progressively difficult levels.</div>
+      </li>
+    </ul>
+  
+    <p>Jumper Rabbit offers a simple yet addictive gameplay experience that is perfect for casual gamers and arcade enthusiasts alike. Its intuitive controls, charming visuals, and progressive difficulty make it a must-play. Whether you're looking for a quick and engaging distraction or a game to master, Jumper Rabbit delivers hours of endless fun. Join the Jumper Rabbit adventure today and see how far you can hop!</p>
+  </div>`,
+  },
+
+  {
+    id: 22,
+    title: "BABY MONSTER JUMP",
+    iframeUrl: "https://play.gamepix.com/baby-monster-jump/embed?sid=e4515",
+    keywords: "Get ready for a super fun adventure with Baby Monster Jump! Guide your cute monster through challenging levels filled with obstacles. Test your reflexes and timing as you jump, dodge, and power-up to victory. Perfect for quick bursts of playful entertainment!",
+    publishDate: "2025-11-06",
+    imageUrl: "/images/game-22.webp",
+    imageAlt: "A cute baby monster enthusiastically jumping in a vibrant game scene.",
+    seo: {
+      title: "BABY MONSTER JUMP - Exciting Online Jumping Game!",
+      description: "Join the Baby Monster Jump adventure! Test your skills, avoid obstacles, and conquer levels. Play now for instant fun! Perfect for all ages.",
+      keywords: "baby monster, jump, jumping game, online game, arcade, action game, kids game, fun game, reflexes, timing",
+    },
+    isNew: true,
+    isHot: true,
+    addressBar: "baby-monster-jump",
+    detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <h2>BABY MONSTER JUMP</h2>
+    <p>Embark on a thrilling journey with Baby Monster Jump, where a cute and determined little monster faces a series of increasingly challenging jumping obstacles. This isn't just about jumping; it's about mastering the art of timing and precision. Are you ready to guide your baby monster to victory?</p>
+    
+    <h3>About</h3>
+    <p>Baby Monster Jump is a captivating arcade-style game designed to test your reflexes and strategic thinking. The core gameplay revolves around navigating your adorable monster character through various levels, each presenting unique obstacles and challenges. Players must carefully time their jumps to avoid hazards and reach the end of each stage unscathed. The game's simple yet engaging mechanics make it accessible to players of all ages, while its increasing difficulty ensures a consistently rewarding and entertaining experience. With vibrant graphics and intuitive controls, Baby Monster Jump offers hours of delightful gameplay. The concept is simple, but mastering the levels requires skill and patience.</p>
+    
+    <h3>Features</h3>
+    <ul>
+      <li><b>Intuitive Controls:</b> Easy-to-learn controls make the game accessible to everyone. Use arrow keys or mouse clicks to control your monster's jumps.</li>
+      <li><b>Challenging Levels:</b> Each level presents unique obstacles and challenges that test your timing and precision. The difficulty increases progressively.</li>
+      <li><b>Cute Monster Character:</b> Play as an adorable baby monster with charming animations and expressions.</li>
+      <li><b>Power-Ups:</b> Discover and utilize various power-ups that provide temporary advantages, such as increased jump height or invincibility.</li>
+      <li><b>Engaging Mechanics:</b> The game's core jumping mechanic is simple yet engaging, providing constant entertainment.</li>
+      <li><b>Vibrant Graphics:</b> Enjoy colorful and visually appealing graphics that enhance the overall gaming experience. The backgrounds are delightful, and the monster is super cute.</li>
+      <li><b>Increasing Difficulty:</b> As you progress, the game becomes more challenging, requiring greater skill and strategy.</li>
+      <li><b>Replayable Fun:</b> With its addictive gameplay, Baby Monster Jump offers high replay value for players looking to improve their scores and conquer new levels.</li>
+    </ul>
+    
+    <h3>FAQ</h3>
+    <ul>
+      <li>
+        <div class="faq-question">How do I control the baby monster?</div>
+        <div class="faq-answer">You can use either the arrow keys or mouse clicks to control the baby monster's jumps. Simply press the up arrow key or click the mouse to make the monster jump.</div>
+      </li>
+      <li>
+        <div class="faq-question">What are power-ups and how do I use them?</div>
+        <div class="faq-answer">Power-ups are special items that provide temporary advantages, such as increased jump height or invincibility. Collect them during gameplay to activate their effects.</div>
+      </li>
+      <li>
+        <div class="faq-question">How do I pass a difficult level?</div>
+        <div class="faq-answer">Plan your jumps carefully, and look out for power-ups that can help you overcome challenging obstacles. Practice makes perfect!</div>
+      </li>
+      <li>
+        <div class="faq-question">Is Baby Monster Jump suitable for all ages?</div>
+        <div class="faq-answer">Yes, Baby Monster Jump is designed to be accessible and enjoyable for players of all ages. Its simple controls and engaging mechanics make it perfect for both kids and adults.</div>
+      </li>
+      <li>
+        <div class="faq-question">Are there any hidden secrets in the game?</div>
+        <div class="faq-answer">Keep an eye out for hidden areas and secrets within the levels. Exploring the game thoroughly may reveal some exciting surprises!</div>
+      </li>
+      <li>
+        <div class="faq-question">What is the objective of Baby Monster Jump?</div>
+        <div class="faq-answer">The objective of Baby Monster Jump is to successfully navigate your baby monster through each level by avoiding obstacles and reaching the finish line unharmed.</div>
+      </li>
+    </ul>
+    
+    <p>Baby Monster Jump offers a delightful blend of skill, strategy, and adorable characters, making it a must-play for fans of arcade-style games. With its intuitive controls, challenging levels, and engaging mechanics, this game provides endless hours of entertainment. Jump into the adventure today and see how far you can go!</p>
+  </div>`,
+  },
+
+  {
+    id: 23,
+    title: "JUMP SHEEP GAME",
+    iframeUrl: "https://play.gamepix.com/jump-sheep-game/embed?sid=e4515",
+    keywords: "Embark on a whimsical journey in Jump Sheep Game! Guide your agile sheep through vibrant terrains, conquering hurdles and collecting glittering coins. This engaging arcade experience blends skillful jumping with thoughtful planning. A perfect pastime for players of all ages seeking simple joy and high-score thrills. Hop to it!",
+    publishDate: "2025-11-06",
+    imageUrl: "/images/game-23.webp",
+    imageAlt: "A cute sheep jumping over a hurdle in the Jump Sheep game, with bright green grass and scattered coins.",
+    seo: {
+      title: "JUMP SHEEP GAME - Play Free Online & Achieve High Scores!",
+      description: "Guide your sheep to victory in Jump Sheep Game! Jump over obstacles, collect coins, and compete for the highest score. A fun and addictive arcade experience awaits!",
+      keywords: "jump, sheep, game, arcade, online game, jumping game, skill game, casual game, high score, coins",
+    },
+    isNew: true,
+    isHot: true,
+    addressBar: "jump-sheep-game",
+    detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>JUMP SHEEP GAME</h2><p>Dive into the delightful world of Jump Sheep Game, where skillful jumps and strategic coin collecting combine for an addictively fun experience. This straightforward yet engaging arcade game is perfect for players of all ages looking for a quick dose of entertainment and the challenge of achieving a high score. Prepare to guide your lively sheep through a series of increasingly challenging landscapes filled with hurdles and glittering rewards.</p>
+  
+    <h3>About</h3>
+    <p>Jump Sheep Game is a classic arcade-style game that puts you in control of a nimble sheep with a penchant for jumping. The goal is simple: navigate the sheep across the screen, avoiding obstacles and collecting as many coins as possible. The game features intuitive controls, making it easy to pick up and play, but mastering the timing and strategy required to maximize your score will keep you coming back for more. With its vibrant graphics and charming sound effects, Jump Sheep Game offers a delightful escape from the everyday. It’s the perfect way to unwind, challenge your reflexes, and compete with friends for the top spot on the leaderboard.</p>
+  
+    <h3>Features</h3>
+    <ul>
+      <li><b>Intuitive Controls:</b> Simple left, right, and jump controls make the game easy to learn for players of all skill levels.</li>
+      <li><b>Challenging Gameplay:</b> Increasing difficulty as you progress requires skillful timing and strategic planning.</li>
+      <li><b>Coin Collection:</b> Gather sparkling coins to boost your score and unlock new content.</li>
+      <li><b>Vibrant Graphics:</b> Colorful and appealing visuals create an immersive and enjoyable gaming experience.</li>
+      <li><b>High Score Tracking:</b> Compete with friends and other players to achieve the highest score and climb the leaderboard.</li>
+      <li><b>Mobile-Friendly:</b> Play seamlessly on your desktop or mobile device with optimized controls.</li>
+      <li><b>Endless Fun:</b> The continuous gameplay ensures a never-ending stream of challenges and opportunities to improve your skills.</li>
+      <li><b>Quick Sessions:</b> Perfect for short bursts of entertainment during breaks or commutes.</li>
+    </ul>
+  
+    <h3>FAQ</h3>
+    <ul>
+      <li>
+        <div class="faq-question">How do I control the sheep in Jump Sheep Game?</div>
+        <div class="faq-answer">Use the left and right arrow keys to move the sheep and the up arrow key to jump. On mobile devices, tap and hold to move.</div>
+      </li>
+      <li>
+        <div class="faq-question">What is the objective of the game?</div>
+        <div class="faq-answer">The objective is to guide the sheep through the level, jumping over hurdles and collecting as many coins as possible to achieve a high score.</div>
+      </li>
+      <li>
+        <div class="faq-question">Are there any power-ups or special abilities?</div>
+        <div class="faq-answer">Currently, Jump Sheep Game focuses on core jumping mechanics and coin collection, without power-ups.</div>
+      </li>
+      <li>
+        <div class="faq-question">Is Jump Sheep Game free to play?</div>
+        <div class="faq-answer">Yes, Jump Sheep Game is completely free to play on Gamepix.com and other platforms.</div>
+      </li>
+      <li>
+        <div class="faq-question">Can I play Jump Sheep Game on my mobile device?</div>
+        <div class="faq-answer">Yes, Jump Sheep Game is optimized for both desktop and mobile devices. Simply tap and hold to move your sheep.</div>
+      </li>
+      <li>
+        <div class="faq-question">How do I achieve a higher score in Jump Sheep Game?</div>
+        <div class="faq-answer">Time your jumps precisely to collect every coin and avoid falling. Practice makes perfect!</div>
+      </li>
+    </ul>
+  
+    <p>Jump Sheep Game offers a simple yet captivating arcade experience that's easy to pick up but challenging to master. Its intuitive controls, vibrant graphics, and addictive gameplay make it a perfect choice for players of all ages and skill levels. Whether you're looking for a quick break or a challenging high-score pursuit, Jump Sheep Game provides hours of endless fun. So, hop into the world of Jump Sheep Game and see how high you can score!</p>
+  </div>`,
   }
 
 
