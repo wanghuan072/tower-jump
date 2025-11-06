@@ -339,67 +339,133 @@ export const getAllGameData = async (req, res) => {
       AND column_name = 'project_id'
     `;
 
-    const projectIdFilter = hasProjectIdColumn.length > 0 ? `AND project_id = '${PROJECT_PREFIX}'` : '';
-    
+    // 如果有 project_id 字段，检查实际的值并获取正确的 project_id
+    let actualProjectId = PROJECT_PREFIX;
+    if (hasProjectIdColumn.length > 0) {
+      const projectIdValues = await sql`
+        SELECT DISTINCT project_id FROM tower_jump_feedback LIMIT 5
+      `;
+      
+      // 如果找到了 project_id 值，使用第一个（因为表可能有多个项目的数据）
+      if (projectIdValues.length > 0) {
+        actualProjectId = projectIdValues[0].project_id;
+      }
+    }
+
     // 获取所有反馈数据（评论和评分）
-    const feedbackData = await sql(`
-      SELECT 
-        game_address_bar,
-        COUNT(*) as total_feedback,
-        COUNT(text) as total_comments,
-        COUNT(rating) as total_ratings,
-        ROUND(AVG(rating), 1) as average_rating,
-        COUNT(CASE WHEN rating = 1 THEN 1 END) as rating_1,
-        COUNT(CASE WHEN rating = 2 THEN 1 END) as rating_2,
-        COUNT(CASE WHEN rating = 3 THEN 1 END) as rating_3,
-        COUNT(CASE WHEN rating = 4 THEN 1 END) as rating_4,
-        COUNT(CASE WHEN rating = 5 THEN 1 END) as rating_5
-      FROM tower_jump_feedback
-      GROUP BY game_address_bar
-      ORDER BY game_address_bar
-    `);
+    // 使用硬编码表名，因为 PROJECT_PREFIX 是常量
+    const tableName = 'tower_jump_feedback';
+    
+    let feedbackData;
+    if (hasProjectIdColumn.length > 0) {
+      feedbackData = await sql`
+        SELECT 
+          game_address_bar,
+          COUNT(*) as total_feedback,
+          COUNT(text) as total_comments,
+          COUNT(rating) as total_ratings,
+          ROUND(AVG(rating), 1) as average_rating,
+          COUNT(CASE WHEN rating = 1 THEN 1 END) as rating_1,
+          COUNT(CASE WHEN rating = 2 THEN 1 END) as rating_2,
+          COUNT(CASE WHEN rating = 3 THEN 1 END) as rating_3,
+          COUNT(CASE WHEN rating = 4 THEN 1 END) as rating_4,
+          COUNT(CASE WHEN rating = 5 THEN 1 END) as rating_5
+        FROM tower_jump_feedback
+        WHERE project_id = ${actualProjectId}
+        GROUP BY game_address_bar
+        ORDER BY game_address_bar
+      `;
+    } else {
+      feedbackData = await sql`
+        SELECT 
+          game_address_bar,
+          COUNT(*) as total_feedback,
+          COUNT(text) as total_comments,
+          COUNT(rating) as total_ratings,
+          ROUND(AVG(rating), 1) as average_rating,
+          COUNT(CASE WHEN rating = 1 THEN 1 END) as rating_1,
+          COUNT(CASE WHEN rating = 2 THEN 1 END) as rating_2,
+          COUNT(CASE WHEN rating = 3 THEN 1 END) as rating_3,
+          COUNT(CASE WHEN rating = 4 THEN 1 END) as rating_4,
+          COUNT(CASE WHEN rating = 5 THEN 1 END) as rating_5
+        FROM tower_jump_feedback
+        GROUP BY game_address_bar
+        ORDER BY game_address_bar
+      `;
+    }
 
     // 获取所有评论数据
-    const comments = await sql(`
-      SELECT 
-        id,
-        game_address_bar,
-        name,
-        email,
-        text,
-        rating,
-        added_by_admin,
-        created_at as timestamp
-      FROM tower_jump_feedback
-      WHERE text IS NOT NULL
-      ORDER BY created_at DESC
-    `);
+    let comments;
+    if (hasProjectIdColumn.length > 0) {
+      comments = await sql`
+        SELECT 
+          id,
+          game_address_bar,
+          name,
+          email,
+          text,
+          rating,
+          added_by_admin,
+          created_at as timestamp
+        FROM tower_jump_feedback
+        WHERE text IS NOT NULL AND project_id = ${actualProjectId}
+        ORDER BY created_at DESC
+      `;
+    } else {
+      comments = await sql`
+        SELECT 
+          id,
+          game_address_bar,
+          name,
+          email,
+          text,
+          rating,
+          added_by_admin,
+          created_at as timestamp
+        FROM tower_jump_feedback
+        WHERE text IS NOT NULL
+        ORDER BY created_at DESC
+      `;
+    }
 
     // 按游戏组织数据
     const result = {};
     
-    // 处理有反馈数据的游戏
-    feedbackData.forEach(feedback => {
-      result[feedback.game_address_bar] = {
-        ratings: {
-          '1': feedback.rating_1 || 0,
-          '2': feedback.rating_2 || 0,
-          '3': feedback.rating_3 || 0,
-          '4': feedback.rating_4 || 0,
-          '5': feedback.rating_5 || 0
-        },
-        comments: comments.filter(comment => comment.game_address_bar === feedback.game_address_bar)
-      };
-    });
-
-    // 处理只有评论没有评分的游戏
+    // 先处理所有评论，确保每个有评论的游戏都被包含
+    const gameAddressBarSet = new Set();
+    
+    // 收集所有有评论的游戏地址
     comments.forEach(comment => {
-      if (!result[comment.game_address_bar]) {
-        result[comment.game_address_bar] = {
-          ratings: { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
-          comments: comments.filter(c => c.game_address_bar === comment.game_address_bar)
-        };
+      if (comment.game_address_bar) {
+        gameAddressBarSet.add(comment.game_address_bar);
       }
+    });
+    
+    // 收集所有有反馈的游戏地址
+    feedbackData.forEach(feedback => {
+      if (feedback.game_address_bar) {
+        gameAddressBarSet.add(feedback.game_address_bar);
+      }
+    });
+    
+    // 为每个游戏创建数据结构
+    gameAddressBarSet.forEach(gameAddressBar => {
+      // 查找对应的反馈统计
+      const feedback = feedbackData.find(f => f.game_address_bar === gameAddressBar);
+      
+      // 查找对应的评论
+      const gameComments = comments.filter(c => c.game_address_bar === gameAddressBar);
+      
+      result[gameAddressBar] = {
+        ratings: feedback ? {
+          '1': parseInt(feedback.rating_1) || 0,
+          '2': parseInt(feedback.rating_2) || 0,
+          '3': parseInt(feedback.rating_3) || 0,
+          '4': parseInt(feedback.rating_4) || 0,
+          '5': parseInt(feedback.rating_5) || 0
+        } : { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 },
+        comments: gameComments || []
+      };
     });
 
     res.status(200).json(result);
@@ -485,16 +551,21 @@ const addManualFeedback = async (req, res) => {
   }
 
   try {
-    const finalName = hasName ? name.trim() : 'Anonymous';
-    const finalText = hasText ? text.trim() : null;
+    const finalName = hasName ? name.trim().replace(/'/g, "''") : 'Anonymous';
+    const finalText = hasText ? text.trim().replace(/'/g, "''") : null;
+    const finalEmail = email?.trim() ? email.trim().replace(/'/g, "''") : null;
+    const finalRating = parseInt(rating, 10) || 0;
+    
+    // 构建 SQL 查询，正确处理 NULL 值
+    const emailValue = finalEmail ? `'${finalEmail}'` : 'NULL';
+    const textValue = finalText ? `'${finalText}'` : 'NULL';
     
     const newFeedback = await sql(`
       INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, email, text, rating, added_by_admin, created_at)
-      VALUES ('${pageId}', '${finalName}', ${email?.trim() ? `'${email.trim()}'` : 'NULL'}, ${finalText ? `'${finalText}'` : 'NULL'}, ${rating}, TRUE, '${finalTimestamp}')
+      VALUES ('${pageId.replace(/'/g, "''")}', '${finalName}', ${emailValue}, ${textValue}, ${finalRating}, TRUE, '${finalTimestamp}')
       RETURNING id, name, email, text, rating, added_by_admin, created_at as timestamp
     `);
 
-    console.log(`[API][管理员路由] 管理员手动添加反馈 - pageId: ${pageId} (时间戳: ${finalTimestamp}) - 用户: ${req.user?.username || '未知管理员'}`);
     res.status(201).json(newFeedback[0]);
   } catch (error) {
     console.error(`[API][管理员路由] 手动保存反馈时出错 - pageId: ${pageId}:`, error);
@@ -539,30 +610,35 @@ const updateFeedback = async (req, res) => {
     // 检查反馈是否存在
     const existingFeedback = await sql(`
       SELECT id FROM ${PROJECT_PREFIX}_feedback 
-      WHERE id = ${feedbackId} AND game_address_bar = '${pageId}'
+      WHERE id = ${feedbackId} AND game_address_bar = '${pageId.replace(/'/g, "''")}'
     `);
 
     if (existingFeedback.length === 0) {
       return res.status(404).json({ message: '未找到指定 ID 的反馈' });
     }
 
-    // 更新反馈
-    const finalName = hasName ? name.trim() : 'Anonymous';
-    const finalText = hasText ? text.trim() : null;
+    // 更新反馈，正确转义字符串
+    const finalName = hasName ? name.trim().replace(/'/g, "''") : 'Anonymous';
+    const finalText = hasText ? text.trim().replace(/'/g, "''") : null;
+    const finalEmail = email?.trim() ? email.trim().replace(/'/g, "''") : null;
+    const finalRating = parseInt(rating, 10) || 0;
+    
+    // 构建 SQL 查询，正确处理 NULL 值
+    const emailValue = finalEmail ? `'${finalEmail}'` : 'NULL';
+    const textValue = finalText ? `'${finalText}'` : 'NULL';
     
     const updatedFeedback = await sql(`
       UPDATE ${PROJECT_PREFIX}_feedback 
       SET 
         name = '${finalName}',
-        email = ${email?.trim() ? `'${email.trim()}'` : 'NULL'},
-        text = ${finalText ? `'${finalText}'` : 'NULL'},
-        rating = ${rating},
+        email = ${emailValue},
+        text = ${textValue},
+        rating = ${finalRating},
         created_at = '${finalTimestamp}'
-      WHERE id = ${feedbackId} AND game_address_bar = '${pageId}'
+      WHERE id = ${feedbackId} AND game_address_bar = '${pageId.replace(/'/g, "''")}'
       RETURNING id, name, email, text, rating, added_by_admin, created_at as timestamp
     `);
 
-    console.log(`[API][管理员路由] 管理员更新反馈 - pageId: ${pageId}, feedbackId: ${feedbackId} (时间戳: ${finalTimestamp}) - 用户: ${req.user?.username || '未知管理员'}`);
     res.json(updatedFeedback[0]);
 
   } catch (error) {
@@ -633,35 +709,17 @@ export const updateRatingsByPageId = async (req, res) => {
   }
 
   try {
-    console.log(`[API] 开始更新评分 - pageId: ${pageId}, 新评分数量:`, validatedCounts);
-    
-    // 先获取当前系统评分数量（用于调试）
-    const beforeDelete = await sql(`
-      SELECT COUNT(*) as count 
-      FROM ${PROJECT_PREFIX}_feedback 
-      WHERE game_address_bar = '${pageId}' 
-      AND rating IS NOT NULL 
-      AND (text IS NULL OR text = '')
-      AND added_by_admin = TRUE
-      AND name = '系统评分'
-    `);
-    console.log(`[API] 删除前系统评分数量:`, beforeDelete[0]?.count || 0);
-    
     // 删除现有评分（只删除系统添加的评分，保留有评论的评分和用户提交的评分）
-    const deleteSQL = `
+    await sql(`
       DELETE FROM ${PROJECT_PREFIX}_feedback 
       WHERE game_address_bar = '${pageId}' 
       AND rating IS NOT NULL 
       AND (text IS NULL OR text = '')
       AND added_by_admin = TRUE
       AND name = '系统评分'
-    `;
-    console.log(`[API] 执行删除 SQL:`, deleteSQL);
-    const deleteResult = await sql(deleteSQL);
-    console.log(`[API] 删除的系统评分记录数:`, deleteResult?.length || 0, '删除结果:', deleteResult);
+    `);
     
     // 插入新的评分数据
-    let totalInserted = 0;
     for (let rating = 1; rating <= 5; rating++) {
       const count = validatedCounts[String(rating)];
       if (count > 0) {
@@ -672,16 +730,13 @@ export const updateRatingsByPageId = async (req, res) => {
               INSERT INTO ${PROJECT_PREFIX}_feedback (game_address_bar, name, rating, added_by_admin)
               VALUES ('${pageId}', '系统评分', ${rating}, TRUE)
             `);
-            totalInserted++;
           } catch (insertError) {
             console.error(`[API] 插入 ${rating} 星评分失败 (第 ${i + 1}/${count} 条):`, insertError);
             throw insertError;
           }
         }
-        console.log(`[API] 插入 ${rating} 星评分 ${count} 条成功`);
       }
     }
-    console.log(`[API] 总共插入 ${totalInserted} 条评分记录`);
 
     // 获取更新后的统计
     const stats = await sql(`
@@ -698,9 +753,6 @@ export const updateRatingsByPageId = async (req, res) => {
     `);
 
     const result = stats[0] || { count: 0, average: 0, rating_1: 0, rating_2: 0, rating_3: 0, rating_4: 0, rating_5: 0 };
-
-    console.log(`[API] 管理员更新了游戏 ${pageId} 的评分 - 用户: ${req.user?.username || '未知管理员'}`);
-    console.log(`[API] 更新后的评分统计:`, result);
     
     // 确保返回的评分数量是数字类型
     res.status(200).json({ 

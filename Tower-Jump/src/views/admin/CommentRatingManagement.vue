@@ -58,124 +58,163 @@
           </div>
         </div>
 
-        <!-- 游戏列表 -->
+        <!-- 游戏表格 -->
         <div v-if="loading" class="loading">正在加载数据...</div>
         <div v-else-if="error" class="error">{{ error }}</div>
-        <div v-else class="games-list">
+        <div v-else class="games-table-container">
           <div v-if="Object.keys(gameData).length === 0" class="no-data">
             <p>暂无游戏数据。</p>
           </div>
-          
-          <div v-for="(data, pageId) in gameData" :key="pageId" class="game-card">
-            <div class="game-header">
-              <div class="game-info">
-                <h3 class="game-title">{{ getGameTitle(pageId) }}</h3>
-                <div class="game-stats">
-                  <span class="rating-avg">平均：{{ calculateAverage(data.ratings) }}</span>
-                  <span class="rating-count">{{ calculateTotal(data.ratings) }} 评分</span>
-                  <span class="comment-count">{{ data.comments.length }} 评论</span>
-                </div>
-              </div>
-              <button 
-                v-if="activeTab === 'comments'"
-                @click="openAddModal(pageId)" 
-                class="add-review-btn"
-              >
-                + 添加评论/评分
-              </button>
-              <button 
-                v-else
-                @click="openRatingModal(pageId, data.ratings)" 
-                class="add-review-btn"
-              >
-                + 管理评分
-              </button>
-            </div>
-
-            <!-- 评论管理 -->
-            <div v-if="activeTab === 'comments'" class="reviews-list">
-              <div v-if="data.comments.length === 0" class="no-reviews">
-                暂无评论
-              </div>
-              <div v-else>
-                <div v-for="comment in data.comments" :key="comment.id" class="review-item">
-                  <div class="review-content">
-                    <div class="review-header">
-                      <span class="reviewer-name">{{ comment.name }}</span>
-                      <span class="review-time">{{ formatTime(comment.timestamp) }}</span>
-                    </div>
-                    <div v-if="comment.rating" class="review-rating">
-                      <div class="rating-stars">
-                        <span
-                          v-for="n in 5"
-                          :key="n"
-                          class="star"
-                          :class="{ filled: n <= comment.rating }"
-                        >★</span>
+          <table v-else class="games-table">
+            <thead>
+              <tr>
+                <th>游戏名称</th>
+                <th>平均分</th>
+                <th>总评分</th>
+                <th>评论数</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- eslint-disable-next-line vue/no-v-for-template-key -->
+              <template v-for="(data, pageId) in gameData" :key="`group-${pageId}`">
+                <tr class="game-row" :class="{ expanded: expandedGames.includes(pageId) }">
+                  <td class="game-name">{{ getGameTitle(pageId) }}</td>
+                  <td class="game-average">{{ calculateAverage(data.ratings) }}</td>
+                  <td class="game-rating-count">{{ Number(calculateTotal(data.ratings)) }}</td>
+                  <td class="game-comment-count">{{ data.comments.length }}</td>
+                  <td class="game-actions">
+                    <button 
+                      v-if="activeTab === 'comments'"
+                      @click="openAddModal(pageId)" 
+                      class="action-btn add-btn"
+                      title="添加评论/评分"
+                    >
+                      + 添加
+                    </button>
+                    <button 
+                      v-else
+                      @click="openRatingModal(pageId, data.ratings)" 
+                      class="action-btn manage-btn"
+                      title="管理评分"
+                    >
+                      管理评分
+                    </button>
+                    <button 
+                      @click="toggleExpand(pageId)"
+                      class="action-btn expand-btn"
+                      :title="expandedGames.includes(pageId) ? '收起' : '展开'"
+                    >
+                      {{ expandedGames.includes(pageId) ? '▼' : '▶' }}
+                    </button>
+                  </td>
+                </tr>
+                <!-- 展开的详细内容 -->
+                <tr v-if="expandedGames.includes(pageId)" class="detail-row">
+                  <td colspan="5" class="detail-content">
+                    <!-- 评论管理 -->
+                    <div v-if="activeTab === 'comments'" class="reviews-table-section">
+                      <div class="section-header">
+                        <h4>评论列表 ({{ data.comments.length }})</h4>
                       </div>
-                      <span class="rating-value">{{ comment.rating }}/5</span>
+                      <div v-if="data.comments.length === 0" class="no-reviews">
+                        暂无评论
+                      </div>
+                      <table v-else class="reviews-table">
+                        <thead>
+                          <tr>
+                            <th>用户名</th>
+                            <th>评分</th>
+                            <th>评论内容</th>
+                            <th>时间</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="comment in data.comments" :key="comment.id" class="review-row">
+                            <td class="reviewer-name-cell">{{ comment.name }}</td>
+                            <td class="review-rating-cell">
+                              <div v-if="comment.rating" class="rating-stars">
+                                <span
+                                  v-for="n in 5"
+                                  :key="n"
+                                  class="star"
+                                  :class="{ filled: n <= comment.rating }"
+                                >★</span>
+                                <span class="rating-value">{{ comment.rating }}/5</span>
+                              </div>
+                              <span v-else class="no-rating">-</span>
+                            </td>
+                            <td class="review-text-cell">
+                              <span v-if="comment.text">{{ comment.text }}</span>
+                              <span v-else class="review-text-only-rating">仅评分，无评论</span>
+                            </td>
+                            <td class="review-time-cell">{{ formatTime(comment.timestamp) }}</td>
+                            <td class="review-actions-cell">
+                              <button @click="openEditModal(pageId, comment)" class="edit-btn">
+                                编辑
+                              </button>
+                              <button @click="deleteReview(pageId, comment.id)" class="delete-btn">
+                                删除
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <div v-if="comment.text" class="review-text">{{ comment.text }}</div>
-                    <div v-if="!comment.text && comment.rating" class="review-text-only-rating">仅评分，无评论</div>
-                  </div>
-                  <div class="review-actions">
-                    <button @click="openEditModal(pageId, comment)" class="edit-btn">
-                      编辑
-                    </button>
-                    <button @click="deleteReview(pageId, comment.id)" class="delete-btn">
-                      删除
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- 评分管理 -->
-            <div v-else class="ratings-management">
-              <div class="ratings-summary">
-                <div class="summary-item">
-                  <span class="summary-label">总评分：</span>
-                  <span class="summary-value">{{ calculateTotal(data.ratings) }}</span>
-                </div>
-                <div class="summary-item">
-                  <span class="summary-label">平均分：</span>
-                  <span class="summary-value">{{ calculateAverage(data.ratings) }}</span>
-                </div>
-              </div>
-              
-              <div class="ratings-breakdown">
-                <div 
-                  v-for="rating in [5, 4, 3, 2, 1]" 
-                  :key="rating" 
-                  class="rating-row"
-                >
-                  <span class="rating-label">{{ rating }} 星</span>
-                  <span class="rating-count-display">{{ data.ratings[rating] || 0 }}</span>
-                  <button 
-                    @click="openRatingEditModal(pageId, rating, data.ratings[rating] || 0)"
-                    class="edit-rating-btn"
-                  >
-                    编辑
-                  </button>
-                </div>
-              </div>
-              
-              <div class="ratings-actions">
-                <button 
-                  @click="openRatingModal(pageId, data.ratings)" 
-                  class="manage-all-ratings-btn"
-                >
-                  批量修改评分数量
-                </button>
-                <button 
-                  @click="openAddRatingModal(pageId)" 
-                  class="add-single-rating-btn"
-                >
-                  添加单个评分
-                </button>
-              </div>
-            </div>
-          </div>
+                    <!-- 评分管理 -->
+                    <div v-else class="ratings-table-section">
+                      <div class="section-header">
+                        <h4>评分统计</h4>
+                        <div class="ratings-summary-inline">
+                          <span>总评分：<strong>{{ Number(calculateTotal(data.ratings)) }}</strong></span>
+                          <span>平均分：<strong>{{ calculateAverage(data.ratings) }}</strong></span>
+                        </div>
+                      </div>
+                      <table class="ratings-table">
+                        <thead>
+                          <tr>
+                            <th>星级</th>
+                            <th>数量</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="rating in [5, 4, 3, 2, 1]" :key="rating" class="rating-row-table">
+                            <td class="rating-label-cell">{{ rating }} 星</td>
+                            <td class="rating-count-cell">{{ data.ratings[rating] || 0 }}</td>
+                            <td class="rating-action-cell">
+                              <button 
+                                @click="openRatingEditModal(pageId, rating, data.ratings[rating] || 0)"
+                                class="edit-rating-btn"
+                              >
+                                编辑
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="ratings-actions-inline">
+                        <button 
+                          @click="openRatingModal(pageId, data.ratings)" 
+                          class="manage-all-ratings-btn"
+                        >
+                          批量修改评分数量
+                        </button>
+                        <button 
+                          @click="openAddRatingModal(pageId)" 
+                          class="add-single-rating-btn"
+                        >
+                          添加单个评分
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -339,6 +378,7 @@ const isEditing = ref(false)
 const currentPageId = ref('')
 const currentCommentId = ref(null)
 const activeTab = ref('comments')
+const expandedGames = ref([]) // 存储展开的游戏ID
 
 // 评分管理相关
 const showRatingModal = ref(false)
@@ -397,8 +437,47 @@ const fetchGameData = async () => {
       return
     }
     
-    const data = await adminAPI.getAllGameData(token)
-    gameData.value = data || {}
+    // 获取后端数据（只包含有评论/评分的游戏）
+    const backendData = await adminAPI.getAllGameData(token)
+    
+    // 创建包含所有游戏的完整数据结构
+    const allGamesData = {}
+    
+    // 遍历所有游戏，为每个游戏创建数据结构
+    games.forEach(game => {
+      const pageId = game.addressBar
+      // 如果后端有数据，使用后端数据；否则使用默认结构
+      if (backendData && backendData[pageId]) {
+        // 确保 ratings 格式正确，所有值都是数字
+        const backendRatings = backendData[pageId].ratings || {}
+        const normalizedRatings = {
+          '1': parseInt(backendRatings['1'] || backendRatings[1] || 0, 10),
+          '2': parseInt(backendRatings['2'] || backendRatings[2] || 0, 10),
+          '3': parseInt(backendRatings['3'] || backendRatings[3] || 0, 10),
+          '4': parseInt(backendRatings['4'] || backendRatings[4] || 0, 10),
+          '5': parseInt(backendRatings['5'] || backendRatings[5] || 0, 10)
+        }
+        
+        allGamesData[pageId] = {
+          comments: backendData[pageId].comments || [],
+          ratings: normalizedRatings
+        }
+      } else {
+        // 默认结构：没有评论和评分
+        allGamesData[pageId] = {
+          comments: [],
+          ratings: {
+            '1': 0,
+            '2': 0,
+            '3': 0,
+            '4': 0,
+            '5': 0
+          }
+        }
+      }
+    })
+    
+    gameData.value = allGamesData
   } catch (err) {
     error.value = '加载数据失败：' + err.message
   } finally {
@@ -423,18 +502,28 @@ const getCurrentDateTime = () => {
 }
 
 const calculateAverage = (ratings) => {
+  if (!ratings || typeof ratings !== 'object') return '0.0'
+  
   const total = calculateTotal(ratings)
   if (total === 0) return '0.0'
   
   const sum = Object.entries(ratings).reduce((acc, [rating, count]) => {
-    return acc + (parseInt(rating) * count)
+    const ratingNum = parseInt(rating, 10) || 0
+    const countNum = parseInt(String(count), 10) || 0
+    return acc + (ratingNum * countNum)
   }, 0)
   
   return (sum / total).toFixed(1)
 }
 
 const calculateTotal = (ratings) => {
-  return Object.values(ratings).reduce((total, count) => total + count, 0)
+  if (!ratings || typeof ratings !== 'object') return 0
+  
+  return Object.values(ratings).reduce((total, count) => {
+    // 确保 count 是数字类型
+    const countNum = parseInt(String(count), 10) || 0
+    return total + countNum
+  }, 0)
 }
 
 const formatTime = (timestamp) => {
@@ -554,7 +643,6 @@ const logout = () => {
 
 // 评分管理方法
 const openRatingModal = (pageId, ratings) => {
-  console.log('打开评分弹窗 - pageId:', pageId, 'ratings:', ratings)
   ratingModalData.value = {
     pageId,
     ratingCounts: {
@@ -565,7 +653,6 @@ const openRatingModal = (pageId, ratings) => {
       5: parseInt(ratings['5']) || 0
     }
   }
-  console.log('设置后的 ratingModalData:', ratingModalData.value)
   showRatingModal.value = true
 }
 
@@ -580,7 +667,16 @@ const handleRatingInput = (rating, event) => {
   ratingModalData.value.ratingCounts[rating] = value
   // 触发响应式更新
   ratingModalData.value = { ...ratingModalData.value }
-  console.log(`评分输入 - ${rating}星:`, value, '当前 ratingCounts:', JSON.parse(JSON.stringify(ratingModalData.value.ratingCounts)))
+}
+
+// 切换游戏展开/收起
+const toggleExpand = (pageId) => {
+  const index = expandedGames.value.indexOf(pageId)
+  if (index > -1) {
+    expandedGames.value.splice(index, 1)
+  } else {
+    expandedGames.value.push(pageId)
+  }
 }
 
 const openRatingEditModal = (pageId, rating, count) => {
@@ -618,18 +714,6 @@ const saveRatings = async () => {
       '5': parseInt(ratingModalData.value.ratingCounts[5]) || 0
     }
     
-    console.log('准备发送评分数据 - ratingModalData:', JSON.stringify(ratingModalData.value, null, 2))
-    console.log('ratingModalData.value.ratingCounts:', ratingModalData.value.ratingCounts)
-    console.log('ratingModalData.value.ratingCounts 原始值:', {
-      1: ratingModalData.value.ratingCounts[1],
-      2: ratingModalData.value.ratingCounts[2],
-      3: ratingModalData.value.ratingCounts[3],
-      4: ratingModalData.value.ratingCounts[4],
-      5: ratingModalData.value.ratingCounts[5]
-    })
-    console.log('发送评分数据 (字符串键):', ratingCounts)
-    console.log('发送评分数据 (JSON):', JSON.stringify(ratingCounts))
-    
     // 验证数据
     const total = Object.values(ratingCounts).reduce((sum, val) => sum + val, 0)
     if (total === 0) {
@@ -637,14 +721,12 @@ const saveRatings = async () => {
       return
     }
     
-    const response = await adminAPI.updateRatings(ratingModalData.value.pageId, ratingCounts, token)
-    console.log('API 响应:', response)
+    await adminAPI.updateRatings(ratingModalData.value.pageId, ratingCounts, token)
     
     showRatingModal.value = false
     await fetchGameData()
     alert('评分更新成功！')
   } catch (err) {
-    console.error('更新评分失败:', err)
     alert('更新评分失败：' + err.message)
   }
 }
@@ -672,16 +754,13 @@ const saveSingleRating = async () => {
     // 更新当前编辑的等级，确保是整数
     newRatings[String(singleRatingEdit.value.rating)] = parseInt(singleRatingEdit.value.count) || 0
     
-    console.log('发送单个评分数据:', newRatings)
     // 使用批量更新API
-    const response = await adminAPI.updateRatings(singleRatingEdit.value.pageId, newRatings, token)
-    console.log('API 响应:', response)
+    await adminAPI.updateRatings(singleRatingEdit.value.pageId, newRatings, token)
     
     showRatingEditModal.value = false
     await fetchGameData()
     alert('评分更新成功！')
   } catch (err) {
-    console.error('更新评分失败:', err)
     alert('更新评分失败：' + err.message)
   }
 }
@@ -825,57 +904,272 @@ onMounted(() => {
   letter-spacing: 0.05em;
 }
 
-/* 游戏列表 */
-.games-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.game-card {
+/* 游戏表格 */
+.games-table-container {
   background: white;
   border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.game-header {
+.games-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.games-table thead {
+  background: #f8fafc;
+}
+
+.games-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1e293b;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.games-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #374151;
+}
+
+.game-row {
+  transition: background-color 0.2s;
+}
+
+.game-row:hover {
+  background-color: #f8fafc;
+}
+
+.game-row.expanded {
+  background-color: #f1f5f9;
+}
+
+.game-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.game-average {
+  font-weight: 600;
+  color: #f59e0b;
+}
+
+.game-rating-count,
+.game-comment-count {
+  color: #64748b;
+}
+
+.game-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.375rem 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.add-btn {
+  background: #10b981;
+  color: white;
+}
+
+.add-btn:hover {
+  background: #059669;
+}
+
+.manage-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.manage-btn:hover {
+  background: #2563eb;
+}
+
+.expand-btn {
+  background: #64748b;
+  color: white;
+  min-width: 2rem;
+  padding: 0.375rem 0.5rem;
+}
+
+.expand-btn:hover {
+  background: #475569;
+}
+
+/* 展开的详细内容 */
+.detail-row {
+  background-color: #f8fafc;
+}
+
+.detail-content {
+  padding: 1.5rem !important;
+}
+
+.reviews-table-section,
+.ratings-table-section {
+  margin-top: 0;
+}
+
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  background: #f8fafc;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
-.game-title {
+.section-header h4 {
   margin: 0;
   color: #1e293b;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
 }
 
-.game-stats {
+.ratings-summary-inline {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: 1.5rem;
   font-size: 0.875rem;
   color: #64748b;
 }
 
-.add-review-btn {
-  background: #10b981;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  cursor: pointer;
+.ratings-summary-inline strong {
+  color: #1e293b;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+/* 评论表格 */
+.reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.reviews-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1e293b;
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.reviews-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #374151;
+}
+
+.review-row:hover {
+  background-color: #f8fafc;
+}
+
+.reviewer-name-cell {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.review-rating-cell .rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.review-rating-cell .rating-value {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.review-text-cell {
+  max-width: 400px;
+  word-wrap: break-word;
+}
+
+.review-text-only-rating {
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.no-rating {
+  color: #9ca3af;
+}
+
+.review-time-cell {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.review-actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* 评分表格 */
+.ratings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ratings-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1e293b;
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.ratings-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #374151;
+}
+
+.rating-row-table:hover {
+  background-color: #f8fafc;
+}
+
+.rating-label-cell {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.rating-count-cell {
+  color: #374151;
   font-weight: 500;
 }
 
-.add-review-btn:hover {
-  background: #059669;
+.rating-action-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ratings-actions-inline {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
 }
 
 /* 评论列表 */

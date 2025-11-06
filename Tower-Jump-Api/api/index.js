@@ -118,7 +118,7 @@ app.get('/comments', async (req, res) => {
       SELECT id, name, email, text, rating, created_at as timestamp
       FROM ${PROJECT_PREFIX}_feedback
       WHERE game_address_bar = '${pageId}' AND text IS NOT NULL
-      ORDER BY created_at DESC
+      ORDER BY created_at ASC
     `);
     res.json(comments);
   } catch (error) {
