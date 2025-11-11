@@ -1157,8 +1157,8 @@ export const games = [
       description: "Jump between orbits in this addictive arcade game! Dodge obstacles, collect power-ups, and beat your best score in Jumping Orbits. Play now for a thrilling experience!",
       keywords: "jumping orbits, orbit game, arcade, reflex game, space game, skill game, online game, free game, jumping challenge",
     },
-    isNew: true,
-    isHot: true,
+    isNew: false,
+    isHot: false,
     addressBar: "jumping-orbits",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
       <h2>JUMPING ORBITS</h2>
@@ -1225,8 +1225,8 @@ export const games = [
       description: "Leap to victory in Jumper Cat - Infinite Jump! An endlessly challenging platformer where skill and timing are key. Avoid deadly plates and reach the top!",
       keywords: "jumper cat, infinite jump, online game, free arcade game, platformer game, cat games, jumping games, infinite runner",
     },
-    isNew: true,
-    isHot: true,
+    isNew: false,
+    isHot: false,
     addressBar: "jumper-cat-infinite-jump",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
       <h2>JUMPER CAT - INFINITE JUMP</h2>
@@ -1293,8 +1293,8 @@ export const games = [
       description: "Reach for the sky in Sky Hopper! Jump between platforms, avoid falling, and compete for the highest score. Addictive arcade fun awaits! Play now!",
       keywords: "sky hopper, jumping game, arcade game, vertical game, platform game, high score, endless runner, online game, free game",
     },
-    isNew: true,
-    isHot: true,
+    isNew: false,
+    isHot: false,
     addressBar: "sky-hopper",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
       <h2>SKY HOPPER</h2>
@@ -1544,7 +1544,205 @@ export const games = [
   
     <p>Jump Sheep Game offers a simple yet captivating arcade experience that's easy to pick up but challenging to master. Its intuitive controls, vibrant graphics, and addictive gameplay make it a perfect choice for players of all ages and skill levels. Whether you're looking for a quick break or a challenging high-score pursuit, Jump Sheep Game provides hours of endless fun. So, hop into the world of Jump Sheep Game and see how high you can score!</p>
   </div>`,
+  },
+
+  {
+    id: 24,
+    title: "BOUNCEMASTERS",
+    iframeUrl: "https://1games.io/bouncemasters",
+    keywords: "Dive into the hilarious frozen world of Bouncemasters! Launch your penguin pal across icy landscapes, powered by friendly white bears. Aim for seals and whales to maximize your flight distance. A simple tap can lead to epic airborne adventures! Collect coins, upgrade your gear, and break records in this addictive arcade sensation.",
+    publishDate: "2025-11-11",
+    imageUrl: "/images/game-24.webp",
+    imageAlt: "A penguin being launched by a polar bear in Bouncemasters, an arcade game.",
+    seo: {
+      title: "BOUNCEMASTERS: Hilarious Penguin Launching Adventure - Play Now!",
+      description: "Launch a penguin to amazing distances in Bouncemasters! Master the timing, collect coins, and upgrade your gear. Experience arctic arcade fun! Download today.",
+      keywords: "bouncemasters, penguin game, arcade game, polar bear, flying penguin, mobile game, arctic adventure, fun game",
+    },
+    isNew: true,
+    isHot: true,
+    addressBar: "bouncemasters",
+    detailsHtml: `
+    <h2>BOUNCEMASTERS</h2>
+    <p>Prepare for a frosty flight in Bouncemasters, the outrageously fun arcade game where a penguin's soaring dreams are powered by well-timed smacks and the boundless enthusiasm of a friendly polar bear. This isn't just about distance; it's about mastering the art of the bounce, upgrading your gear, and witnessing the hilarious chaos unfold as you launch your avian friend across the icy landscapes.</p>
+    
+    <h3>About</h3>
+    <p>Bouncemasters drops you into a vibrant world where penguins and polar bears coexist in perfect harmony, or at least, in a perfectly hilarious partnership. The core gameplay revolves around a simple yet addictive mechanic: timing your hits to launch the penguin as far as possible. The game's charm lies in its physics-based antics and the numerous opportunities for strategic bouncing. Seals, whales, and other arctic creatures become your allies as you navigate the frozen expanse, each bounce adding precious meters to your final distance. But beware of the icy obstacles and treacherous waters that await – one wrong move can send your penguin plummeting back to earth. Bouncemasters is more than just a game; it's a testament to the enduring appeal of simple, addictive gameplay with a healthy dose of arctic absurdity. Collect diamonds and coins throughout your journey to upgrade your gear, allowing you to achieve even greater distances and unlock new, wacky abilities.</p>
+    
+    <h3>Features</h3>
+    <ul>
+      <li><b>Simple One-Tap Gameplay:</b> Easy to learn, but difficult to master. Perfect for quick bursts of fun on the go.</li>
+      <li><b>Hilarious Physics:</b> Watch your penguin tumble and bounce through the air in a physics-driven spectacle.</li>
+      <li><b>Upgrade Your Gear:</b> Collect coins and diamonds to upgrade your club and other items, boosting your launch power and penguin's bounciness.</li>
+      <li><b>Vibrant Arctic World:</b> Explore beautifully rendered frozen landscapes teeming with quirky characters.</li>
+      <li><b>Strategic Bouncing:</b> Utilize seals, whales, and other objects to extend your flight and reach record distances.</li>
+      <li><b>Challenging Obstacles:</b> Avoid ice, rocks, and water to prevent premature landings and maximize your score.</li>
+      <li><b>Regular Updates:</b> Expect new levels, characters, and features to keep the fun fresh and exciting.</li>
+      <li><b>Addictive Progression:</b> Compete with yourself and others to beat your high score and unlock new content.</li>
+    </ul>
+    
+    <h3>FAQ</h3>
+    <ul>
+      <li>
+        <div class="faq-question">How do I control the penguin in Bouncemasters?</div>
+        <div class="faq-answer">Simply tap the screen at the right moment to hit the penguin with the club. When the penguin is in the air, tap the screen again when it collides with seals or whales to help it bounce further.</div>
+      </li>
+      <li>
+        <div class="faq-question">What is the best strategy to get a high score in Bouncemasters?</div>
+        <div class="faq-answer">Focus on timing your hits perfectly and aiming for the bonus multipliers. Upgrading your club and other items will also significantly increase your launch distance. Utilizing the bouncing mechanics from seals and whales is crucial for maximizing distance.</div>
+      </li>
+      <li>
+        <div class="faq-question">Are there any hidden characters or features in Bouncemasters?</div>
+        <div class="faq-answer">Keep an eye out for special events and updates, which often introduce new characters, challenges, and hidden features. Experiment with different combinations of upgrades and bouncing strategies to uncover secrets!</div>
+      </li>
+      <li>
+        <div class="faq-question">How do I earn more coins and diamonds in Bouncemasters?</div>
+        <div class="faq-answer">Collect coins and diamonds during your flights. Watch rewarded video ads to earn bonus rewards. Completing daily and weekly challenges will provide substantial rewards as well.</div>
+      </li>
+      <li>
+        <div class="faq-question">Is Bouncemasters suitable for all ages?</div>
+        <div class="faq-answer">Yes, Bouncemasters is generally suitable for all ages due to its simple gameplay and cartoonish graphics. However, parental guidance is advised for younger players.</div>
+      </li>
+    </ul>
+    
+    <p>Bouncemasters delivers a uniquely entertaining arcade experience. The blend of simple controls, strategic gameplay, and hilarious physics creates an addictive loop that keeps players coming back for more. Whether you're looking for a quick time-killer or a challenging high-score chaser, Bouncemasters offers something for everyone in its whimsical frozen world. So, grab your club, find your polar bear pal, and prepare to launch into a world of bouncing, flying, and arctic fun!</p>
+`,
+  },
+
+  {
+    id: 25,
+    title: "BOUNCY WOODS",
+    iframeUrl: "https://1games.io/bouncy-woods",
+    keywords: "Launch adorable duck projectiles as a mischievous fox in Bouncy Woods! This puzzle adventure challenges your aim and strategy to clear colorful, block-filled levels. Collect boosters and master the bounces to conquer the deep jungle. A top-tier test of skill!",
+    publishDate: "2025-11-11",
+    imageUrl: "/images/game-25.webp",
+    imageAlt: "A fox aiming a round duck in a vibrant Bouncy Woods level.",
+    seo: {
+      title: "BOUNCY WOODS - Addictive Puzzle Adventure! Play Now!",
+      description: "Dive into Bouncy Woods, the ultimate block-breaking puzzle game! Guide a fox, shoot bouncy ducks, and conquer levels. Test your skills and strategize to win!",
+      keywords: "bouncy woods, puzzle game, block breaking, fox, ducks, strategy game, adventure game, online game, free game",
+    },
+    isNew: true,
+    isHot: true,
+    addressBar: "bouncy-woods",
+    detailsHtml: `
+    <h2>BOUNCY WOODS</h2>
+    <p>Embark on a delightful and challenging journey in Bouncy Woods, a puzzle game that blends adorable characters with strategic gameplay. Take control of a cunning fox, armed with an arsenal of bouncy ducks, and prepare to dismantle vibrant, block-laden levels. Precision and planning are key to mastering this whimsical world.</p>
+
+    <h3>About</h3>
+    <p>Bouncy Woods offers a unique twist on the classic block-breaking genre. Instead of traditional balls, you'll be launching cute, round ducks that ricochet off surfaces, creating a satisfying chain reaction of destruction. The game isn't just about mindless shooting; it demands careful calculation of angles, strategic use of power-ups, and quick thinking to overcome increasingly complex challenges. Each level presents a new and engaging puzzle, requiring players to adapt their tactics and make the most of their limited shots. As you delve deeper into the woods, you'll discover special items that enhance your ducks' power and grant additional shots, adding layers of depth and excitement to the gameplay.</p>
+
+    <h3>Features</h3>
+    <ul>
+        <li><b>Adorable Duck Projectiles:</b> Fire a flock of bouncy ducks, each programmed for maximum cuteness and destructive potential.</li>
+        <li><b>Strategic Angle Calculation:</b> Master the art of angles to optimize bounces and maximize damage to the blocks.</li>
+        <li><b>Challenging Level Design:</b> Face progressively difficult levels that demand tactical thinking and precise execution.</li>
+        <li><b>Power-Up Collection:</b> Discover and utilize a variety of boosters to enhance your ducks' strength and add more shots.</li>
+        <li><b>Dynamic Block Destruction:</b> Witness visually satisfying chain reactions as your ducks decimate the block structures.</li>
+        <li><b>Mischievous Fox Character:</b> Play as a charming fox, adding a touch of whimsy to the block-breaking experience.</li>
+        <li><b>Limited Shot Challenges:</b> Strategize every shot carefully, as you have a limited number of attempts to clear each level.</li>
+        <li><b>Evolving Gameplay Mechanics:</b> Experience a dynamic blend of strategy and skill, constantly adapting to new challenges and features.</li>
+    </ul>
+
+    <h3>FAQ</h3>
+    <ul>
+        <li>
+            <div class="faq-question">How do I aim my shots in Bouncy Woods?</div>
+            <div class="faq-answer">Use your mouse to adjust the shooting direction. The aiming line will help you predict the ducks' trajectory.</div>
+        </li>
+        <li>
+            <div class="faq-question">What happens if the blocks reach the bottom of the screen?</div>
+            <div class="faq-answer">If the blocks reach your position, you will lose the level. Plan your shots carefully to avoid this!</div>
+        </li>
+        <li>
+            <div class="faq-question">How do I use power-ups?</div>
+            <div class="faq-answer">Power-ups are activated automatically when you collect them during gameplay. They can enhance your ducks' power, add more shots, or create other powerful effects.</div>
+        </li>
+        <li>
+            <div class="faq-question">Are there different types of blocks in Bouncy Woods?</div>
+            <div class="faq-answer">Yes, as you progress, you will encounter different types of blocks with varying levels of durability and special properties.</div>
+        </li>
+        <li>
+            <div class="faq-question">Is Bouncy Woods free to play?</div>
+            <div class="faq-answer">Yes, Bouncy Woods is free to play! Dive in and start breaking blocks today.</div>
+        </li>
+        <li>
+            <div class="faq-question">What platforms is Bouncy Woods available on?</div>
+            <div class="faq-answer">Bouncy Woods is currently available on web browsers.</div>
+        </li>
+    </ul>
+
+    <p>Bouncy Woods offers a compelling blend of adorable aesthetics and strategic gameplay, making it an engaging puzzle experience for players of all skill levels. From the satisfying bounce of the ducks to the challenging level designs and rewarding power-ups, this game provides hours of captivating fun. Are you ready to test your aim and master the art of the bounce in Bouncy Woods?</p>
+    `,
+  },
+
+  {
+    id: 26,
+    title: "Cowboy Safari",
+    iframeUrl: "https://1games.io/cowboy-safari",
+    keywords: "Experience the ultimate Cowboy Safari! Lasso exotic animals in a wild west adventure, build your Sky Zoo, and conquer challenging terrains. Ride zebras, tame lions, and dodge obstacles in this thrilling endless runner. A true cowboy's journey awaits!",
+    publishDate: "2025-11-11",
+    imageUrl: "/images/game-26.webp",
+    imageAlt: "A cowboy riding a zebra in a vibrant Cowboy Safari game scene.",
+    seo: {
+      title: "Cowboy Safari - Ride, Tame & Build Your Wild West Zoo!",
+      description: "Embark on an exciting Cowboy Safari! Capture exotic animals, manage your Sky Zoo, and conquer challenging terrains in this thrilling endless runner. Play now!",
+      keywords: "cowboy safari, wild west, endless runner, zoo management, animal taming, exotic animals, online game, adventure game",
+    },
+    isNew: true,
+    isHot: true,
+    addressBar: "cowboy-safari",
+    detailsHtml: `
+    <h2>Cowboy Safari</h2>
+    <p>Saddle up and prepare for the ride of your life in **Cowboy Safari**, a high-octane endless runner that blends the thrill of the Wild West with the exotic allure of an African safari. It’s not just about running; it’s about **taming the wild** and building your ultimate **Sky Zoo**! Get ready to lasso, ride, and rule!</p>
+    <p><img src="/images/game-26-01.webp" alt="Cowboy Safari" width="100%" style="width: 100%;"></p>
+
+    <h3>About</h3>
+    <p>Cowboy Safari plunges you into a world where cowboys and exotic animals coexist in a thrilling, fast-paced adventure. As a daring cowboy, your mission is to explore vast landscapes, **capture a diverse range of animals**, and transport them to your ever-expanding **Sky Zoo**. This isn't your average running game; it combines skill, strategy, and a dash of cowboy grit. The dynamic terrain and unpredictable animal behaviors ensure that every run is a unique and exhilarating experience. The game mechanics are easy to learn but difficult to master, providing a satisfying challenge for both casual and hardcore gamers. You'll need quick reflexes and strategic thinking to survive the chaos and build the most impressive Sky Zoo in the West. Cowboy Safari offers a truly unique gameplay experience that will keep you coming back for more.</p>
+
+    <h3>Features</h3>
+    <ul>
+        <li>**Endless Running Adventure:** Navigate through diverse terrains, from dusty deserts to lush grasslands, each filled with unique obstacles and challenges.</li>
+        <li>**Exotic Animal Taming:** Lasso and ride a variety of exotic animals, including zebras, lions, elephants, and more. Each animal presents a different riding challenge.</li>
+        <li>**Sky Zoo Management:** Transfer your captured animals to your Sky Zoo, expand their habitats, and attract visitors to earn rewards.</li>
+        <li>**Dynamic Obstacle Avoidance:** Dodge obstacles like cacti, rocks, and runaway trains to maintain your momentum and keep your cowboy safe.</li>
+        <li>**Animal Upgrade System:** Enhance your animals' abilities to improve their speed, stamina, and resistance to obstacles.</li>
+        <li>**Region Unlocking:** Unlock new regions with even more exotic animals and challenging terrains as you progress through the game.</li>
+        <li>**Rare Creature Discovery:** Discover rare and unique animal species with special traits that enhance your gameplay.</li>
+        <li>**Bonus Collection:** Collect valuable bonuses during your runs to boost your score, increase your speed, and improve your animal-taming skills.</li>
+    </ul>
+
+    <h3>FAQ</h3>
+    <ul>
+        <li>**How do I capture animals in Cowboy Safari?**
+            <p>Use the **Spacebar** to jump and lasso the animals. Time your jumps perfectly to land on their backs and begin the ride. Hold Spacebar to stay on the animal's back during the chase.</p>
+        </li>
+        <li>**What should I do if the animal gets angry?**
+            <p>Balance control and timing. Use the **Left and Right arrow keys** to adjust your position and avoid obstacles. Anticipate the animal's anger stages by observing their behavior.</p>
+        </li>
+        <li>**How do I upgrade my animals?**
+            <p>You can upgrade your animals in the **Sky Zoo** using the rewards you earn from capturing animals and attracting visitors. Upgrading improves their abilities and performance.</p>
+        </li>
+        <li>**What is the benefit of unlocking new regions?**
+            <p>Unlocking new regions grants access to a **wider variety of exotic animals** and more challenging terrains, offering fresh gameplay experiences and greater rewards.</p>
+        </li>
+        <li>**How can I attract more visitors to my Sky Zoo?**
+            <p>Expand your animal habitats, upgrade your animals' abilities, and showcase **rare and unique creatures** to attract more visitors and earn greater rewards.</p>
+        </li>
+        <li>**Are there any special bonuses I should look out for?**
+            <p>Yes, keep an eye out for **speed boosts, score multipliers**, and animal-taming power-ups during your runs. Collect them wisely to maximize your efficiency and progress.</p>
+        </li>
+    </ul>
+
+    <p>Cowboy Safari isn't just a game; it's an exhilarating adventure that combines the best elements of endless running and zoo management. With its unique blend of cowboy culture and exotic wildlife, dynamic gameplay, and rewarding upgrade system, Cowboy Safari offers an immersive and addictive experience that will keep you hooked for hours. So, grab your lasso, saddle up, and get ready to conquer the wild!</p>
+    `,
   }
+
+
+
+
+
+
 
 
 
