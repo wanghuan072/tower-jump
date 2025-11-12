@@ -10,7 +10,7 @@ export const games = [
     imageAlt: "Tower Jump", // 图片alt文本
     iframeUrl: "/TowerJump.html", // 游戏iframe地址
     isNew: false, // 是否为新游戏
-    isHot: false, // 是否为热门游戏
+    isHot: true, // 是否为热门游戏
     seo: {
       title: "Tower Jump - Play Instantly Online", // SEO标题
       description: "Tower Jump is a lightweight, fast vertical jumping game you can play instantly in your browser. Smooth visuals, responsive controls for desktop and mobile.", // SEO描述
@@ -403,7 +403,7 @@ export const games = [
       description: "BIRD UP is a thrilling one-button arcade game challenging your reflexes with spinning obstacles and ever-changing vertical levels. Unlock diverse characters and climb to the top! Play now!",
       keywords: "bird up, arcade game, one-button game, flappy bird, skill game, reflex game, vertical game, endless game, mobile game, casual game, bird, birds, characters, unlockable content",
     },
-    isNew: false,
+    isNew: true,
     isHot: false,
     addressBar: "bird-up",
     detailsHtml: `
@@ -542,7 +542,7 @@ export const games = [
       keywords: "bumpy jumpy, platformer, online game, racing game, multiplayer, skill game, jump, dash, speed, challenge, online, competition",
     },
     isNew: false,
-    isHot: false,
+    isHot: true,
     addressBar: "bumpy-jumpy",
     detailsHtml: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -774,7 +774,7 @@ export const games = [
       keywords: "doodle jumping, game optimization, platformer game, arcade games, high score strategies, mobile games",
     },
     isNew: false,
-    isHot: false,
+    isHot: true,
     addressBar: "doodle-jumping",
     detailsHtml: `<div>
       
@@ -824,7 +824,7 @@ export const games = [
       keywords: "Mr. Flip, flip, backflip, stunt game, ragdoll physics, arcade game, Azgames, gymnastic game, online game, free game",
     },
     isNew: false,
-    isHot: false,
+    isHot: true,
     addressBar: "mr-flip",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2>Mr Flip</h2>
@@ -960,7 +960,7 @@ export const games = [
       keywords: "jump boy jack, jump game, arcade game, online game, mobile game, platformer, action game, skill game, jumping, boy",
     },
     isNew: false,
-    isHot: false,
+    isHot: true,
     addressBar: "jump-boy-jack",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2>JUMP BOY JACK</h2>
@@ -1226,7 +1226,7 @@ export const games = [
       keywords: "jumper cat, infinite jump, online game, free arcade game, platformer game, cat games, jumping games, infinite runner",
     },
     isNew: false,
-    isHot: false,
+    isHot: true,
     addressBar: "jumper-cat-infinite-jump",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
       <h2>JUMPER CAT - INFINITE JUMP</h2>
@@ -1356,7 +1356,7 @@ export const games = [
     imageUrl: "/images/game-21.webp",
     imageAlt: "A cute rabbit leaps between platforms in Jumper Rabbit, collecting carrots.",
     isNew: true,
-    isHot: true,
+    isHot: false,
     seo: {
       title: "JUMPER RABBIT - Hop into Fun! Play Free Online",
       description: "Join the Jumper Rabbit adventure! A simple, engaging arcade game where you leap between platforms, collect carrots, and dodge obstacles. Play now for free!",
@@ -1428,7 +1428,7 @@ export const games = [
       keywords: "baby monster, jump, jumping game, online game, arcade, action game, kids game, fun game, reflexes, timing",
     },
     isNew: true,
-    isHot: true,
+    isHot: false,
     addressBar: "baby-monster-jump",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
     <h2>BABY MONSTER JUMP</h2>
@@ -1495,7 +1495,7 @@ export const games = [
       keywords: "jump, sheep, game, arcade, online game, jumping game, skill game, casual game, high score, coins",
     },
     isNew: true,
-    isHot: true,
+    isHot: false,
     addressBar: "jump-sheep-game",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>JUMP SHEEP GAME</h2><p>Dive into the delightful world of Jump Sheep Game, where skillful jumps and strategic coin collecting combine for an addictively fun experience. This straightforward yet engaging arcade game is perfect for players of all ages looking for a quick dose of entertainment and the challenge of achieving a high score. Prepare to guide your lively sheep through a series of increasingly challenging landscapes filled with hurdles and glittering rewards.</p>
   
@@ -1560,7 +1560,7 @@ export const games = [
       keywords: "bouncemasters, penguin game, arcade game, polar bear, flying penguin, mobile game, arctic adventure, fun game",
     },
     isNew: true,
-    isHot: true,
+    isHot: false,
     addressBar: "bouncemasters",
     detailsHtml: `
     <h2>BOUNCEMASTERS</h2>
@@ -1623,7 +1623,7 @@ export const games = [
       keywords: "bouncy woods, puzzle game, block breaking, fox, ducks, strategy game, adventure game, online game, free game",
     },
     isNew: true,
-    isHot: true,
+    isHot: false,
     addressBar: "bouncy-woods",
     detailsHtml: `
     <h2>BOUNCY WOODS</h2>
@@ -1690,7 +1690,7 @@ export const games = [
       keywords: "cowboy safari, wild west, endless runner, zoo management, animal taming, exotic animals, online game, adventure game",
     },
     isNew: true,
-    isHot: true,
+    isHot: false,
     addressBar: "cowboy-safari",
     detailsHtml: `
     <h2>Cowboy Safari</h2>

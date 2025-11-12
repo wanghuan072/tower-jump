@@ -8,7 +8,7 @@
         </div>
         <nav class="nav" aria-label="Main navigation">
           <a class="nav-link" href="/">Home</a>
-          <div class="nav-link" @click="scrollTo('about')">About</div>
+          <div class="nav-link" @click="scrollTo('about')">Game Info</div>
           <div class="nav-link" @click="scrollTo('games')">All Games</div>
         </nav>
       </div>
@@ -119,7 +119,7 @@
             </section>
 
             <section id="about" ref="aboutRef" class="about-section">
-              <h2 class="section-title">About {{ currentGame?.title || 'Tower Jump' }}</h2>
+              <h2 class="section-title">Game Info: {{ currentGame?.title || 'Tower Jump' }}</h2>
               <div class="about-content" v-html="currentGame?.detailsHtml"></div>
             </section>
           </div>
@@ -172,7 +172,7 @@
           <div class="footer-links-section">
             <h4 class="footer-links-title">Quick Links</h4>
             <div class="footer-links">
-              <a href="/about" class="footer-link">About Us</a>
+              <a href="/about-us" class="footer-link">About Us</a>
               <a href="/contact" class="footer-link">Contact Us</a>
               <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
               <a href="/terms-of-service" class="footer-link">Terms of Service</a>
@@ -231,17 +231,17 @@ const aboutRef = ref(null)
 
 // 筛选新游戏和热门游戏
 const newGames = computed(() => {
-  return games.filter(game => game.isNew === true)
+  return games.filter((game) => game.isNew === true)
 })
 
 const hotGames = computed(() => {
-  return games.filter(game => game.isHot === true)
+  return games.filter((game) => game.isHot === true)
 })
 
 // 生成游戏URL
 function getGameUrl(game) {
   if (!game || !game.addressBar) return '#'
-  
+
   // 第一个游戏使用根路径，其他游戏使用addressBar
   const isFirstGame = games[0] && games[0].addressBar === game.addressBar
   return isFirstGame ? '/' : `/${game.addressBar}`
@@ -263,7 +263,7 @@ function switchGame(game) {
 // 初始化当前游戏
 function initializeGame() {
   const addressBar = route.params.addressBar || 'tower-jump'
-  const game = games.find(g => g.addressBar === addressBar)
+  const game = games.find((g) => g.addressBar === addressBar)
 
   if (game) {
     currentGame.value = game
@@ -284,10 +284,10 @@ function initializeGame() {
 // 游戏播放控制
 function startPlay() {
   if (isPlaying.value) return
-  
+
   // 设置 iframe src（延迟加载，只在用户点击时加载）
   iframeSrc.value = currentGame.value?.iframeUrl || '/TowerJump.html'
-  
+
   isPlaying.value = true
 }
 
@@ -295,7 +295,7 @@ function startPlay() {
 function toggleFullscreen() {
   if (!gameIframe.value) return
   if (!document.fullscreenElement) {
-    gameIframe.value.requestFullscreen?.().catch(() => { })
+    gameIframe.value.requestFullscreen?.().catch(() => {})
   } else {
     document.exitFullscreen?.()
   }
@@ -363,7 +363,7 @@ function scrollTo(name) {
   // 使用ID选择器查找目标元素
   const element = document.querySelector(`#${name}`)
   if (!element) return
-  
+
   const rect = element.getBoundingClientRect()
   const top = rect.top + window.scrollY - getHeaderHeight() - 8
   const behavior = prefersReducedMotion?.matches || !supportsSmooth ? 'auto' : 'smooth'
@@ -376,26 +376,29 @@ function scrollToTop() {
 }
 
 // 监听路由变化
-watch(() => route.params.addressBar, (newAddressBar) => {
-  if (newAddressBar) {
-    const game = games.find(g => g.addressBar === newAddressBar)
-    if (game) {
-      currentGame.value = game
-      // 更新SEO
-      setGameSEO(newAddressBar)
-      // 如果游戏切换，重置播放状态和iframe src
+watch(
+  () => route.params.addressBar,
+  (newAddressBar) => {
+    if (newAddressBar) {
+      const game = games.find((g) => g.addressBar === newAddressBar)
+      if (game) {
+        currentGame.value = game
+        // 更新SEO
+        setGameSEO(newAddressBar)
+        // 如果游戏切换，重置播放状态和iframe src
+        isPlaying.value = false
+        iframeSrc.value = ''
+      }
+    } else {
+      // 回到首页，使用默认SEO
+      currentGame.value = games[0] || null
+      resetSEO()
+      // 如果切换到第一个游戏，重置播放状态
       isPlaying.value = false
       iframeSrc.value = ''
     }
-  } else {
-    // 回到首页，使用默认SEO
-    currentGame.value = games[0] || null
-    resetSEO()
-    // 如果切换到第一个游戏，重置播放状态
-    isPlaying.value = false
-    iframeSrc.value = ''
   }
-})
+)
 
 onMounted(async () => {
   // 初始化游戏
@@ -426,8 +429,7 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+  background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
@@ -443,7 +445,12 @@ onUnmounted(() => {
   right: -20%;
   width: 1000px;
   height: 1000px;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.25) 0%, rgba(255, 107, 107, 0.1) 40%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 107, 0.25) 0%,
+    rgba(255, 107, 107, 0.1) 40%,
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -459,7 +466,12 @@ onUnmounted(() => {
   left: -15%;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 40%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.2) 0%,
+    rgba(255, 215, 0, 0.1) 40%,
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -476,7 +488,12 @@ onUnmounted(() => {
   transform: translateX(-50%);
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(100, 150, 255, 0.15) 0%, rgba(100, 150, 255, 0.05) 40%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(100, 150, 255, 0.15) 0%,
+    rgba(100, 150, 255, 0.05) 40%,
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -520,7 +537,6 @@ onUnmounted(() => {
   justify-content: space-between;
   height: 64px;
 }
-
 
 .logo {
   display: flex;
@@ -587,13 +603,13 @@ onUnmounted(() => {
 
 .game-section .game-title {
   font-size: 28px;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
-.game-section .game-subtitle{
+.game-section .game-subtitle {
   font-size: 14px;
   color: #e8e8ee;
   margin-bottom: 20px;
@@ -613,9 +629,7 @@ onUnmounted(() => {
   border-radius: 14px;
   overflow: hidden;
   background: #111319;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05),
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -829,9 +843,7 @@ onUnmounted(() => {
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 10px 24px rgba(255, 107, 107, 0.4),
-    0 0 20px rgba(255, 215, 0, 0.2),
+  box-shadow: 0 10px 24px rgba(255, 107, 107, 0.4), 0 0 20px rgba(255, 215, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
@@ -854,9 +866,7 @@ onUnmounted(() => {
 
 .play-button:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 
-    0 15px 35px rgba(255, 107, 107, 0.5),
-    0 0 30px rgba(255, 215, 0, 0.3),
+  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.5), 0 0 30px rgba(255, 215, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
@@ -874,7 +884,8 @@ onUnmounted(() => {
   height: 20px;
 }
 
-.section-title, .panel-title {
+.section-title,
+.panel-title {
   font-size: 24px;
   margin-bottom: 16px;
   background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
@@ -1088,7 +1099,7 @@ onUnmounted(() => {
 }
 
 .hot-game-meta {
-  padding: 5px ;
+  padding: 5px;
 }
 
 .hot-game-title {
@@ -1560,7 +1571,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .container{
+  .container {
     padding: 0 10px;
   }
 
@@ -1858,7 +1869,6 @@ onUnmounted(() => {
 
 /* 深色模式下也保持浅灰背景与 #333 文本，确保风格一致 */
 @media (prefers-color-scheme: dark) {
-
   .main,
   .panel,
   .btn,
@@ -2099,7 +2109,7 @@ onUnmounted(() => {
 }
 
 .about-content :deep(.feature-list li::before) {
-  content: "✓";
+  content: '✓';
   position: absolute;
   left: 0;
   color: #10b981;

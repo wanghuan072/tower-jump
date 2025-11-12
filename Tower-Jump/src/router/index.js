@@ -15,7 +15,7 @@ const router = createRouter({
     },
     // 页面路由
     {
-      path: '/about',
+      path: '/about-us',
       name: 'about',
       component: () => import('../views/AboutView.vue'),
     },
