@@ -403,7 +403,7 @@ export const games = [
       description: "BIRD UP is a thrilling one-button arcade game challenging your reflexes with spinning obstacles and ever-changing vertical levels. Unlock diverse characters and climb to the top! Play now!",
       keywords: "bird up, arcade game, one-button game, flappy bird, skill game, reflex game, vertical game, endless game, mobile game, casual game, bird, birds, characters, unlockable content",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "bird-up",
     detailsHtml: `
