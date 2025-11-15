@@ -1355,7 +1355,7 @@ export const games = [
     publishDate: "2025-11-06",
     imageUrl: "/images/game-21.webp",
     imageAlt: "A cute rabbit leaps between platforms in Jumper Rabbit, collecting carrots.",
-    isNew: true,
+    isNew: false,
     isHot: false,
     seo: {
       title: "JUMPER RABBIT - Hop into Fun! Play Free Online",
@@ -1427,7 +1427,7 @@ export const games = [
       description: "Join the Baby Monster Jump adventure! Test your skills, avoid obstacles, and conquer levels. Play now for instant fun! Perfect for all ages.",
       keywords: "baby monster, jump, jumping game, online game, arcade, action game, kids game, fun game, reflexes, timing",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "baby-monster-jump",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -1494,7 +1494,7 @@ export const games = [
       description: "Guide your sheep to victory in Jump Sheep Game! Jump over obstacles, collect coins, and compete for the highest score. A fun and addictive arcade experience awaits!",
       keywords: "jump, sheep, game, arcade, online game, jumping game, skill game, casual game, high score, coins",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "jump-sheep-game",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>JUMP SHEEP GAME</h2><p>Dive into the delightful world of Jump Sheep Game, where skillful jumps and strategic coin collecting combine for an addictively fun experience. This straightforward yet engaging arcade game is perfect for players of all ages looking for a quick dose of entertainment and the challenge of achieving a high score. Prepare to guide your lively sheep through a series of increasingly challenging landscapes filled with hurdles and glittering rewards.</p>
@@ -1736,7 +1736,401 @@ export const games = [
 
     <p>Cowboy Safari isn't just a game; it's an exhilarating adventure that combines the best elements of endless running and zoo management. With its unique blend of cowboy culture and exotic wildlife, dynamic gameplay, and rewarding upgrade system, Cowboy Safari offers an immersive and addictive experience that will keep you hooked for hours. So, grab your lasso, saddle up, and get ready to conquer the wild!</p>
     `,
-  }
+  },
+
+  {
+    id: 27,
+    title: "Dadish",
+    iframeUrl: "https://playgroundfree.github.io/dadish/",
+    keywords: "Embark on a hilarious platforming adventure as Dadish! Help a radish dad find his missing kids across 40 handcrafted levels filled with quirky challenges, salty fast-food villains, and emotional parenting moments. Jump, dodge, and sass-talk your way to a heartwarming family reunion!",
+    publishDate: "2025-11-15",
+    imageUrl: "/images/game-27.webp",
+    imageAlt: "Dadish jumps over spikes in a pixelated platformer level.",
+    seo: {
+      title: "Dadish - Hilarious Lost-Children-Finding Platform Adventure",
+      description: "Join Dadish on a radical rescue mission through 40 handcrafted levels! Dodge enemies, solve puzzles, and reunite with his missing radish kids. Play Dadish now!",
+      keywords: "dadish, platformer, adventure game, indie game, retro style, pixel art, family friendly, lost children, rescue mission",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "dadish",
+    detailsHtml: `
+    <h2 style="font-size: 1.5em; font-weight: bold;"><strong>Dadish</strong></h2>
+<p style="margin: 1em 0px;">
+  Step into the leafy shoes of Dadish, a radish dad on a mission to find his mischievous children! They've wandered off from the vegetable patch, and it's up to you to guide Dadish through a perilous, yet hilarious, journey to bring them home. Get ready for a lighthearted and clever platform adventure filled with quirky characters and heartwarming moments.
+</p>
+<p style="margin: 1em 0px;">
+  <img src="/images/game-27-01.webp" alt="Dadish game-01" width="50%">
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;"><strong>A Radical Rescue Mission</strong></h3>
+<p style="margin: 1em 0px;">
+  In Dadish, you'll explore charming retro-style environments teeming with pixel obstacles and comedic twists. Each level is a handcrafted masterpiece, designed to challenge your platforming skills while tickling your funny bone. Your primary objective is to reach the end of each level, where one of Dadish's wayward kids eagerly awaits their reunion. But beware, the path is fraught with peril!
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Enemies and Challenges</strong></h3>
+<p style="margin: 1em 0px;">
+  Prepare to face a colorful cast of enemies, including grumpy burgers and lethal fries, each with their own unique attack patterns and personalities. You'll need to leap over spikes, ride moving platforms, and navigate treacherous traps that demand impeccable timing and careful thinking. Collectible stars are scattered throughout each level, rewarding curious players who venture off the beaten path. And don't forget the epic boss fights that test your reflexes and memory skills!
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Hilarious Dialogue and Emotional Moments</strong></h3>
+<p style="margin: 1em 0px;">
+  What sets Dadish apart is its witty dialogue and emotional depth. Every interaction is infused with humor and heart, creating a truly memorable experience. As you progress through the game, you'll witness touching parenting moments that resonate with players of all ages. The game perfectly blends challenging gameplay with a heartwarming narrative, making it a delightful adventure for everyone.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Controls Guide</strong></h3>
+<p style="margin: 1em 0px;">
+  Mastering the controls is essential for Dadish's rescue mission. Here's a quick guide:
+</p>
+<ol>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    <strong>WASD or Arrow Keys:</strong> Move across platforms
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    <strong>Spacebar:</strong> Jump through platforms, enemies, or spikes
+  </li>
+</ol>
+
+<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Key Features</strong></h3>
+<ol>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Experience a lighthearted and clever platform adventure.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Play as Dadish, a radish dad on a mission to find his missing kids.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Explore 40 handcrafted levels filled with quirky challenges.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Encounter salty fast-food villains and screechy possums.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Enjoy hilarious dialogue and emotional parenting moments.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Discover charming retro-style environments packed with pixel obstacles and comedic twists.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Collect stars and uncover hidden paths for curious players.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Engage in epic boss fights that require quick reflexes and pattern memorization.
+  </li>
+</ol>
+
+<h3 style="font-size: 1.17em; font-weight: bold;"><strong>FAQ</strong></h3>
+<ol>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What is Dadish about?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Dadish is a lighthearted platform adventure where you play as a radish dad trying to find his missing children.
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>How many levels are there in Dadish?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    There are 40 handcrafted levels to explore and conquer.
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What kind of enemies will I encounter?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    You'll face a variety of enemies, including salty fast-food villains and screechy possums.
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What are the controls for Dadish?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Use WASD or arrow keys to move, and the spacebar to jump.
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>Are there any collectibles in the game?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Yes, each level contains one collectible star, and often a hidden path.
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>Does Dadish have boss fights?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Yes, there are boss fights that require quick reflexes and pattern memorization.
+  </li>
+</ol>
+
+<p style="margin: 1em 0px;">
+  Dadish offers a unique blend of challenging gameplay, charming visuals, and heartwarming storytelling. Reunite the poor daddy with his baby radishes and experience the root of true heroism! It's a radical rescue mission you won't soon forget.
+</p>
+
+    `,
+  },
+
+  {
+    id: 28,
+    title: "Neon Leap",
+    iframeUrl: "https://game.azgame.io/neon-leap/",
+    keywords: "Dive into the vibrant world of Neon Leap! Test your reflexes and precision as you guide your stickman through a neon-lit obstacle course. Swing, jump, and light up the darkness in this fast-paced platformer adventure filled with shapes, traps, and glowing dangers. Conquer each level and let your skills shine!",
+    publishDate: "2025-11-15",
+    imageUrl: "/images/game-28.webp",
+    imageAlt: "A neon stickman leaping across glowing shapes in Neon Leap game.",
+    seo: {
+      title: "Neon Leap - Test Your Reflexes in this Addictive Platformer!",
+      description: "Swing, jump, and light up the dark world in Neon Leap! A fast-paced platformer game where you test your reflexes and precision. Dodge obstacles and conquer levels now!",
+      keywords: "neon leap, platformer game, reflex test, obstacle course, stickman game, casual game, neon game",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "neon-leap",
+    detailsHtml: `
+    <h2 style="font-size: 1.5em; font-weight: bold;">Neon Leap</h2>
+<p style="margin: 1em 0px;">
+  Get ready to illuminate the darkness in <strong>Neon Leap</strong>! This isn't just another platformer; it's a high-speed test of your reflexes, timing, and precision. Imagine a world cloaked in shadows, suddenly bursting with neon brilliance as your stickman gracefully swings and jumps across geometric shapes. Each touch ignites the darkness, painting a vibrant path through a challenging obstacle course.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Navigate, Illuminate, and Conquer</h3>
+<p style="margin: 1em 0px;">
+  In Neon Leap, you control a nimble stickman tasked with conquering increasingly difficult levels in a dark, abstract world. The gameplay is simple to grasp but challenging to master. Every shape you touch or stand on instantly lights up, adding to your score and revealing the path forward. But beware! This glowing world is riddled with dangers, from deadly spikes to treacherous moving platforms.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Challenges Await at Every Turn</h3>
+<p style="margin: 1em 0px;">
+  As you progress through Neon Leap, the challenges intensify. You'll encounter moving platforms that demand perfect timing, rotating shapes that test your spatial awareness, and a myriad of other obstacles designed to push your skills to the limit. Can you keep your stickman alive and shining as you navigate these perilous courses?
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">How to Master the Neon Leap</h3>
+<p style="margin: 1em 0px;">
+  The core gameplay revolves around swinging and jumping from one floating shape to another. Each successful landing lights up the shape, adding to your score. The real challenge lies in anticipating the obstacles and hazards that await you at every step. A single misstep can send you plummeting back to the starting point, so stay sharp and keep your reflexes honed!
+</p>
+
+<p style="margin: 1em 0px;">
+  <img src="/images/game-28-01.webp" alt="game-01" width="50%" style="width: 50%;">
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Key Obstacles to Watch Out For:</h3>
+<ol>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    <strong>Spikes:</strong> Instant game over! Avoid these at all costs.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    <strong>Moving Shapes:</strong> Test your timing and anticipation.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    <strong>Rotating Platforms:</strong> Introduce unpredictable risks.
+  </li>
+</ol>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Collect Stars for Glory</h3>
+<p style="margin: 1em 0px;">
+  Scattered throughout each level are stars waiting to be collected. Grabbing these stars not only boosts your score but also helps you unlock new levels. Prioritize collecting stars that are within easy reach, but avoid risking your stickman's safety for those that are dangerously positioned.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Game Controls: Simple Yet Effective</h3>
+<p style="margin: 1em 0px;">
+  Neon Leap features intuitive controls that are easy to learn but offer plenty of room for skilled maneuvers:
+</p>
+<ol>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Press <strong>A</strong> or the <strong>left arrow key</strong> to jump left.
+  </li>
+  <li data-list="bullet">
+    <span contenteditable="false"></span>
+    Press <strong>D</strong> or the <strong>right arrow key</strong> to jump right.
+  </li>
+</ol>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Let Your Skills Shine!</h3>
+<p style="margin: 1em 0px;">
+  Become an agile stickman, skillfully navigating between shapes and platforms to light up a world shrouded in darkness. Play Neon Leap now, conquer levels, and showcase your leaping prowess! Don't be discouraged by failure – every attempt brings you closer to mastering the neon-lit obstacle course. Keep leaping forward, and let your skills shine!
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">FAQ</h3>
+<ol>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What is Neon Leap?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Neon Leap is a casual, fast-paced platformer game where you control a stickman, swinging and jumping across shapes in a dark, neon-lit world. Your goal is to complete levels by lighting up shapes and avoiding obstacles.
+  </li>
+
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>How do I control the stickman in Neon Leap?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    You can control the stickman by pressing A or the left arrow key to jump left and D or the right arrow key to jump right.
+  </li>
+
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What are the obstacles in Neon Leap?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    The game features various obstacles, including spikes that immediately end your run, moving shapes that challenge your timing, and rotating platforms that may bring sudden risks.
+  </li>
+
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What is the purpose of collecting stars in Neon Leap?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Stars collected during runs help increase your score and unlock the next level. It's best to collect as many as you can, but avoid dangerous risks.
+  </li>
+
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>What happens if I fail a level?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    If you fail a level, you'll be sent back to the starting point and must try again.
+  </li>
+
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    <strong>Does the game get harder as I progress?</strong>
+  </li>
+  <li data-list="ordered">
+    <span contenteditable="false"></span>
+    Yes, the game includes many levels, which get increasingly more difficult as you progress. You will face more challenges, such as moving platforms and rotating shapes.
+  </li>
+</ol>
+
+<p style="margin: 1em 0px;">
+  So, are you ready to take the <strong>Neon Leap</strong>? Dive into this addictive world, hone your reflexes, and become a master of the neon obstacle course! The dark world awaits your illuminating touch!
+</p>
+
+    `,
+  },
+
+  {
+    id: 29,
+    title: "RAGDOLL BOUNCE",
+    iframeUrl: "https://html5.gamedistribution.com/6514adb546b24845b1bc0ba1cbeb42ee/?gd_sdk_referrer_url=https%3A%2F%2F1games.io%2Fragdoll-bounce&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovLzFnYW1lcy5pby9yYWdkb2xsLWJvdW5jZSIsInBhcmVudERvbWFpbiI6IjFnYW1lcy5pbyIsInRvcERvbWFpbiI6ImNtcy1kZW1vLXNlbGYudmVyY2VsLmFwcCIsImhhc0ltcHJlc3Npb24iOnRydWUsImxvYWRlckVuYWJsZWQiOnRydWUsImhvc3QiOiJodG1sNS5nYW1lZGlzdHJpYnV0aW9uLmNvbSIsInZlcnNpb24iOiIxLjUuMTgifQ%253D%253D&rd=1",
+    keywords: "Prepare for physics-based pandemonium in Ragdoll Bounce! Launch your floppy ragdoll through wacky obstacle courses with hilarious results. Upgrade skills, unlock cool skins & even supercars. How far can *you* fly?",
+    publishDate: "2025-11-15",
+    imageUrl: "/images/game-29.webp",
+    imageAlt: "A ragdoll character mid-air in Ragdoll Bounce, bouncing towards a high pole.",
+    seo: {
+      title: "Ragdoll Bounce - Hilarious Physics Game Online",
+      description: "Tumble through chaotic obstacle courses in Ragdoll Bounce! Upgrade your ragdoll, unlock skins, and soar to new heights! Play now and test your bouncing skills!",
+      keywords: "ragdoll, bounce, physics game, obstacle course, flying, skills, upgrades, skins, supercars, online game",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "ragdoll-bounce",
+    detailsHtml: `
+    <h2 style="font-size: 1.5em; font-weight: bold;">RAGDOLL BOUNCE</h2>
+<p style="margin: 1em 0px;">
+Get ready for a hilariously chaotic experience with Ragdoll Bounce! This physics-based game throws you into a world of floppy characters, wacky obstacle courses, and laugh-out-loud moments. Your mission? Hurl your ragdoll as far as possible, bouncing strategically on high poles to achieve maximum distance. It's a wild ride where one wrong click can send you plummeting into the abyss!
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Gameplay Overview</h3>
+<p style="margin: 1em 0px;">
+In Ragdoll Bounce, you're in control of a ragdoll puppet propelled skyward. Your success hinges on skillfully managing your character's ability to bounce on high poles. Precise timing is crucial; a well-timed click can launch you further, while a misstep results in a comical descent. As you progress, you'll unlock exciting upgrades, lootboxes brimming with surprises, awesome skins to customize your ragdoll, and even supercars to add flair to your flights!
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">
+<img src="/images/game-29-01.webp" alt="game-01" width="50%" style="width: 50%;">
+</h3>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Mastering the Bounce</h3>
+<p style="margin: 1em 0px;">
+From the very first kick, your ragdoll spins uncontrollably in the air. Your challenge is to master the art of bouncing on high poles to maintain your momentum and altitude. You must find the perfect angle to land accurately on the columns, using leverage to propel yourself onward. But beware, it’s not always smooth sailing!
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Dynamic Challenges Await</h3>
+<p style="margin: 1em 0px;">
+Prepare for increasingly challenging obstacles! Some columns move unpredictably, while others vanish upon contact, demanding split-second decisions and impeccable timing. As you advance, the speed intensifies, and the challenges become more severe, testing your skills to the limit. Only the most adept ragdoll bouncers will conquer the skies.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Dramatic Game Modes</h3>
+<p style="margin: 1em 0px;">
+Ragdoll Bounce isn't just about solo soaring; it also offers dramatic modes for competitive players. Enter Battle Bass, a crazy arena where you compete against other players to see who can fly the farthest and stay airborne the longest. It's a chaotic free-for-all where only the most skilled ragdoll pilot emerges victorious.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Unlockables and Rewards</h3>
+<p style="margin: 1em 0px;">
+Beyond the main gameplay, Ragdoll Bounce is packed with countless interesting mini-games that provide opportunities to earn more lootboxes, unlock unique skins to personalize your ragdoll, improve your ragdoll's bouncing skills to reach even greater heights, and even acquire cool cars to showcase your accomplishments to your friends. The more you play, the more you unlock, enhancing your overall Ragdoll Bounce experience.
+</p>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">How to Control Your Ragdoll</h3>
+<ol>
+  <li data-list="ordered"><span contenteditable="false"></span><strong>Click to Jump:</strong> Click the screen to make your ragdoll jump down from the column, generating a force that propels you higher into the air.</li>
+  <li data-list="ordered"><span contenteditable="false"></span><strong>Timing is Key:</strong> Click at the right moment to maintain the optimal trajectory for maximum distance and height. Mastering the timing is crucial for success.</li>
+</ol>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">Key Features:</h3>
+<ol>
+  <li data-list="bullet"><span contenteditable="false"></span>Chaotic physics-based gameplay</li>
+  <li data-list="bullet"><span contenteditable="false"></span>Upgradeable skills to enhance your ragdoll's abilities</li>
+  <li data-list="bullet"><span contenteditable="false"></span>Unlockable lootboxes containing exciting rewards</li>
+  <li data-list="bullet"><span contenteditable="false"></span>Awesome skins to customize your ragdoll's appearance</li>
+  <li data-list="bullet"><span contenteditable="false"></span>Supercars to add style to your flights</li>
+  <li data-list="bullet"><span contenteditable="false"></span>Battle Bass mode for competitive multiplayer action</li>
+  <li data-list="bullet"><span contenteditable="false"></span>Countless mini-games for earning rewards</li>
+</ol>
+
+<h3 style="font-size: 1.17em; font-weight: bold;">FAQ</h3>
+<ol>
+  <li data-list="ordered"><span contenteditable="false"></span><strong>How do I control my ragdoll?</strong></li>
+  <li data-list="ordered"><span contenteditable="false"></span>Click the screen to jump down from the column, creating force to propel you higher. Timing your clicks is crucial for maintaining the best trajectory.</li>
+
+  <li data-list="ordered"><span contenteditable="false"></span><strong>What can I unlock in the game?</strong></li>
+  <li data-list="ordered"><span contenteditable="false"></span>You can unlock lootboxes, unique skins to customize your ragdoll, improve your ragdoll's bouncing skills, and even own cool cars.</li>
+
+  <li data-list="ordered"><span contenteditable="false"></span><strong>What is Battle Bass mode?</strong></li>
+  <li data-list="ordered"><span contenteditable="false"></span>Battle Bass is a crazy arena where you compete with other players. Whoever flies farther and stays longer is the winner.</li>
+
+  <li data-list="ordered"><span contenteditable="false"></span><strong>What happens if I miss a column?</strong></li>
+  <li data-list="ordered"><span contenteditable="false"></span>If you miss a column, your ragdoll will plummet into the abyss, ending your current run. Practice your timing to improve your accuracy.</li>
+
+  <li data-list="ordered"><span contenteditable="false"></span><strong>How do I get better at the game?</strong></li>
+  <li data-list="ordered"><span contenteditable="false"></span>The more you play, the more you'll upgrade your skills, which will improve your ragdoll's bouncing abilities and increase your chances of reaching greater distances.</li>
+
+  <li data-list="ordered"><span contenteditable="false"></span><strong>Are there different types of columns in the game?</strong></li>
+  <li data-list="ordered"><span contenteditable="false"></span>Yes, some columns can move, and others disappear as soon as you touch them, adding to the challenge.</li>
+</ol>
+
+<p style="margin: 1em 0px;">
+So, are you ready to tumble into chaos and test your bouncing skills? Dive into Ragdoll Bounce now and see how far you can fly! With its addictive gameplay, wacky physics, and tons of unlockable content, you'll be hooked from the first bounce.
+</p>
+
+    `,
+  },
+
+  
 
 
 
@@ -1758,6 +2152,8 @@ export const games = [
   //     publishDate: "",
   //     imageUrl: "",
   //     imageAlt: "",
+  //     isNew: false,
+  //     isHot: false,
   //     seo: {
   //         title: "",
   //         description: "",
