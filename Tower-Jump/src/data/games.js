@@ -1559,7 +1559,7 @@ export const games = [
       description: "Launch a penguin to amazing distances in Bouncemasters! Master the timing, collect coins, and upgrade your gear. Experience arctic arcade fun! Download today.",
       keywords: "bouncemasters, penguin game, arcade game, polar bear, flying penguin, mobile game, arctic adventure, fun game",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "bouncemasters",
     detailsHtml: `
@@ -1622,7 +1622,7 @@ export const games = [
       description: "Dive into Bouncy Woods, the ultimate block-breaking puzzle game! Guide a fox, shoot bouncy ducks, and conquer levels. Test your skills and strategize to win!",
       keywords: "bouncy woods, puzzle game, block breaking, fox, ducks, strategy game, adventure game, online game, free game",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "bouncy-woods",
     detailsHtml: `
@@ -1689,7 +1689,7 @@ export const games = [
       description: "Embark on an exciting Cowboy Safari! Capture exotic animals, manage your Sky Zoo, and conquer challenging terrains in this thrilling endless runner. Play now!",
       keywords: "cowboy safari, wild west, endless runner, zoo management, animal taming, exotic animals, online game, adventure game",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "cowboy-safari",
     detailsHtml: `
@@ -1755,133 +1755,133 @@ export const games = [
     isHot: false,
     addressBar: "dadish",
     detailsHtml: `
-    <h2 style="font-size: 1.5em; font-weight: bold;"><strong>Dadish</strong></h2>
-<p style="margin: 1em 0px;">
+    <h2><strong>Dadish</strong></h2>
+<p>
   Step into the leafy shoes of Dadish, a radish dad on a mission to find his mischievous children! They've wandered off from the vegetable patch, and it's up to you to guide Dadish through a perilous, yet hilarious, journey to bring them home. Get ready for a lighthearted and clever platform adventure filled with quirky characters and heartwarming moments.
 </p>
-<p style="margin: 1em 0px;">
+<p>
   <img src="/images/game-27-01.webp" alt="Dadish game-01" width="50%">
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;"><strong>A Radical Rescue Mission</strong></h3>
-<p style="margin: 1em 0px;">
+<h3><strong>A Radical Rescue Mission</strong></h3>
+<p>
   In Dadish, you'll explore charming retro-style environments teeming with pixel obstacles and comedic twists. Each level is a handcrafted masterpiece, designed to challenge your platforming skills while tickling your funny bone. Your primary objective is to reach the end of each level, where one of Dadish's wayward kids eagerly awaits their reunion. But beware, the path is fraught with peril!
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Enemies and Challenges</strong></h3>
-<p style="margin: 1em 0px;">
+<h3><strong>Enemies and Challenges</strong></h3>
+<p>
   Prepare to face a colorful cast of enemies, including grumpy burgers and lethal fries, each with their own unique attack patterns and personalities. You'll need to leap over spikes, ride moving platforms, and navigate treacherous traps that demand impeccable timing and careful thinking. Collectible stars are scattered throughout each level, rewarding curious players who venture off the beaten path. And don't forget the epic boss fights that test your reflexes and memory skills!
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Hilarious Dialogue and Emotional Moments</strong></h3>
-<p style="margin: 1em 0px;">
+<h3><strong>Hilarious Dialogue and Emotional Moments</strong></h3>
+<p>
   What sets Dadish apart is its witty dialogue and emotional depth. Every interaction is infused with humor and heart, creating a truly memorable experience. As you progress through the game, you'll witness touching parenting moments that resonate with players of all ages. The game perfectly blends challenging gameplay with a heartwarming narrative, making it a delightful adventure for everyone.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Controls Guide</strong></h3>
-<p style="margin: 1em 0px;">
+<h3><strong>Controls Guide</strong></h3>
+<p>
   Mastering the controls is essential for Dadish's rescue mission. Here's a quick guide:
 </p>
 <ol>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>WASD or Arrow Keys:</strong> Move across platforms
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Spacebar:</strong> Jump through platforms, enemies, or spikes
   </li>
 </ol>
 
-<h3 style="font-size: 1.17em; font-weight: bold;"><strong>Key Features</strong></h3>
+<h3><strong>Key Features</strong></h3>
 <ol>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Experience a lighthearted and clever platform adventure.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Play as Dadish, a radish dad on a mission to find his missing kids.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Explore 40 handcrafted levels filled with quirky challenges.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Encounter salty fast-food villains and screechy possums.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Enjoy hilarious dialogue and emotional parenting moments.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Discover charming retro-style environments packed with pixel obstacles and comedic twists.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Collect stars and uncover hidden paths for curious players.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Engage in epic boss fights that require quick reflexes and pattern memorization.
   </li>
 </ol>
 
-<h3 style="font-size: 1.17em; font-weight: bold;"><strong>FAQ</strong></h3>
+<h3><strong>FAQ</strong></h3>
 <ol>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What is Dadish about?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Dadish is a lighthearted platform adventure where you play as a radish dad trying to find his missing children.
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>How many levels are there in Dadish?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     There are 40 handcrafted levels to explore and conquer.
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What kind of enemies will I encounter?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     You'll face a variety of enemies, including salty fast-food villains and screechy possums.
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What are the controls for Dadish?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Use WASD or arrow keys to move, and the spacebar to jump.
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Are there any collectibles in the game?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Yes, each level contains one collectible star, and often a hidden path.
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Does Dadish have boss fights?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Yes, there are boss fights that require quick reflexes and pattern memorization.
   </li>
 </ol>
 
-<p style="margin: 1em 0px;">
+<p>
   Dadish offers a unique blend of challenging gameplay, charming visuals, and heartwarming storytelling. Reunite the poor daddy with his baby radishes and experience the root of true heroism! It's a radical rescue mission you won't soon forget.
 </p>
 
@@ -1905,129 +1905,129 @@ export const games = [
     isHot: false,
     addressBar: "neon-leap",
     detailsHtml: `
-    <h2 style="font-size: 1.5em; font-weight: bold;">Neon Leap</h2>
-<p style="margin: 1em 0px;">
+    <h2>Neon Leap</h2>
+<p>
   Get ready to illuminate the darkness in <strong>Neon Leap</strong>! This isn't just another platformer; it's a high-speed test of your reflexes, timing, and precision. Imagine a world cloaked in shadows, suddenly bursting with neon brilliance as your stickman gracefully swings and jumps across geometric shapes. Each touch ignites the darkness, painting a vibrant path through a challenging obstacle course.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Navigate, Illuminate, and Conquer</h3>
-<p style="margin: 1em 0px;">
+<h3>Navigate, Illuminate, and Conquer</h3>
+<p>
   In Neon Leap, you control a nimble stickman tasked with conquering increasingly difficult levels in a dark, abstract world. The gameplay is simple to grasp but challenging to master. Every shape you touch or stand on instantly lights up, adding to your score and revealing the path forward. But beware! This glowing world is riddled with dangers, from deadly spikes to treacherous moving platforms.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Challenges Await at Every Turn</h3>
-<p style="margin: 1em 0px;">
+<h3>Challenges Await at Every Turn</h3>
+<p>
   As you progress through Neon Leap, the challenges intensify. You'll encounter moving platforms that demand perfect timing, rotating shapes that test your spatial awareness, and a myriad of other obstacles designed to push your skills to the limit. Can you keep your stickman alive and shining as you navigate these perilous courses?
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">How to Master the Neon Leap</h3>
-<p style="margin: 1em 0px;">
+<h3>How to Master the Neon Leap</h3>
+<p>
   The core gameplay revolves around swinging and jumping from one floating shape to another. Each successful landing lights up the shape, adding to your score. The real challenge lies in anticipating the obstacles and hazards that await you at every step. A single misstep can send you plummeting back to the starting point, so stay sharp and keep your reflexes honed!
 </p>
 
-<p style="margin: 1em 0px;">
+<p>
   <img src="/images/game-28-01.webp" alt="game-01" width="50%" style="width: 50%;">
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Key Obstacles to Watch Out For:</h3>
+<h3>Key Obstacles to Watch Out For:</h3>
 <ol>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Spikes:</strong> Instant game over! Avoid these at all costs.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Moving Shapes:</strong> Test your timing and anticipation.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Rotating Platforms:</strong> Introduce unpredictable risks.
   </li>
 </ol>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Collect Stars for Glory</h3>
-<p style="margin: 1em 0px;">
+<h3>Collect Stars for Glory</h3>
+<p>
   Scattered throughout each level are stars waiting to be collected. Grabbing these stars not only boosts your score but also helps you unlock new levels. Prioritize collecting stars that are within easy reach, but avoid risking your stickman's safety for those that are dangerously positioned.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Game Controls: Simple Yet Effective</h3>
-<p style="margin: 1em 0px;">
+<h3>Game Controls: Simple Yet Effective</h3>
+<p>
   Neon Leap features intuitive controls that are easy to learn but offer plenty of room for skilled maneuvers:
 </p>
 <ol>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Press <strong>A</strong> or the <strong>left arrow key</strong> to jump left.
   </li>
-  <li data-list="bullet">
-    <span contenteditable="false"></span>
+  <li>
+    
     Press <strong>D</strong> or the <strong>right arrow key</strong> to jump right.
   </li>
 </ol>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Let Your Skills Shine!</h3>
-<p style="margin: 1em 0px;">
+<h3>Let Your Skills Shine!</h3>
+<p>
   Become an agile stickman, skillfully navigating between shapes and platforms to light up a world shrouded in darkness. Play Neon Leap now, conquer levels, and showcase your leaping prowess! Don't be discouraged by failure – every attempt brings you closer to mastering the neon-lit obstacle course. Keep leaping forward, and let your skills shine!
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">FAQ</h3>
+<h3>FAQ</h3>
 <ol>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What is Neon Leap?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Neon Leap is a casual, fast-paced platformer game where you control a stickman, swinging and jumping across shapes in a dark, neon-lit world. Your goal is to complete levels by lighting up shapes and avoiding obstacles.
   </li>
 
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>How do I control the stickman in Neon Leap?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     You can control the stickman by pressing A or the left arrow key to jump left and D or the right arrow key to jump right.
   </li>
 
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What are the obstacles in Neon Leap?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     The game features various obstacles, including spikes that immediately end your run, moving shapes that challenge your timing, and rotating platforms that may bring sudden risks.
   </li>
 
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What is the purpose of collecting stars in Neon Leap?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Stars collected during runs help increase your score and unlock the next level. It's best to collect as many as you can, but avoid dangerous risks.
   </li>
 
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>What happens if I fail a level?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     If you fail a level, you'll be sent back to the starting point and must try again.
   </li>
 
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     <strong>Does the game get harder as I progress?</strong>
   </li>
-  <li data-list="ordered">
-    <span contenteditable="false"></span>
+  <li>
+    
     Yes, the game includes many levels, which get increasingly more difficult as you progress. You will face more challenges, such as moving platforms and rotating shapes.
   </li>
 </ol>
 
-<p style="margin: 1em 0px;">
+<p>
   So, are you ready to take the <strong>Neon Leap</strong>? Dive into this addictive world, hone your reflexes, and become a master of the neon obstacle course! The dark world awaits your illuminating touch!
 </p>
 
@@ -2051,86 +2051,269 @@ export const games = [
     isHot: false,
     addressBar: "ragdoll-bounce",
     detailsHtml: `
-    <h2 style="font-size: 1.5em; font-weight: bold;">RAGDOLL BOUNCE</h2>
-<p style="margin: 1em 0px;">
+    <h2>RAGDOLL BOUNCE</h2>
+<p>
 Get ready for a hilariously chaotic experience with Ragdoll Bounce! This physics-based game throws you into a world of floppy characters, wacky obstacle courses, and laugh-out-loud moments. Your mission? Hurl your ragdoll as far as possible, bouncing strategically on high poles to achieve maximum distance. It's a wild ride where one wrong click can send you plummeting into the abyss!
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Gameplay Overview</h3>
-<p style="margin: 1em 0px;">
+<h3>Gameplay Overview</h3>
+<p>
 In Ragdoll Bounce, you're in control of a ragdoll puppet propelled skyward. Your success hinges on skillfully managing your character's ability to bounce on high poles. Precise timing is crucial; a well-timed click can launch you further, while a misstep results in a comical descent. As you progress, you'll unlock exciting upgrades, lootboxes brimming with surprises, awesome skins to customize your ragdoll, and even supercars to add flair to your flights!
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">
+<h3>
 <img src="/images/game-29-01.webp" alt="game-01" width="50%" style="width: 50%;">
 </h3>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Mastering the Bounce</h3>
-<p style="margin: 1em 0px;">
+<h3>Mastering the Bounce</h3>
+<p>
 From the very first kick, your ragdoll spins uncontrollably in the air. Your challenge is to master the art of bouncing on high poles to maintain your momentum and altitude. You must find the perfect angle to land accurately on the columns, using leverage to propel yourself onward. But beware, it’s not always smooth sailing!
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Dynamic Challenges Await</h3>
-<p style="margin: 1em 0px;">
+<h3>Dynamic Challenges Await</h3>
+<p>
 Prepare for increasingly challenging obstacles! Some columns move unpredictably, while others vanish upon contact, demanding split-second decisions and impeccable timing. As you advance, the speed intensifies, and the challenges become more severe, testing your skills to the limit. Only the most adept ragdoll bouncers will conquer the skies.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Dramatic Game Modes</h3>
-<p style="margin: 1em 0px;">
+<h3>Dramatic Game Modes</h3>
+<p>
 Ragdoll Bounce isn't just about solo soaring; it also offers dramatic modes for competitive players. Enter Battle Bass, a crazy arena where you compete against other players to see who can fly the farthest and stay airborne the longest. It's a chaotic free-for-all where only the most skilled ragdoll pilot emerges victorious.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Unlockables and Rewards</h3>
-<p style="margin: 1em 0px;">
+<h3>Unlockables and Rewards</h3>
+<p>
 Beyond the main gameplay, Ragdoll Bounce is packed with countless interesting mini-games that provide opportunities to earn more lootboxes, unlock unique skins to personalize your ragdoll, improve your ragdoll's bouncing skills to reach even greater heights, and even acquire cool cars to showcase your accomplishments to your friends. The more you play, the more you unlock, enhancing your overall Ragdoll Bounce experience.
 </p>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">How to Control Your Ragdoll</h3>
+<h3>How to Control Your Ragdoll</h3>
 <ol>
-  <li data-list="ordered"><span contenteditable="false"></span><strong>Click to Jump:</strong> Click the screen to make your ragdoll jump down from the column, generating a force that propels you higher into the air.</li>
-  <li data-list="ordered"><span contenteditable="false"></span><strong>Timing is Key:</strong> Click at the right moment to maintain the optimal trajectory for maximum distance and height. Mastering the timing is crucial for success.</li>
+  <li><strong>Click to Jump:</strong> Click the screen to make your ragdoll jump down from the column, generating a force that propels you higher into the air.</li>
+  <li><strong>Timing is Key:</strong> Click at the right moment to maintain the optimal trajectory for maximum distance and height. Mastering the timing is crucial for success.</li>
 </ol>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">Key Features:</h3>
+<h3>Key Features:</h3>
 <ol>
-  <li data-list="bullet"><span contenteditable="false"></span>Chaotic physics-based gameplay</li>
-  <li data-list="bullet"><span contenteditable="false"></span>Upgradeable skills to enhance your ragdoll's abilities</li>
-  <li data-list="bullet"><span contenteditable="false"></span>Unlockable lootboxes containing exciting rewards</li>
-  <li data-list="bullet"><span contenteditable="false"></span>Awesome skins to customize your ragdoll's appearance</li>
-  <li data-list="bullet"><span contenteditable="false"></span>Supercars to add style to your flights</li>
-  <li data-list="bullet"><span contenteditable="false"></span>Battle Bass mode for competitive multiplayer action</li>
-  <li data-list="bullet"><span contenteditable="false"></span>Countless mini-games for earning rewards</li>
+  <li>Chaotic physics-based gameplay</li>
+  <li>Upgradeable skills to enhance your ragdoll's abilities</li>
+  <li>Unlockable lootboxes containing exciting rewards</li>
+  <li>Awesome skins to customize your ragdoll's appearance</li>
+  <li>Supercars to add style to your flights</li>
+  <li>Battle Bass mode for competitive multiplayer action</li>
+  <li>Countless mini-games for earning rewards</li>
 </ol>
 
-<h3 style="font-size: 1.17em; font-weight: bold;">FAQ</h3>
+<h3>FAQ</h3>
 <ol>
-  <li data-list="ordered"><span contenteditable="false"></span><strong>How do I control my ragdoll?</strong></li>
-  <li data-list="ordered"><span contenteditable="false"></span>Click the screen to jump down from the column, creating force to propel you higher. Timing your clicks is crucial for maintaining the best trajectory.</li>
+  <li><strong>How do I control my ragdoll?</strong></li>
+  <li>Click the screen to jump down from the column, creating force to propel you higher. Timing your clicks is crucial for maintaining the best trajectory.</li>
 
-  <li data-list="ordered"><span contenteditable="false"></span><strong>What can I unlock in the game?</strong></li>
-  <li data-list="ordered"><span contenteditable="false"></span>You can unlock lootboxes, unique skins to customize your ragdoll, improve your ragdoll's bouncing skills, and even own cool cars.</li>
+  <li><strong>What can I unlock in the game?</strong></li>
+  <li>You can unlock lootboxes, unique skins to customize your ragdoll, improve your ragdoll's bouncing skills, and even own cool cars.</li>
 
-  <li data-list="ordered"><span contenteditable="false"></span><strong>What is Battle Bass mode?</strong></li>
-  <li data-list="ordered"><span contenteditable="false"></span>Battle Bass is a crazy arena where you compete with other players. Whoever flies farther and stays longer is the winner.</li>
+  <li><strong>What is Battle Bass mode?</strong></li>
+  <li>Battle Bass is a crazy arena where you compete with other players. Whoever flies farther and stays longer is the winner.</li>
 
-  <li data-list="ordered"><span contenteditable="false"></span><strong>What happens if I miss a column?</strong></li>
-  <li data-list="ordered"><span contenteditable="false"></span>If you miss a column, your ragdoll will plummet into the abyss, ending your current run. Practice your timing to improve your accuracy.</li>
+  <li><strong>What happens if I miss a column?</strong></li>
+  <li>If you miss a column, your ragdoll will plummet into the abyss, ending your current run. Practice your timing to improve your accuracy.</li>
 
-  <li data-list="ordered"><span contenteditable="false"></span><strong>How do I get better at the game?</strong></li>
-  <li data-list="ordered"><span contenteditable="false"></span>The more you play, the more you'll upgrade your skills, which will improve your ragdoll's bouncing abilities and increase your chances of reaching greater distances.</li>
+  <li><strong>How do I get better at the game?</strong></li>
+  <li>The more you play, the more you'll upgrade your skills, which will improve your ragdoll's bouncing abilities and increase your chances of reaching greater distances.</li>
 
-  <li data-list="ordered"><span contenteditable="false"></span><strong>Are there different types of columns in the game?</strong></li>
-  <li data-list="ordered"><span contenteditable="false"></span>Yes, some columns can move, and others disappear as soon as you touch them, adding to the challenge.</li>
+  <li><strong>Are there different types of columns in the game?</strong></li>
+  <li>Yes, some columns can move, and others disappear as soon as you touch them, adding to the challenge.</li>
 </ol>
 
-<p style="margin: 1em 0px;">
+<p>
 So, are you ready to tumble into chaos and test your bouncing skills? Dive into Ragdoll Bounce now and see how far you can fly! With its addictive gameplay, wacky physics, and tons of unlockable content, you'll be hooked from the first bounce.
 </p>
 
     `,
   },
 
-  
+  {
+    id: 30,
+    title: "Deer Adventure",
+    iframeUrl: "https://html5.gamedistribution.com/6514adb546b24845b1bc0ba1cbeb42ee/?gd_sdk_referrer_url=https%3A%2F%2F1games.io%2Fdeer-adventure&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovLzFnYW1lcy5pby9kZWVyLWFyZWFkaXZlciIsInBhcmVudERvbWFpbiI6IjFnYW1lcy5pbyIsInRvcERvbWFpbiI6ImNtcy1kZW1vLXNlbGYudmVyY2VsLmFwcCIsImhhc0ltcHJlc3Npb24iOnRydWUsImxvYWRlckVuYWJsZWQiOnRydWUsImhvc3QiOiJodG1sNS5nYW1lZGlzdHJpYnV0aW9uLmNvbSIsInZlcnNpb24iOiIxLjUuMTgifQ%253D%253D&rd=1",
+    keywords: "Unleash hilarious deer mayhem in Deer Adventure! Explore a vibrant town, stretch your neck, and wreak havoc with your antlers. From peaceful frolics to epic destruction, your choices shape the adventure. Join this crazy animal-life simulation now!",
+    publishDate: "2025-11-18",
+    imageUrl: "/images/game-30.webp",
+    imageAlt: "A nimble deer explores a vibrant town in Deer Adventure, an open-world adventure game.",
+    seo: {
+      title: "Deer Adventure - Unleash Deer Mayhem & Explore!",
+      description: "Step into Deer Adventure and cause hilarious chaos! Explore, complete outrageous missions, and customize your deer. Play now and experience the ultimate animal adventure game!",
+      keywords: "deer adventure, animal adventure game, deer game, open world game, simulation game, crazy deer, mayhem, destruction",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "deer-adventure",
+    detailsHtml: `
+    <h2>Deer Adventure</h2>
+<p>Ever dreamed of living the life of a deer, not just grazing peacefully, but unleashing utter chaos on an unsuspecting town? Deer Adventure delivers precisely that – a wildly entertaining animal adventure game where you take control of a nimble deer and explore a vibrant open world. From serene frolics in the park to rampaging through buildings with your stretchy neck and powerful antlers, the choice is yours. Get ready for unpredictable encounters, dynamic environments, and a whole lot of deer mayhem!</p>
+<p>
+  <img src="/images/game-30-01.webp" alt="alt" width="100%" style="width: 100%;">
+</p>
+<h3>Explore the Life of a Crazy Deer</h3>
+<p>Deer Adventure seamlessly blends open-world exploration with simulation mechanics. Roam freely through the town's diverse locations, from quiet streets and bustling parks to the interiors of buildings. Interact with other animals and humans, creating memorable moments – both hilarious and destructive. The deer's unique abilities, including a flexible neck that can reach incredible lengths and sharp antlers perfect for headbutting, open up a world of playful and destructive possibilities. No two playthroughs are the same!</p>
+<h3>Epic Deer Challenges Await!</h3>
+<p>Prepare for a series of outrageous missions designed to test your deer's agility, strength, and mischievousness. Imagine leaping from rooftops, riding cows across busy streets, and generally causing maximum disruption to the town's daily life. But beware, not everyone appreciates your antics! Engage in dynamic combat with unexpected adversaries, including police sheep enforcing the law, giant whales mysteriously appearing in town, and even attacking panda bears looking for a fight. Survival depends on your cunning and combat skills.</p>
+<h3>Customize Your Deer for Maximum Mayhem</h3>
+<p>Personalize your deer to enhance its abilities and stand out from the herd. Collect outfits and weapons to boost your deer's stats, allowing you to dominate pranks, inflict even greater destruction, and even win dance contests (yes, you read that right!). The town is filled with interactive objects and vehicles just waiting to be experimented with. Test your agility and reflexes as you create wild chaos, all while evading the authorities and aggressive opponents. The possibilities are truly endless.</p>
+<h3>Controls at Your Fingertips</h3>
+<p>Mastering the controls is essential to becoming the ultimate deer of destruction! Here's a quick rundown:</p>
+<ol>
+  <li><strong>WASD:</strong> Move your deer around the environment.</li>
+  <li><strong>Arrow Keys:</strong> Interact with humans and objects.</li>
+  <li><strong>Mouse:</strong> Control the camera angle for optimal viewing.</li>
+  <li><strong>LMB (Left Mouse Button):</strong> Click to unleash an attack with your antlers.</li>
+  <li><strong>Spacebar:</strong> Jump up to reach new heights or evade enemies.</li>
+  <li><strong>Shift:</strong> Hold to dash for a burst of speed.</li>
+  <li><strong>Q or RMB (Right Mouse Button):</strong> Hold to stretch your neck to incredible lengths!</li>
+  <li><strong>F:</strong> Take special actions, depending on the situation.</li>
+</ol>
+<h3>FAQ</h3>
+<ol>
+  <li><strong>What kind of game is Deer Adventure?</strong></li>
+  <li>Deer Adventure is an open-world animal adventure game where you play as a deer and can explore a town, complete missions, and cause mayhem. It blends simulation and exploration elements.</li>
+  <li><strong>What are the unique abilities of the deer?</strong></li>
+  <li>The deer has a flexible neck that can stretch long distances and sharp antlers for attacking and interacting with the environment.</li>
+  <li><strong>What kind of missions can I expect in Deer Adventure?</strong></li>
+  <li>Missions range from jumping off rooftops and riding cows to causing maximum town disruption and battling unusual enemies.</li>
+  <li><strong>Can I customize my deer?</strong></li>
+  <li>Yes, you can customize your deer with outfits and weapons to enhance its abilities and appearance.</li>
+  <li><strong>What are the controls for Deer Adventure?</strong></li>
+  <li>The controls include WASD for movement, arrow keys for interaction, mouse for camera control, LMB for attack, Spacebar for jump, Shift for dash, Q or RMB for neck stretching, and F for special actions.</li>
+  <li><strong>Who are some of the enemies I might encounter?</strong></li>
+  <li>You may encounter police sheep, giant whales, and attacking panda bears.</li>
+</ol>
+<p>Deer Adventure is more than just a game; it's a chance to embrace your inner animal and experience the world from a completely new perspective. So, unleash the deer within, and prepare for an unforgettable adventure filled with laughter, chaos, and plenty of headbutting action! Join the herd and dive into the wonderfully weird world of Deer Adventure today!</p>
+
+    `,
+  },
+
+  {
+    id: 31,
+    title: "LOOT & SCOOT",
+    iframeUrl: "https://html5.gamedistribution.com/865767b3b7d04847b0e7537a01d2640a/?gd_sdk_referrer_url=https%3A%2F%2F1games.io%2Floot-and-scoot&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovLzFnYW1lcy5pby9sb3V0LXJvY2tzIiwicGFyZW50RG9tYWluIjoiMWdhbWVzLmlvIiwidG9wRG9tYWluIjoiY21zLWRlbW8tc2VsZi52ZXJjZWwuYXBwIiwiY29va2llTmFtZSI6IiIsImhhc0ltcHJlc3Npb24iOnRydWUsImxvYWRlckVuYWJsZWQiOnRydWUsImhvc3QiOiJodG1sNS5nYW1lZGlzdHJpYnV0aW9uLmNvbSIsInZlcnNpb24iOiIxLjUuMTgifQ%253D%253D&rd=1",
+    keywords: "Dive into cartoon chaos with Loot & Scoot! This hilarious arcade platformer sends a desperate dad crashing through floors for fortune. Dash, smash, and drop fast through wacky levels filled with coin clusters, police traps, and hilarious power-ups. Can you loot your way to freedom?",
+    publishDate: "2025-11-18",
+    imageUrl: "/images/game-31.webp",
+    imageAlt: "Cartoon style image of a character falling through a multi-level building in Loot & Scoot.",
+    seo: {
+      title: "LOOT & SCOOT: HILARIOUS Arcade Platformer - Play Now!",
+      description: "Loot & Scoot offers fast-paced floor crashing action with cartoon visuals. Play as a desperate dad looting his way to freedom. Download Now!",
+      keywords: "loot, scoot, arcade, platformer, cartoon, humor, fast-paced, crash, coins, heist, 1Games",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "loot-scoot",
+    detailsHtml: `
+    <h2>LOOT &amp; SCOOT: A HILARIOUS ARCADE PLATFORMER</h2>
+<p>Tired of the daily grind? Yearning for a little…creative financial freedom? Then prepare for LOOT &amp; SCOOT, the arcade platformer that turns the mundane into mayhem! Step into the shoes (or rather, through the ceiling) of a desperate dad who’s had enough of shrinking paychecks and boring bank life. He’s taking a flying leap of faith – straight into a chaotic, coin-filled adventure!</p>
+<p>
+  <img src="/images/game-31-01.webp" alt="LOOT &amp; SCOOT" width="100%" style="width: 100%;">
+</p>
+<h3>Gameplay: From Bank Teller to Floor Crashing Legend</h3>
+<p>Forget climbing ladders – in LOOT &amp; SCOOT, you’re crashing <em>down</em>! Your mission: plummet through a multi-level building, smashing through walls, tubs, and anything else that gets in your way. This isn't just about reaching the bottom; it's about collecting your escape fortune along the way. The cartoon-style madness is amplified by the fast-paced, floor-crashing action. Each floor hides something new, from tempting coin clusters to treacherous police traps and game-changing power-up zones. No two runs are ever the same!</p>
+<h3>Embrace the Cartoon Chaos and Wacky Power-Ups</h3>
+<p>Get ready for some seriously wacky visuals! Bathtubs become wrecking balls, smashing through multiple floors in one glorious combo. Shrink rays flip the script, reducing your hitbox (and your floor-breaking ability!). Cracked tiles and flying objects add to the delightful destruction, turning each drop into a hilarious, destructive masterpiece. Prepare for visual overload and laugh-out-loud moments.</p>
+<h3>Procedural Level Design: Expect the Unexpected</h3>
+<p>LOOT &amp; SCOOT’s procedural level design ensures that every run delivers fresh surprises and risky rewards. Timing is everything! You’ll need to decide when to dodge, when to smash, and where to land to maximize your coin payoff and avoid those pesky traps. Dangerous hazards lurk around every corner, including laser traps, mad scientists, and aggressive guards. Master the art of chain speed boosts and crash combos to become the ultimate floor-crashing, coin-collecting legend. And if you survive long enough, you might even discover secret skins or unexpected building features that shift the momentum in your favor.</p>
+<h3>Simple Controls, Addictive Gameplay</h3>
+<p>Mastering the heist is easier than you think! Simply hold down the move button to swipe, move, and drag your character. But don't let the simplicity fool you – mastering the art of the drop takes skill and precision.</p>
+<h3>Tips to Master the Heist</h3>
+<ol>
+  <li>Land directly on bathtubs to smash multiple floors in one drop combo for maximum destruction.</li>
+  <li>Watch out for shrink rays – they reduce both your hitbox and your floor-breaking ability. Time your swipes carefully!</li>
+  <li>Time downward swipes to chain combos and trigger massive score boosts fast. Precision is key to a successful loot and scoot!</li>
+</ol>
+<h3>Get Ready to LOOT &amp; SCOOT!</h3>
+<p>Break rules, not just floors! Download LOOT &amp; SCOOT now and start your descent into hilarious, coin-collecting chaos. Your escape fortune awaits!</p>
+<h3>FAQ</h3>
+<ol>
+  <li><strong>What type of game is Loot &amp; Scoot?</strong></li>
+  <li>Loot &amp; Scoot is a hilarious arcade platformer with fast-paced floor crashing action and cartoon-style visuals.</li>
+  <li><strong>What is the goal of Loot &amp; Scoot?</strong></li>
+  <li>The goal is to plummet through a multi-level building, smash through obstacles, collect coins, and escape with your fortune.</li>
+  <li><strong>How do you control the character in Loot &amp; Scoot?</strong></li>
+  <li>You control the character by holding down the move button to swipe, move, and drag.</li>
+  <li><strong>What are some of the hazards in Loot &amp; Scoot?</strong></li>
+  <li>Hazards include police traps, laser traps, mad scientists, and aggressive guards.</li>
+  <li><strong>What are some tips for getting a high score in Loot &amp; Scoot?</strong></li>
+  <li>Land on bathtubs to smash multiple floors, watch out for shrink rays, and time downward swipes to chain combos.</li>
+  <li><strong>Is Loot &amp; Scoot a procedurally generated game?</strong></li>
+  <li>Yes, the procedural level design ensures every run delivers fresh surprises and risky rewards.</li>
+</ol>
+<p>Ready to trade in your desk job for a high-flying (or rather, high-falling) adventure? LOOT &amp; SCOOT combines the thrill of arcade action with laugh-out-loud humor. It's time to break free, break floors, and break the bank! Download now and start your epic descent!</p>
+
+    `,
+  },
+
+  {
+    id: 32,
+    title: "TUBE JUMPERS",
+    iframeUrl: "https://freetoplayz.github.io/tube-jumpers/",
+    keywords: "Ride the chaotic waves in TUBE JUMPERS! Challenge friends in this physics-based multiplayer madness. Master reflexes and gravity control to be the last surfer afloat. Choose your color and compete across 3 modes on one device!",
+    publishDate: "2025-11-18",
+    imageUrl: "/images/game-32.webp",
+    imageAlt: "Tube Jumpers game featuring pixelated characters on surfboards navigating chaotic waves.",
+    seo: {
+      title: "TUBE JUMPERS - Chaotic Multiplayer Surfing Game Online",
+      description: "TUBE JUMPERS: A chaotic multiplayer physics game where you compete to stay afloat. Master reflexes, control gravity, and outlast the madness! Play with 2-4 players on one device.",
+      keywords: "tube jumpers, multiplayer, physics game, surfing game, chaotic gameplay, pixel game, gravity control, reflex game",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "tube-jumpers",
+    detailsHtml: `
+    <h2>TUBE JUMPERS</h2>
+<p>Dive into the unpredictable world of TUBE JUMPERS, a chaotic multiplayer game designed to test your reflexes and coordination. Experience the thrill of surfing on pixelated waves, where gravity is your biggest ally and your worst enemy. Gather your friends, choose your surfboard color, and prepare for a battle of balance and skill in this physics-based frenzy!</p>
+<p>
+  <img src="/images/game-32-01.webp" alt="TUBE JUMPERS" width="100%" style="width: 100%;">
+</p>
+<h3>Chaotic Multiplayer Mayhem</h3>
+<p>TUBE JUMPERS is all about competition and camaraderie. This isn't just about staying afloat; it's about outlasting your rivals in the most hilarious and unpredictable ways possible. With support for two to four players on a single device, it's the perfect game for parties, family gatherings, or even just a casual afternoon of friendly rivalry.</p>
+<h3>Master the Waves: Gameplay and Controls</h3>
+<p>The core of TUBE JUMPERS lies in its physics-based gameplay. Each wave presents a unique challenge, demanding precise movements and lightning-fast reactions. Navigate treacherous segments, maintain your balance, and avoid succumbing to the relentless pull of gravity. Only the most skilled and adaptable surfer will emerge victorious!</p>
+<h3>Game Modes and Customization</h3>
+<p>Before plunging into the chaotic surf, you'll need to select your preferred game mode, accommodating the number of players ready to compete. TUBE JUMPERS supports game modes for two, three, and four participants, ensuring maximum flexibility for your multiplayer sessions. You also get to personalize your experience by choosing the color of your surfboard, adding a touch of individual style to the chaos.</p>
+<h3>Control the Chaos</h3>
+<p>Don't let the pixelated graphics fool you; TUBE JUMPERS demands precision. The control scheme is simple yet effective, requiring only a single key to maneuver your character. Here's a breakdown of the controls for each player:</p>
+<ol>
+  <li>Player 1: Use the W key</li>
+  <li>Player 2: Use the I key</li>
+  <li>Player 3: Use the Z key</li>
+  <li>Player 4: Use the M key</li>
+</ol>
+<h3>The Ultimate Goal</h3>
+<p>Your mission is simple: be the last surfer standing. The challenges are numerous, the competition fierce, and the chaos unrelenting. Only by mastering your reflexes, controlling gravity, and adapting to the ever-changing waves can you hope to achieve victory. So, gather your friends, prepare for a wild ride, and see who has what it takes to be the ultimate TUBE JUMPERS champion!</p>
+<h3>Tips for Success</h3>
+<ol>
+  <li><strong>Stay Balanced:</strong> Constant adjustments are key to staying upright on the turbulent waves.</li>
+  <li><strong>Anticipate Changes:</strong> Watch the waves carefully and predict upcoming obstacles to prepare your movements.</li>
+  <li><strong>React Quickly:</strong> Lightning-fast reflexes are essential for avoiding sudden imbalances.</li>
+  <li><strong>Master Gravity:</strong> Learn how to use gravity to your advantage to maintain control and stability.</li>
+</ol>
+<h3>FAQ</h3>
+<ol>
+  <li><strong>What is TUBE JUMPERS?</strong></li>
+  <li>TUBE JUMPERS is a chaotic multiplayer physics game where you and your friends compete to stay afloat on tubes, testing your reflexes and coordination.</li>
+  <li><strong>How many players can play TUBE JUMPERS at once?</strong></li>
+  <li>The game supports 2-4 players on a single device, making it perfect for group play.</li>
+  <li><strong>What are the controls for each player?</strong></li>
+  <li>Player 1 uses the W key, Player 2 uses the I key, Player 3 uses the Z key, and Player 4 uses the M key.</li>
+  <li><strong>What is the goal of the game?</strong></li>
+  <li>The goal is to be the last person standing (or floating) on your tube, outlasting your opponents in the chaotic waves.</li>
+  <li><strong>Are there different game modes?</strong></li>
+  <li>Yes, there are three game modes corresponding to the number of participants (2, 3, or 4 players).</li>
+  <li><strong>Can I customize my character?</strong></li>
+  <li>Yes, you can choose the color of your surfboard before starting the game.</li>
+</ol>
+<p>Prepare for a wild ride of laughter, competition, and gravity-defying stunts in TUBE JUMPERS! Invite your friends, choose your colors, and get ready to experience the ultimate test of balance and reflexes. Only one will be crowned the TUBE JUMPERS champion – will it be you?</p>
+
+    `,
+  }
+
+
 
 
 
