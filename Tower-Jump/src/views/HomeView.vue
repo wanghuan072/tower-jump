@@ -17,30 +17,49 @@
     <main>
       <div class="container">
         <section class="game-layout">
-            <div class="game-content" :class="{ 'page-fullscreen': isPageFullscreen, 'is-playing': isPlaying }">
+          <div
+            class="game-content"
+            :class="{ 'page-fullscreen': isPageFullscreen, 'is-playing': isPlaying }"
+          >
             <section ref="gameRef" class="game-section">
               <h1 class="game-title">Play {{ currentGame?.title || 'Tower Jump' }} Online</h1>
               <p class="game-subtitle">Lightweight, fast, play instantly</p>
               <div class="game-iframe-container">
                 <div class="game-iframe-wrapper">
-                  <iframe 
-                    ref="gameIframe" 
-                    class="game-iframe" 
-                    :class="{ 'is-visible': isPlaying }" 
-                    :src="isPlaying ? iframeSrc : undefined" 
+                  <iframe
+                    ref="gameIframe"
+                    class="game-iframe"
+                    :class="{ 'is-visible': isPlaying }"
+                    :src="isPlaying ? iframeSrc : undefined"
                     :title="currentGame?.title || 'Game'"
-                    allowfullscreen 
+                    allowfullscreen
                     allow="autoplay; fullscreen; gamepad; microphone; camera; payment; geolocation"
                     @load="onFrameLoad"
                   ></iframe>
 
-                  <div v-if="!isPlaying" class="game-play-overlay" style="z-index: 10;">
+                  <div v-if="!isPlaying" class="game-play-overlay" style="z-index: 10">
                     <div class="overlay-backdrop"></div>
                     <div class="overlay-content">
-                      <img class="overlay-logo" :src="currentGame?.imageUrl || '/images/logo.png'" alt="Game logo"
-                        width="96" height="96" />
-                      <button type="button" class="play-button" aria-label="Play game" title="Play" @click="startPlay">
-                        <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <img
+                        class="overlay-logo"
+                        :src="currentGame?.imageUrl || '/images/logo.png'"
+                        alt="Game logo"
+                        width="96"
+                        height="96"
+                      />
+                      <button
+                        type="button"
+                        class="play-button"
+                        aria-label="Play game"
+                        title="Play"
+                        @click="startPlay"
+                      >
+                        <svg
+                          class="play-icon"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
                           <path d="M8 5v14l11-7z" fill="currentColor" />
                         </svg>
                         <span class="play-text">PLAY</span>
@@ -49,7 +68,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <!-- 操作栏：左标题，右侧全屏/网页全屏按钮 -->
               <div class="game-controls">
                 <div class="controls-title">{{ currentGame?.title || 'Tower Jump' }}</div>
@@ -107,7 +126,12 @@
             <section v-if="hotGames.length > 0" class="hot-games-section">
               <h2 class="section-title">Hot Games</h2>
               <div class="hot-games-grid">
-                <a v-for="game in hotGames" :key="game.id" :href="getGameUrl(game)" class="hot-game-card">
+                <a
+                  v-for="game in hotGames"
+                  :key="game.id"
+                  :href="getGameUrl(game)"
+                  class="hot-game-card"
+                >
                   <div class="hot-game-thumb">
                     <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
                   </div>
@@ -129,7 +153,12 @@
             <section v-if="newGames.length > 0" class="new-games-section">
               <h3 class="panel-title">New Games</h3>
               <div class="new-games-grid">
-                <a v-for="game in newGames" :key="game.id" :href="getGameUrl(game)" class="new-game-card">
+                <a
+                  v-for="game in newGames"
+                  :key="game.id"
+                  :href="getGameUrl(game)"
+                  class="new-game-card"
+                >
                   <div class="new-game-thumb">
                     <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
                   </div>
@@ -161,8 +190,8 @@
               <div class="footer-brand-text">
                 <h3 class="footer-brand-title">Tower Jump</h3>
                 <p class="footer-description">
-                  Play Tower Jump and other exciting jumping games instantly in your browser. 
-                  No download required! Lightweight, fast, and fun for everyone.
+                  Play Tower Jump and other exciting jumping games instantly in your browser. No
+                  download required! Lightweight, fast, and fun for everyone.
                 </p>
               </div>
             </div>
@@ -183,8 +212,18 @@
           <!-- 右侧：返回顶部 -->
           <div class="footer-action">
             <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 15l-6-6-6 6"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 15l-6-6-6 6" />
               </svg>
               <span>Back to Top</span>
             </a>
@@ -193,9 +232,7 @@
 
         <!-- 底部：Copyright -->
         <div class="footer-bottom">
-          <p class="copyright">
-            © {{ new Date().getFullYear() }} Tower Jump. All rights reserved.
-          </p>
+          <p class="copyright">© {{ new Date().getFullYear() }} Tower Jump. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -1579,6 +1616,14 @@ onUnmounted(() => {
     padding: 20px 0;
   }
 
+  .logo {
+    width: 120px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
   .game-section .game-title {
     font-size: 24px;
   }
@@ -1598,6 +1643,14 @@ onUnmounted(() => {
 
   .nav-link,
   .back-to-top {
+    font-size: 12px;
+  }
+
+  .nav-link {
+    padding: 5px;
+  }
+
+  .game-section .game-subtitle{
     font-size: 12px;
   }
 
@@ -1905,7 +1958,7 @@ onUnmounted(() => {
 .about-content :deep(h5),
 .about-content :deep(h6) {
   color: #e8e8ee;
-  margin: 24px 0 16px 0;
+  margin-bottom: 15px;
   font-weight: 600;
   line-height: 1.3;
 }
@@ -1943,7 +1996,7 @@ onUnmounted(() => {
 }
 
 .about-content :deep(p) {
-  margin: 16px 0;
+  margin-bottom: 15px;
   color: #e8e8ee;
   line-height: 1.7;
 }
@@ -1955,7 +2008,7 @@ onUnmounted(() => {
 }
 
 .about-content :deep(li) {
-  margin: 8px 0;
+  margin-bottom: 5px;
   color: #e8e8ee;
   line-height: 1.6;
 }
@@ -2123,9 +2176,46 @@ onUnmounted(() => {
   line-height: 1.6;
   color: #d1d5db;
   margin: 20px 0;
-  padding: 16px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 8px;
   border-left: 4px solid #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .about-content :deep(p){
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .about-content :deep(h2){
+    font-size: 18px;
+  }
+  .about-content :deep(h3){
+    font-size: 16px;
+  }
+  .about-content :deep(h4){
+    font-size: 14px;
+  }
+  .about-content :deep(h5){
+    font-size: 12px;
+  }
+
+  .about-content :deep(.faq-q){
+    padding: 5px 10px;
+  }
+
+  .about-content :deep(.faq-content){
+    padding: 5px 10px;
+  }
+
+  .about-content :deep(ul),
+  .about-content :deep(ol){
+    margin: 10px 0;
+  }
+
+  .about-content :deep(li){
+    margin-bottom: 5px;
+  }
 }
 </style>

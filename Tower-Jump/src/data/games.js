@@ -1751,7 +1751,7 @@ export const games = [
       description: "Join Dadish on a radical rescue mission through 40 handcrafted levels! Dodge enemies, solve puzzles, and reunite with his missing radish kids. Play Dadish now!",
       keywords: "dadish, platformer, adventure game, indie game, retro style, pixel art, family friendly, lost children, rescue mission",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "dadish",
     detailsHtml: `
@@ -1901,7 +1901,7 @@ export const games = [
       description: "Swing, jump, and light up the dark world in Neon Leap! A fast-paced platformer game where you test your reflexes and precision. Dodge obstacles and conquer levels now!",
       keywords: "neon leap, platformer game, reflex test, obstacle course, stickman game, casual game, neon game",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "neon-leap",
     detailsHtml: `
@@ -2311,7 +2311,328 @@ So, are you ready to tumble into chaos and test your bouncing skills? Dive into 
 <p>Prepare for a wild ride of laughter, competition, and gravity-defying stunts in TUBE JUMPERS! Invite your friends, choose your colors, and get ready to experience the ultimate test of balance and reflexes. Only one will be crowned the TUBE JUMPERS champion – will it be you?</p>
 
     `,
+  },
+
+  {
+    id: 33,
+    title: "Wrestle Jump",
+    iframeUrl: "https://html5.gamedistribution.com/11a2f7c8960042768d966b03003995ca/?gdpr-targeting=1&gd_sdk_referrer_url=https%3A%2F%2Fgameforge.com%2Fen-US%2Flittlegames%2Fwrestle-jump%2F",
+    description: "Engage in hilarious physics-based wrestling! In Wrestle Jump, victory is achieved by slamming your opponent's head onto the floor. Simple controls – 'W' or screen touch for Player 1, 'UP ARROW' or screen touch for Player 2 – make it instantly playable. Compete solo or with friends!",
+    publishDate: "2025-11-18",
+    imageUrl: "/images/game-33.webp",
+    imageAlt: "Two wrestlers locked in a jumping struggle in Wrestle Jump.",
+    seo: {
+      title: "Wrestle Jump - Hilarious Physics Wrestling Online!",
+      description: "Experience the unique blend of wrestling and physics in Wrestle Jump! Compete against the computer or friends. Simple controls, addictive gameplay! Wrestle & Jump to win!",
+      keywords: "wrestle, jump, wrestling game, physics game, 2 player game, online game, arcade game",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "wrestle-jump",
+    detailsHtml: `
+    <h2>Wrestle Jump: Physics-Based Wrestling Mayhem</h2>
+<p>
+    <img src="/images/game-33-01.webp" alt="Wrestle Jump -1" width="50%" style="width: 50%;">
+</p>
+<p>
+    Step into the chaotic world of Wrestle Jump, where wrestling meets unpredictable physics! This isn't your typical grappling match. Forget complex holds and traditional rules. In Wrestle Jump, the objective is simple: slam your opponent's head onto the floor using well-timed jumps. Get ready for some hilarious and addictive gameplay, perfect for quick matches with friends or solo challenges against the computer.
+</p>
+
+<h3>Gameplay Mechanics: Jump to Victory</h3>
+<p>
+    The core mechanic of Wrestle Jump revolves around precisely timed jumps. Both wrestlers are locked together, and your only means of control is a single button press to initiate a jump. Mastering the timing and trajectory of your jumps is crucial to outmaneuvering your opponent and sending them crashing headfirst into the ground. Expect plenty of unexpected twists and turns as the physics engine introduces an element of unpredictable fun.
+</p>
+
+<h3>Game Modes: Solo and Two-Player Action</h3>
+<p>
+    Wrestle Jump offers both single-player and two-player modes, providing options for solo practice or competitive play with friends. In single-player mode, you'll face off against the computer in a series of increasingly challenging matches. The two-player mode allows you and a friend to battle it out on the same device, adding a layer of social interaction and friendly rivalry to the already engaging gameplay.
+</p>
+
+<h3>Controls: Simple and Accessible</h3>
+<p>
+    The controls for Wrestle Jump are incredibly simple, making it easy for anyone to pick up and play. Player 1 uses the 'W' key or can simply touch the screen, while Player 2 uses the 'UP ARROW' key or can also touch the screen. This streamlined control scheme allows players to focus on the strategic aspects of jumping and positioning, rather than struggling with complex button combinations.
+</p>
+
+<h3>Performance Optimization: Smooth and Responsive</h3>
+<p>
+    Wrestle Jump is designed for optimal performance across a wide range of devices. The game's lightweight design ensures smooth and responsive gameplay, even on older hardware. Whether you're playing on a desktop computer, laptop, or mobile device, you can expect a consistent and enjoyable experience.
+</p>
+
+<h3>Highlights of Wrestle Jump</h3>
+<ol>
+    <li>
+        <span></span>
+        <strong>Unique Wrestling Concept:</strong> A fresh take on wrestling games, focusing on physics-based jumping.
+    </li>
+    <li>
+        <span></span>
+        <strong>Simple Controls:</strong> Easy to learn and play with intuitive one-button controls.
+    </li>
+    <li>
+        <span></span>
+        <strong>Single and Two-Player Modes:</strong> Enjoy solo challenges or compete with friends.
+    </li>
+    <li>
+        <span></span>
+        <strong>Addictive Gameplay:</strong> Hilarious and unpredictable physics create endless replayability.
+    </li>
+</ol>
+
+<h3>How to Play Wrestle Jump: A Quick Guide</h3>
+<ol>
+    <li>
+        <span></span>
+        <strong>Start the Game:</strong> Choose between single-player or two-player mode.
+    </li>
+    <li>
+        <span></span>
+        <strong>Control Your Wrestler:</strong> Use 'W' (Player 1) or 'UP ARROW' (Player 2) to jump. Touch the screen also works for both players.
+    </li>
+    <li>
+        <span></span>
+        <strong>Time Your Jumps:</strong> Strategically time your jumps to knock your opponent's head to the floor.
+    </li>
+    <li>
+        <span></span>
+        <strong>Win the Match:</strong> Be the first to slam your opponent's head to the ground to win the round.
+    </li>
+</ol>
+
+<p>
+    <img src="/images/game-33-02.webp" alt="Wrestle Jump -2" width="50%" style="width: 50%;">
+</p>
+
+<h3>FAQ</h3>
+<ol>
+    <li>
+        <span></span>
+        <strong>What is the objective of Wrestle Jump?</strong>
+    </li>
+    <li>
+        <span></span>
+        The objective is to hit your opponent's head onto the floor by jumping.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>What are the controls for Player 1?</strong>
+    </li>
+    <li>
+        <span></span>
+        Player 1 can use the 'W' key or touch the screen to jump.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>What are the controls for Player 2?</strong>
+    </li>
+    <li>
+        <span></span>
+        Player 2 can use the 'UP ARROW' key or touch the screen to jump.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>Are there different game modes in Wrestle Jump?</strong>
+    </li>
+    <li>
+        <span></span>
+        Yes, Wrestle Jump features both single-player and two-player modes.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>Can I play Wrestle Jump with a friend on the same computer?</strong>
+    </li>
+    <li>
+        <span></span>
+        Yes, the two-player mode allows you to play with a friend on the same device.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>Is Wrestle Jump a realistic wrestling game?</strong>
+    </li>
+    <li>
+        <span></span>
+        No, Wrestle Jump is a physics-based game with a humorous and unrealistic take on wrestling.
+    </li>
+</ol>
+
+<p>
+    Wrestle Jump offers a delightfully chaotic and addictive wrestling experience. With its simple controls, engaging physics, and both single and two-player modes, it's the perfect game for quick bursts of fun or competitive matches with friends. Prepare for some unexpected laughs and gravity-defying leaps as you strive to become the ultimate Wrestle Jump champion!
+</p>
+
+    `,
+  },
+
+  {
+    id: 34,
+    title: "Power Jumper",
+    iframeUrl: "https://html-classic.itch.zone/html/14350782/web/index.html",
+    description: "Gather power, ignite your thrusters, and soar through the skies in Power Jumper! Master A/D controls for movement and Space for jump/flight. Aim for high scores by strategically utilizing countdowns, base scores, and multipliers! Created for Kenney Jam 2025.",
+    publishDate: "2025-11-18",
+    imageUrl: "/images/game-34.webp",
+    imageAlt: "A character charging power for a powerful jump in Power Jumper game.",
+    seo: {
+      title: "Power Jumper - Blast Off to New Heights! Play Free Online",
+      description: "Power Jumper: Gather power, master flight, and chase high scores! Use A/D and Space to navigate. Built with Kenney assets for Kenney Jam 2025. Action awaits!",
+      keywords: "power jumper, action game, HTML5 game, Kenney Jam 2025, flying game, high score game, 2D game, sch4ft",
+    },
+    isNew: true,
+    isHot: false,
+    addressBar: "power-jumper",
+    detailsHtml: `
+    <h2>Power Jumper</h2>
+
+<p>
+    <img src="/images/game-34-01.webp" alt="Power Jumper -1" width="50%" style="width: 50%;">
+</p>
+
+<p>
+    Prepare for liftoff in Power Jumper, a thrilling action game created exclusively with Kenney's game assets for the Kenney Jam 2025! This isn't just about jumping; it's about harnessing power, mastering flight, and reaching for the highest scores possible. Feel the surge of energy as you charge up, and then blast off into the unknown!
+</p>
+
+<h3>Gameplay Mechanics</h3>
+
+<p>
+    The core gameplay revolves around gathering power and strategically launching yourself to maximize your score. Pay close attention to the countdown timer, as it directly impacts your base score. And remember, skillful use of multipliers (double, triple, or even quadruple!) is the key to achieving true mastery. The higher you climb, the tougher the challenge, so be prepared for fast-paced action and strategic decision-making.
+</p>
+
+<h3>Controls</h3>
+
+<p>
+    Power Jumper features simple and intuitive controls, making it easy to pick up but challenging to master. Here's a breakdown:
+</p>
+
+<ol>
+    <li>
+        <span></span>
+        <strong>A/D Keys:</strong> Use these keys to move your character left and right. Precise movement is crucial for gathering power and avoiding obstacles.
+    </li>
+    <li>
+        <span></span>
+        <strong>Spacebar:</strong> A single tap of the spacebar initiates a jump. But the magic happens when you <strong>hold</strong> the spacebar down. This activates your flight ability, allowing you to soar through the air and reach greater heights.
+    </li>
+</ol>
+
+<p><br></p>
+
+<h3>Scoring System</h3>
+
+<p>
+    Maximizing your score in Power Jumper requires a keen eye and strategic thinking. The three key elements to consider are:
+</p>
+
+<ol>
+    <li>
+        <span></span>
+        <strong>Countdown:</strong> Your score is directly linked to the remaining time on the countdown. The faster you move and the more you achieve, the higher your score will be.
+    </li>
+    <li>
+        <span></span>
+        <strong>Base Score:</strong> This is the fundamental value assigned to your actions. Each successful jump and power-up contributes to your base score.
+    </li>
+    <li>
+        <span></span>
+        <strong>Multipliers:</strong> These are game-changers! Look out for opportunities to activate double, triple, or even quadruple multipliers. Mastering their use is essential for achieving truly impressive scores.
+    </li>
+</ol>
+
+<p><br></p>
+
+<h3>Credits &amp; BGM</h3>
+
+<p>
+    Power Jumper was lovingly crafted by sch4ft for the Kenney Jam 2025, utilizing only Kenney's fantastic game assets. The game is released and ready to play on HTML5 platforms.
+</p>
+
+<h3>Tips for Success</h3>
+
+<p>
+    To truly excel at Power Jumper, remember these key tips:
+</p>
+
+<ol>
+    <li>
+        <span></span>
+        Pay close attention to the countdown timer; don't let it run out!
+    </li>
+    <li>
+        <span></span>
+        Master the art of flight by holding down the spacebar.
+    </li>
+    <li>
+        <span></span>
+        Strategically collect power-ups to maximize your base score.
+    </li>
+    <li>
+        <span></span>
+        Always be on the lookout for multiplier opportunities!
+    </li>
+</ol>
+
+<p>
+    <img src="/images/game-34-02.webp" alt="Power Jumper -2" width="50%" style="width: 50%;">
+</p>
+
+<h3>FAQ</h3>
+
+<ol>
+    <li>
+        <span></span>
+        <strong>What are the controls for Power Jumper?</strong>
+    </li>
+    <li>
+        <span></span>
+        Use the A/D keys to move left and right, and the Spacebar to jump. Hold the Spacebar to fly!
+    </li>
+
+    <li>
+        <span></span>
+        <strong>How do I get a high score?</strong>
+    </li>
+    <li>
+        <span></span>
+        Pay attention to the countdown timer, base score, and strategically use multipliers (double, triple, or quadruple).
+    </li>
+
+    <li>
+        <span></span>
+        <strong>What engine or assets were used to create Power Jumper?</strong>
+    </li>
+    <li>
+        <span></span>
+        The game was created using only Kenney's game assets for the Kenney Jam 2025.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>What genre is Power Jumper?</strong>
+    </li>
+    <li>
+        <span></span>
+        Power Jumper is an action game.
+    </li>
+
+    <li>
+        <span></span>
+        <strong>On what platform can I play Power Jumper?</strong>
+    </li>
+    <li>
+        <span></span>
+        Power Jumper is available to play on HTML5 platform.
+    </li>
+</ol>
+
+<p>
+    So, are you ready to defy gravity and become the ultimate Power Jumper? Gather your energy, master the controls, and prepare for an exhilarating journey to the top! Good luck, and happy jumping!
+</p>
+
+    `,
   }
+
+
 
 
 
