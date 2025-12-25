@@ -220,6 +220,149 @@ app.get('/ratings', async (req, res) => {
   }
 });
 
+// 确保排行榜表存在的辅助函数
+async function ensureLeaderboardTable() {
+  const sql = (await import('@neondatabase/serverless')).neon(process.env.DATABASE_URL);
+  const PROJECT_PREFIX = 'tower_jump';
+  
+  try {
+    // 检查表是否存在，如果不存在则创建
+    await sql(`
+      CREATE TABLE IF NOT EXISTS ${PROJECT_PREFIX}_leaderboard (
+        id SERIAL PRIMARY KEY,
+        game_address_bar VARCHAR(255) NOT NULL,
+        player_name VARCHAR(255) NOT NULL,
+        score INTEGER NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    // 创建索引以提高查询性能
+    await sql(`
+      CREATE INDEX IF NOT EXISTS idx_leaderboard_game_score 
+      ON ${PROJECT_PREFIX}_leaderboard (game_address_bar, score DESC)
+    `);
+  } catch (error) {
+    console.error('创建排行榜表失败:', error);
+    throw error;
+  }
+}
+
+// 排行榜API路由
+app.post('/leaderboard', async (req, res) => {
+  try {
+    const { pageId, playerName, score } = req.body;
+    
+    if (!pageId || !playerName || score === undefined || score === null) {
+      return res.status(400).json({ message: '缺少必要字段：pageId, playerName, score' });
+    }
+    
+    // 确保表存在
+    await ensureLeaderboardTable();
+    
+    const sql = (await import('@neondatabase/serverless')).neon(process.env.DATABASE_URL);
+    const PROJECT_PREFIX = 'tower_jump';
+    
+    const playerNameTrimmed = playerName.trim().substring(0, 50); // 限制长度
+    const scoreInt = parseInt(score);
+    
+    if (isNaN(scoreInt) || scoreInt < 0) {
+      return res.status(400).json({ message: '分数必须是有效的非负整数' });
+    }
+    
+    // 插入分数记录
+    const result = await sql(`
+      INSERT INTO ${PROJECT_PREFIX}_leaderboard (game_address_bar, player_name, score)
+      VALUES ('${pageId}', '${playerNameTrimmed.replace(/'/g, "''")}', ${scoreInt})
+      RETURNING id, player_name, score, created_at
+    `);
+    
+    res.status(201).json({
+      message: '分数提交成功',
+      data: result[0]
+    });
+  } catch (error) {
+    console.error('提交分数失败:', error);
+    res.status(500).json({ message: '服务器错误' });
+  }
+});
+
+app.get('/leaderboard', async (req, res) => {
+  try {
+    const { pageId, limit = 10 } = req.query;
+    
+    if (!pageId) {
+      return res.status(400).json({ message: '缺少pageId参数' });
+    }
+    
+    // 确保表存在
+    await ensureLeaderboardTable();
+    
+    const sql = (await import('@neondatabase/serverless')).neon(process.env.DATABASE_URL);
+    const PROJECT_PREFIX = 'tower_jump';
+    
+    const limitInt = parseInt(limit) || 10;
+    const maxLimit = Math.min(limitInt, 100); // 最多返回100条
+    
+    // 获取排行榜（按分数降序排列）
+    const leaderboard = await sql(`
+      SELECT 
+        id,
+        ROW_NUMBER() OVER (ORDER BY score DESC, created_at ASC) as rank,
+        player_name,
+        score,
+        created_at
+      FROM ${PROJECT_PREFIX}_leaderboard
+      WHERE game_address_bar = '${pageId}'
+      ORDER BY score DESC, created_at ASC
+      LIMIT ${maxLimit}
+    `);
+    
+    console.log(`[排行榜API] 查询结果:`, leaderboard);
+    
+    res.json({
+      pageId,
+      leaderboard: leaderboard || [],
+      total: leaderboard?.length || 0
+    });
+  } catch (error) {
+    console.error('获取排行榜失败:', error);
+    res.status(500).json({ message: '服务器错误' });
+  }
+});
+
+app.get('/leaderboard/best', async (req, res) => {
+  try {
+    const { pageId, playerName } = req.query;
+    
+    if (!pageId || !playerName) {
+      return res.status(400).json({ message: '缺少pageId或playerName参数' });
+    }
+    
+    // 确保表存在
+    await ensureLeaderboardTable();
+    
+    const sql = (await import('@neondatabase/serverless')).neon(process.env.DATABASE_URL);
+    const PROJECT_PREFIX = 'tower_jump';
+    
+    // 获取用户最佳分数
+    const bestScore = await sql(`
+      SELECT MAX(score) as best_score
+      FROM ${PROJECT_PREFIX}_leaderboard
+      WHERE game_address_bar = '${pageId}' AND player_name = '${playerName.replace(/'/g, "''")}'
+    `);
+    
+    res.json({
+      pageId,
+      playerName,
+      bestScore: bestScore[0]?.best_score || 0
+    });
+  } catch (error) {
+    console.error('获取最佳分数失败:', error);
+    res.status(500).json({ message: '服务器错误' });
+  }
+});
+
 // 管理员API路由
 app.use('/admin', unifiedFeedbackRouter);
 
@@ -233,6 +376,9 @@ app.use('*', (req, res) => {
       'POST /comments - 提交评论',
       'GET /ratings?pageId=xxx - 获取评分统计',
       'POST /ratings - 提交评分',
+      'POST /leaderboard - 提交分数',
+      'GET /leaderboard?pageId=xxx&limit=10 - 获取排行榜',
+      'GET /leaderboard/best?pageId=xxx&playerName=xxx - 获取用户最佳分数',
       'POST /admin/login - 管理员登录',
       'GET /admin/feedback - 获取所有反馈数据',
       'DELETE /admin/feedback/:pageId/:feedbackId - 删除反馈',
