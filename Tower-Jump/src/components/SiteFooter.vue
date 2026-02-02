@@ -19,11 +19,11 @@
         <div class="footer-links-section">
           <h4 class="footer-links-title">Quick Links</h4>
           <nav class="footer-links">
-            <a href="/about-us" class="footer-link">About Us</a>
-            <a href="/contact" class="footer-link">Contact</a>
-            <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
-            <a href="/terms-of-service" class="footer-link">Terms of Service</a>
-            <a href="/copyright" class="footer-link">Copyright</a>
+            <a href="/about-us" class="footer-link" rel="noopener noreferrer nofollow">About Us</a>
+            <a href="/contact" class="footer-link" rel="noopener noreferrer nofollow">Contact</a>
+            <a href="/privacy-policy" class="footer-link" rel="noopener noreferrer nofollow">Privacy Policy</a>
+            <a href="/terms-of-service" class="footer-link" rel="noopener noreferrer nofollow">Terms of Service</a>
+            <a href="/copyright" class="footer-link" rel="noopener noreferrer nofollow">Copyright</a>
           </nav>
         </div>
 
