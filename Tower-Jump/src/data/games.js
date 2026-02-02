@@ -9,7 +9,7 @@ export const games = [
     imageUrl: "/images/game-01.webp", // 游戏封面图
     imageAlt: "Tower Jump", // 图片alt文本
     iframeUrl: "/TowerJump.html", // 游戏iframe地址
-    isNew: false, // 是否为新游戏
+    isNew: true, // 是否为新游戏
     isHot: true, // 是否为热门游戏
     seo: {
       title: "Tower Jump - Play Instantly Online", // SEO标题
@@ -74,6 +74,83 @@ export const games = [
                     <p>
                         This page does not collect personally identifiable information. If third‑party
                         analytics are used, they are only for improving the experience.
+                    </p>
+                </div>
+            </div>
+        `
+  },
+
+  {
+    id: 35,
+    title: "Tower Jump 2",
+    keywords: "Tower Jump 2 is the sequel to the lightweight, fast vertical jumping game.",
+    addressBar: "tower-jump-2",
+    publishDate: "2026-02-02",
+    imageUrl: "/images/game-35.webp",
+    imageAlt: "Tower Jump 2",
+    iframeUrl: "https://turbowarp.org/1222421459/embed",
+    isNew: true,
+    isHot: true,
+    seo: {
+      title: "Tower Jump 2 - Play Instantly Online",
+      description: "Tower Jump 2 is a lightweight, fast vertical jumping game you can play instantly in your browser.",
+      keywords: "Tower Jump 2, jumping game, online game, casual game"
+    },
+    detailsHtml: `
+            <div class="lead">
+                <p>Tower Jump 2 brings the classic vertical jumping action back with even more excitement! 
+                Just like the original, it's designed for quick, addictive sessions. Open and play instantly 
+                without any installs or logins. Tap or hit Space to ascend through new challenging towers, 
+                dodge tricky obstacles, and chase your new high scores.</p>
+                <p>Retaining its lightweight and fast-loading nature, Tower Jump 2 works seamlessly on both 
+                desktop and mobile devices. We've kept the experience pure—no heavy onboarding or complex 
+                systems—so you can get into the flow within seconds. Whether you're on a commute or taking 
+                a quick break, Tower Jump 2 is your perfect pocket-sized playground.</p>
+            </div>
+            <ul class="feature-list" aria-label="Game features">
+                <li>Instant play: no download, no account required</li>
+                <li>Enhanced experience: classic gameplay with a fresh feel</li>
+                <li>Input friendly: keyboard, mouse, and touch support</li>
+                <li>Clear feedback: clean UI and smooth motion</li>
+                <li>Device ready: optimized for phone, tablet, and desktop</li>
+                <li>Play peacefully: no personally identifiable data collection</li>
+            </ul>
+            
+            <h2 id="faq" class="section-title">Frequently Asked Questions (FAQ)</h2>
+            
+            <div class="faq-item">
+                <h3 class="faq-q">How do I play Tower Jump 2?</h3>
+                <div class="faq-content">
+                    <p>It's simple! On Desktop: press Space or click your mouse to jump. On Mobile: just tap the screen to jump. Timing is everything!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-q">Is it different from the first game?</h3>
+                <div class="faq-content">
+                    <p>Tower Jump 2 keeps the core mechanics you love but offers a fresh start for your high-score chasing adventures.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-q">Can I play on mobile?</h3>
+                <div class="faq-content">
+                    <p>Absolutely. The game is fully responsive and works great on mobile devices. Portrait orientation is recommended for the best experience.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-q">What if I experience lag?</h3>
+                <div class="faq-content">
+                    <p>Try closing other resource‑heavy apps or browser tabs. Ensure you are using a modern, up-to-date web browser for the best performance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-q">Privacy & Data</h3>
+                <div class="faq-content">
+                    <p>
+                        We respect your privacy. This page does not collect personally identifiable information. Any analytics used are solely for improving the game experience.
                     </p>
                 </div>
             </div>
@@ -824,7 +901,7 @@ export const games = [
       keywords: "Mr. Flip, flip, backflip, stunt game, ragdoll physics, arcade game, Azgames, gymnastic game, online game, free game",
     },
     isNew: false,
-    isHot: true,
+    isHot: false,
     addressBar: "mr-flip",
     detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <h2>Mr Flip</h2>
@@ -2047,7 +2124,7 @@ export const games = [
       description: "Tumble through chaotic obstacle courses in Ragdoll Bounce! Upgrade your ragdoll, unlock skins, and soar to new heights! Play now and test your bouncing skills!",
       keywords: "ragdoll, bounce, physics game, obstacle course, flying, skills, upgrades, skins, supercars, online game",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "ragdoll-bounce",
     detailsHtml: `
@@ -2143,7 +2220,7 @@ So, are you ready to tumble into chaos and test your bouncing skills? Dive into 
       description: "Step into Deer Adventure and cause hilarious chaos! Explore, complete outrageous missions, and customize your deer. Play now and experience the ultimate animal adventure game!",
       keywords: "deer adventure, animal adventure game, deer game, open world game, simulation game, crazy deer, mayhem, destruction",
     },
-    isNew: true,
+    isNew: false,
     isHot: false,
     addressBar: "deer-adventure",
     detailsHtml: `

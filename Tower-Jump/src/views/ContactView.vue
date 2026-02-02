@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <SiteHeader />
     <div class="content">
       <h1>Contact Us</h1>
       
@@ -21,11 +22,14 @@
       <h2>Thank You</h2>
       <p>Thank you for visiting Tower Jump. Your feedback helps us improve our platform and provide a better experience for all users.</p>
     </div>
+    <SiteFooter />
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
+import SiteHeader from '../components/SiteHeader.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 
 onMounted(() => {
   document.title = 'Contact Us - Tower Jump'
@@ -33,17 +37,17 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.page {
+.page{
   background: #0f0f14;
-  color: #e8e8ee;
-  min-height: 100vh;
-  padding: 40px 20px;
 }
 
 .content {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
+  color: #e8e8ee;
+  min-height: 100vh;
+  padding: 40px 20px;
 }
 
 .content h1 {

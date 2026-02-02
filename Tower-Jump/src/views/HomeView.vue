@@ -1,18 +1,6 @@
 <template>
   <div class="home">
-    <header class="site-header">
-      <div class="container">
-        <div class="logo">
-          <img src="/images/logo.webp" alt="Tower Jump Logo" class="logo-image" />
-          <span class="logo-text">Tower Jump</span>
-        </div>
-        <nav class="nav" aria-label="Main navigation">
-          <a class="nav-link" href="/">Home</a>
-          <div class="nav-link" @click="scrollTo('about')">Game Info</div>
-          <div class="nav-link" @click="scrollTo('games')">All Games</div>
-        </nav>
-      </div>
-    </header>
+    <SiteHeader />
 
     <main>
       <div class="container">
@@ -180,72 +168,20 @@
       </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <!-- 左侧：Logo和简介 -->
-          <div class="footer-brand">
-            <div class="footer-logo-section">
-              <img src="/images/logo.webp" alt="Tower Jump Logo" class="footer-logo" />
-              <div class="footer-brand-text">
-                <h3 class="footer-brand-title">Tower Jump</h3>
-                <p class="footer-description">
-                  Play Tower Jump and other exciting jumping games instantly in your browser. No
-                  download required! Lightweight, fast, and fun for everyone.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 中间：链接 -->
-          <div class="footer-links-section">
-            <h4 class="footer-links-title">Quick Links</h4>
-            <div class="footer-links">
-              <a href="/about-us" class="footer-link">About Us</a>
-              <a href="/contact" class="footer-link">Contact Us</a>
-              <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
-              <a href="/terms-of-service" class="footer-link">Terms of Service</a>
-              <a href="/copyright" class="footer-link">Copyright Policy</a>
-            </div>
-          </div>
-
-          <!-- 右侧：返回顶部 -->
-          <div class="footer-action">
-            <a href="/" class="back-to-top" aria-label="Back to top" @click.prevent="scrollToTop">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M18 15l-6-6-6 6" />
-              </svg>
-              <span>Back to Top</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 底部：Copyright -->
-        <div class="footer-bottom">
-          <p class="copyright">© {{ new Date().getFullYear() }} Tower Jump. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, nextTick, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { games } from '@/data/games.js'
-import GameList from '@/components/GameList.vue'
-import GameReviews from '@/components/GameReviews.vue'
-import { useSEO } from '@/composables/useSEO.js'
+import { games } from '../data/games'
+import { commentAPI, ratingAPI } from '../services/api'
+import { useSEO } from '../composables/useSEO'
+import GameList from '../components/GameList.vue'
+import GameReviews from '../components/GameReviews.vue'
+import SiteHeader from '../components/SiteHeader.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -379,38 +315,6 @@ function onFrameLoad(event) {
   if (el && el.classList) {
     el.classList.add('is-loaded')
   }
-}
-
-
-// 滚动到指定部分
-const prefersReducedMotion =
-  typeof window !== 'undefined' && window.matchMedia
-    ? window.matchMedia('(prefers-reduced-motion: reduce)')
-    : null
-const supportsSmooth =
-  typeof document !== 'undefined' &&
-  document.documentElement &&
-  'scrollBehavior' in document.documentElement.style
-
-function getHeaderHeight() {
-  const header = document.querySelector('.site-header')
-  return header ? header.getBoundingClientRect().height : 0
-}
-
-function scrollTo(name) {
-  // 使用ID选择器查找目标元素
-  const element = document.querySelector(`#${name}`)
-  if (!element) return
-
-  const rect = element.getBoundingClientRect()
-  const top = rect.top + window.scrollY - getHeaderHeight() - 8
-  const behavior = prefersReducedMotion?.matches || !supportsSmooth ? 'auto' : 'smooth'
-  window.scrollTo({ top, behavior })
-}
-
-function scrollToTop() {
-  const behavior = prefersReducedMotion?.matches || !supportsSmooth ? 'auto' : 'smooth'
-  window.scrollTo({ top: 0, behavior })
 }
 
 // 监听路由变化
@@ -552,73 +456,7 @@ onUnmounted(() => {
   padding: 0 16px;
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(15, 15, 20, 0.95);
-  /* 游戏运行时禁用 backdrop-filter 以提升性能 */
-  backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
 
-/* 游戏运行时禁用 header 的模糊效果 */
-.game-content.is-playing ~ .site-header,
-.game-content.page-fullscreen ~ .site-header {
-  backdrop-filter: none;
-}
-
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.logo-image {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-}
-
-.logo-text {
-  font-size: 18px;
-  background: linear-gradient(135deg, #ff6b6b, #ffd700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav {
-  display: flex;
-  gap: 16px;
-}
-
-.nav-link {
-  color: #cfd3ff;
-  text-decoration: none;
-  padding: 8px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 215, 0, 0.1) 100%);
-  color: #fff;
-  transform: translateY(-1px);
-}
 
 /* 游戏布局 */
 .game-layout {
@@ -1651,7 +1489,7 @@ onUnmounted(() => {
     padding: 5px;
   }
 
-  .game-section .game-subtitle{
+  .game-section .game-subtitle {
     font-size: 12px;
   }
 
@@ -2184,38 +2022,38 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .about-content :deep(p){
+  .about-content :deep(p) {
     font-size: 12px;
     margin-bottom: 10px;
   }
 
-  .about-content :deep(h2){
+  .about-content :deep(h2) {
     font-size: 18px;
   }
-  .about-content :deep(h3){
+  .about-content :deep(h3) {
     font-size: 16px;
   }
-  .about-content :deep(h4){
+  .about-content :deep(h4) {
     font-size: 14px;
   }
-  .about-content :deep(h5){
+  .about-content :deep(h5) {
     font-size: 12px;
   }
 
-  .about-content :deep(.faq-q){
+  .about-content :deep(.faq-q) {
     padding: 5px 10px;
   }
 
-  .about-content :deep(.faq-content){
+  .about-content :deep(.faq-content) {
     padding: 5px 10px;
   }
 
   .about-content :deep(ul),
-  .about-content :deep(ol){
+  .about-content :deep(ol) {
     margin: 10px 0;
   }
 
-  .about-content :deep(li){
+  .about-content :deep(li) {
     margin-bottom: 5px;
   }
 }

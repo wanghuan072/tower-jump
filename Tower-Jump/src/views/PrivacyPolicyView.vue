@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <SiteHeader />
     <div class="content">
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated: September 26, 2025</p>
@@ -44,11 +45,14 @@
       <h2>Contact Information</h2>
       <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
     </div>
+    <SiteFooter />
   </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
+import SiteHeader from '../components/SiteHeader.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 
 onMounted(() => {
   document.title = 'Privacy Policy - Tower Jump'
@@ -56,17 +60,17 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.page {
+.page{
   background: #0f0f14;
-  color: #e8e8ee;
-  min-height: 100vh;
-  padding: 40px 20px;
 }
 
 .content {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
+  color: #e8e8ee;
+  min-height: 100vh;
+  padding: 40px 20px;
 }
 
 .content h1 {
