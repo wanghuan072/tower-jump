@@ -162,8 +162,8 @@
         </section>
 
         <section id="games" class="section-games">
-          <h2 class="section-title">More Games</h2>
-          <GameList />
+          <h2 class="section-title">Games</h2>
+          <GameList :games="homeGames" />
         </section>
       </div>
     </main>
@@ -207,6 +207,10 @@ const newGames = computed(() => {
   return games.filter((game) => game.isNew === true)
 })
 
+const homeGames = computed(() => {
+  return games.filter((game) => game.isHome === true)
+})
+
 const hotGames = computed(() => {
   return games.filter((game) => game.isHot === true)
 })
@@ -220,38 +224,14 @@ function getGameUrl(game) {
   return isFirstGame ? '/' : `/${game.addressBar}`
 }
 
-// 游戏切换功能
-function switchGame(game) {
-  if (!game || !game.addressBar) return
-
-  // 更新URL - 第一个游戏使用根路径，其他游戏直接使用addressBar
-  const isFirstGame = games[0] && games[0].addressBar === game.addressBar
-  const newPath = isFirstGame ? '/' : `/${game.addressBar}`
-  router.push(newPath)
-
-  // 切换游戏
-  currentGame.value = game
-}
-
 // 初始化当前游戏
 function initializeGame() {
-  const addressBar = route.params.addressBar || 'tower-jump'
-  const game = games.find((g) => g.addressBar === addressBar)
-
-  if (game) {
-    currentGame.value = game
-    // 设置游戏SEO
-    setGameSEO(addressBar)
-    // 不预先设置 iframe src，只在用户点击播放时加载（提升性能）
-    iframeSrc.value = ''
-  } else {
-    // 如果没找到游戏，使用第一个游戏
-    currentGame.value = games[0] || null
-    // 设置默认SEO
-    resetSEO()
-    // 不预先设置 iframe src
-    iframeSrc.value = ''
-  }
+  // 首页始终显示第一个游戏
+  currentGame.value = games[0] || null
+  // 设置默认SEO
+  resetSEO()
+  // 不预先设置 iframe src
+  iframeSrc.value = ''
 }
 
 // 游戏播放控制
@@ -317,33 +297,7 @@ function onFrameLoad(event) {
   }
 }
 
-// 监听路由变化
-watch(
-  () => route.params.addressBar,
-  (newAddressBar) => {
-    if (newAddressBar) {
-      const game = games.find((g) => g.addressBar === newAddressBar)
-      if (game) {
-        currentGame.value = game
-        // 更新SEO
-        setGameSEO(newAddressBar)
-        // 如果游戏切换，重置播放状态和iframe src
-        isPlaying.value = false
-        iframeSrc.value = ''
-      }
-    } else {
-      // 回到首页，使用默认SEO
-      currentGame.value = games[0] || null
-      resetSEO()
-      // 如果切换到第一个游戏，重置播放状态
-      isPlaying.value = false
-      iframeSrc.value = ''
-    }
-  }
-)
-
-onMounted(async () => {
-  // 初始化游戏
+onMounted(() => {
   initializeGame()
 })
 
@@ -2007,6 +1961,10 @@ onUnmounted(() => {
   color: #10b981;
   font-weight: bold;
   font-size: 16px;
+}
+
+.section-games{
+  margin-bottom: 40px;
 }
 
 /* 段落样式 */

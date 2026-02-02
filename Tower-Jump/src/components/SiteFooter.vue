@@ -15,6 +15,21 @@
           </div>
         </div>
 
+        <!-- 中间：Hot Games -->
+        <div class="footer-links-section">
+          <h4 class="footer-links-title">Hot Games</h4>
+          <nav class="footer-links">
+            <a 
+              v-for="game in hotGames" 
+              :key="game.id" 
+              :href="'/' + game.addressBar" 
+              class="footer-link"
+            >
+              {{ game.title }}
+            </a>
+          </nav>
+        </div>
+
         <!-- 中间：链接 -->
         <div class="footer-links-section">
           <h4 class="footer-links-title">Quick Links</h4>
@@ -58,6 +73,13 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { games } from '../data/games'
+
+const hotGames = computed(() => {
+  return games.filter(game => game.isHot === true).slice(0, 5)
+})
+
 const scrollToTop = () => {
   const supportsSmooth = 'scrollBehavior' in document.documentElement.style
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -85,8 +107,8 @@ const scrollToTop = () => {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.5fr 1fr 1fr 0.5fr;
+  gap: 30px;
   padding-bottom: 32px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }

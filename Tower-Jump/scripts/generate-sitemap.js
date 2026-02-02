@@ -13,6 +13,7 @@ function generateSitemap() {
 
   // 静态页面
   const staticPages = [
+    'all-jump-games',
     'about-us',
     'contact',
     'copyright',

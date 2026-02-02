@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://towerjump.org/all-jump-games</loc>
+    <lastmod>2026-02-02T10:36:51.901Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://towerjump.org/about-us</loc>
-    <lastmod>2026-02-02T08:33:23.276Z</lastmod>
+    <lastmod>2026-02-02T10:36:51.901Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://towerjump.org/contact</loc>
-    <lastmod>2026-02-02T08:33:23.276Z</lastmod>
+    <lastmod>2026-02-02T10:36:51.901Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://towerjump.org/copyright</loc>
-    <lastmod>2026-02-02T08:33:23.276Z</lastmod>
+    <lastmod>2026-02-02T10:36:51.901Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://towerjump.org/privacy-policy</loc>
-    <lastmod>2026-02-02T08:33:23.276Z</lastmod>
+    <lastmod>2026-02-02T10:36:51.901Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://towerjump.org/terms-of-service</loc>
-    <lastmod>2026-02-02T08:33:23.276Z</lastmod>
+    <lastmod>2026-02-02T10:36:51.901Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

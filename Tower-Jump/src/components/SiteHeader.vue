@@ -10,8 +10,8 @@
       <nav class="nav" aria-label="Main navigation">
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/tower-jump-2">Tower Jump 2</a>
-        <div class="nav-link" @click="handleScroll('about')">Game Info</div>
-        <div class="nav-link" @click="handleScroll('games')">All Games</div>
+        <!-- <div class="nav-link" @click="handleScroll('about')">Game Info</div> -->
+        <a class="nav-link" href="/all-jump-games">All Jump Games</a>
       </nav>
     </div>
   </header>

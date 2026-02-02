@@ -9,9 +9,9 @@ const router = createRouter({
       component: () => import('../views/HomeView.vue'),
     },
     {
-      path: '/:addressBar',
-      name: 'game-detail',
-      component: () => import('../views/HomeView.vue'),
+      path: '/all-jump-games',
+      name: 'all-jump-games',
+      component: () => import('../views/AllGamesView.vue'),
     },
     // 页面路由
     {
@@ -57,6 +57,12 @@ const router = createRouter({
         requiresAuth: true,
         hideFromSEO: true
       }
+    },
+    // 游戏详情页（放在最后以避免冲突）
+    {
+      path: '/:addressBar',
+      name: 'game-detail',
+      component: () => import('../views/GameDetailView.vue'),
     }
   ],
 })
