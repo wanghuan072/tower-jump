@@ -10,6 +10,11 @@
             :class="{ 'page-fullscreen': isPageFullscreen, 'is-playing': isPlaying }"
           >
             <section ref="gameRef" class="game-section">
+              <!-- PC横幅广告位1  -->
+              <aside style="width: 100%; padding: 20px 0; text-align: center; overflow: hidden" v-if="!isMobile">
+                <ins class="eas6a97888e2" data-zoneid="5859670"></ins>
+              </aside>
+
               <h1 class="game-title">Play {{ currentGame?.title || 'Tower Jump' }} Online</h1>
               <p class="game-subtitle">Lightweight, fast, play instantly</p>
               <div class="game-iframe-container">
@@ -110,6 +115,11 @@
               </div>
             </section>
 
+            <!-- 移动横幅1 -->
+            <aside style="width: 100%; padding: 20px 0; text-align: center; overflow: hidden" v-if="isMobile">
+                <ins class="eas6a97888e10" data-zoneid="5859684"></ins>
+              </aside>
+
             <!-- Hot Games 板块 -->
             <section v-if="hotGames.length > 0" class="hot-games-section">
               <h2 class="section-title">Hot Games</h2>
@@ -129,6 +139,16 @@
                 </a>
               </div>
             </section>
+
+            <!-- PC横幅广告位2   -->
+            <aside style="width: 100%; padding: 20px 0; text-align: center; overflow: hidden" v-if="!isMobile">
+              <ins class="eas6a97888e2" data-zoneid="5859672"></ins>
+            </aside>
+
+            <!-- 移动横幅2 -->
+            <aside style="width: 100%; padding: 20px 0; text-align: center; overflow: hidden" v-if="isMobile">
+              <ins class="eas6a97888e10" data-zoneid="5859688"></ins>
+            </aside>
 
             <section id="about" ref="aboutRef" class="about-section">
               <h2 class="section-title">Game Info: {{ currentGame?.title || 'Tower Jump' }}</h2>
@@ -161,10 +181,25 @@
           </aside>
         </section>
 
+        <!-- 原生广告   -->
+        <div class="container">
+          <aside style="width: 100%; text-align: center; overflow: hidden">
+            <ins class="eas6a97888e20" data-zoneid="5859678"></ins>
+          </aside>
+        </div>
+
         <section id="games" class="section-games">
           <h2 class="section-title">Games</h2>
           <GameList :games="homeGames" />
         </section>
+
+        <!-- PC粘性横幅 -->
+        <!-- <ins class="eas6a97888e17" data-zoneid="5859676" v-if="!isMobile"></ins> -->
+        <!-- PC左侧 -->
+        <!-- <ins class="eas6a97888e17" data-zoneid="5859680" v-if="!isMobile"></ins> -->
+        <!-- PC右侧 -->
+        <!-- <ins class="eas6a97888e17" data-zoneid="5859682" v-if="!isMobile"></ins> -->
+
       </div>
     </main>
 
@@ -182,7 +217,9 @@ import GameList from '../components/GameList.vue'
 import GameReviews from '../components/GameReviews.vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import { useDeviceDetection } from '../utils/useDeviceDetection'
 
+const { isMobile } = useDeviceDetection()
 const route = useRoute()
 const router = useRouter()
 
@@ -297,8 +334,26 @@ function onFrameLoad(event) {
   }
 }
 
+const adProvider = () => {
+  const script = document.createElement('script')
+  script.src = 'https://a.magsrv.com/ad-provider.js'
+  script.async = true
+  script.type = 'application/javascript'
+  document.head.appendChild(script)
+
+  script.onload = () => {
+    if (window.AdProvider) {
+      window.AdProvider.push({ serve: {} })
+    }
+  }
+}
+
 onMounted(() => {
   initializeGame()
+
+  setTimeout(() => {
+    adProvider()
+  }, 1000) // 延迟1秒加载广
 })
 
 onUnmounted(() => {
@@ -409,8 +464,6 @@ onUnmounted(() => {
   margin: 0 auto;
   padding: 0 16px;
 }
-
-
 
 /* 游戏布局 */
 .game-layout {
@@ -1963,7 +2016,7 @@ onUnmounted(() => {
   font-size: 16px;
 }
 
-.section-games{
+.section-games {
   margin-bottom: 40px;
 }
 
