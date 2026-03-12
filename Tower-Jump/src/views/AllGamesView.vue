@@ -5,7 +5,7 @@
     <main>
       <div class="container">
         <section class="games-section">
-          <h1 class="page-title">All Jump Games</h1>
+          <h1 class="page-title">{{ $t('AllGamesPage.pageTitle') }}</h1>
           <GameList />
         </section>
       </div>
@@ -21,14 +21,20 @@ import SiteFooter from '../components/SiteFooter.vue'
 import GameList from '../components/GameList.vue'
 import { useSEO } from '../composables/useSEO'
 import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const { setSEO } = useSEO()
+const { t } = useI18n()
 
 onMounted(() => {
   setSEO({
-    title: 'All Jump Games - Tower Jump',
-    description: 'Browse our collection of lightweight, fast-loading browser games. Play instantly without downloads.',
-    keywords: 'all jump games, browser games, instant games, online games'
+    title: t('tdk.AllGamesPage.title'),
+    description: t('tdk.AllGamesPage.description'),
+    keywords: t('tdk.AllGamesPage.keywords'),
+    ogTitle: t('tdk.AllGamesPage.title'),
+    ogDescription: t('tdk.AllGamesPage.description'),
+    twitterTitle: t('tdk.AllGamesPage.title'),
+    twitterDescription: t('tdk.AllGamesPage.description'),
   })
 })
 </script>

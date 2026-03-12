@@ -365,7 +365,9 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { adminAPI } from '@/services/api.js'
-import { games } from '@/data/games.js'
+import { getGames } from '@/composables/getGames'
+
+const games = getGames('en')
 
 const router = useRouter()
 

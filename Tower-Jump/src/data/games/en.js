@@ -1,5 +1,4 @@
-// Tower Jump 游戏数据配置
-export const games = [
+export default [
   {
     id: 1,
     title: "Tower Jump", // 游戏标题
@@ -225,7 +224,55 @@ export const games = [
     isHot: false,
     isHome: false,
     addressBar: "bottle-jump",
-    detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>Bottle Jump</h2><p>Prepare for a captivating challenge of skill and precision with Bottle Jump! This addictive arcade game puts your dexterity to the ultimate test.  The goal is simple: successfully flip and land a bottle upright on a series of increasingly challenging objects. Sounds easy? Think again!  Master the physics, refine your technique, and prepare for hours of engaging gameplay. Get ready to jump, flip, and conquer the bottle jump challenge on Azgames.io.</p><h3>About</h3><p>Bottle Jump is a physics-based arcade game that requires careful timing and precise control. The objective is to successfully launch a plastic bottle, making it land upright on a target object.  The difficulty increases progressively with each successful bottle jump, introducing new obstacles and challenges.  Your journey through Bottle Jump begins on a simple surface, but soon you’ll be navigating complex arrangements of objects, requiring increasingly precise bottle jumps.  Failure to land the bottle upright results in an immediate game over, adding to the tension and excitement.  The game is meticulously designed to reward skill and perseverance, with a rewarding gameplay loop that keeps you coming back for more bottle jumps.</p><h3>Features</h3><ul><li><strong>Classic Mode:</strong> Test your skills in this core Bottle Jump mode. How far can you make your bottle jump before it falls?  Push your limits and achieve the highest score possible by perfecting your bottle jump technique.</li><li><strong>Bowling Mode:</strong> Clear the table!  Knock down all the pins by skillfully jumping your bottle into them. This exciting mode brings a unique strategic element to the bottle jump experience.</li><li><strong>Speed Run Mode:</strong>  Time is of the essence in this high-stakes Bottle Jump mode.  How far can you make your bottle jump against the clock?  Speed and precision are crucial for success!</li><li><strong>Stacking Mode:</strong>  Build the highest tower possible by stacking bottles one atop the other with your pinpoint accurate bottle jump skills. This strategic mode demands perfect timing and control.</li><li><strong>Progressive Difficulty:</strong>  The challenges in Bottle Jump become increasingly intricate, testing your skills with diverse object arrangements and longer jump distances.</li><li><strong>Unlockable Skins:</strong> Customize your bottle with various skins, collected by completing challenges and earning in-game rewards, adding a personal touch to your bottle jump experience.</li><li><strong>Intuitive Controls:</strong> Master the simple yet nuanced controls that allow for pinpoint accuracy during every bottle jump. With practice, precision becomes second nature.</li><li><strong>Addictive Gameplay:</strong> Experience a truly addictive loop of challenge, satisfaction, and the constant drive to improve your bottle jump skills.</li></ul><h3>FAQ</h3><ul><li><div class="faq-question">How do I control the bottle jump?</div><div class="faq-answer">You control the bottle's jump distance by holding and releasing the left mouse button. The longer you hold, the farther the bottle will jump.</div></li><li><div class="faq-question">What happens if I fail a bottle jump?</div><div class="faq-answer">If the bottle falls, the game ends immediately. You can instantly restart and try again!</div></li><li><div class="faq-question">How do I earn diamonds?</div><div class="faq-answer">Diamonds are earned by completing successful bottle jumps and achieving high scores in each game mode. You can spend them on new bottle skins and upgrades.</div></li><li><div class="faq-question">What are the different game modes?</div><div class="faq-answer">There are four game modes: Classic, Bowling, Speed Run, and Stacking, each offering a unique bottle jump challenge.</div></li><li><div class="faq-question">Where can I play Bottle Jump?</div><div class="faq-answer">You can play Bottle Jump online at Azgames.io.  It's free to play!</div></li></ul><p>Bottle Jump offers a refreshing and addictive gameplay experience that blends the simplicity of casual gaming with the depth of skill-based challenges.  Whether you’re a seasoned gamer or just looking for a fun and engaging pastime, Bottle Jump provides hours of entertainment and a constant drive to improve.  So, grab your mouse, and prepare for a thrilling journey of bottle jumps and exhilarating challenges.  Play now and experience the excitement!</p></div>`,
+    detailsHtml: `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
+  <h2 style="color: #000; border-bottom: 2px solid #eee; padding-bottom: 10px;">Bottle Jump</h2>
+  <p>Prepare for a captivating challenge of skill and precision with Bottle Jump! This addictive arcade game puts your dexterity to the ultimate test. The goal is simple: successfully flip and land a bottle upright on a series of increasingly challenging objects. Sounds easy? Think again! Master the physics, refine your technique, and prepare for hours of engaging gameplay. Get ready to jump, flip, and conquer the bottle jump challenge on Azgames.io.</p>
+
+  <h3 style="color: #444; margin-top: 30px;">About</h3>
+  <p>Bottle Jump is a physics-based arcade game that requires careful timing and precise control. The objective is to successfully launch a plastic bottle, making it land upright on a target object. The difficulty increases progressively with each successful bottle jump, introducing new obstacles and challenges. Your journey through Bottle Jump begins on a simple surface, but soon you’ll be navigating complex arrangements of objects, requiring increasingly precise bottle jumps. Failure to land the bottle upright results in an immediate game over, adding to the tension and excitement. The game is meticulously designed to reward skill and perseverance, with a rewarding gameplay loop that keeps you coming back for more bottle jumps.</p>
+
+  <h3 style="color: #444; margin-top: 30px;">Features</h3>
+  <ul style="list-style-type: disc; padding-left: 20px;">
+    <li style="margin-bottom: 10px;"><strong>Classic Mode:</strong> Test your skills in this core Bottle Jump mode. How far can you make your bottle jump before it falls? Push your limits and achieve the highest score possible by perfecting your bottle jump technique.</li>
+    <li style="margin-bottom: 10px;"><strong>Bowling Mode:</strong> Clear the table! Knock down all the pins by skillfully jumping your bottle into them. This exciting mode brings a unique strategic element to the bottle jump experience.</li>
+    <li style="margin-bottom: 10px;"><strong>Speed Run Mode:</strong> Time is of the essence in this high-stakes Bottle Jump mode. How far can you make your bottle jump against the clock? Speed and precision are crucial for success!</li>
+    <li style="margin-bottom: 10px;"><strong>Stacking Mode:</strong> Build the highest tower possible by stacking bottles one atop the other with your pinpoint accurate bottle jump skills. This strategic mode demands perfect timing and control.</li>
+    <li style="margin-bottom: 10px;"><strong>Progressive Difficulty:</strong> The challenges in Bottle Jump become increasingly intricate, testing your skills with diverse object arrangements and longer jump distances.</li>
+    <li style="margin-bottom: 10px;"><strong>Unlockable Skins:</strong> Customize your bottle with various skins, collected by completing challenges and earning in-game rewards, adding a personal touch to your bottle jump experience.</li>
+    <li style="margin-bottom: 10px;"><strong>Intuitive Controls:</strong> Master the simple yet nuanced controls that allow for pinpoint accuracy during every bottle jump. With practice, precision becomes second nature.</li>
+    <li style="margin-bottom: 10px;"><strong>Addictive Gameplay:</strong> Experience a truly addictive loop of challenge, satisfaction, and the constant drive to improve your bottle jump skills.</li>
+  </ul>
+
+  <h3 style="color: #444; margin-top: 30px;">FAQ</h3>
+  <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px;">
+    <ul style="list-style-type: none; padding: 0;">
+      <li style="margin-bottom: 20px;">
+        <div style="font-weight: bold; color: #222; margin-bottom: 5px;">How do I control the bottle jump?</div>
+        <div style="color: #555;">You control the bottle's jump distance by holding and releasing the left mouse button. The longer you hold, the farther the bottle will jump.</div>
+      </li>
+      <li style="margin-bottom: 20px;">
+        <div style="font-weight: bold; color: #222; margin-bottom: 5px;">What happens if I fail a bottle jump?</div>
+        <div style="color: #555;">If the bottle falls, the game ends immediately. You can instantly restart and try again!</div>
+      </li>
+      <li style="margin-bottom: 20px;">
+        <div style="font-weight: bold; color: #222; margin-bottom: 5px;">How do I earn diamonds?</div>
+        <div style="color: #555;">Diamonds are earned by completing successful bottle jumps and achieving high scores in each game mode. You can spend them on new bottle skins and upgrades.</div>
+      </li>
+      <li style="margin-bottom: 20px;">
+        <div style="font-weight: bold; color: #222; margin-bottom: 5px;">What are the different game modes?</div>
+        <div style="color: #555;">There are four game modes: Classic, Bowling, Speed Run, and Stacking, each offering a unique bottle jump challenge.</div>
+      </li>
+      <li style="margin-bottom: 10px;">
+        <div style="font-weight: bold; color: #222; margin-bottom: 5px;">Where can I play Bottle Jump?</div>
+        <div style="color: #555;">You can play Bottle Jump online at Azgames.io. It's free to play!</div>
+      </li>
+    </ul>
+  </div>
+
+  <p style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">Bottle Jump offers a refreshing and addictive gameplay experience that blends the simplicity of casual gaming with the depth of skill-based challenges. Whether you’re a seasoned gamer or just looking for a fun and engaging pastime, Bottle Jump provides hours of entertainment and a constant drive to improve. So, grab your mouse, and prepare for a thrilling journey of bottle jumps and exhilarating challenges. Play now and experience the excitement!</p>
+</div>
+    `,
   },
 
   {
@@ -245,7 +292,75 @@ export const games = [
     isHot: false,
     isHome: false,
     addressBar: "omnom-jump",
-    detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>Omnom Jump</h2><p>Prepare for an exhilarating journey with Omnom Jump, the captivating mobile game that combines the thrill of jumping with the strategic challenge of block stacking.  In this visually stunning world, you'll guide Om Nom to incredible heights, all while evading the persistent threat of hungry sharks lurking below.  With increasingly difficult levels and intuitive controls, Omnom Jump offers endless hours of addictive gameplay for players of all skill levels. Get ready to test your reflexes and strategic thinking in this uniquely charming and challenging adventure!  Master the art of the omnom jump and reach for the sky!</p><h3>About</h3><p>Omnom Jump is a free-to-play mobile game where players control Om Nom, a lovable character, as he attempts to ascend to ever-greater heights.  The gameplay revolves around strategically placing blocks to create a stable platform for Om Nom to jump from. Each successful jump earns points, and the higher you climb, the more challenging the game becomes.  The introduction of hungry sharks adds a thrilling element of time pressure, making quick thinking and precise jumps essential for survival.  With vibrant visuals and engaging sound effects, Omnom Jump offers a rewarding and immersive gaming experience. The omnom jump mechanic is deceptively simple, yet provides a significant challenge that will keep you coming back for more.</p><h3>Features</h3><ul><li><b>Intuitive One-Touch Controls:</b> Omnom Jump features simple, intuitive one-touch controls, making it easy to pick up and play for gamers of all skill levels.  Mastering the art of the omnom jump is surprisingly challenging, but satisfyingly rewarding!</li><li><b>Endless Replayability:</b>  With procedurally generated levels and unpredictable shark patterns, each Omnom Jump session is unique and brimming with exciting challenges.  How high can you really jump?</li><li><b>Visually Stunning Graphics:</b> The game boasts vibrant, eye-catching graphics, creating an immersive and enjoyable visual experience.  Om Nom's cute animations and the beautiful level designs add a delightful layer to the gameplay.</li><li><b>Addictive Gameplay Loop:</b> The simple yet engaging gameplay loop keeps players coming back for more.  The satisfying feeling of landing each jump, coupled with the increasing difficulty, makes for a wonderfully addictive experience.  Try to beat your high score!</li><li><b>Challenging Levels:</b> Omnom Jump presents increasingly difficult levels that require strategic thinking and precise timing.  As you progress, the need for quick thinking and careful planning will be crucial to avoid those hungry sharks!</li><li><b>Regular Updates:</b>  Expect regular updates featuring new content, features, and challenges to keep the game fresh and engaging.  Stay tuned for future Omnom Jump adventures!</li><li><b>Unlockable Content:</b>  Earn points and unlock a variety of new and exciting content, including new skins for Om Nom and additional gameplay modes.</li><li><b>Global Leaderboards:</b>  Compete against players worldwide and strive for the top spot on the global leaderboards. Show your friends how high you can jump in Omnom Jump!</li></ul><h3>FAQ</h3><ul><li><div class="faq-question">How do I play Omnom Jump?</div><div class="faq-answer">Simply tap the screen to make Om Nom jump.  Time your jumps precisely to land on the blocks and reach new heights, all while avoiding the sharks below.</div></li><li><div class="faq-question">What are the different game modes?</div><div class="faq-answer">Currently, Omnom Jump features a classic endless mode where your goal is to climb as high as possible. Future updates will introduce new and exciting game modes.</div></li><li><div class="faq-question">Can I play Omnom Jump offline?</div><div class="faq-answer">Yes, Omnom Jump can be played offline, allowing you to enjoy the game anytime, anywhere.</div></li><li><div class="faq-question">How do I unlock new content?</div><div class="faq-answer">By achieving high scores and completing various challenges, you'll earn points that can be used to unlock exciting new content, such as new skins for Om Nom.</div></li><li><div class="faq-question">Is Omnom Jump free to play?</div><div class="faq-answer">Yes, Omnom Jump is a free-to-play game.  However, in-app purchases are available for those who wish to enhance their gameplay experience.</div></li><li><div class="faq-question">Where can I find the Omnom Jump leaderboards?</div><div class="faq-answer">The leaderboards are accessible within the game itself, allowing you to see how your score compares to other players globally.  Aim for the top!</div></li></ul><p>Omnom Jump offers a captivating blend of skill, strategy, and addictive gameplay. With its charming visuals, intuitive controls, and endlessly challenging levels, this game promises hours of fun. Download Omnom Jump today and embark on a thrilling vertical adventure!  Remember to master that perfect omnom jump!</p></div>`,
+    detailsHtml: `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
+  <h2 style="color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px;">Omnom Jump</h2>
+  <p>Prepare for an exhilarating journey with <strong>Omnom Jump</strong>, the captivating mobile game that combines the thrill of jumping with the strategic challenge of block stacking. In this visually stunning world, you'll guide Om Nom to incredible heights, all while evading the persistent threat of hungry sharks lurking below. With increasingly difficult levels and intuitive controls, Omnom Jump offers endless hours of addictive gameplay for players of all skill levels. Get ready to test your reflexes and strategic thinking in this uniquely charming and challenging adventure! Master the art of the omnom jump and reach for the sky!</p>
+
+  <h3 style="color: #2980b9; margin-top: 30px;">About</h3>
+  <p>Omnom Jump is a free-to-play mobile game where players control Om Nom, a lovable character, as he attempts to ascend to ever-greater heights. The gameplay revolves around strategically placing blocks to create a stable platform for Om Nom to jump from. Each successful jump earns points, and the higher you climb, the more challenging the game becomes. The introduction of hungry sharks adds a thrilling element of time pressure, making quick thinking and precise jumps essential for survival. With vibrant visuals and engaging sound effects, Omnom Jump offers a rewarding and immersive gaming experience. The omnom jump mechanic is deceptively simple, yet provides a significant challenge that will keep you coming back for more.</p>
+
+  <h3 style="color: #2980b9; margin-top: 30px;">Features</h3>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Intuitive One-Touch Controls:</b> Omnom Jump features simple, intuitive one-touch controls, making it easy to pick up and play for gamers of all skill levels. Mastering the art of the omnom jump is surprisingly challenging, but satisfyingly rewarding!
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Endless Replayability:</b> With procedurally generated levels and unpredictable shark patterns, each Omnom Jump session is unique and brimming with exciting challenges. How high can you really jump?
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Visually Stunning Graphics:</b> The game boasts vibrant, eye-catching graphics, creating an immersive and enjoyable visual experience. Om Nom's cute animations and the beautiful level designs add a delightful layer to the gameplay.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Addictive Gameplay Loop:</b> The simple yet engaging gameplay loop keeps players coming back for more. The satisfying feeling of landing each jump, coupled with the increasing difficulty, makes for a wonderfully addictive experience. Try to beat your high score!
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Challenging Levels:</b> Omnom Jump presents increasingly difficult levels that require strategic thinking and precise timing. As you progress, the need for quick thinking and careful planning will be crucial to avoid those hungry sharks!
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Regular Updates:</b> Expect regular updates featuring new content, features, and challenges to keep the game fresh and engaging. Stay tuned for future Omnom Jump adventures!
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Unlockable Content:</b> Earn points and unlock a variety of new and exciting content, including new skins for Om Nom and additional gameplay modes.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <b style="color: #2c3e50;">Global Leaderboards:</b> Compete against players worldwide and strive for the top spot on the global leaderboards. Show your friends how high you can jump in Omnom Jump!
+    </li>
+  </ul>
+
+  <h3 style="color: #2980b9; margin-top: 30px;">FAQ</h3>
+  <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #eee;">
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">How do I play Omnom Jump?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #3498db;">Simply tap the screen to make Om Nom jump. Time your jumps precisely to land on the blocks and reach new heights, all while avoiding the sharks below.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">What are the different game modes?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #3498db;">Currently, Omnom Jump features a classic endless mode where your goal is to climb as high as possible. Future updates will introduce new and exciting game modes.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Can I play Omnom Jump offline?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #3498db;">Yes, Omnom Jump can be played offline, allowing you to enjoy the game anytime, anywhere.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">How do I unlock new content?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #3498db;">By achieving high scores and completing various challenges, you'll earn points that can be used to unlock exciting new content, such as new skins for Om Nom.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Is Omnom Jump free to play?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #3498db;">Yes, Omnom Jump is a free-to-play game. However, in-app purchases are available for those who wish to enhance their gameplay experience.</div>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Where can I find the Omnom Jump leaderboards?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #3498db;">The leaderboards are accessible within the game itself, allowing you to see how your score compares to other players globally. Aim for the top!</div>
+    </div>
+  </div>
+
+  <p style="margin-top: 30px; padding: 20px; background: #e8f4fd; border-radius: 8px; font-style: italic; text-align: center;">
+    Omnom Jump offers a captivating blend of skill, strategy, and addictive gameplay. With its charming visuals, intuitive controls, and endlessly challenging levels, this game promises hours of fun. Download Omnom Jump today and embark on a thrilling vertical adventure! Remember to master that perfect omnom jump!
+  </p>
+</div>
+    `,
   },
 
   {
@@ -262,7 +377,75 @@ export const games = [
       keywords: "sprunki, jump, sprunki jump, endless runner, jumping game, arcade game, mobile game, free game, casual game, fun game",
     },
     addressBar: "sprunki-jump",
-    detailsHtml: `<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"><h2>Sprunki Jump</h2><p>Get ready for an exhilarating adventure with Sprunki Jump! This addictive endless runner game challenges your reflexes and jumping skills as you navigate vibrant, colorful worlds filled with obstacles and rewards.  Prepare for hours of fun as you leap, bounce, and soar through breathtaking landscapes in this captivating Sprunki Jump experience.  Download now and start your jumping journey!</p><h3>About</h3><p>Sprunki Jump is a free-to-play, endless runner game designed for players of all ages. The core gameplay revolves around guiding the adorable Sprunki character through a series of challenging levels, each brimming with unique obstacles and power-ups. The game's simple yet intuitive controls make it easy to pick up and play, while the endless gameplay ensures that there's always something new to discover.  Collect coins, unlock new skins for Sprunki, and compete with friends on the leaderboards to become the ultimate Sprunki Jump champion!  The vibrant visuals and catchy soundtrack will keep you engaged for hours, making Sprunki Jump the perfect game for those looking for a fun and challenging mobile experience.  This sprunki jump game offers endless replayability and excitement.</p><h3>Features</h3><ul><li><strong>Intuitive Controls:</strong> Sprunki Jump features simple, easy-to-learn controls that are perfect for players of all skill levels.  Mastering the art of the perfect jump is key to progressing further in the game.  One tap jump mechanics ensures effortless control over Sprunki.</li><li><strong>Colorful Worlds:</strong> Explore a variety of vibrant and visually stunning worlds, each with its unique challenges and obstacles. From lush forests to mysterious caves, each environment presents a new and exciting jumping adventure. These worlds are filled with sprunki jump fun.</li><li><strong>Endless Gameplay:</strong> With endless levels and ever-increasing difficulty, Sprunki Jump offers a truly endless gaming experience. How far can you jump?  Challenge yourself to beat your high score and dominate the leaderboards.</li><li><strong>Collectible Rewards:</strong> Collect coins and power-ups to unlock new skins for your Sprunki character, adding a personalized touch to your gameplay. Show off your unique Sprunki style to other players.</li><li><strong>Challenging Obstacles:</strong> Test your reflexes and timing by overcoming a wide range of obstacles, from moving platforms to deadly traps.  Each level presents new challenges, requiring quick thinking and precise jumping skills. The sprunki jump experience is defined by these exciting obstacles.</li><li><strong>Regular Updates:</strong>  Enjoy continuous improvements and additions to the game with regular updates, bringing new worlds, challenges, and rewards. New content will be regularly added to keep your sprunki jumping adventures fresh.</li><li><strong>Competitive Leaderboards:</strong> Compete with players worldwide on the leaderboards to see who can jump the furthest and achieve the highest score. Show off your sprunki jump skills and aim for the top spot.</li><li><strong>Free to Play:</strong> Sprunki Jump is completely free to play, making it accessible to everyone.  Download and enjoy the sprunki jump game without any paywalls.</li></ul><h3>FAQ</h3><ul><li><div class="faq-question">How do I start playing Sprunki Jump?</div><div class="faq-answer">Simply download the game from your app store, and begin your jumping adventure immediately! </div></li><li><div class="faq-question">What kind of devices can I play Sprunki Jump on?</div><div class="faq-answer">Sprunki Jump is available on iOS and Android devices. </div></li><li><div class="faq-question">Can I play Sprunki Jump offline?</div><div class="faq-answer">Yes, you can play Sprunki Jump offline.  However, some features like leaderboards will require an internet connection.</div></li><li><div class="faq-question">How do I unlock new Sprunki skins?</div><div class="faq-answer">Collect coins during gameplay to unlock a variety of exciting new skins for your Sprunki character.</div></li><li><div class="faq-question">What if I encounter a bug in the game?</div><div class="faq-answer">Please contact our support team via the in-game contact form, detailing the issue you're experiencing. We'll get back to you as soon as possible.</div></li><li><div class="faq-question">How can I compete with my friends?</div><div class="faq-answer">Check the leaderboards to compare your high score with your friends and other players around the world.  Aim for the top spot!</div></li></ul><p>Sprunki Jump offers a unique blend of challenge and fun, ensuring countless hours of engaging gameplay.  With its intuitive controls, vibrant worlds, and endless replayability, Sprunki Jump is the perfect game for anyone seeking a rewarding and enjoyable mobile experience.  Download Sprunki Jump today and start your epic jumping adventure!</p></div>`,
+    detailsHtml: `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
+  <h2 style="color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px;">Sprunki Jump</h2>
+  <p>Get ready for an exhilarating adventure with <strong>Sprunki Jump</strong>! This addictive endless runner game challenges your reflexes and jumping skills as you navigate vibrant, colorful worlds filled with obstacles and rewards. Prepare for hours of fun as you leap, bounce, and soar through breathtaking landscapes in this captivating Sprunki Jump experience. Download now and start your jumping journey!</p>
+
+  <h3 style="color: #e67e22; margin-top: 30px;">About</h3>
+  <p>Sprunki Jump is a free-to-play, endless runner game designed for players of all ages. The core gameplay revolves around guiding the adorable Sprunki character through a series of challenging levels, each brimming with unique obstacles and power-ups. The game's simple yet intuitive controls make it easy to pick up and play, while the endless gameplay ensures that there's always something new to discover. Collect coins, unlock new skins for Sprunki, and compete with friends on the leaderboards to become the ultimate Sprunki Jump champion! The vibrant visuals and catchy soundtrack will keep you engaged for hours, making Sprunki Jump the perfect game for those looking for a fun and challenging mobile experience. This sprunki jump game offers endless replayability and excitement.</p>
+
+  <h3 style="color: #e67e22; margin-top: 30px;">Features</h3>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Intuitive Controls:</strong> Sprunki Jump features simple, easy-to-learn controls that are perfect for players of all skill levels. Mastering the art of the perfect jump is key to progressing further in the game. One tap jump mechanics ensures effortless control over Sprunki.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Colorful Worlds:</strong> Explore a variety of vibrant and visually stunning worlds, each with its unique challenges and obstacles. From lush forests to mysterious caves, each environment presents a new and exciting jumping adventure. These worlds are filled with sprunki jump fun.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Endless Gameplay:</strong> With endless levels and ever-increasing difficulty, Sprunki Jump offers a truly endless gaming experience. How far can you jump? Challenge yourself to beat your high score and dominate the leaderboards.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Collectible Rewards:</strong> Collect coins and power-ups to unlock new skins for your Sprunki character, adding a personalized touch to your gameplay. Show off your unique Sprunki style to other players.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Challenging Obstacles:</strong> Test your reflexes and timing by overcoming a wide range of obstacles, from moving platforms to deadly traps. Each level presents new challenges, requiring quick thinking and precise jumping skills. The sprunki jump experience is defined by these exciting obstacles.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Regular Updates:</strong> Enjoy continuous improvements and additions to the game with regular updates, bringing new worlds, challenges, and rewards. New content will be regularly added to keep your sprunki jumping adventures fresh.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Competitive Leaderboards:</strong> Compete with players worldwide on the leaderboards to see who can jump the furthest and achieve the highest score. Show off your sprunki jump skills and aim for the top spot.
+    </li>
+    <li style="background: #fdfdfd; border: 1px solid #eee; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <strong style="color: #d35400;">Free to Play:</strong> Sprunki Jump is completely free to play, making it accessible to everyone. Download and enjoy the sprunki jump game without any paywalls.
+    </li>
+  </ul>
+
+  <h3 style="color: #e67e22; margin-top: 30px;">FAQ</h3>
+  <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #eee;">
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">How do I start playing Sprunki Jump?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #e67e22;">Simply download the game from your app store, and begin your jumping adventure immediately!</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">What kind of devices can I play Sprunki Jump on?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #e67e22;">Sprunki Jump is available on iOS and Android devices.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Can I play Sprunki Jump offline?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #e67e22;">Yes, you can play Sprunki Jump offline. However, some features like leaderboards will require an internet connection.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">How do I unlock new Sprunki skins?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #e67e22;">Collect coins during gameplay to unlock a variety of exciting new skins for your Sprunki character.</div>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">What if I encounter a bug in the game?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #e67e22;">Please contact our support team via the in-game contact form, detailing the issue you're experiencing. We'll get back to you as soon as possible.</div>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">How can I compete with my friends?</div>
+      <div style="color: #555; padding-left: 10px; border-left: 3px solid #e67e22;">Check the leaderboards to compare your high score with your friends and other players around the world. Aim for the top spot!</div>
+    </div>
+  </div>
+
+  <p style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; text-align: center; font-style: italic;">
+    Sprunki Jump offers a unique blend of challenge and fun, ensuring countless hours of engaging gameplay. With its intuitive controls, vibrant worlds, and endless replayability, Sprunki Jump is the perfect game for anyone seeking a rewarding and enjoyable mobile experience. Download Sprunki Jump today and start your epic jumping adventure!
+  </p>
+</div>
+    `,
   },
 
   {

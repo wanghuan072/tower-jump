@@ -1,4 +1,4 @@
-import { games } from '../src/data/games.js'
+import games from '../src/data/games/en.js'
 import fs from 'fs'
 import path from 'path'
 
@@ -31,9 +31,90 @@ function generateSitemap() {
 `
   })
 
+  // 德语静态页面（/de 前缀）
+  staticPages.forEach(page => {
+    sitemap += `  <url>
+    <loc>${baseUrl}/de/${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+`
+  })
+
+  // 法语静态页面（/fr 前缀）
+  staticPages.forEach(page => {
+    sitemap += `  <url>
+    <loc>${baseUrl}/fr/${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+`
+  })
+
+  // 日语静态页面（/ja 前缀）
+  staticPages.forEach(page => {
+    sitemap += `  <url>
+    <loc>${baseUrl}/ja/${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+`
+  })
+
   // 游戏页面
   games.forEach(game => {
     const url = game.addressBar === 'tower-jump' ? baseUrl : `${baseUrl}/${game.addressBar}`
+    const priority = game.addressBar === 'tower-jump' ? 1.0 : 0.8
+    const changefreq = game.addressBar === 'tower-jump' ? 'daily' : 'weekly'
+    const lastmod = game.publishDate ? new Date(game.publishDate).toISOString() : currentDate
+    
+    sitemap += `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
+  })
+
+  // 德语游戏页面（/de 前缀，slug 仍用英语 addressBar）
+  games.forEach(game => {
+    const url = game.addressBar === 'tower-jump' ? `${baseUrl}/de` : `${baseUrl}/de/${game.addressBar}`
+    const priority = game.addressBar === 'tower-jump' ? 1.0 : 0.8
+    const changefreq = game.addressBar === 'tower-jump' ? 'daily' : 'weekly'
+    const lastmod = game.publishDate ? new Date(game.publishDate).toISOString() : currentDate
+    
+    sitemap += `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
+  })
+
+  // 法语游戏页面（/fr 前缀，slug 仍用英语 addressBar）
+  games.forEach(game => {
+    const url = game.addressBar === 'tower-jump' ? `${baseUrl}/fr` : `${baseUrl}/fr/${game.addressBar}`
+    const priority = game.addressBar === 'tower-jump' ? 1.0 : 0.8
+    const changefreq = game.addressBar === 'tower-jump' ? 'daily' : 'weekly'
+    const lastmod = game.publishDate ? new Date(game.publishDate).toISOString() : currentDate
+    
+    sitemap += `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
+  })
+
+  // 日语游戏页面（/ja 前缀，slug 仍用英语 addressBar）
+  games.forEach(game => {
+    const url = game.addressBar === 'tower-jump' ? `${baseUrl}/ja` : `${baseUrl}/ja/${game.addressBar}`
     const priority = game.addressBar === 'tower-jump' ? 1.0 : 0.8
     const changefreq = game.addressBar === 'tower-jump' ? 'daily' : 'weekly'
     const lastmod = game.publishDate ? new Date(game.publishDate).toISOString() : currentDate
@@ -63,9 +144,19 @@ function generateSitemap() {
   }
 
   console.log('✅ 站点地图生成成功！')
-  console.log(`📄 包含 ${games.length + staticPages.length} 个页面`)
-  console.log('🔗 游戏页面:', games.map(g => g.addressBar === 'tower-jump' ? baseUrl : `${baseUrl}/${g.addressBar}`))
-  console.log('🔗 静态页面:', staticPages.map(p => `${baseUrl}/${p}`))
+  console.log(`📄 包含 ${(games.length + staticPages.length) * 4} 个页面`)
+  console.log('🔗 游戏页面:', [
+    ...games.map(g => g.addressBar === 'tower-jump' ? baseUrl : `${baseUrl}/${g.addressBar}`),
+    ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/de` : `${baseUrl}/de/${g.addressBar}`),
+    ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/fr` : `${baseUrl}/fr/${g.addressBar}`),
+    ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/ja` : `${baseUrl}/ja/${g.addressBar}`)
+  ])
+  console.log('🔗 静态页面:', [
+    ...staticPages.map(p => `${baseUrl}/${p}`),
+    ...staticPages.map(p => `${baseUrl}/de/${p}`),
+    ...staticPages.map(p => `${baseUrl}/fr/${p}`),
+    ...staticPages.map(p => `${baseUrl}/ja/${p}`)
+  ])
 }
 
 generateSitemap()

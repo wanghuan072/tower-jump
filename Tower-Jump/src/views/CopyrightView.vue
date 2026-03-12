@@ -2,28 +2,31 @@
   <div class="page">
     <SiteHeader />
     <div class="content">
-      <h1>Copyright</h1>
+      <h1>{{ $t('CopyrightPage.title') }}</h1>
       
-      <h2>Copyright Statement</h2>
-      <p>All content on Tower Jump, including text, graphics, images, and website design, is the property of Tower Jump and is protected by international copyright laws. Unauthorized use, reproduction, or distribution of this content is strictly prohibited.</p>
+      <h2>{{ $t('CopyrightPage.h2_1') }}</h2>
+      <p>{{ $t('CopyrightPage.p1') }}</p>
 
-      <h2>What We Own</h2>
-      <p>We own all original content, website design, original images, and code developed for this platform.</p>
+      <h2>{{ $t('CopyrightPage.h2_2') }}</h2>
+      <p>{{ $t('CopyrightPage.p2') }}</p>
 
-      <h2>Third-Party Content</h2>
-      <p>We respect the intellectual property rights of others. Some content on our website may include references or information related to various games, which belongs to their respective owners.</p>
+      <h2>{{ $t('CopyrightPage.h2_3') }}</h2>
+      <p>{{ $t('CopyrightPage.p3') }}</p>
 
-      <h2>Fair Use</h2>
-      <p>We support fair use of our content for educational and personal purposes. However, commercial use requires explicit permission.</p>
+      <h2>{{ $t('CopyrightPage.h2_4') }}</h2>
+      <p>{{ $t('CopyrightPage.p4') }}</p>
 
-      <h2>DMCA Compliance</h2>
-      <p>We comply with the Digital Millennium Copyright Act (DMCA). If you believe your copyrighted work has been used without permission, please contact us immediately.</p>
+      <h2>{{ $t('CopyrightPage.h2_5') }}</h2>
+      <p>{{ $t('CopyrightPage.p5') }}</p>
 
-      <h2>Contact</h2>
-      <p>For copyright inquiries, please contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
+      <h2>{{ $t('CopyrightPage.h2_6') }}</h2>
+      <p>
+        {{ $t('CopyrightPage.p6Prefix') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.
+      </p>
 
-      <h2>Updates</h2>
-      <p>This copyright notice may be updated periodically. Continued use of our website constitutes acceptance of any changes.</p>
+      <h2>{{ $t('CopyrightPage.h2_7') }}</h2>
+      <p>{{ $t('CopyrightPage.p7') }}</p>
     </div>
     <SiteFooter />
   </div>
@@ -33,9 +36,22 @@
 import { onMounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import { useSEO } from '../composables/useSEO'
+import { useI18n } from 'vue-i18n'
+
+const { setSEO } = useSEO()
+const { t } = useI18n()
 
 onMounted(() => {
-  document.title = 'Copyright - Tower Jump'
+  setSEO({
+    title: t('tdk.CopyrightPage.title'),
+    description: t('tdk.CopyrightPage.description'),
+    keywords: t('tdk.CopyrightPage.keywords'),
+    ogTitle: t('tdk.CopyrightPage.title'),
+    ogDescription: t('tdk.CopyrightPage.description'),
+    twitterTitle: t('tdk.CopyrightPage.title'),
+    twitterDescription: t('tdk.CopyrightPage.description'),
+  })
 })
 </script>
 

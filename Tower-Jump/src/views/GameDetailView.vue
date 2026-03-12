@@ -10,8 +10,11 @@
             :class="{ 'page-fullscreen': isPageFullscreen, 'is-playing': isPlaying }"
           >
             <section ref="gameRef" class="game-section">
-              <h1 class="game-title">Play {{ currentGame?.title }} Online</h1>
-              <p class="game-subtitle">Lightweight, fast, play instantly</p>
+              <h1 class="game-title">
+                {{ $t('GameDetailPage.heroPlay') }} {{ currentGame?.title }}
+                {{ $t('GameDetailPage.heroOnline') }}
+              </h1>
+              <p class="game-subtitle">{{ $t('GameDetailPage.heroSubtitle') }}</p>
               <div class="game-iframe-container">
                 <div class="game-iframe-wrapper">
                   <iframe
@@ -31,15 +34,15 @@
                       <img
                         class="overlay-logo"
                         :src="currentGame?.imageUrl || '/images/logo.png'"
-                        alt="Game logo"
+                        :alt="$t('GameDetailPage.gameLogoAlt')"
                         width="96"
                         height="96"
                       />
                       <button
                         type="button"
                         class="play-button"
-                        aria-label="Play game"
-                        title="Play"
+                        :aria-label="$t('GameDetailPage.playButtonLabel')"
+                        :title="$t('GameDetailPage.playButtonLabel')"
                         @click="startPlay"
                       >
                         <svg
@@ -50,7 +53,7 @@
                         >
                           <path d="M8 5v14l11-7z" fill="currentColor" />
                         </svg>
-                        <span class="play-text">PLAY</span>
+                        <span class="play-text">{{ $t('GameDetailPage.playButtonText') }}</span>
                       </button>
                     </div>
                   </div>
@@ -64,8 +67,8 @@
                   <button
                     class="control-btn"
                     @click="toggleFullscreen"
-                    title="Fullscreen"
-                    aria-label="Fullscreen"
+                    :title="$t('GameDetailPage.fullscreenLabel')"
+                    :aria-label="$t('GameDetailPage.fullscreenLabel')"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -87,8 +90,8 @@
                   <button
                     class="control-btn"
                     @click="togglePageFullscreen"
-                    title="Page Fullscreen"
-                    aria-label="Page Fullscreen"
+                    :title="$t('GameDetailPage.pageFullscreenLabel')"
+                    :aria-label="$t('GameDetailPage.pageFullscreenLabel')"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +114,7 @@
             </section>
 
             <section id="about" ref="aboutRef" class="about-section">
-              <h2 class="section-title">Game Info: {{ currentGame?.title }}</h2>
+              <h2 class="section-title">{{ $t('GameDetailPage.gameInfoTitle') }}: {{ currentGame?.title }}</h2>
               <div class="about-content" v-html="currentGame?.detailsHtml"></div>
             </section>
           </div>
@@ -119,7 +122,7 @@
           <aside class="comments-sidebar">
             <!-- New Games 板块 -->
             <section v-if="newGames.length > 0" class="new-games-section">
-              <h3 class="panel-title">New Games</h3>
+              <h3 class="panel-title">{{ $t('GameDetailPage.newGamesTitle') }}</h3>
               <div class="new-games-grid">
                 <a
                   v-for="game in newGames"
@@ -142,7 +145,7 @@
         </section>
 
         <section id="games" class="section-games">
-          <h2 class="section-title">More Games</h2>
+          <h2 class="section-title">{{ $t('GameDetailPage.moreGamesTitle') }}</h2>
           <GameList :limit="16" />
         </section>
       </div>
@@ -155,7 +158,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { games } from '../data/games'
+import { useI18n } from 'vue-i18n'
+import { getGames } from '@/composables/getGames'
+import { useLocalePath } from '@/composables/useLocalePath'
 import { useSEO } from '../composables/useSEO'
 import GameList from '../components/GameList.vue'
 import GameReviews from '../components/GameReviews.vue'
@@ -164,9 +169,13 @@ import SiteFooter from '../components/SiteFooter.vue'
 
 const route = useRoute()
 const router = useRouter()
+const { locale } = useI18n()
+const { withLocale } = useLocalePath()
+
+const games = computed(() => getGames(locale.value))
 
 // SEO管理
-const { setGameSEO, resetSEO } = useSEO()
+const { setGameSEO } = useSEO()
 
 // 游戏相关状态
 const isPlaying = ref(false)
@@ -179,14 +188,14 @@ const currentGame = ref(null)
 
 // 筛选新游戏
 const newGames = computed(() => {
-  return games.filter((game) => game.isNew === true).slice(0, 4)
+  return games.value.filter((game) => game.isNew === true).slice(0, 4)
 })
 
 // 生成游戏URL
 function getGameUrl(game) {
   if (!game || !game.addressBar) return '#'
   // 详情页路径：/:addressBar
-  return `/${game.addressBar}`
+  return withLocale(`/${game.addressBar}`)
 }
 
 // 初始化当前游戏
@@ -198,7 +207,7 @@ function initializeGame() {
     return
   }
 
-  const game = games.find((g) => g.addressBar === addressBar)
+  const game = games.value.find((g) => g.addressBar === addressBar)
 
   if (game) {
     currentGame.value = game

@@ -2,19 +2,22 @@
   <div class="page">
     <SiteHeader />
     <div class="content">
-      <h1>About Us</h1>
+      <h1>{{ $t('AboutPage.title') }}</h1>
       
-      <h2>Who We Are</h2>
-      <p>Tower Jump is an online gaming platform that provides high-quality HTML5 games. We offer a collection of fun and engaging games that you can play instantly in your browser without any downloads or installations.</p>
+      <h2>{{ $t('AboutPage.section1Title') }}</h2>
+      <p>{{ $t('AboutPage.section1Text') }}</p>
 
-      <h2>Our Mission</h2>
-      <p>Our mission is to provide users with easy access to entertaining games. We focus on creating a simple, fast, and enjoyable gaming experience for everyone.</p>
+      <h2>{{ $t('AboutPage.section2Title') }}</h2>
+      <p>{{ $t('AboutPage.section2Text') }}</p>
 
-      <h2>What We Offer</h2>
-      <p>We offer a variety of online games including Tower Jump and many other exciting titles. All games are playable directly in your browser, making them accessible on desktop and mobile devices.</p>
+      <h2>{{ $t('AboutPage.section3Title') }}</h2>
+      <p>{{ $t('AboutPage.section3Text') }}</p>
 
-      <h2>Contact Us</h2>
-      <p>If you have any questions or feedback, please contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
+      <h2>{{ $t('AboutPage.section4Title') }}</h2>
+      <p>
+        {{ $t('AboutPage.section4TextPrefix') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.
+      </p>
     </div>
     <SiteFooter />
   </div>
@@ -24,9 +27,22 @@
 import { onMounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import { useSEO } from '../composables/useSEO'
+import { useI18n } from 'vue-i18n'
+
+const { setSEO } = useSEO()
+const { t } = useI18n()
 
 onMounted(() => {
-  document.title = 'About Us - Tower Jump'
+  setSEO({
+    title: t('tdk.AboutPage.title'),
+    description: t('tdk.AboutPage.description'),
+    keywords: t('tdk.AboutPage.keywords'),
+    ogTitle: t('tdk.AboutPage.title'),
+    ogDescription: t('tdk.AboutPage.description'),
+    twitterTitle: t('tdk.AboutPage.title'),
+    twitterDescription: t('tdk.AboutPage.description'),
+  })
 })
 </script>
 

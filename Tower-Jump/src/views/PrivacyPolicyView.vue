@@ -2,48 +2,54 @@
   <div class="page">
     <SiteHeader />
     <div class="content">
-      <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: September 26, 2025</p>
+      <h1>{{ $t('PrivacyPolicyPage.title') }}</h1>
+      <p class="updated">{{ $t('PrivacyPolicyPage.updated') }}</p>
       
-      <h2>General Information</h2>
-      <p>At Tower Jump, we are committed to protecting your privacy. This Privacy Policy applies to all services and products offered by towerjump.org. By using this website, you agree to this Privacy Policy.</p>
-      <p>The website is intended for visitors aged 16 and above. If you are under 16, please do not use this website.</p>
-      <p>If you have questions about this Privacy Policy, contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_1') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p1') }}</p>
+      <p>{{ $t('PrivacyPolicyPage.p2') }}</p>
+      <p>
+        {{ $t('PrivacyPolicyPage.p3Prefix') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.
+      </p>
 
-      <h2>Data We Collect</h2>
-      <p>We only process personal data you voluntarily provide, such as when you submit comments or contact us. This may include:</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_2') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p4') }}</p>
       <ul>
-        <li>Name</li>
-        <li>Email address</li>
-        <li>Any other information you choose to provide</li>
+        <li>{{ $t('PrivacyPolicyPage.li1') }}</li>
+        <li>{{ $t('PrivacyPolicyPage.li2') }}</li>
+        <li>{{ $t('PrivacyPolicyPage.li3') }}</li>
       </ul>
-      <p>We may also collect certain data automatically, such as IP address, browser type, and device information for analytics and security purposes.</p>
+      <p>{{ $t('PrivacyPolicyPage.p5') }}</p>
 
-      <h2>Why We Collect Data</h2>
-      <p>We collect and process personal data to:</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_3') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p6') }}</p>
       <ul>
-        <li>Provide and improve our services</li>
-        <li>Respond to your inquiries</li>
-        <li>Ensure website security</li>
-        <li>Comply with legal obligations</li>
+        <li>{{ $t('PrivacyPolicyPage.li4') }}</li>
+        <li>{{ $t('PrivacyPolicyPage.li5') }}</li>
+        <li>{{ $t('PrivacyPolicyPage.li6') }}</li>
+        <li>{{ $t('PrivacyPolicyPage.li7') }}</li>
       </ul>
 
-      <h2>Data Retention</h2>
-      <p>We retain personal data only as long as necessary to fulfill the purposes described in this policy, unless retention is required by law.</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_4') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p7') }}</p>
 
-      <h2>Your Rights</h2>
-      <p>You have the right to access, update, or delete your personal data. You may also opt out of communications at any time by contacting us.</p>
-      <p>If you are a resident of the European Economic Area (EEA), you have additional rights under GDPR, including the right to data portability and the right to object to processing.</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_5') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p8') }}</p>
+      <p>{{ $t('PrivacyPolicyPage.p9') }}</p>
 
-      <h2>Cookies</h2>
-      <p>We use cookies to enhance your experience on our website. Cookies are small files stored on your device that help websites remember preferences and improve functionality.</p>
-      <p>You can manage or disable cookies via your browser settings. However, disabling cookies may affect website functionality.</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_6') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p10') }}</p>
+      <p>{{ $t('PrivacyPolicyPage.p11') }}</p>
 
-      <h2>Security</h2>
-      <p>We implement reasonable security measures to protect your personal data. We do not sell or rent your personal information to third parties.</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_7') }}</h2>
+      <p>{{ $t('PrivacyPolicyPage.p12') }}</p>
 
-      <h2>Contact Information</h2>
-      <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
+      <h2>{{ $t('PrivacyPolicyPage.h2_8') }}</h2>
+      <p>
+        {{ $t('PrivacyPolicyPage.p13Prefix') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.
+      </p>
     </div>
     <SiteFooter />
   </div>
@@ -53,9 +59,22 @@
 import { onMounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import { useSEO } from '../composables/useSEO'
+import { useI18n } from 'vue-i18n'
+
+const { setSEO } = useSEO()
+const { t } = useI18n()
 
 onMounted(() => {
-  document.title = 'Privacy Policy - Tower Jump'
+  setSEO({
+    title: t('tdk.PrivacyPolicyPage.title'),
+    description: t('tdk.PrivacyPolicyPage.description'),
+    keywords: t('tdk.PrivacyPolicyPage.keywords'),
+    ogTitle: t('tdk.PrivacyPolicyPage.title'),
+    ogDescription: t('tdk.PrivacyPolicyPage.description'),
+    twitterTitle: t('tdk.PrivacyPolicyPage.title'),
+    twitterDescription: t('tdk.PrivacyPolicyPage.description'),
+  })
 })
 </script>
 

@@ -2,25 +2,28 @@
   <div class="page">
     <SiteHeader />
     <div class="content">
-      <h1>Contact Us</h1>
+      <h1>{{ $t('ContactPage.title') }}</h1>
       
-      <p>We'd love to hear from you! If you have any questions, suggestions, or feedback, please don't hesitate to reach out.</p>
+      <p>{{ $t('ContactPage.intro') }}</p>
 
-      <h2>Email</h2>
-      <p>Email: <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a></p>
-      <p>We typically respond within 24-48 hours.</p>
+      <h2>{{ $t('ContactPage.emailTitle') }}</h2>
+      <p>
+        {{ $t('ContactPage.emailLabel') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>
+      </p>
+      <p>{{ $t('ContactPage.responseTime') }}</p>
 
-      <h2>What We Can Help With</h2>
-      <p>We can assist you with:</p>
+      <h2>{{ $t('ContactPage.helpTitle') }}</h2>
+      <p>{{ $t('ContactPage.helpIntro') }}</p>
       <ul>
-        <li>Game-related questions</li>
-        <li>Website feedback and suggestions</li>
-        <li>Technical issues</li>
-        <li>General inquiries</li>
+        <li>{{ $t('ContactPage.helpItem1') }}</li>
+        <li>{{ $t('ContactPage.helpItem2') }}</li>
+        <li>{{ $t('ContactPage.helpItem3') }}</li>
+        <li>{{ $t('ContactPage.helpItem4') }}</li>
       </ul>
 
-      <h2>Thank You</h2>
-      <p>Thank you for visiting Tower Jump. Your feedback helps us improve our platform and provide a better experience for all users.</p>
+      <h2>{{ $t('ContactPage.thanksTitle') }}</h2>
+      <p>{{ $t('ContactPage.thanksText') }}</p>
     </div>
     <SiteFooter />
   </div>
@@ -30,9 +33,22 @@
 import { onMounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import { useSEO } from '../composables/useSEO'
+import { useI18n } from 'vue-i18n'
+
+const { setSEO } = useSEO()
+const { t } = useI18n()
 
 onMounted(() => {
-  document.title = 'Contact Us - Tower Jump'
+  setSEO({
+    title: t('tdk.ContactPage.title'),
+    description: t('tdk.ContactPage.description'),
+    keywords: t('tdk.ContactPage.keywords'),
+    ogTitle: t('tdk.ContactPage.title'),
+    ogDescription: t('tdk.ContactPage.description'),
+    twitterTitle: t('tdk.ContactPage.title'),
+    twitterDescription: t('tdk.ContactPage.description'),
+  })
 })
 </script>
 

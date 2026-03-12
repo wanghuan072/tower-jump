@@ -15,8 +15,11 @@
                 <ins class="eas6a97888e2" data-zoneid="5859670"></ins>
               </aside>
 
-              <h1 class="game-title">Play {{ currentGame?.title || 'Tower Jump' }} Online</h1>
-              <p class="game-subtitle">Lightweight, fast, play instantly</p>
+              <h1 class="game-title">
+                {{ $t('HomePage.heroPlay') }} {{ currentGame?.title || 'Tower Jump' }}
+                {{ $t('HomePage.heroOnline') }}
+              </h1>
+              <p class="game-subtitle">{{ $t('HomePage.heroSubtitle') }}</p>
               <div class="game-iframe-container">
                 <div class="game-iframe-wrapper">
                   <iframe
@@ -36,15 +39,15 @@
                       <img
                         class="overlay-logo"
                         :src="currentGame?.imageUrl || '/images/logo.png'"
-                        alt="Game logo"
+                        :alt="$t('HomePage.gameLogoAlt')"
                         width="96"
                         height="96"
                       />
                       <button
                         type="button"
                         class="play-button"
-                        aria-label="Play game"
-                        title="Play"
+                        :aria-label="$t('HomePage.playButtonLabel')"
+                        :title="$t('HomePage.playButtonLabel')"
                         @click="startPlay"
                       >
                         <svg
@@ -55,7 +58,7 @@
                         >
                           <path d="M8 5v14l11-7z" fill="currentColor" />
                         </svg>
-                        <span class="play-text">PLAY</span>
+                        <span class="play-text">{{ $t('HomePage.playButtonText') }}</span>
                       </button>
                     </div>
                   </div>
@@ -69,8 +72,8 @@
                   <button
                     class="control-btn"
                     @click="toggleFullscreen"
-                    title="Fullscreen"
-                    aria-label="Fullscreen"
+                    :title="$t('HomePage.fullscreenLabel')"
+                    :aria-label="$t('HomePage.fullscreenLabel')"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -92,8 +95,8 @@
                   <button
                     class="control-btn"
                     @click="togglePageFullscreen"
-                    title="Page Fullscreen"
-                    aria-label="Page Fullscreen"
+                    :title="$t('HomePage.pageFullscreenLabel')"
+                    :aria-label="$t('HomePage.pageFullscreenLabel')"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +125,7 @@
 
             <!-- Hot Games 板块 -->
             <section v-if="hotGames.length > 0" class="hot-games-section">
-              <h2 class="section-title">Hot Games</h2>
+              <h2 class="section-title">{{ $t('HomePage.hotGamesTitle') }}</h2>
               <div class="hot-games-grid">
                 <a
                   v-for="game in hotGames"
@@ -151,7 +154,9 @@
             </aside>
 
             <section id="about" ref="aboutRef" class="about-section">
-              <h2 class="section-title">Game Info: {{ currentGame?.title || 'Tower Jump' }}</h2>
+              <h2 class="section-title">
+                {{ $t('HomePage.gameInfoTitle') }}: {{ currentGame?.title || 'Tower Jump' }}
+              </h2>
               <div class="about-content" v-html="currentGame?.detailsHtml"></div>
             </section>
           </div>
@@ -159,7 +164,7 @@
           <aside class="comments-sidebar">
             <!-- New Games 板块 -->
             <section v-if="newGames.length > 0" class="new-games-section">
-              <h3 class="panel-title">New Games</h3>
+              <h3 class="panel-title">{{ $t('HomePage.newGamesTitle') }}</h3>
               <div class="new-games-grid">
                 <a
                   v-for="game in newGames"
@@ -189,7 +194,7 @@
         </div>
 
         <section id="games" class="section-games">
-          <h2 class="section-title">Games</h2>
+          <h2 class="section-title">{{ $t('HomePage.gamesSectionTitle') }}</h2>
           <GameList :games="homeGames" />
         </section>
 
@@ -210,7 +215,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { games } from '../data/games'
+import { useI18n } from 'vue-i18n'
+import { getGames } from '@/composables/getGames'
+import { useLocalePath } from '@/composables/useLocalePath'
 import { commentAPI, ratingAPI } from '../services/api'
 import { useSEO } from '../composables/useSEO'
 import GameList from '../components/GameList.vue'
@@ -222,9 +229,13 @@ import { useDeviceDetection } from '../utils/useDeviceDetection'
 const { isMobile } = useDeviceDetection()
 const route = useRoute()
 const router = useRouter()
+const { t, locale } = useI18n()
+const { withLocale } = useLocalePath()
+
+const games = computed(() => getGames(locale.value))
 
 // SEO管理
-const { setGameSEO, resetSEO } = useSEO()
+const { setSEO, setGameSEO, resetSEO } = useSEO()
 
 // 游戏相关状态
 const isPlaying = ref(false)
@@ -241,15 +252,15 @@ const aboutRef = ref(null)
 
 // 筛选新游戏和热门游戏
 const newGames = computed(() => {
-  return games.filter((game) => game.isNew === true)
+  return games.value.filter((game) => game.isNew === true)
 })
 
 const homeGames = computed(() => {
-  return games.filter((game) => game.isHome === true)
+  return games.value.filter((game) => game.isHome === true)
 })
 
 const hotGames = computed(() => {
-  return games.filter((game) => game.isHot === true)
+  return games.value.filter((game) => game.isHot === true)
 })
 
 // 生成游戏URL
@@ -257,16 +268,25 @@ function getGameUrl(game) {
   if (!game || !game.addressBar) return '#'
 
   // 第一个游戏使用根路径，其他游戏使用addressBar
-  const isFirstGame = games[0] && games[0].addressBar === game.addressBar
-  return isFirstGame ? '/' : `/${game.addressBar}`
+  const list = games.value
+  const isFirstGame = list[0] && list[0].addressBar === game.addressBar
+  return isFirstGame ? withLocale('/') : withLocale(`/${game.addressBar}`)
 }
 
 // 初始化当前游戏
 function initializeGame() {
   // 首页始终显示第一个游戏
-  currentGame.value = games[0] || null
-  // 设置默认SEO
-  resetSEO()
+  currentGame.value = games.value[0] || null
+  // 首页 TDK 使用 i18n 多语言
+  setSEO({
+    title: t('tdk.HomePage.title'),
+    description: t('tdk.HomePage.description'),
+    keywords: t('tdk.HomePage.keywords'),
+    ogTitle: t('tdk.HomePage.title'),
+    ogDescription: t('tdk.HomePage.description'),
+    twitterTitle: t('tdk.HomePage.title'),
+    twitterDescription: t('tdk.HomePage.description'),
+  })
   // 不预先设置 iframe src
   iframeSrc.value = ''
 }

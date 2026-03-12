@@ -5,11 +5,11 @@
         <!-- 左侧：Logo和简介 -->
         <div class="footer-brand">
           <div class="footer-logo-section">
-            <img src="/images/logo.webp" alt="Tower Jump" class="footer-logo" />
+            <img src="/images/logo.webp" :alt="$t('footer.logoAlt')" class="footer-logo" />
             <div class="footer-brand-text">
-              <h3 class="footer-brand-title">Tower Jump</h3>
+              <h3 class="footer-brand-title">{{ $t('footer.brandTitle') }}</h3>
               <p class="footer-description">
-                A lightweight, fast-loading vertical jumping game designed for instant fun. No downloads, no accounts - just jump!
+                {{ $t('footer.brandDescription') }}
               </p>
             </div>
           </div>
@@ -17,12 +17,12 @@
 
         <!-- 中间：Hot Games -->
         <div class="footer-links-section">
-          <h4 class="footer-links-title">Hot Games</h4>
+          <h4 class="footer-links-title">{{ $t('footer.hotGamesTitle') }}</h4>
           <nav class="footer-links">
             <a 
               v-for="game in hotGames" 
               :key="game.id" 
-              :href="'/' + game.addressBar" 
+              :href="getGameUrl(game)"
               class="footer-link"
             >
               {{ game.title }}
@@ -32,20 +32,20 @@
 
         <!-- 中间：链接 -->
         <div class="footer-links-section">
-          <h4 class="footer-links-title">Quick Links</h4>
+          <h4 class="footer-links-title">{{ $t('footer.quickLinksTitle') }}</h4>
           <nav class="footer-links">
-            <a href="/about-us" class="footer-link" rel="noopener noreferrer nofollow">About Us</a>
-            <a href="/contact" class="footer-link" rel="noopener noreferrer nofollow">Contact</a>
-            <a href="/privacy-policy" class="footer-link" rel="noopener noreferrer nofollow">Privacy Policy</a>
-            <a href="/terms-of-service" class="footer-link" rel="noopener noreferrer nofollow">Terms of Service</a>
-            <a href="/copyright" class="footer-link" rel="noopener noreferrer nofollow">Copyright</a>
+            <a :href="withLocale('/about-us')" class="footer-link" rel="noopener noreferrer nofollow">{{ $t('footer.linkAbout') }}</a>
+            <a :href="withLocale('/contact')" class="footer-link" rel="noopener noreferrer nofollow">{{ $t('footer.linkContact') }}</a>
+            <a :href="withLocale('/privacy-policy')" class="footer-link" rel="noopener noreferrer nofollow">{{ $t('footer.linkPrivacy') }}</a>
+            <a :href="withLocale('/terms-of-service')" class="footer-link" rel="noopener noreferrer nofollow">{{ $t('footer.linkTerms') }}</a>
+            <a :href="withLocale('/copyright')" class="footer-link" rel="noopener noreferrer nofollow">{{ $t('footer.linkCopyright') }}</a>
           </nav>
         </div>
 
         <!-- 右侧：返回顶部 -->
         <div class="footer-action">
-          <a href="#" @click.prevent="scrollToTop" class="back-to-top" aria-label="Back to top">
-            <span>Back to Top</span>
+          <a href="#" @click.prevent="scrollToTop" class="back-to-top" :aria-label="$t('footer.backToTopAria')">
+            <span>{{ $t('footer.backToTop') }}</span>
             <svg
               width="16"
               height="16"
@@ -65,7 +65,7 @@
       <!-- 底部：Copyright -->
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; {{ new Date().getFullYear() }} Tower Jump. All rights reserved.
+          &copy; {{ new Date().getFullYear() }} {{ $t('footer.brandTitle') }}. {{ $t('footer.copyright') }}
         </p>
       </div>
     </div>
@@ -74,11 +74,22 @@
 
 <script setup>
 import { computed } from 'vue'
-import { games } from '../data/games'
+import { useI18n } from 'vue-i18n'
+import { getGames } from '@/composables/getGames'
+import { useLocalePath } from '@/composables/useLocalePath'
+
+const { locale } = useI18n()
+const { withLocale } = useLocalePath()
+const games = computed(() => getGames(locale.value))
 
 const hotGames = computed(() => {
-  return games.filter(game => game.isHot === true).slice(0, 5)
+  return games.value.filter((game) => game.isHot === true).slice(0, 5)
 })
+
+function getGameUrl(game) {
+  if (!game || !game.addressBar) return '#'
+  return withLocale(`/${game.addressBar}`)
+}
 
 const scrollToTop = () => {
   const supportsSmooth = 'scrollBehavior' in document.documentElement.style

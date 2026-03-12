@@ -1,5 +1,6 @@
 import { ref, watch } from 'vue'
-import { games } from '@/data/games.js'
+import i18n from '@/i18n'
+import { getGames } from '@/composables/getGames'
 
 // 基础网站信息
 const SITE_INFO = {
@@ -34,6 +35,23 @@ const currentSEO = ref({ ...defaultSEO })
  * 用于动态设置页面的SEO信息
  */
 export function useSEO() {
+  const getCurrentGames = () => getGames(i18n.global.locale.value)
+  const getLocalePrefix = () => {
+    const loc = i18n.global.locale.value
+    return loc === 'de'
+      ? '/de'
+      : loc === 'fr'
+        ? '/fr'
+        : loc === 'ja'
+          ? '/ja'
+          : ''
+  }
+
+  const getCurrentPageUrl = () => {
+    if (typeof window === 'undefined') return SITE_INFO.url
+    const path = window.location.pathname || '/'
+    return `${SITE_INFO.url}${path}`
+  }
   /**
    * 设置SEO信息
    * @param {Object} seoData - SEO数据对象
@@ -50,16 +68,21 @@ export function useSEO() {
    * @param {string} seoData.twitterImage - Twitter图片
    */
   const setSEO = (seoData) => {
+    const currentPageUrl = getCurrentPageUrl()
     const mergedSEO = {
       ...defaultSEO,
       ...seoData,
-      // 确保URL是完整的
-      canonical: seoData.canonical ? 
-        (seoData.canonical.startsWith('http') ? seoData.canonical : `${SITE_INFO.url}${seoData.canonical}`) : 
-        defaultSEO.canonical,
-      ogUrl: seoData.ogUrl ? 
-        (seoData.ogUrl.startsWith('http') ? seoData.ogUrl : `${SITE_INFO.url}${seoData.ogUrl}`) : 
-        defaultSEO.ogUrl
+      // canonical / ogUrl 默认使用当前页面URL（确保 /de 前缀正确）
+      canonical: seoData.canonical
+        ? seoData.canonical.startsWith('http')
+          ? seoData.canonical
+          : `${SITE_INFO.url}${seoData.canonical}`
+        : currentPageUrl,
+      ogUrl: seoData.ogUrl
+        ? seoData.ogUrl.startsWith('http')
+          ? seoData.ogUrl
+          : `${SITE_INFO.url}${seoData.ogUrl}`
+        : currentPageUrl,
     }
     
     currentSEO.value = mergedSEO
@@ -71,7 +94,7 @@ export function useSEO() {
    * @param {string} addressBar - 游戏地址栏标识
    */
   const setGameSEO = (addressBar) => {
-    const game = games.find(g => g.addressBar === addressBar)
+    const game = getCurrentGames().find((g) => g.addressBar === addressBar)
     
     if (!game) {
       // 如果找不到游戏，使用默认SEO
@@ -79,7 +102,9 @@ export function useSEO() {
       return
     }
 
-    const gameUrl = addressBar === 'tower-jump' ? SITE_INFO.url : `${SITE_INFO.url}/${addressBar}`
+    const prefix = getLocalePrefix()
+    const gameUrl =
+      addressBar === 'tower-jump' ? `${SITE_INFO.url}${prefix}` : `${SITE_INFO.url}${prefix}/${addressBar}`
     const gameImage = game.imageUrl.startsWith('http') ? game.imageUrl : `${SITE_INFO.url}${game.imageUrl}`
 
     const gameSEO = {

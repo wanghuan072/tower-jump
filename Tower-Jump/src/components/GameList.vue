@@ -16,10 +16,16 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 // 通用游戏列表组件（可移植）
 // 中文提示：如需跨项目自定义列数、卡片信息或点击行为，可在此组件扩展 props 与样式
 
-import { games as allGames } from '@/data/games.js'
+import { getGames } from '@/composables/getGames'
+import { useLocalePath } from '@/composables/useLocalePath'
+
+const { locale } = useI18n()
+const { withLocale } = useLocalePath()
+const allGames = computed(() => getGames(locale.value))
 
 const props = defineProps({
   games: {
@@ -34,20 +40,24 @@ const props = defineProps({
 
 // 计算显示的游戏列表
 const displayedGames = computed(() => {
-  const source = props.games || allGames
+  const source = props.games || allGames.value
   if (props.limit && props.limit > 0) {
     return source.slice(0, props.limit)
   }
   return source
 })
 
-// 生成游戏URL
+// 生成游戏URL（根据当前路径自动带上 /de /fr /ja 等前缀）
 function getGameUrl(game) {
   if (!game || !game.addressBar) return '#'
-  
-  // 第一个游戏使用根路径，其他游戏使用addressBar
-  const isFirstGame = allGames[0] && allGames[0].addressBar === game.addressBar
-  return isFirstGame ? '/' : `/${game.addressBar}`
+
+  const list = allGames.value
+  const isFirstGame = list[0] && list[0].addressBar === game.addressBar
+
+  if (isFirstGame) {
+    return withLocale('/')
+  }
+  return withLocale(`/${game.addressBar}`)
 }
 
 function formatDate(dateString) {

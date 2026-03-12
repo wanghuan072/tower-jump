@@ -2,43 +2,52 @@
   <div class="page">
     <SiteHeader />
     <div class="content">
-      <h1>Terms of Service</h1>
-      <p class="updated">Last updated: September 26, 2025</p>
+      <h1>{{ $t('TermsOfServicePage.title') }}</h1>
+      <p class="updated">{{ $t('TermsOfServicePage.updated') }}</p>
       
-      <h2>General Information</h2>
-      <p>These Terms of Service govern your use of the Tower Jump website. By using this website, you agree to be bound by these terms. If you do not agree, please do not use the website.</p>
-      <p><strong>You must be at least 16 years old to use this website.</strong></p>
+      <h2>{{ $t('TermsOfServicePage.h2_1') }}</h2>
+      <p>{{ $t('TermsOfServicePage.p1') }}</p>
+      <p><strong>{{ $t('TermsOfServicePage.ageNotice') }}</strong></p>
 
-      <h2>Changes to Terms</h2>
-      <p>We may update these terms from time to time. Changes will be posted on this page. Continued use of the website after changes are posted constitutes acceptance of the updated terms.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_2') }}</h2>
+      <p>{{ $t('TermsOfServicePage.p2') }}</p>
 
-      <h2>User Conduct</h2>
-      <p>When using our website, you agree to:</p>
+      <h2>{{ $t('TermsOfServicePage.h2_3') }}</h2>
+      <p>{{ $t('TermsOfServicePage.p3') }}</p>
       <ul>
-        <li>Not post threatening, harassing, or unlawful content</li>
-        <li>Not use the website for unauthorized commercial purposes</li>
-        <li>Not interfere with the website's operation</li>
-        <li>Not reproduce or distribute content without permission</li>
-        <li>Respect the rights of others</li>
+        <li>{{ $t('TermsOfServicePage.li1') }}</li>
+        <li>{{ $t('TermsOfServicePage.li2') }}</li>
+        <li>{{ $t('TermsOfServicePage.li3') }}</li>
+        <li>{{ $t('TermsOfServicePage.li4') }}</li>
+        <li>{{ $t('TermsOfServicePage.li5') }}</li>
       </ul>
 
-      <h2>Privacy</h2>
-      <p>Your use of the website is also governed by our <a href="/privacy-policy">Privacy Policy</a>. Please review it to understand how we collect and use your information.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_4') }}</h2>
+      <p>
+        {{ $t('TermsOfServicePage.p4Prefix') }}
+        <a href="/privacy-policy">{{ $t('TermsOfServicePage.p4LinkText') }}</a>{{ $t('TermsOfServicePage.p4Suffix') }}
+      </p>
 
-      <h2>Third-Party Content</h2>
-      <p>The website may provide access to third-party content, including games and advertisements. We do not control or endorse third-party content and are not responsible for its accuracy or legality. Use of third-party content is at your own risk.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_5') }}</h2>
+      <p>{{ $t('TermsOfServicePage.p5') }}</p>
 
-      <h2>Disclaimer</h2>
-      <p>The website and all content are provided "as is" without warranties of any kind. We do not guarantee that the website will always be correct, secure, or uninterrupted.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_6') }}</h2>
+      <p>{{ $t('TermsOfServicePage.p6') }}</p>
 
-      <h2>Copyright</h2>
-      <p>If you believe materials on the website violate your copyright, please contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_7') }}</h2>
+      <p>
+        {{ $t('TermsOfServicePage.p7Prefix') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.
+      </p>
 
-      <h2>Limitation of Liability</h2>
-      <p>To the fullest extent permitted by law, Tower Jump shall not be liable for any damages arising from your use of the website.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_8') }}</h2>
+      <p>{{ $t('TermsOfServicePage.p8') }}</p>
 
-      <h2>Contact</h2>
-      <p>If you have questions about these Terms of Service, please contact us at <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.</p>
+      <h2>{{ $t('TermsOfServicePage.h2_9') }}</h2>
+      <p>
+        {{ $t('TermsOfServicePage.p9Prefix') }}
+        <a href="mailto:wyong@towerjump.org">wyong@towerjump.org</a>.
+      </p>
     </div>
     <SiteFooter />
   </div>
@@ -48,9 +57,22 @@
 import { onMounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
+import { useSEO } from '../composables/useSEO'
+import { useI18n } from 'vue-i18n'
+
+const { setSEO } = useSEO()
+const { t } = useI18n()
 
 onMounted(() => {
-  document.title = 'Terms of Service - Tower Jump'
+  setSEO({
+    title: t('tdk.TermsOfServicePage.title'),
+    description: t('tdk.TermsOfServicePage.description'),
+    keywords: t('tdk.TermsOfServicePage.keywords'),
+    ogTitle: t('tdk.TermsOfServicePage.title'),
+    ogDescription: t('tdk.TermsOfServicePage.description'),
+    twitterTitle: t('tdk.TermsOfServicePage.title'),
+    twitterDescription: t('tdk.TermsOfServicePage.description'),
+  })
 })
 </script>
 
