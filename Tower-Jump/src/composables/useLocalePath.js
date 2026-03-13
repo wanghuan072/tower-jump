@@ -10,6 +10,7 @@ export function useLocalePath() {
     if (p === '/de' || p.startsWith('/de/')) return '/de'
     if (p === '/fr' || p.startsWith('/fr/')) return '/fr'
     if (p === '/ja' || p.startsWith('/ja/')) return '/ja'
+    if (p === '/ko' || p.startsWith('/ko/')) return '/ko'
     return ''
   }
 

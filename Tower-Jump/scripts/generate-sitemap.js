@@ -64,6 +64,17 @@ function generateSitemap() {
 `
   })
 
+  // 韩语静态页面（/ko 前缀）
+  staticPages.forEach(page => {
+    sitemap += `  <url>
+    <loc>${baseUrl}/ko/${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+`
+  })
+
   // 游戏页面
   games.forEach(game => {
     const url = game.addressBar === 'tower-jump' ? baseUrl : `${baseUrl}/${game.addressBar}`
@@ -128,6 +139,22 @@ function generateSitemap() {
 `
   })
 
+  // 韩语游戏页面（/ko 前缀，slug 仍用英语 addressBar）
+  games.forEach(game => {
+    const url = game.addressBar === 'tower-jump' ? `${baseUrl}/ko` : `${baseUrl}/ko/${game.addressBar}`
+    const priority = game.addressBar === 'tower-jump' ? 1.0 : 0.8
+    const changefreq = game.addressBar === 'tower-jump' ? 'daily' : 'weekly'
+    const lastmod = game.publishDate ? new Date(game.publishDate).toISOString() : currentDate
+    
+    sitemap += `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`
+  })
+
   sitemap += `</urlset>`
 
   // 写入文件到 dist 目录 (构建后)
@@ -144,18 +171,20 @@ function generateSitemap() {
   }
 
   console.log('✅ 站点地图生成成功！')
-  console.log(`📄 包含 ${(games.length + staticPages.length) * 4} 个页面`)
+  console.log(`📄 包含 ${(games.length + staticPages.length) * 5} 个页面`)
   console.log('🔗 游戏页面:', [
     ...games.map(g => g.addressBar === 'tower-jump' ? baseUrl : `${baseUrl}/${g.addressBar}`),
     ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/de` : `${baseUrl}/de/${g.addressBar}`),
     ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/fr` : `${baseUrl}/fr/${g.addressBar}`),
-    ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/ja` : `${baseUrl}/ja/${g.addressBar}`)
+    ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/ja` : `${baseUrl}/ja/${g.addressBar}`),
+    ...games.map(g => g.addressBar === 'tower-jump' ? `${baseUrl}/ko` : `${baseUrl}/ko/${g.addressBar}`)
   ])
   console.log('🔗 静态页面:', [
     ...staticPages.map(p => `${baseUrl}/${p}`),
     ...staticPages.map(p => `${baseUrl}/de/${p}`),
     ...staticPages.map(p => `${baseUrl}/fr/${p}`),
-    ...staticPages.map(p => `${baseUrl}/ja/${p}`)
+    ...staticPages.map(p => `${baseUrl}/ja/${p}`),
+    ...staticPages.map(p => `${baseUrl}/ko/${p}`)
   ])
 }
 

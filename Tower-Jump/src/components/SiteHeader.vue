@@ -98,13 +98,15 @@ const currentPathLocale = computed(() => {
       ? 'fr'
       : p === '/ja' || p.startsWith('/ja/')
         ? 'ja'
-        : 'en'
+        : p === '/ko' || p.startsWith('/ko/')
+          ? 'ko'
+          : 'en'
 })
 
 function getLocaleHref(code) {
   if (typeof window === 'undefined') return '/'
   const { pathname, search, hash } = window.location
-  const rest = pathname === '/de' || pathname === '/fr' || pathname === '/ja'
+  const rest = pathname === '/de' || pathname === '/fr' || pathname === '/ja' || pathname === '/ko'
     ? '/'
     : pathname.startsWith('/de/')
       ? pathname.slice(3)
@@ -112,7 +114,9 @@ function getLocaleHref(code) {
         ? pathname.slice(3)
         : pathname.startsWith('/ja/')
           ? pathname.slice(3)
-          : pathname
+          : pathname.startsWith('/ko/')
+            ? pathname.slice(3)
+            : pathname
 
   const targetPath =
     code === 'de'
@@ -121,7 +125,9 @@ function getLocaleHref(code) {
         ? (rest === '/' ? '/fr/' : `/fr${rest}`)
         : code === 'ja'
           ? (rest === '/' ? '/ja/' : `/ja${rest}`)
-          : rest
+          : code === 'ko'
+            ? (rest === '/' ? '/ko/' : `/ko${rest}`)
+            : rest
   return `${targetPath}${search || ''}${hash || ''}`
 }
 

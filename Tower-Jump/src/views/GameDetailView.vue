@@ -23,7 +23,6 @@
                     :class="{ 'is-visible': isPlaying }"
                     :src="isPlaying ? iframeSrc : undefined"
                     :title="currentGame?.title || 'Game'"
-                    allowfullscreen
                     allow="autoplay; fullscreen; gamepad; microphone; camera; payment; geolocation"
                     @load="onFrameLoad"
                   ></iframe>

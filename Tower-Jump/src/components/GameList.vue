@@ -1,7 +1,7 @@
 <template>
   <div class="game-list">
     <div class="grid">
-      <a v-for="game in displayedGames" :key="game.id" :href="getGameUrl(game)" class="card">
+      <a v-for="game in displayedGames" :key="game.id || game.addressBar" :href="getGameUrl(game)" class="card">
         <div class="thumb">
           <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
         </div>
@@ -41,17 +41,18 @@ const props = defineProps({
 // 计算显示的游戏列表
 const displayedGames = computed(() => {
   const source = props.games || allGames.value
+  const safe = Array.isArray(source) ? source.filter(Boolean) : []
   if (props.limit && props.limit > 0) {
-    return source.slice(0, props.limit)
+    return safe.slice(0, props.limit)
   }
-  return source
+  return safe
 })
 
 // 生成游戏URL（根据当前路径自动带上 /de /fr /ja 等前缀）
 function getGameUrl(game) {
   if (!game || !game.addressBar) return '#'
 
-  const list = allGames.value
+  const list = Array.isArray(allGames.value) ? allGames.value.filter(Boolean) : []
   const isFirstGame = list[0] && list[0].addressBar === game.addressBar
 
   if (isFirstGame) {

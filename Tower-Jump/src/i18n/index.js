@@ -3,6 +3,7 @@ import en from '@/locales/en.js'
 import de from '@/locales/de.js'
 import fr from '@/locales/fr.js'
 import ja from '@/locales/ja.js'
+import ko from '@/locales/ko.js'
 
 const i18n = createI18n({
   legacy: false,
@@ -13,6 +14,7 @@ const i18n = createI18n({
     de: de,
     fr: fr,
     ja: ja,
+    ko: ko,
   },
 })
 
@@ -21,7 +23,8 @@ export const localeOptions = [
   { code: 'en', label: 'English' },
   { code: 'de', label: 'Deutsch' },
   { code: 'fr', label: 'Français' },
-   { code: 'ja', label: '日本語' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ko', label: '한국어' },
 ]
 
 export default i18n

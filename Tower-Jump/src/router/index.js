@@ -27,6 +27,12 @@ const router = createRouter({
       name: 'ja-home',
       component: () => import('../views/HomeView.vue'),
     },
+    // 韩语（/ko 前缀）
+    {
+      path: '/ko',
+      name: 'ko-home',
+      component: () => import('../views/HomeView.vue'),
+    },
     {
       path: '/all-jump-games',
       name: 'all-jump-games',
@@ -45,6 +51,11 @@ const router = createRouter({
     {
       path: '/ja/all-jump-games',
       name: 'ja-all-jump-games',
+      component: () => import('../views/AllGamesView.vue'),
+    },
+    {
+      path: '/ko/all-jump-games',
+      name: 'ko-all-jump-games',
       component: () => import('../views/AllGamesView.vue'),
     },
     // 页面路由
@@ -69,6 +80,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
+      path: '/ko/about-us',
+      name: 'ko-about',
+      component: () => import('../views/AboutView.vue'),
+    },
+    {
       path: '/contact',
       name: 'contact',
       component: () => import('../views/ContactView.vue'),
@@ -86,6 +102,11 @@ const router = createRouter({
     {
       path: '/ja/contact',
       name: 'ja-contact',
+      component: () => import('../views/ContactView.vue'),
+    },
+    {
+      path: '/ko/contact',
+      name: 'ko-contact',
       component: () => import('../views/ContactView.vue'),
     },
     {
@@ -109,6 +130,11 @@ const router = createRouter({
       component: () => import('../views/CopyrightView.vue'),
     },
     {
+      path: '/ko/copyright',
+      name: 'ko-copyright',
+      component: () => import('../views/CopyrightView.vue'),
+    },
+    {
       path: '/privacy-policy',
       name: 'privacy-policy',
       component: () => import('../views/PrivacyPolicyView.vue'),
@@ -129,6 +155,11 @@ const router = createRouter({
       component: () => import('../views/PrivacyPolicyView.vue'),
     },
     {
+      path: '/ko/privacy-policy',
+      name: 'ko-privacy-policy',
+      component: () => import('../views/PrivacyPolicyView.vue'),
+    },
+    {
       path: '/terms-of-service',
       name: 'terms-of-service',
       component: () => import('../views/TermsOfServiceView.vue'),
@@ -146,6 +177,11 @@ const router = createRouter({
     {
       path: '/ja/terms-of-service',
       name: 'ja-terms-of-service',
+      component: () => import('../views/TermsOfServiceView.vue'),
+    },
+    {
+      path: '/ko/terms-of-service',
+      name: 'ko-terms-of-service',
       component: () => import('../views/TermsOfServiceView.vue'),
     },
     // 管理员路由
@@ -193,6 +229,12 @@ const router = createRouter({
       path: '/ja/:addressBar',
       name: 'ja-game-detail',
       component: () => import('../views/GameDetailView.vue'),
+    },
+    // 韩语游戏详情页（放在最后）
+    {
+      path: '/ko/:addressBar',
+      name: 'ko-game-detail',
+      component: () => import('../views/GameDetailView.vue'),
     }
   ],
 })
@@ -218,7 +260,9 @@ router.beforeEach((to, from, next) => {
         ? 'fr'
         : p === '/ja' || p.startsWith('/ja/')
           ? 'ja'
-          : 'en'
+          : p === '/ko' || p.startsWith('/ko/')
+            ? 'ko'
+            : 'en'
   i18n.global.locale.value = lang
 
   // 检查是否需要管理员认证

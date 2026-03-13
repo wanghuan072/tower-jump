@@ -6,12 +6,14 @@ import gamesEn from '@/data/games/en.js'
 import gamesDe from '@/data/games/de.js'
 import gamesFr from '@/data/games/fr.js'
 import gamesJa from '@/data/games/ja.js'
+import gamesKo from '@/data/games/ko.js'
 
 const gamesByLocale = {
   en: gamesEn,
   de: gamesDe,
   fr: gamesFr,
   ja: gamesJa,
+  ko: gamesKo,
 }
 
 export const supportedGameLocales = Object.keys(gamesByLocale).sort()

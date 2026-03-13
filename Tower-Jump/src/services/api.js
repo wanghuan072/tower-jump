@@ -1,30 +1,21 @@
 // API 基础配置
-// 自动检测环境：如果是localhost则使用本地API，否则使用生产API
-const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+// 规则：
+// - 优先使用 VITE_API_BASE_URL（开发/生产都一致）
+// - 否则使用同源相对路径（让部署环境自行决定 API 域名/反代）
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
 
-// 本地开发时强制使用本地API，生产环境使用环境变量或默认地址
-let API_BASE_URL;
-if (isLocalhost) {
-  // 本地开发环境 - 强制使用本地API
-  API_BASE_URL = 'http://localhost:3000';
-} else if (import.meta.env.VITE_API_BASE_URL) {
-  // 生产环境 - 使用环境变量
-  API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-} else {
-  // 生产环境 - 使用默认地址
-  API_BASE_URL = 'https://tower-jump-api.vercel.app';
+if (typeof window !== 'undefined') {
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  console.log(`[API配置] 当前环境: ${isLocalhost ? '本地开发' : '生产环境'}`)
+  console.log(`[API配置] API_BASE_URL: ${API_BASE_URL || '(same-origin)'}`)
+  console.log(`[API配置] 当前域名: ${window.location.hostname}`)
 }
-
-console.log(`[API配置] 当前环境: ${isLocalhost ? '本地开发' : '生产环境'}`);
-console.log(`[API配置] API地址: ${API_BASE_URL}`);
-console.log(`[API配置] 当前域名: ${window.location.hostname}`);
-console.log(`[API配置] VITE_API_BASE_URL: ${import.meta.env.VITE_API_BASE_URL}`);
 
 
 
 // 通用请求函数
 async function request(endpoint, options = {}) {
-  const url = `${API_BASE_URL}${endpoint}`;
+  const url = `${API_BASE_URL}${endpoint}`
   const config = {
     headers: {
       'Content-Type': 'application/json',

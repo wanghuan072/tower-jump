@@ -44,7 +44,9 @@ export function useSEO() {
         ? '/fr'
         : loc === 'ja'
           ? '/ja'
-          : ''
+          : loc === 'ko'
+            ? '/ko'
+            : ''
   }
 
   const getCurrentPageUrl = () => {
