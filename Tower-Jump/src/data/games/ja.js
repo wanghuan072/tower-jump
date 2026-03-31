@@ -3027,18 +3027,122 @@ export default [
           さあ、重力に逆らって究極のPower Jumperになる準備はできましたか？エネルギーを溜め、操作をマスターし、頂点を目指す爽快な旅に出発しましょう！グッドラック、そしてハッピージャンプ！
       </p>
           `,
-    }
+    },
 
+   
 
+  {
+    id: 35,
+    title: "Tower Jump 2",
+    keywords: "Tower Jump 2は、軽快に遊べる縦スクロールジャンプの続編ミニゲームです。ブラウザですぐ起動して、タイミングよくジャンプしながら塔を登り、障害物を避けてハイスコアを狙いましょう。ダウンロード不要。",
+    addressBar: "tower-jump-2",
+    publishDate: "2026-02-02",
+    imageUrl: "/images/game-35.webp",
+    imageAlt: "Tower Jump 2：ブラウザで遊べる縦ジャンプゲーム。",
+    iframeUrl: "https://turbowarp.org/1222421459/embed",
+    isNew: true,
+    isHot: true,
+    isHome: true,
+    seo: {
+      title: "Tower Jump 2 - ブラウザで今すぐプレイ",
+      description: "Tower Jump 2をブラウザで即プレイ。軽量ロード、反応の良い操作、短いセッションに最適。PCとモバイル対応、インストール不要。",
+      keywords: "Tower Jump 2, ジャンプゲーム, オンラインゲーム, カジュアル, ブラウザゲーム, HTML5, Turbowarp"
+    },
+    detailsHtml: `
+            <div class="lead">
+                <p>Tower Jump 2は、縦に登り続けるジャンプアクションをよりテンポ良く楽しめる続編です。インストールやログインなしで、開いたらすぐプレイ。クリック・タップ・スペースキーでジャンプし、塔の間を上昇しながら障害物を避けて新記録に挑戦しましょう。</p>
+                <p>ページは軽量で読み込みが速く、短時間でも気持ちよく遊べます。デスクトップでもモバイルでも直感的に操作でき、失敗してもすぐ再挑戦できるのが魅力です。</p>
+            </div>
+            <ul class="feature-list" aria-label="ゲームの特徴">
+                <li>即プレイ：ダウンロード不要、アカウント不要</li>
+                <li>テンポ重視：短いラウンドで繰り返し挑戦</li>
+                <li>操作しやすい：キーボード、マウス、タッチ対応</li>
+                <li>わかりやすい：シンプルで見やすいフィードバック</li>
+                <li>デバイス対応：スマホからPCまで快適</li>
+            </ul>
+            <h2 id="faq" class="section-title">よくある質問（FAQ）</h2>
+            <div class="faq-item">
+                <h3 class="faq-q">操作方法は？</h3>
+                <div class="faq-content">
+                    <p>PC：スペースキー、またはクリックでジャンプ。モバイル：画面をタップしてジャンプします。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">難しいですか？</h3>
+                <div class="faq-content">
+                    <p>最初は簡単ですが、高く登るほどタイミングがシビアになります。短い試行を重ねるほど上達します。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">動作が重いときは？</h3>
+                <div class="faq-content">
+                    <p>重いアプリやタブを閉じる、または新しいブラウザを試してください。ページを再読み込みするのも有効です。</p>
+                </div>
+            </div>
+        `
+  },
 
-
-
-
-
-
-
-
-
-
+  {
+    id: 36,
+    title: "Bottle Hop",
+    iframeUrl: "https://gamea.azgame.io/bottle-hop/",
+    keywords: "Bottle Hopはワンボタンで遊べるカジュアルアーケード。ボトルを跳ねさせて家具や物の上に着地し、床に落とさずにゴール台を目指します。たくさんのレベル、収集要素、物理挙動のジャンプが魅力。ブラウザで手軽にプレイ可能。",
+    tags: ["casual", "arcade", "physics", "bottle flip", "skill", "one-button", "HTML5"],
+    publishDate: "2026-03-31",
+    imageUrl: "/images/game-36.webp",
+    imageAlt: "Bottle Hopのプレイ画面：家具の上をボトルが回転しながら跳ぶ。",
+    seo: {
+      title: "Bottle Hop - ボトルフリップを無料でオンラインプレイ",
+      description: "Bottle Hopをブラウザでプレイ：ワンタップでボトルをフリップ、家具に着地してレベルを攻略。報酬を集めてスキンを楽しもう。ダウンロード不要。",
+      keywords: "Bottle Hop, ボトルフリップ, カジュアル, 物理ゲーム, HTML5, ブラウザゲーム, ワンボタン, スキルゲーム, 無料"
+    },
+    isNew: true,
+    isHot: false,
+    isHome: false,
+    addressBar: "bottle-hop",
+    detailsHtml: `
+            <div class="lead">
+                <p>Bottle Hopはタイミング勝負のワンボタン・アーケードです。ボトルをジャンプさせて回転させ、テーブルや棚などの上にうまく着地してゴール台まで到達しましょう。床に落ちると失敗ですが、すぐにやり直せます。</p>
+                <p>ステージは室内の家具や小物が舞台。進むほど足場が不安定になったり、距離感がシビアになったりして、短いプレイでも「あと1回」が止まらなくなります。</p>
+            </div>
+            <ul class="feature-list" aria-label="ゲームの特徴">
+                <li>物理ベースのフリップ：気持ちいい軌道と着地</li>
+                <li>豊富なレベル：段階的に難しくなる配置</li>
+                <li>収集要素：報酬を集めてスキンを楽しめる</li>
+                <li>室内ステージ：家具や物が足場になる</li>
+                <li>簡単操作：マウス/タッチで直感的</li>
+                <li>即リトライ：失敗してもすぐ再挑戦</li>
+            </ul>
+            <h2 class="section-title">遊び方</h2>
+            <div class="lead">
+                <p>クリックまたはタップでジャンプ＆フリップ。次の足場に安定して立てるように着地角度と距離を意識しましょう。揺れる/動く足場ではテンポ良く判断するのがコツです。</p>
+            </div>
+            <h2 id="faq" class="section-title">よくある質問（FAQ）</h2>
+            <div class="faq-item">
+                <h3 class="faq-q">他のボトルゲームと何が違う？</h3>
+                <div class="faq-content">
+                    <p>家具の上を渡ってゴール台を目指す「ステージ攻略」が中心です。タイミングを磨いて安定した連続着地を狙えます。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">インストールは必要？</h3>
+                <div class="faq-content">
+                    <p>不要です。ページ内の埋め込みプレイヤーでブラウザからそのまま遊べます。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">失敗条件は？</h3>
+                <div class="faq-content">
+                    <p>ボトルが床に落ちたり、着地に失敗したりするとその試行は終了します。すぐにリトライできます。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">どんな人におすすめ？</h3>
+                <div class="faq-content">
+                    <p>カジュアルなスキルゲームや物理挙動のフリップが好きな人、短時間で遊べるゲームを探している人におすすめです。</p>
+                </div>
+            </div>
+        `
+  },
 
 ]

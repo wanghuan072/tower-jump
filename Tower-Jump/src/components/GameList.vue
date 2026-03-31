@@ -1,7 +1,12 @@
 <template>
   <div class="game-list">
     <div class="grid">
-      <a v-for="game in displayedGames" :key="game.id || game.addressBar" :href="getGameUrl(game)" class="card">
+      <a
+        v-for="(game, idx) in displayedGames"
+        :key="(game && (game.id || game.addressBar)) ?? idx"
+        :href="getGameUrl(game)"
+        class="card"
+      >
         <div class="thumb">
           <img :src="game.imageUrl" :alt="game.imageAlt || game.title" />
         </div>

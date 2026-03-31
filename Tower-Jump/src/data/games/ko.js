@@ -2873,5 +2873,68 @@ export default [
 </p>
 
     `,
+  },
+
+  {
+    id: 36,
+    title: "Bottle Hop",
+    iframeUrl: "https://gamea.azgame.io/bottle-hop/",
+    keywords: "Bottle Hop은 원버튼 캐주얼 아케이드 게임입니다. 플라스틱 병을 튕겨 뒤집으며 가구와 물건 위에 안전하게 착지해 골 플랫폼까지 도달하세요. 바닥에 떨어지면 실패지만 즉시 다시 도전할 수 있습니다. 다양한 스테이지, 물리 기반 점프, 수집 요소로 짧게도 길게도 즐길 수 있습니다.",
+    tags: ["casual", "arcade", "physics", "bottle flip", "skill", "one-button", "HTML5"],
+    publishDate: "2026-03-31",
+    imageUrl: "/images/game-36.webp",
+    imageAlt: "Bottle Hop 플레이 화면: 병이 가구 위를 뒤집히며 점프해 골 플랫폼으로 향하는 장면.",
+    seo: {
+      title: "Bottle Hop - 병 뒤집기 무료 온라인 플레이",
+      description: "Bottle Hop을 브라우저에서 바로 플레이하세요. 원탭으로 병을 점프·플립하고 가구 위에 착지하며 스테이지를 클리어합니다. 다운로드 없이, 타이밍과 감각으로 승부!",
+      keywords: "Bottle Hop, 보틀홉, 병 뒤집기 게임, 캐주얼 아케이드, 물리 게임, HTML5 게임, 브라우저 게임, 원버튼, 스킬 게임, 무료"
+    },
+    isNew: true,
+    isHot: false,
+    isHome: false,
+    addressBar: "bottle-hop",
+    detailsHtml: `
+            <div class="lead">
+                <p>Bottle Hop은 타이밍과 정확도가 전부인 원버튼 아케이드입니다. 클릭하거나 탭해 병을 점프시키고 회전시켜, 테이블·의자·선반 같은 생활 속 오브젝트 위로 안전하게 착지하세요. 목표는 단 하나: 바닥에 떨어지지 않고 골 플랫폼까지 깔끔하게 이어 가는 것.</p>
+                <p>스테이지는 실내 공간을 무대로 구성됩니다. 가구와 소품이 발판이 되고, 진행할수록 간격이 까다로워지거나 불안정한 발판이 등장해 판단 속도까지 요구합니다. 실패해도 즉시 재도전할 수 있어 “한 번만 더”가 계속 이어집니다.</p>
+            </div>
+            <ul class="feature-list" aria-label="게임 특징">
+                <li>물리 기반 플립: 손맛 좋은 궤적과 착지</li>
+                <li>다양한 스테이지: 점점 어려워지는 배치와 거리감</li>
+                <li>수집 요소: 보상을 모아 재미 요소를 확장</li>
+                <li>실내 환경: 생활 오브젝트 위를 건너는 발상</li>
+                <li>간단 조작: 마우스/터치로 즉시 플레이</li>
+                <li>빠른 재시작: 실패 후 바로 다시 도전</li>
+            </ul>
+            <h2 class="section-title">플레이 방법</h2>
+            <div class="lead">
+                <p>클릭 또는 탭으로 점프하고 플립합니다. 다음 발판에 병이 안정적으로 서도록 거리와 타이밍을 맞추는 것이 핵심입니다. 흔들리거나 움직이는 발판에서는 망설이기보다 리듬을 유지하는 편이 도움이 됩니다.</p>
+            </div>
+            <h2 id="faq" class="section-title">자주 묻는 질문 (FAQ)</h2>
+            <div class="faq-item">
+                <h3 class="faq-q">다른 보틀 게임과 뭐가 달라요?</h3>
+                <div class="faq-content">
+                    <p>무한 러너처럼 한 줄로 달리는 방식이 아니라, 가구 위를 건너 골 플랫폼을 목표로 하는 스테이지 공략에 초점이 있습니다. 착지 안정성과 연속 성공이 핵심입니다.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">설치가 필요한가요?</h3>
+                <div class="faq-content">
+                    <p>아니요. 이 페이지의 내장 플레이어로 브라우저에서 바로 실행됩니다.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">언제 실패하나요?</h3>
+                <div class="faq-content">
+                    <p>병이 바닥에 떨어지거나 안전한 착지에 실패하면 해당 시도가 끝납니다. 즉시 재도전할 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">누가 즐기면 좋아요?</h3>
+                <div class="faq-content">
+                    <p>캐주얼 스킬 게임, 물리 플립, 짧은 “한 판 더” 플레이를 좋아하는 PC/모바일 유저에게 잘 맞습니다.</p>
+                </div>
+            </div>
+        `
   }
 ]

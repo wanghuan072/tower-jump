@@ -2732,13 +2732,122 @@ export default [
           Bist du bereit, der Schwerkraft zu trotzen und der ultimative Power Jumper zu werden? Sammle deine Energie, beherrsche die Steuerung und bereite dich auf eine berauschende Reise nach oben vor! Viel Glück und fröhliches Springen!
       </p>
           `,
-    }
+    },
 
+    
 
+  {
+    id: 35,
+    title: "Tower Jump 2",
+    keywords: "Tower Jump 2 ist der schnelle, leichte Nachfolger des vertikalen Jump-and-Run-Minispiels. Spiele sofort im Browser, springe mit Timing zwischen Türmen, weiche Hindernissen aus und jage neue Highscores – ohne Download.",
+    addressBar: "tower-jump-2",
+    publishDate: "2026-02-02",
+    imageUrl: "/images/game-35.webp",
+    imageAlt: "Tower Jump 2 – vertikales Jump-and-Run im Browser.",
+    iframeUrl: "https://turbowarp.org/1222421459/embed",
+    isNew: true,
+    isHot: true,
+    isHome: true,
+    seo: {
+      title: "Tower Jump 2 – Sofort online spielen",
+      description: "Spiele Tower Jump 2 direkt im Browser: schneller vertikaler Jump-Loop, reaktionsschnelle Steuerung, kurze Sessions, Desktop & Mobile – ohne Installation.",
+      keywords: "Tower Jump 2, Jump Spiel, Online Spiel, Casual Game, Browsergame, HTML5 Spiel, Turbowarp"
+    },
+    detailsHtml: `
+            <div class="lead">
+                <p>Tower Jump 2 bringt den klassischen vertikalen Jump-Flow noch knackiger zurück. Starte sofort ohne Installation oder Login und halte deinen Rhythmus: klicke, tippe oder drücke die Leertaste, um zwischen den Türmen aufzusteigen, Hindernissen auszuweichen und neue Bestwerte zu erreichen.</p>
+                <p>Die Seite ist leichtgewichtig und lädt schnell – ideal für kurze Pausen. Egal ob am Desktop oder mobil: Die Steuerung bleibt direkt, die Runden sind kurz, und ein neuer Versuch ist immer nur einen Sprung entfernt.</p>
+            </div>
+            <ul class="feature-list" aria-label="Spiel-Features">
+                <li>Sofort spielen: kein Download, kein Account</li>
+                <li>Schneller Loop: kurze Runden, direkter Wiedereinstieg</li>
+                <li>Eingabefreundlich: Tastatur, Maus und Touch</li>
+                <li>Klare Rückmeldung: einfache, gut lesbare Darstellung</li>
+                <li>Gerätebereit: angenehm von Handy bis Desktop</li>
+            </ul>
+            <h2 id="faq" class="section-title">Häufige Fragen (FAQ)</h2>
+            <div class="faq-item">
+                <h3 class="faq-q">Wie spiele ich?</h3>
+                <div class="faq-content">
+                    <p>Desktop: Leertaste oder Klick zum Springen. Mobil: tippe auf den Bildschirm, um zu springen.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Ist Tower Jump 2 schwer?</h3>
+                <div class="faq-content">
+                    <p>Der Einstieg ist leicht, aber Timing und Rhythmus werden mit der Höhe anspruchsvoller. Kurze Versuche helfen beim Lernen.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Was tun bei Ruckeln?</h3>
+                <div class="faq-content">
+                    <p>Schließe ressourcenintensive Tabs/Apps oder nutze einen modernen Browser. Ein Neustart der Seite hilft oft.</p>
+                </div>
+            </div>
+        `
+  },
 
-
-
-
-
+  {
+    id: 36,
+    title: "Bottle Hop",
+    iframeUrl: "https://gamea.azgame.io/bottle-hop/",
+    keywords: "Bottle Hop ist ein One-Button-Arcade-Spiel: Flippe eine Plastikflasche durch Räume voller Möbel, lande sicher auf Oberflächen und erreiche die Zielfläche, ohne auf den Boden zu fallen. Viele Level, sammelbare Flaschen-Skins, Physik-Hops und Belohnungen – direkt im Browser.",
+    tags: ["casual", "arcade", "physics", "bottle flip", "skill", "one-button", "HTML5"],
+    publishDate: "2026-03-31",
+    imageUrl: "/images/game-36.webp",
+    imageAlt: "Bottle Hop Gameplay: Eine Plastikflasche im Flip über Möbeln auf dem Weg zur Zielfläche.",
+    seo: {
+      title: "Bottle Hop – Bottle-Flip kostenlos online spielen",
+      description: "Spiele Bottle Hop online: One-Tap-Flips durch Räume, lande auf Möbeln, meistere viele Level, verdiene Belohnungen und schalte Flaschen-Skins frei. Kein Download – nur Timing.",
+      keywords: "Bottle Hop, Bottle Flip Spiel, Casual Arcade, Physikspiel, HTML5 Spiel, Browsergame, One Button, Skill Game, kostenlos online"
+    },
+    isNew: true,
+    isHot: false,
+    isHome: false,
+    addressBar: "bottle-hop",
+    detailsHtml: `
+            <div class="lead">
+                <p>Bottle Hop ist ein One-Button-Arcade-Spiel rund um Timing und Präzision. Du steuerst eine Flasche, die springt, flippt und über Alltagsobjekte hüpft. Dein Ziel: sichere Landungen bis zur Zielfläche. Fällst du auf den Boden, ist der Versuch vorbei – und du startest sofort neu.</p>
+                <p>Die Level spielen in dynamischen Innenräumen: Tische, Stühle, Regale, TVs, Lampen und Küchengeräte werden zu deinen Plattformen. Mit zunehmendem Fortschritt werden Sprünge enger, Oberflächen wackeliger und das Tempo höher – perfekt für kurze Sessions und den „noch ein Versuch“-Sog.</p>
+            </div>
+            <ul class="feature-list" aria-label="Spiel-Features">
+                <li>Physikbasierte Flips: saubere Bögen und befriedigende Landungen</li>
+                <li>Viele Level: steigende Komplexität und kniffligere Sprünge</li>
+                <li>Freischaltbares: Belohnungen sammeln und neue Flaschen-Skins nutzen</li>
+                <li>Abwechslungsreiche Räume: Möbel und Objekte als Sprungstationen</li>
+                <li>Einfache Steuerung: Maus und Touch – sofort verständlich</li>
+                <li>Schnelle Restarts: scheitern, lernen, direkt wieder springen</li>
+            </ul>
+            <h2 class="section-title">So spielst du</h2>
+            <div class="lead">
+                <p>Klicke oder tippe zum Springen und Flippen. Plane jede Landung so, dass die Flasche stabil auf der nächsten Oberfläche steht. Auf wackeligen oder beweglichen Plattformen hilft ein schneller Rhythmus.</p>
+            </div>
+            <h2 id="faq" class="section-title">Häufige Fragen (FAQ)</h2>
+            <div class="faq-item">
+                <h3 class="faq-q">Wodurch unterscheidet sich Bottle Hop?</h3>
+                <div class="faq-content">
+                    <p>Der Fokus liegt auf Raum-zu-Raum-Hops über Möbel bis zur Zielfläche – nicht auf einer endlosen Bahn. Du spielst Level, verbesserst dein Timing und sammelst Freischaltbares.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Muss ich etwas installieren?</h3>
+                <div class="faq-content">
+                    <p>Nein. Das Spiel läuft direkt im Browser im eingebetteten Player.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Wann verliere ich ein Level?</h3>
+                <div class="faq-content">
+                    <p>Wenn die Flasche auf den Boden fällt oder eine Landung verpasst, endet der Versuch. Du kannst sofort neu starten.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Für wen ist das Spiel?</h3>
+                <div class="faq-content">
+                    <p>Für Fans von Casual-Skill-Games, Physik-Flips und kurzen „one more try“-Runden auf Desktop oder Mobilgeräten.</p>
+                </div>
+            </div>
+        `
+  },
 
 ]

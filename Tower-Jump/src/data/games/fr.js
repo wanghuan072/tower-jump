@@ -2766,4 +2766,69 @@ export default [
     `
   }
 
+  ,
+
+  {
+    "id": 36,
+    "title": "Bottle Hop",
+    "iframeUrl": "https://gamea.azgame.io/bottle-hop/",
+    "keywords": "Bottle Hop est un jeu d’arcade casual à un seul bouton : faites sauter une bouteille en plastique à travers des pièces remplies de meubles, atterrissez sur des surfaces et atteignez la plateforme d’arrivée sans tomber au sol. Des niveaux nombreux, une physique satisfaisante et un rythme “encore un essai” – jouable directement dans le navigateur.",
+    "tags": ["casual", "arcade", "physics", "bottle flip", "skill", "one-button", "HTML5"],
+    "publishDate": "2026-03-31",
+    "imageUrl": "/images/game-36.webp",
+    "imageAlt": "Gameplay de Bottle Hop : une bouteille en plein flip au-dessus de meubles, en route vers la plateforme d’arrivée.",
+    "seo": {
+      "title": "Bottle Hop - Jouez au bottle flip en ligne",
+      "description": "Jouez à Bottle Hop dans le navigateur : un tap pour faire flipper la bouteille, atterrir sur des meubles et terminer des niveaux. Pas de téléchargement — uniquement du timing.",
+      "keywords": "Bottle Hop, bottle flip, jeu de bouteille, arcade casual, jeu de physique, jeu HTML5, jeu navigateur, one button, jeu d'adresse, gratuit"
+    },
+    "isNew": true,
+    "isHot": false,
+    "isHome": false,
+    "addressBar": "bottle-hop",
+    "detailsHtml": `
+            <div class="lead">
+                <p>Bottle Hop est une expérience d’arcade casual à un seul bouton, basée sur le timing et la précision. Vous faites sauter une bouteille qui se retourne et rebondit d’un objet à l’autre. Votre objectif : enchaîner des atterrissages propres jusqu’à la plateforme d’arrivée. Si la bouteille tombe au sol, la tentative échoue — mais vous pouvez recommencer immédiatement.</p>
+                <p>Les niveaux se déroulent dans des environnements intérieurs : tables, chaises, étagères, téléviseurs, lampes, appareils de cuisine… tout devient un point d’appui. Plus vous avancez, plus les distances et les surfaces deviennent exigeantes, ce qui rend chaque réussite particulièrement satisfaisante.</p>
+            </div>
+            <ul class="feature-list" aria-label="Caractéristiques du jeu">
+                <li>Physique de flip : trajectoires et atterrissages gratifiants</li>
+                <li>Beaucoup de niveaux : difficulté qui monte progressivement</li>
+                <li>Rythme nerveux : essais rapides et redémarrages instantanés</li>
+                <li>Décors variés : meubles et objets du quotidien comme plateformes</li>
+                <li>Commandes simples : souris et tactile, facile à prendre en main</li>
+                <li>Jeu court ou long : parfait pour une pause ou une session plus longue</li>
+            </ul>
+            <h2 class="section-title">Comment jouer</h2>
+            <div class="lead">
+                <p>Cliquez ou touchez pour faire sauter et flipper la bouteille. Ajustez le timing pour atterrir de façon stable sur la prochaine surface. Sur des plateformes instables ou difficiles, gardez un rythme régulier et anticipez la distance.</p>
+            </div>
+            <h2 id="faq" class="section-title">Foire Aux Questions (FAQ)</h2>
+            <div class="faq-item">
+                <h3 class="faq-q">Qu’est-ce qui rend Bottle Hop différent ?</h3>
+                <div class="faq-content">
+                    <p>Le jeu est centré sur la progression de niveau en niveau dans des pièces, en sautant de meuble en meuble jusqu’à l’arrivée. Le plaisir vient du contrôle du flip et de la stabilité des atterrissages.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Dois-je installer quelque chose ?</h3>
+                <div class="faq-content">
+                    <p>Non. Le jeu se lance directement dans le navigateur via le lecteur intégré.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Quand une tentative échoue-t-elle ?</h3>
+                <div class="faq-content">
+                    <p>Si la bouteille tombe au sol ou rate une zone d’atterrissage sûre, la tentative se termine. Vous pouvez relancer immédiatement.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-q">Pour qui est ce jeu ?</h3>
+                <div class="faq-content">
+                    <p>Pour les fans de jeux d’adresse casual, de physique “bottle flip” et de sessions courtes mais addictives sur PC ou mobile.</p>
+                </div>
+            </div>
+        `
+  }
+
 ]
